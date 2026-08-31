@@ -1,43 +1,37 @@
 <?php
-/**
- * FOURTY60 - Automatic Client Website Directory
- * ------------------------------------------------
- * Automatically detects client website folders from
- * the current directory.
- *
- * A folder is considered a client website when it contains:
- *   - index.php
- *   - index.html
- *   - index.htm
- *
- * No manual client registration required.
- */
+
+/* =========================================================
+   MANASI RANE — WEBSITE DESIGN SHOWCASE
+   ---------------------------------------------------------
+   Automatically detects website folders.
+
+   Example:
+   /apex/index.html
+   /salon/index.html
+   /cycles/index.html
+
+   No manual registration required.
+========================================================= */
 
 
 /* =========================================================
-   CONFIGURATION
+   CONFIG
 ========================================================= */
 
 $rootPath = __DIR__;
 
-/*
- * Files that identify a directory as an actual website.
- */
-$websiteEntryFiles = [
-    'index.php',
+$entryFiles = [
     'index.html',
-    'index.htm'
+    'index.htm',
+    'index.php'
 ];
 
+
 /*
- * Folders that should NEVER appear as client websites.
- *
- * Add server/system folders here if required.
+ * Folders that should NOT be treated as websites.
  */
 $ignoredFolders = [
     '.well-known',
-    'cgi-bin',
-    'cgi-bin-bin',
     'assets',
     'asset',
     'css',
@@ -48,82 +42,137 @@ $ignoredFolders = [
     'img',
     'uploads',
     'upload',
-    'includes',
-    'include',
+    'fonts',
+    'font',
     'vendor',
     'node_modules',
+    'includes',
+    'include',
+    'admin',
+    'api',
+    'config',
     'storage',
-    'logs',
-    'tmp',
-    'temp',
     'backup',
     'backups',
-    'api',
-    'admin',
-    'config'
+    'tmp',
+    'temp',
+    'logs'
 ];
 
 
 /* =========================================================
-   HELPER FUNCTIONS
+   CATEGORY CONFIGURATION
 ========================================================= */
 
-/**
- * Convert domain/folder name into a clean display name.
- *
- * Example:
- * mogalsteelinternational.com
- * →
- * Mogal Steel International
- */
-function formatClientName($folderName)
+$categories = [
+
+    'salon' => [
+        'salon',
+        'spa',
+        'beauty',
+        'parlour',
+        'parlor',
+        'hair',
+        'barber',
+        'makeup'
+    ],
+
+    'cycles' => [
+        'cycle',
+        'cycles',
+        'bicycle',
+        'bicycles',
+        'bike',
+        'bikes',
+        'cycling'
+    ],
+
+    'e-commerce' => [
+        'shop',
+        'store',
+        'ecommerce',
+        'e-commerce',
+        'fashion',
+        'clothing',
+        'product',
+        'products',
+        'jewellery',
+        'jewelry'
+    ],
+
+    'portfolio' => [
+        'portfolio',
+        'designer',
+        'photography',
+        'photographer',
+        'agency',
+        'creative',
+        'studio'
+    ],
+
+    'business' => [
+        'business',
+        'company',
+        'corporate',
+        'industry',
+        'industrial',
+        'steel',
+        'engineering',
+        'construction',
+        'realestate',
+        'real-estate'
+    ]
+];
+
+
+/* =========================================================
+   HELPER — FIND ENTRY FILE
+========================================================= */
+
+function findEntryFile($directory, $entryFiles)
 {
-    $name = $folderName;
+    foreach ($entryFiles as $file) {
 
-    // Remove common domain extensions
-    $extensions = [
-        '.com',
-        '.in',
-        '.net',
-        '.org',
-        '.co.in',
-        '.co.uk',
-        '.org.in',
-        '.biz',
-        '.info',
-        '.online',
-        '.website',
-        '.store',
-        '.shop'
-    ];
+        $path = $directory . DIRECTORY_SEPARATOR . $file;
 
-    foreach ($extensions as $extension) {
-        if (str_ends_with(strtolower($name), $extension)) {
-            $name = substr(
-                $name,
-                0,
-                -strlen($extension)
-            );
-
-            break;
+        if (is_file($path) && is_readable($path)) {
+            return $file;
         }
     }
 
-    // Replace separators with spaces
+    return false;
+}
+
+
+/* =========================================================
+   HELPER — CLEAN DISPLAY NAME
+========================================================= */
+
+function formatName($folderName)
+{
+    $name = $folderName;
+
+    /*
+     * Replace separators.
+     */
     $name = str_replace(
         ['-', '_', '.'],
         ' ',
         $name
     );
 
-    // Add spaces to common camelCase patterns
+    /*
+     * CamelCase → Camel Case
+     */
     $name = preg_replace(
         '/([a-z])([A-Z])/',
         '$1 $2',
         $name
     );
 
-    // Clean multiple spaces
+    /*
+     * Multiple spaces.
+     */
     $name = preg_replace(
         '/\s+/',
         ' ',
@@ -134,97 +183,61 @@ function formatClientName($folderName)
 }
 
 
-/**
- * Check whether a directory contains
- * a valid website entry file.
- */
-function isWebsiteDirectory(
-    $directory,
-    $entryFiles
-) {
-    foreach ($entryFiles as $file) {
+/* =========================================================
+   HELPER — CATEGORY DETECTION
+========================================================= */
 
-        $filePath = $directory . DIRECTORY_SEPARATOR . $file;
+function detectCategory($folderName, $categories)
+{
+    $name = strtolower($folderName);
 
-        if (
-            is_file($filePath) &&
-            is_readable($filePath)
-        ) {
-            return true;
+    foreach ($categories as $category => $keywords) {
+
+        foreach ($keywords as $keyword) {
+
+            if (strpos($name, strtolower($keyword)) !== false) {
+                return $category;
+            }
         }
     }
 
-    return false;
-}
-
-
-/**
- * Get a simple category based on domain name.
- *
- * This is only a visual label.
- * It does NOT modify the actual website.
- */
-function detectCategory($domain)
-{
-    $domain = strtolower($domain);
-
-    $keywords = [
-
-        'steel' => 'Manufacturing',
-        'metal' => 'Manufacturing',
-        'metals' => 'Manufacturing',
-        'engineering' => 'Engineering',
-        'industries' => 'Industry',
-        'industrial' => 'Industry',
-        'fastener' => 'Manufacturing',
-        'fasteners' => 'Manufacturing',
-        'valve' => 'Engineering',
-        'valves' => 'Engineering',
-        'fabrication' => 'Manufacturing',
-        'machine' => 'Engineering',
-        'machinery' => 'Engineering',
-        'tech' => 'Technology',
-        'technology' => 'Technology',
-        'software' => 'Technology',
-        'event' => 'Events',
-        'events' => 'Events',
-        'restaurant' => 'Hospitality',
-        'hotel' => 'Hospitality',
-        'food' => 'Food',
-        'fashion' => 'Fashion',
-        'design' => 'Design',
-        'studio' => 'Creative',
-        'digital' => 'Digital',
-        'marketing' => 'Marketing'
-    ];
-
-    foreach ($keywords as $keyword => $category) {
-
-        if (strpos($domain, $keyword) !== false) {
-            return $category;
-        }
-    }
-
-    return 'Business';
-}
-
-
-/**
- * Generate a safe URL for a client folder.
- */
-function clientUrl($folderName)
-{
-    $folderName = rawurlencode($folderName);
-
-    return './' . $folderName . '/';
+    return 'business';
 }
 
 
 /* =========================================================
-   AUTOMATIC CLIENT DETECTION
+   HELPER — CATEGORY LABEL
 ========================================================= */
 
-$clients = [];
+function categoryLabel($category)
+{
+    $labels = [
+        'salon' => 'Salon',
+        'cycles' => 'Cycles',
+        'e-commerce' => 'E-commerce',
+        'portfolio' => 'Portfolio',
+        'business' => 'Business'
+    ];
+
+    return $labels[$category] ?? 'Business';
+}
+
+
+/* =========================================================
+   HELPER — SAFE URL
+========================================================= */
+
+function websiteUrl($folder)
+{
+    return './' . rawurlencode($folder) . '/';
+}
+
+
+/* =========================================================
+   SCAN WEBSITE FOLDERS
+========================================================= */
+
+$websites = [];
 
 $items = @scandir($rootPath);
 
@@ -232,47 +245,29 @@ if ($items !== false) {
 
     foreach ($items as $item) {
 
-        /*
-         * Ignore . and ..
-         */
-        if (
-            $item === '.' ||
-            $item === '..'
-        ) {
+        /* Ignore . and .. */
+        if ($item === '.' || $item === '..') {
             continue;
         }
 
 
-        /*
-         * Ignore current index.php
-         */
-        if (
-            strtolower($item) === 'index.php'
-        ) {
+        /* Ignore current index */
+        if (strtolower($item) === 'index.php') {
             continue;
         }
 
 
-        /*
-         * Ignore hidden/system-looking folders
-         */
-        if (
-            str_starts_with($item, '.')
-        ) {
+        /* Ignore hidden folders */
+        if (strpos($item, '.') === 0) {
             continue;
         }
 
 
-        /*
-         * Ignore configured folders
-         */
+        /* Ignore configured folders */
         if (
             in_array(
                 strtolower($item),
-                array_map(
-                    'strtolower',
-                    $ignoredFolders
-                ),
+                array_map('strtolower', $ignoredFolders),
                 true
             )
         ) {
@@ -286,194 +281,190 @@ if ($items !== false) {
             $item;
 
 
-        /*
-         * Only directories.
-         */
+        /* Only directories */
         if (!is_dir($fullPath)) {
             continue;
         }
 
 
-        /*
-         * Only directories containing
-         * an actual website entry file.
-         */
-        if (
-            !isWebsiteDirectory(
-                $fullPath,
-                $websiteEntryFiles
-            )
-        ) {
+        /* Check for website entry */
+        $entryFile = findEntryFile(
+            $fullPath,
+            $entryFiles
+        );
+
+
+        if ($entryFile === false) {
             continue;
         }
 
 
-        /*
-         * Build client information.
-         */
-        $clients[] = [
+        /* Detect category */
+        $category = detectCategory(
+            $item,
+            $categories
+        );
+
+
+        /* Add website */
+        $websites[] = [
 
             'folder' => $item,
 
-            'name' =>
-                formatClientName($item),
+            'name' => formatName($item),
 
-            'category' =>
-                detectCategory($item),
+            'category' => $category,
+
+            'category_label' =>
+                categoryLabel($category),
 
             'url' =>
-                clientUrl($item)
+                websiteUrl($item),
 
+            'entry' =>
+                $entryFile
         ];
     }
 }
 
 
 /* =========================================================
-   SORT CLIENTS
+   SORT
 ========================================================= */
 
 usort(
-    $clients,
+    $websites,
     function ($a, $b) {
 
         return strcasecmp(
             $a['name'],
             $b['name']
         );
-
     }
 );
 
 
-/* =========================================================
-   WEBSITE COUNT
-========================================================= */
-
-$totalClients = count($clients);
-
-
-/* =========================================================
-   CURRENT YEAR
-========================================================= */
+$totalWebsites = count($websites);
 
 $currentYear = date('Y');
 
 ?>
+
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <title>
-        Fourty60 — Digital Home for Business Websites
-    </title>
+<title>
+    Manasi Rane — Website Designs
+</title>
 
-    <meta
-        name="description"
-        content="Fourty60 is the digital home for professional websites hosted and managed for businesses."
-    >
+<meta
+    name="description"
+    content="Website designs and digital experiences by Manasi Rane."
+>
 
-    <meta
-        name="robots"
-        content="index, follow"
-    >
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <meta
-        name="theme-color"
-        content="#07090d"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.googleapis.com"
-    >
-
-    <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet"
-    >
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap"
+    rel="stylesheet"
+>
 
 
 <style>
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+
+    --cream: #f7f6f0;
+
+    --cream-dark: #eeeee6;
+
+    --white: #ffffff;
+
+    --ink: #17211d;
+
+    --muted: #707a74;
+
+    --line: #dfe3dc;
+
+    --blue: #d9ecf4;
+
+    --blue-dark: #9fc5d6;
+
+    --jade: #b7c5ad;
+
+    --jade-dark: #879b7e;
+
+    --shadow:
+        0 20px 60px rgba(31, 45, 38, .08);
+
+    --radius: 22px;
+
+}
+
 
 /* =========================================================
    RESET
 ========================================================= */
 
 * {
+
     margin: 0;
+
     padding: 0;
+
     box-sizing: border-box;
+
 }
+
 
 html {
+
     scroll-behavior: smooth;
+
 }
+
 
 body {
-    background: #07090d;
-    color: #f5f7fa;
-    font-family: "Inter", sans-serif;
+
+    background: var(--cream);
+
+    color: var(--ink);
+
+    font-family: "DM Sans", sans-serif;
+
     line-height: 1.6;
-    overflow-x: hidden;
+
 }
 
+
 a {
+
     color: inherit;
+
     text-decoration: none;
+
 }
+
 
 button,
 input {
+
     font: inherit;
-}
 
-
-/* =========================================================
-   VARIABLES
-========================================================= */
-
-:root {
-
-    --bg: #07090d;
-
-    --bg-soft: #0c1017;
-
-    --card: #10151d;
-
-    --card-hover: #151b25;
-
-    --text: #f5f7fa;
-
-    --muted: #8d97a8;
-
-    --muted-dark: #667080;
-
-    --border: rgba(255,255,255,.08);
-
-    --border-hover: rgba(124,92,255,.35);
-
-    --purple: #7c5cff;
-
-    --blue: #4f8cff;
-
-    --green: #55e58a;
-
-    --container: 1180px;
 }
 
 
@@ -482,62 +473,11 @@ input {
 ========================================================= */
 
 .container {
-    width: min(92%, var(--container));
+
+    width: min(92%, 1240px);
+
     margin: auto;
-}
 
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-.background-glow {
-
-    position: fixed;
-
-    width: 650px;
-    height: 650px;
-
-    top: -300px;
-    right: -180px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(124,92,255,.15),
-            transparent 70%
-        );
-
-    pointer-events: none;
-
-    z-index: -1;
-}
-
-
-.background-glow-two {
-
-    position: fixed;
-
-    width: 550px;
-    height: 550px;
-
-    bottom: -300px;
-    left: -220px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(79,140,255,.08),
-            transparent 70%
-        );
-
-    pointer-events: none;
-
-    z-index: -1;
 }
 
 
@@ -547,46 +487,33 @@ input {
 
 header {
 
-    position: fixed;
+    position: sticky;
 
     top: 0;
-    left: 0;
 
-    width: 100%;
-
-    z-index: 1000;
+    z-index: 100;
 
     background:
-        rgba(7,9,13,.72);
+        rgba(247, 246, 240, .88);
 
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
+    backdrop-filter: blur(16px);
 
     border-bottom:
-        1px solid transparent;
+        1px solid rgba(23, 33, 29, .07);
 
-    transition: .3s ease;
-}
-
-header.scrolled {
-
-    border-color:
-        var(--border);
 }
 
 
 .navbar {
 
-    height: 78px;
+    min-height: 78px;
 
     display: flex;
 
     align-items: center;
 
     justify-content: space-between;
+
 }
 
 
@@ -596,115 +523,68 @@ header.scrolled {
 
     align-items: center;
 
-    gap: 10px;
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size: 23px;
+    gap: 11px;
 
     font-weight: 700;
+
+    letter-spacing: -.4px;
+
 }
 
 
 .logo-mark {
 
     width: 38px;
+
     height: 38px;
 
     display: grid;
 
     place-items: center;
 
-    border-radius: 11px;
+    border-radius: 12px;
 
     background:
-        linear-gradient(
-            135deg,
-            var(--purple),
-            var(--blue)
-        );
+        var(--blue);
 
-    box-shadow:
-        0 10px 30px
-        rgba(124,92,255,.22);
-}
-
-
-.logo-mark span {
+    color: var(--ink);
 
     font-size: 13px;
 
-    font-weight: 800;
+    font-weight: 700;
+
 }
 
 
-nav {
+.logo-text {
 
-    display: flex;
+    font-size: 17px;
 
-    align-items: center;
-
-    gap: 30px;
 }
 
 
-nav a {
+.logo-text span {
 
-    color: #aab3c1;
-
-    font-size: 13px;
+    color: var(--muted);
 
     font-weight: 500;
 
-    transition: .25s ease;
 }
 
 
-nav a:hover {
+.nav-link {
 
-    color: white;
+    color: var(--muted);
+
+    font-size: 13px;
+
 }
 
 
-.nav-cta {
+.nav-link:hover {
 
-    padding:
-        10px 17px;
+    color: var(--ink);
 
-    border-radius: 10px;
-
-    background: white;
-
-    color: #080a0e;
-
-    font-weight: 600;
-}
-
-
-.nav-cta:hover {
-
-    color: #080a0e;
-
-    transform:
-        translateY(-2px);
-}
-
-
-.menu-btn {
-
-    display: none;
-
-    background: none;
-
-    border: none;
-
-    color: white;
-
-    font-size: 25px;
-
-    cursor: pointer;
 }
 
 
@@ -714,19 +594,16 @@ nav a:hover {
 
 .hero {
 
-    min-height: 92vh;
+    padding:
+        120px 0 105px;
 
-    display: flex;
-
-    align-items: center;
-
-    padding-top: 100px;
 }
 
 
-.hero-content {
+.hero-inner {
 
-    max-width: 900px;
+    max-width: 850px;
+
 }
 
 
@@ -739,211 +616,156 @@ nav a:hover {
     gap: 9px;
 
     padding:
-        8px 13px;
+        7px 12px;
 
     border:
-        1px solid var(--border);
+        1px solid var(--line);
 
     border-radius: 50px;
 
-    background:
-        rgba(255,255,255,.025);
+    background: var(--white);
 
-    color: #aeb7c5;
+    color: var(--muted);
 
-    font-size: 12px;
+    font-size: 11px;
 
-    margin-bottom: 28px;
+    margin-bottom: 27px;
+
 }
 
 
-.status-dot {
+.dot {
 
     width: 7px;
+
     height: 7px;
 
     border-radius: 50%;
 
-    background:
-        var(--green);
+    background: var(--jade-dark);
 
-    box-shadow:
-        0 0 12px
-        var(--green);
 }
 
 
 .hero h1 {
 
     font-family:
-        "Space Grotesk",
-        sans-serif;
+        "Playfair Display",
+        serif;
 
     font-size:
-        clamp(54px, 8vw, 98px);
+        clamp(55px, 8vw, 94px);
 
     line-height: .98;
 
-    letter-spacing:
-        -4px;
+    letter-spacing: -4px;
+
+    font-weight: 600;
+
 }
 
 
-.gradient-text {
+.hero h1 em {
 
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #9b89ff,
-            #72a5ff
-        );
+    color: var(--jade-dark);
 
-    -webkit-background-clip:
-        text;
+    font-style: italic;
 
-    background-clip:
-        text;
-
-    color: transparent;
 }
 
 
 .hero-description {
 
-    max-width: 670px;
+    max-width: 620px;
 
-    margin-top: 30px;
+    margin-top: 28px;
 
     color: var(--muted);
 
-    font-size: 17px;
+    font-size: 16px;
+
 }
 
 
-.hero-actions {
+.hero-bottom {
+
+    margin-top: 42px;
 
     display: flex;
 
-    gap: 13px;
+    align-items: center;
 
-    margin-top: 36px;
+    gap: 15px;
 
     flex-wrap: wrap;
+
 }
 
 
-.btn {
+.hero-button {
 
     display: inline-flex;
 
     align-items: center;
 
-    justify-content: center;
-
     gap: 8px;
 
     padding:
-        14px 20px;
+        13px 19px;
 
-    border-radius: 11px;
+    border-radius: 12px;
 
-    font-size: 13px;
+    background: var(--ink);
+
+    color: white;
+
+    font-size: 12px;
 
     font-weight: 600;
 
-    transition: .3s ease;
+    transition: .25s ease;
+
 }
 
 
-.btn-primary {
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--purple),
-            var(--blue)
-        );
-
-    box-shadow:
-        0 15px 35px
-        rgba(79,140,255,.15);
-}
-
-
-.btn-primary:hover {
+.hero-button:hover {
 
     transform:
-        translateY(-3px);
+        translateY(-2px);
 
-    box-shadow:
-        0 20px 45px
-        rgba(79,140,255,.25);
 }
 
 
-.btn-secondary {
+.hero-note {
 
-    border:
-        1px solid var(--border);
+    color: var(--muted);
 
-    background:
-        rgba(255,255,255,.025);
-}
+    font-size: 11px;
 
-
-.btn-secondary:hover {
-
-    background:
-        rgba(255,255,255,.06);
-
-    transform:
-        translateY(-3px);
-}
-
-
-.hero-url {
-
-    margin-top: 38px;
-
-    color:
-        var(--muted-dark);
-
-    font-family:
-        monospace;
-
-    font-size: 12px;
-}
-
-
-.hero-url span {
-
-    color:
-        #8979ff;
 }
 
 
 /* =========================================================
-   TRUST BAR
+   SOFT INFO BAR
 ========================================================= */
 
-.trust-bar {
-
-    padding:
-        27px 0;
+.info-bar {
 
     border-top:
-        1px solid var(--border);
+        1px solid var(--line);
 
     border-bottom:
-        1px solid var(--border);
+        1px solid var(--line);
 
     background:
-        rgba(255,255,255,.012);
+        rgba(255,255,255,.38);
+
 }
 
 
-.trust-inner {
+.info-inner {
+
+    min-height: 76px;
 
     display: flex;
 
@@ -952,37 +774,39 @@ nav a:hover {
     justify-content: space-between;
 
     gap: 20px;
+
 }
 
 
-.trust-item {
+.info-item {
 
-    color:
-        #707a8a;
+    color: var(--muted);
 
     font-size: 12px;
+
 }
 
 
-.trust-item strong {
+.info-item strong {
 
-    color:
-        #cbd2dc;
+    color: var(--ink);
+
 }
 
 
 /* =========================================================
-   SECTION
+   SHOWCASE
 ========================================================= */
 
-section {
+.showcase {
 
     padding:
-        115px 0;
+        105px 0 120px;
+
 }
 
 
-.section-heading {
+.section-top {
 
     display: flex;
 
@@ -992,600 +816,436 @@ section {
 
     gap: 30px;
 
-    margin-bottom: 45px;
+    margin-bottom: 38px;
+
 }
 
 
 .section-label {
 
-    color:
-        #8978ff;
+    text-transform: uppercase;
 
-    text-transform:
-        uppercase;
+    letter-spacing: 2px;
 
-    letter-spacing:
-        2px;
+    color: var(--jade-dark);
 
-    font-size:
-        11px;
+    font-size: 10px;
 
-    font-weight:
-        700;
+    font-weight: 700;
 
-    margin-bottom:
-        13px;
+    margin-bottom: 9px;
+
 }
 
 
-.section-heading h2 {
+.section-title {
 
     font-family:
-        "Space Grotesk",
-        sans-serif;
+        "Playfair Display",
+        serif;
 
     font-size:
-        clamp(37px, 5vw, 57px);
+        clamp(39px, 5vw, 58px);
 
-    line-height:
-        1;
+    line-height: 1;
 
-    letter-spacing:
-        -2.5px;
+    letter-spacing: -2px;
+
 }
 
 
-.section-heading p {
+.section-description {
 
-    max-width:
-        440px;
+    max-width: 380px;
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        14px;
+    font-size: 13px;
+
 }
 
 
 /* =========================================================
-   SHOWCASE TOOLBAR
+   TOOLBAR
 ========================================================= */
 
-.showcase-toolbar {
+.toolbar {
 
     display: flex;
 
-    align-items: center;
-
     justify-content: space-between;
 
-    gap: 15px;
+    align-items: center;
 
-    margin-bottom:
-        23px;
+    gap: 18px;
+
+    margin-bottom: 28px;
+
 }
 
 
-.website-count {
+.filters {
 
-    color:
-        var(--muted);
+    display: flex;
 
-    font-size:
-        13px;
+    gap: 8px;
+
+    flex-wrap: wrap;
+
 }
 
 
-.website-count strong {
+.filter-btn {
 
-    color:
-        white;
+    border:
+        1px solid var(--line);
 
-    font-size:
-        16px;
+    background:
+        rgba(255,255,255,.55);
+
+    color: var(--muted);
+
+    padding:
+        9px 14px;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    font-size: 11px;
+
+    transition: .25s ease;
+
 }
 
 
-.search-box {
+.filter-btn:hover {
 
-    width:
-        300px;
+    color: var(--ink);
+
+    border-color:
+        var(--blue-dark);
+
 }
 
 
-.search-box input {
+.filter-btn.active {
+
+    background: var(--ink);
+
+    color: white;
+
+    border-color: var(--ink);
+
+}
+
+
+.search {
+
+    width: 230px;
+
+}
+
+
+.search input {
 
     width: 100%;
 
-    padding:
-        12px 15px;
+    border:
+        1px solid var(--line);
+
+    background:
+        rgba(255,255,255,.7);
+
+    border-radius: 12px;
 
     outline: none;
 
-    border:
-        1px solid var(--border);
+    padding:
+        10px 13px;
 
-    border-radius:
-        10px;
+    color: var(--ink);
 
-    background:
-        rgba(255,255,255,.025);
+    font-size: 11px;
 
-    color:
-        white;
-
-    transition:
-        .25s ease;
 }
 
 
-.search-box input:focus {
+.search input:focus {
 
     border-color:
-        rgba(124,92,255,.5);
+        var(--blue-dark);
 
-    box-shadow:
-        0 0 0 3px
-        rgba(124,92,255,.07);
-}
-
-
-.search-box input::placeholder {
-
-    color:
-        #626c7b;
 }
 
 
 /* =========================================================
-   CLIENT GRID
+   GRID
 ========================================================= */
 
-.client-grid {
+.design-grid {
 
     display: grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    gap:
-        18px;
-}
+    gap: 22px;
 
-
-.client-card {
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-
-    padding:
-        25px;
-
-    min-height:
-        265px;
-
-    background:
-        var(--card);
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        17px;
-
-    transition:
-        .35s ease;
-}
-
-
-.client-card::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 190px;
-    height: 190px;
-
-    top: -110px;
-    right: -90px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(124,92,255,.13),
-            transparent 70%
-        );
-
-    transition:
-        .35s ease;
-}
-
-
-.client-card:hover {
-
-    transform:
-        translateY(-6px);
-
-    background:
-        var(--card-hover);
-
-    border-color:
-        var(--border-hover);
-}
-
-
-.client-card:hover::before {
-
-    transform:
-        scale(1.3);
-}
-
-
-.client-top {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    margin-bottom:
-        28px;
-}
-
-
-.client-icon {
-
-    width: 49px;
-    height: 49px;
-
-    display: grid;
-
-    place-items: center;
-
-    border-radius:
-        13px;
-
-    border:
-        1px solid var(--border);
-
-    background:
-        linear-gradient(
-            135deg,
-            #1b2230,
-            #111620
-        );
-
-    color:
-        #b7adff;
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-weight:
-        700;
-
-    font-size:
-        16px;
-}
-
-
-.live-badge {
-
-    padding:
-        4px 9px;
-
-    border-radius:
-        50px;
-
-    background:
-        rgba(85,229,138,.08);
-
-    color:
-        var(--green);
-
-    font-size:
-        9px;
-
-    font-weight:
-        700;
-
-    letter-spacing:
-        .5px;
-}
-
-
-.client-card h3 {
-
-    position:
-        relative;
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size:
-        20px;
-
-    line-height:
-        1.2;
-
-    margin-bottom:
-        8px;
-}
-
-
-.client-category {
-
-    display:
-        inline-block;
-
-    color:
-        #8778ff;
-
-    font-size:
-        10px;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        1px;
-
-    margin-bottom:
-        11px;
-}
-
-
-.client-domain {
-
-    color:
-        var(--muted);
-
-    font-family:
-        monospace;
-
-    font-size:
-        10px;
-
-    word-break:
-        break-all;
-}
-
-
-.visit-button {
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    gap:
-        6px;
-
-    margin-top:
-        19px;
-
-    color:
-        white;
-
-    font-size:
-        12px;
-
-    font-weight:
-        600;
-}
-
-
-.visit-button span {
-
-    transition:
-        .2s ease;
-}
-
-
-.visit-button:hover span {
-
-    transform:
-        translateX(4px);
 }
 
 
 /* =========================================================
-   EMPTY STATE
+   DESIGN CARD
 ========================================================= */
 
-.empty-state {
+.design-card {
+
+    background: var(--white);
+
+    border:
+        1px solid var(--line);
+
+    border-radius:
+        var(--radius);
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 30px
+        rgba(31,45,38,.035);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+}
+
+
+.design-card:hover {
+
+    transform:
+        translateY(-7px);
+
+    box-shadow:
+        var(--shadow);
+
+}
+
+
+/* =========================================================
+   PREVIEW
+========================================================= */
+
+.preview {
+
+    height: 265px;
+
+    background: var(--blue);
+
+    overflow: hidden;
+
+    position: relative;
+
+}
+
+
+.preview iframe {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: 0;
+
+    background: white;
+
+    pointer-events: none;
+
+    transform-origin:
+        top left;
+
+}
+
+
+/*
+ * Preview overlay.
+ * Clicking anywhere opens the actual website.
+ */
+
+.preview-link {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.card-content {
+
+    padding:
+        21px 22px 22px;
+
+}
+
+
+.card-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 13px;
+
+}
+
+
+.category {
+
+    display: inline-flex;
+
+    padding:
+        5px 9px;
+
+    border-radius: 50px;
+
+    background: var(--blue);
+
+    color: #476879;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    font-weight: 700;
+
+}
+
+
+.status {
+
+    color: var(--jade-dark);
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    font-weight: 700;
+
+}
+
+
+.card-title {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 25px;
+
+    line-height: 1.15;
+
+    letter-spacing: -.5px;
+
+}
+
+
+.card-domain {
+
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-family: monospace;
+
+    font-size: 10px;
+
+}
+
+
+.visit {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 18px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+}
+
+
+.visit span {
+
+    transition: .2s ease;
+
+}
+
+
+.visit:hover span {
+
+    transform:
+        translateX(4px);
+
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty {
 
     grid-column:
         1 / -1;
 
-    padding:
-        65px 30px;
+    text-align: center;
 
-    text-align:
-        center;
+    padding: 80px 20px;
 
     border:
-        1px dashed
-        var(--border);
+        1px dashed var(--line);
 
     border-radius:
-        17px;
+        var(--radius);
 
-    color:
-        var(--muted);
+    color: var(--muted);
+
 }
 
 
-.empty-state strong {
+.empty h3 {
 
-    display:
-        block;
-
-    color:
-        white;
-
-    font-size:
-        18px;
-
-    margin-bottom:
-        6px;
-}
-
-
-/* =========================================================
-   STATS
-========================================================= */
-
-.stats {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
-    gap:
-        1px;
-
-    overflow:
-        hidden;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        17px;
-
-    background:
-        var(--border);
-}
-
-
-.stat {
-
-    padding:
-        32px 25px;
-
-    background:
-        var(--card);
-}
-
-
-.stat-number {
+    color: var(--ink);
 
     font-family:
-        "Space Grotesk",
-        sans-serif;
+        "Playfair Display",
+        serif;
 
-    font-size:
-        39px;
+    font-size: 26px;
 
-    font-weight:
-        700;
-}
+    margin-bottom: 5px;
 
-
-.stat p {
-
-    margin-top:
-        3px;
-
-    color:
-        var(--muted);
-
-    font-size:
-        12px;
-}
-
-
-/* =========================================================
-   HOW IT WORKS
-========================================================= */
-
-.steps {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap:
-        18px;
-}
-
-
-.step {
-
-    padding:
-        28px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        17px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.035),
-            rgba(255,255,255,.008)
-        );
-}
-
-
-.step-number {
-
-    margin-bottom:
-        35px;
-
-    color:
-        #8978ff;
-
-    font-size:
-        10px;
-
-    font-weight:
-        700;
-
-    letter-spacing:
-        1px;
-}
-
-
-.step h3 {
-
-    font-family:
-        "Space Grotesk",
-        sans-serif;
-
-    font-size:
-        22px;
-
-    margin-bottom:
-        9px;
-}
-
-
-.step p {
-
-    color:
-        var(--muted);
-
-    font-size:
-        13px;
 }
 
 
@@ -1593,109 +1253,116 @@ section {
    CTA
 ========================================================= */
 
-.cta {
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
+.cta-section {
 
     padding:
-        78px 35px;
+        0 0 120px;
 
-    text-align:
-        center;
+}
 
-    border:
-        1px solid var(--border);
+
+.cta {
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding:
+        75px 35px;
 
     border-radius:
-        23px;
+        28px;
 
     background:
         linear-gradient(
             135deg,
-            rgba(124,92,255,.13),
-            rgba(79,140,255,.06),
-            rgba(255,255,255,.015)
+            var(--blue),
+            #e8eee5
         );
+
+    text-align: center;
+
 }
 
 
-.cta::before {
+.cta::after {
 
     content: "";
 
     position: absolute;
 
-    width:
-        500px;
+    width: 350px;
 
-    height:
-        500px;
+    height: 350px;
 
-    top:
-        50%;
+    border-radius: 50%;
 
-    left:
-        50%;
+    right: -100px;
 
-    transform:
-        translate(-50%,-50%);
-
-    border-radius:
-        50%;
+    top: -180px;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(124,92,255,.13),
-            transparent 70%
-        );
+        rgba(255,255,255,.4);
+
 }
 
 
 .cta-content {
 
-    position:
-        relative;
+    position: relative;
 
-    z-index:
-        2;
+    z-index: 2;
+
 }
 
 
 .cta h2 {
 
     font-family:
-        "Space Grotesk",
-        sans-serif;
+        "Playfair Display",
+        serif;
 
     font-size:
-        clamp(37px, 5vw, 60px);
+        clamp(38px, 5vw, 60px);
 
-    line-height:
-        1;
+    line-height: 1;
 
-    letter-spacing:
-        -2px;
+    letter-spacing: -2px;
+
 }
 
 
 .cta p {
 
-    max-width:
-        540px;
+    max-width: 500px;
 
     margin:
-        20px auto 28px;
+        17px auto 25px;
 
-    color:
-        var(--muted);
+    color: #586761;
 
-    font-size:
-        14px;
+    font-size: 13px;
+
+}
+
+
+.cta-button {
+
+    display: inline-flex;
+
+    padding:
+        13px 19px;
+
+    border-radius: 11px;
+
+    background: var(--ink);
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
 }
 
 
@@ -1705,294 +1372,160 @@ section {
 
 footer {
 
-    padding:
-        38px 0;
-
     border-top:
-        1px solid var(--border);
+        1px solid var(--line);
+
+    padding:
+        30px 0;
+
 }
 
 
 .footer-inner {
 
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    gap:
-        20px;
+    gap: 20px;
+
 }
 
 
 .footer-copy {
 
-    color:
-        #606a79;
+    color: var(--muted);
 
-    font-size:
-        11px;
+    font-size: 10px;
+
 }
 
 
-.footer-links {
+.footer-right {
 
-    display:
-        flex;
+    color: var(--muted);
 
-    gap:
-        20px;
-}
+    font-size: 10px;
 
-
-.footer-links a {
-
-    color:
-        #737e8d;
-
-    font-size:
-        11px;
-}
-
-
-.footer-links a:hover {
-
-    color:
-        white;
 }
 
 
 /* =========================================================
-   ANIMATION
-========================================================= */
-
-.reveal {
-
-    opacity:
-        0;
-
-    transform:
-        translateY(22px);
-
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
-}
-
-
-.reveal.active {
-
-    opacity:
-        1;
-
-    transform:
-        translateY(0);
-}
-
-
-/* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
 
 @media(max-width: 950px) {
 
-    nav {
-
-        position:
-            absolute;
-
-        top:
-            78px;
-
-        left:
-            0;
-
-        width:
-            100%;
-
-        display:
-            none;
-
-        flex-direction:
-            column;
-
-        align-items:
-            stretch;
-
-        padding:
-            15px;
-
-        background:
-            #0b0e14;
-
-        border-bottom:
-            1px solid var(--border);
-    }
-
-
-    nav.active {
-
-        display:
-            flex;
-    }
-
-
-    nav a {
-
-        padding:
-            11px;
-    }
-
-
-    .menu-btn {
-
-        display:
-            block;
-    }
-
-
-    .client-grid,
-    .steps {
+    .design-grid {
 
         grid-template-columns:
             repeat(2, 1fr);
+
     }
 
-
-    .stats {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
 }
 
 
-@media(max-width: 620px) {
+@media(max-width: 650px) {
 
     .navbar {
 
-        height:
-            70px;
-    }
+        min-height: 68px;
 
-
-    nav {
-
-        top:
-            70px;
     }
 
 
     .hero {
 
-        min-height:
-            90vh;
+        padding:
+            85px 0 80px;
 
-        padding-top:
-            100px;
     }
 
 
     .hero h1 {
 
-        font-size:
-            53px;
+        font-size: 53px;
 
-        letter-spacing:
-            -2.5px;
+        letter-spacing: -2.5px;
+
     }
 
 
-    .hero-description {
+    .info-inner {
 
-        font-size:
-            15px;
-    }
-
-
-    section {
+        flex-wrap: wrap;
 
         padding:
-            80px 0;
+            20px 0;
+
     }
 
 
-    .section-heading {
+    .info-item {
 
-        flex-direction:
-            column;
+        width: 45%;
 
-        align-items:
-            flex-start;
     }
 
 
-    .client-grid,
-    .steps,
-    .stats {
+    .section-top {
 
-        grid-template-columns:
-            1fr;
+        flex-direction: column;
+
+        align-items: flex-start;
+
     }
 
 
-    .showcase-toolbar {
+    .toolbar {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        align-items:
-            stretch;
+        align-items: stretch;
+
     }
 
 
-    .search-box {
+    .search {
 
-        width:
-            100%;
+        width: 100%;
+
     }
 
 
-    .trust-inner {
+    .design-grid {
 
-        flex-wrap:
-            wrap;
+        grid-template-columns: 1fr;
+
     }
 
 
-    .trust-item {
+    .preview {
 
-        width:
-            45%;
+        height: 245px;
+
     }
 
 
     .cta {
 
         padding:
-            60px 22px;
+            60px 20px;
+
     }
 
 
     .footer-inner {
 
-        flex-direction:
-            column;
+        flex-direction: column;
 
-        align-items:
-            flex-start;
+        align-items: flex-start;
+
     }
 
-
-    .footer-links {
-
-        flex-wrap:
-            wrap;
-    }
 }
 
 </style>
@@ -2003,61 +1536,34 @@ footer {
 <body>
 
 
-<div class="background-glow"></div>
-<div class="background-glow-two"></div>
-
-
 <!-- =====================================================
      HEADER
 ===================================================== -->
 
-<header id="header">
+<header>
 
     <div class="container navbar">
 
         <a href="./" class="logo">
 
             <div class="logo-mark">
-                <span>40</span>
+                MR
             </div>
 
-            Fourty60
+            <div class="logo-text">
+                Manasi Rane
+                <span> / Web Design</span>
+            </div>
 
         </a>
 
 
-        <button
-            class="menu-btn"
-            id="menuBtn"
-            aria-label="Toggle navigation"
-            aria-expanded="false"
+        <a
+            href="#designs"
+            class="nav-link"
         >
-            ☰
-        </button>
-
-
-        <nav id="nav">
-
-            <a href="#clients">
-                Websites
-            </a>
-
-            <a href="#how">
-                How It Works
-            </a>
-
-            <a href="#about">
-                About
-            </a>
-
-            <a
-                href="#contact"
-                class="nav-cta"
-            >
-                Start a Project
-            </a>
-
-        </nav>
+            View Designs →
+        </a>
 
     </div>
 
@@ -2069,77 +1575,55 @@ footer {
      HERO
 ===================================================== -->
 
-<main>
-
 <section class="hero">
 
     <div class="container">
 
-        <div class="hero-content reveal">
+        <div class="hero-inner">
 
             <div class="eyebrow">
 
-                <span class="status-dot"></span>
+                <span class="dot"></span>
 
-                <?= $totalClients ?> active
-                <?= $totalClients === 1 ? 'website' : 'websites' ?>
+                <?= $totalWebsites ?>
+                <?= $totalWebsites === 1 ? 'design' : 'designs' ?>
+                available
 
             </div>
 
 
             <h1>
 
-                The digital home
-                <span class="gradient-text">
-                    for business.
-                </span>
+                Websites made to
+                <em>stand out.</em>
 
             </h1>
 
 
             <p class="hero-description">
 
-                Fourty60 is the central digital platform
-                where professional business websites are
-                hosted, managed and brought online.
+                A collection of website designs,
+                concepts and digital experiences
+                created for modern businesses.
 
             </p>
 
 
-            <div class="hero-actions">
+            <div class="hero-bottom">
 
                 <a
-                    href="#clients"
-                    class="btn btn-primary"
+                    href="#designs"
+                    class="hero-button"
                 >
-
-                    Explore Websites
-
-                    <span>→</span>
-
+                    Explore Designs
+                    <span>↓</span>
                 </a>
 
 
-                <a
-                    href="#how"
-                    class="btn btn-secondary"
-                >
+                <span class="hero-note">
 
-                    How It Works
+                    New designs are added regularly.
 
-                </a>
-
-            </div>
-
-
-            <div class="hero-url">
-
-                Your website lives at:
-
-                <br>
-
-                <span>
-                    fourty60.net/yourdomain.com
                 </span>
 
             </div>
@@ -2153,31 +1637,54 @@ footer {
 
 
 <!-- =====================================================
-     TRUST BAR
+     INFO BAR
 ===================================================== -->
 
-<div class="trust-bar">
+<div class="info-bar">
 
-    <div class="container trust-inner">
+    <div class="container info-inner">
 
-        <div class="trust-item">
-            <strong>Professional</strong>
-            websites
+        <div class="info-item">
+
+            <strong>
+                <?= $totalWebsites ?>
+            </strong>
+
+            live designs
+
         </div>
 
-        <div class="trust-item">
-            <strong>Responsive</strong>
-            experiences
+
+        <div class="info-item">
+
+            <strong>
+                Responsive
+            </strong>
+
+            by default
+
         </div>
 
-        <div class="trust-item">
-            <strong>Centralized</strong>
-            hosting
+
+        <div class="info-item">
+
+            <strong>
+                Mobile
+            </strong>
+
+            ready
+
         </div>
 
-        <div class="trust-item">
-            <strong>Scalable</strong>
-            infrastructure
+
+        <div class="info-item">
+
+            <strong>
+                Fresh
+            </strong>
+
+            concepts
+
         </div>
 
     </div>
@@ -2187,59 +1694,110 @@ footer {
 
 
 <!-- =====================================================
-     CLIENT WEBSITES
+     DESIGN SHOWCASE
 ===================================================== -->
 
-<section id="clients">
+<section
+    class="showcase"
+    id="designs"
+>
 
     <div class="container">
 
-        <div class="section-heading reveal">
+
+        <div class="section-top">
 
             <div>
 
                 <div class="section-label">
-                    Client Network
+                    Selected Work
                 </div>
 
-                <h2>
-                    Websites we host.
+                <h2 class="section-title">
+                    Explore my designs.
                 </h2>
 
             </div>
 
 
-            <p>
+            <p class="section-description">
 
-                Every website below is automatically
-                detected from the Fourty60 server.
-                No manual registration required.
+                Browse website concepts by category
+                and open any design to see the
+                complete experience.
 
             </p>
 
         </div>
 
 
-        <div class="showcase-toolbar">
 
-            <div class="website-count">
+        <!-- =================================================
+             FILTERS
+        ================================================== -->
 
-                <strong>
-                    <?= $totalClients ?>
-                </strong>
+        <div class="toolbar">
 
-                active
-                <?= $totalClients === 1 ? 'website' : 'websites' ?>
+
+            <div class="filters">
+
+                <button
+                    class="filter-btn active"
+                    data-category="all"
+                >
+                    All
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-category="salon"
+                >
+                    Salon
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-category="cycles"
+                >
+                    Cycles
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-category="business"
+                >
+                    Business
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-category="e-commerce"
+                >
+                    E-commerce
+                </button>
+
+
+                <button
+                    class="filter-btn"
+                    data-category="portfolio"
+                >
+                    Portfolio
+                </button>
 
             </div>
 
 
-            <div class="search-box">
+
+            <div class="search">
 
                 <input
                     type="search"
                     id="searchInput"
-                    placeholder="Search websites..."
+                    placeholder="Search designs..."
                     autocomplete="off"
                 >
 
@@ -2248,41 +1806,55 @@ footer {
         </div>
 
 
+
+        <!-- =================================================
+             DESIGN GRID
+        ================================================== -->
+
         <div
-            class="client-grid"
-            id="clientGrid"
+            class="design-grid"
+            id="designGrid"
         >
 
 
-            <?php if ($totalClients === 0): ?>
+            <?php if ($totalWebsites === 0): ?>
 
-                <div class="empty-state">
 
-                    <strong>
-                        No client websites detected
-                    </strong>
+                <div class="empty">
 
-                    Upload a website folder containing
-                    index.php or index.html and it will
-                    automatically appear here.
+                    <h3>
+                        No designs yet.
+                    </h3>
+
+                    <p>
+                        Upload a website folder
+                        containing index.html
+                        and it will appear here automatically.
+                    </p>
 
                 </div>
+
 
             <?php else: ?>
 
 
-                <?php foreach ($clients as $client): ?>
+                <?php foreach ($websites as $site): ?>
 
 
                     <article
-                        class="client-card reveal"
+                        class="design-card"
+                        data-category="<?= htmlspecialchars(
+                            $site['category'],
+                            ENT_QUOTES,
+                            'UTF-8'
+                        ) ?>"
                         data-search="<?= htmlspecialchars(
                             strtolower(
-                                $client['name']
+                                $site['name']
                                 . ' '
-                                . $client['folder']
+                                . $site['folder']
                                 . ' '
-                                . $client['category']
+                                . $site['category_label']
                             ),
                             ENT_QUOTES,
                             'UTF-8'
@@ -2290,80 +1862,117 @@ footer {
                     >
 
 
-                        <div class="client-top">
+                        <!-- PREVIEW -->
 
-                            <div class="client-icon">
+                        <div class="preview">
 
-                                <?= htmlspecialchars(
-                                    strtoupper(
-                                        substr(
-                                            $client['name'],
-                                            0,
-                                            1
-                                        )
-                                    ),
+                            <iframe
+                                src="<?= htmlspecialchars(
+                                    $site['url'],
                                     ENT_QUOTES,
                                     'UTF-8'
-                                ) ?>
+                                ) ?>"
+                                loading="lazy"
+                                title="<?= htmlspecialchars(
+                                    $site['name'],
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) ?>"
+                            ></iframe>
+
+
+                            <a
+                                class="preview-link"
+                                href="<?= htmlspecialchars(
+                                    $site['url'],
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) ?>"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="Open <?= htmlspecialchars(
+                                    $site['name'],
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) ?>"
+                            ></a>
+
+                        </div>
+
+
+
+                        <!-- CARD CONTENT -->
+
+                        <div class="card-content">
+
+
+                            <div class="card-top">
+
+                                <span class="category">
+
+                                    <?= htmlspecialchars(
+                                        $site['category_label'],
+                                        ENT_QUOTES,
+                                        'UTF-8'
+                                    ) ?>
+
+                                </span>
+
+
+                                <span class="status">
+
+                                    ● Live
+
+                                </span>
 
                             </div>
 
 
-                            <span class="live-badge">
-                                LIVE
-                            </span>
+
+                            <h3 class="card-title">
+
+                                <?= htmlspecialchars(
+                                    $site['name'],
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) ?>
+
+                            </h3>
+
+
+
+                            <div class="card-domain">
+
+                                /<?= htmlspecialchars(
+                                    $site['folder'],
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) ?>/
+
+                            </div>
+
+
+
+                            <a
+                                class="visit"
+                                href="<?= htmlspecialchars(
+                                    $site['url'],
+                                    ENT_QUOTES,
+                                    'UTF-8'
+                                ) ?>"
+                                target="_blank"
+                                rel="noopener"
+                            >
+
+                                View Design
+
+                                <span>
+                                    →
+                                </span>
+
+                            </a>
 
                         </div>
-
-
-                        <span class="client-category">
-
-                            <?= htmlspecialchars(
-                                $client['category'],
-                                ENT_QUOTES,
-                                'UTF-8'
-                            ) ?>
-
-                        </span>
-
-
-                        <h3>
-
-                            <?= htmlspecialchars(
-                                $client['name'],
-                                ENT_QUOTES,
-                                'UTF-8'
-                            ) ?>
-
-                        </h3>
-
-
-                        <div class="client-domain">
-
-                            <?= htmlspecialchars(
-                                $client['folder'],
-                                ENT_QUOTES,
-                                'UTF-8'
-                            ) ?>
-
-                        </div>
-
-
-                        <a
-                            href="<?= htmlspecialchars(
-                                $client['url'],
-                                ENT_QUOTES,
-                                'UTF-8'
-                            ) ?>"
-                            class="visit-button"
-                        >
-
-                            Visit Website
-
-                            <span>→</span>
-
-                        </a>
-
 
                     </article>
 
@@ -2372,16 +1981,18 @@ footer {
 
 
                 <div
-                    id="noSearchResults"
-                    class="empty-state"
+                    class="empty"
+                    id="noResults"
                     style="display:none;"
                 >
 
-                    <strong>
-                        No matching website
-                    </strong>
+                    <h3>
+                        No matching designs.
+                    </h3>
 
-                    Try another domain or company name.
+                    <p>
+                        Try another category or search term.
+                    </p>
 
                 </div>
 
@@ -2398,222 +2009,42 @@ footer {
 
 
 <!-- =====================================================
-     ABOUT / STATS
-===================================================== -->
-
-<section id="about">
-
-    <div class="container">
-
-        <div class="stats reveal">
-
-            <div class="stat">
-
-                <div class="stat-number">
-
-                    <?= $totalClients ?>
-
-                </div>
-
-                <p>
-                    Active Websites
-                </p>
-
-            </div>
-
-
-            <div class="stat">
-
-                <div class="stat-number">
-                    24/7
-                </div>
-
-                <p>
-                    Online Availability
-                </p>
-
-            </div>
-
-
-            <div class="stat">
-
-                <div class="stat-number">
-                    100%
-                </div>
-
-                <p>
-                    Responsive Experience
-                </p>
-
-            </div>
-
-
-            <div class="stat">
-
-                <div class="stat-number">
-                    ∞
-                </div>
-
-                <p>
-                    Growth Potential
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     HOW IT WORKS
-===================================================== -->
-
-<section id="how">
-
-    <div class="container">
-
-        <div class="section-heading reveal">
-
-            <div>
-
-                <div class="section-label">
-                    Simple Infrastructure
-                </div>
-
-                <h2>
-                    Upload. Host. Grow.
-                </h2>
-
-            </div>
-
-
-            <p>
-
-                Fourty60 keeps your website
-                deployment workflow simple and scalable.
-
-            </p>
-
-        </div>
-
-
-        <div class="steps">
-
-
-            <div class="step reveal">
-
-                <div class="step-number">
-                    01 / DEPLOY
-                </div>
-
-                <h3>
-                    Upload
-                </h3>
-
-                <p>
-
-                    Upload the client's website
-                    into its own domain-named
-                    folder on the server.
-
-                </p>
-
-            </div>
-
-
-            <div class="step reveal">
-
-                <div class="step-number">
-                    02 / DETECT
-                </div>
-
-                <h3>
-                    Automatic Detection
-                </h3>
-
-                <p>
-
-                    Fourty60 scans the server
-                    and automatically detects
-                    valid website folders.
-
-                </p>
-
-            </div>
-
-
-            <div class="step reveal">
-
-                <div class="step-number">
-                    03 / ONLINE
-                </div>
-
-                <h3>
-                    Go Live
-                </h3>
-
-                <p>
-
-                    The website automatically
-                    becomes available through
-                    its Fourty60 URL.
-
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
      CTA
 ===================================================== -->
 
-<section id="contact">
+<section class="cta-section">
 
     <div class="container">
 
-        <div class="cta reveal">
+        <div class="cta">
 
             <div class="cta-content">
 
                 <div class="section-label">
-                    Fourty60
+                    Let's Build
                 </div>
 
 
                 <h2>
-                    One platform.
-                    Multiple businesses.
+                    Have a project in mind?
                 </h2>
 
 
                 <p>
 
-                    A centralized digital home for
-                    the websites you build, host and manage.
+                    Let's create a website that
+                    looks beautiful and works
+                    beautifully.
 
                 </p>
 
 
                 <a
-                    href="mailto:info@fourty60.net"
-                    class="btn btn-primary"
+                    href="mailto:hello@example.com"
+                    class="cta-button"
                 >
 
-                    Get In Touch
-
-                    <span>→</span>
+                    Start a Project →
 
                 </a>
 
@@ -2624,8 +2055,6 @@ footer {
     </div>
 
 </section>
-
-</main>
 
 
 
@@ -2640,25 +2069,15 @@ footer {
         <div class="footer-copy">
 
             © <?= $currentYear ?>
-            Fourty60.
+            Manasi Rane.
             All rights reserved.
 
         </div>
 
 
-        <div class="footer-links">
+        <div class="footer-right">
 
-            <a href="#clients">
-                Websites
-            </a>
-
-            <a href="#how">
-                How It Works
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
+            Website Design & Development
 
         </div>
 
@@ -2668,252 +2087,144 @@ footer {
 
 
 
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
+
 /* =========================================================
-   MOBILE MENU
+   FILTER + SEARCH
 ========================================================= */
 
-const menuBtn =
-    document.getElementById("menuBtn");
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
 
-const nav =
-    document.getElementById("nav");
+const cards =
+    document.querySelectorAll(".design-card");
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const noResults =
+    document.getElementById("noResults");
 
 
-if (menuBtn && nav) {
+let activeCategory = "all";
 
-    menuBtn.addEventListener(
-        "click",
-        () => {
 
-            const isOpen =
-                nav.classList.toggle("active");
+function filterDesigns() {
 
-            menuBtn.setAttribute(
-                "aria-expanded",
-                isOpen
-            );
+    const search =
+        searchInput
+            ? searchInput.value
+                .toLowerCase()
+                .trim()
+            : "";
+
+
+    let visible = 0;
+
+
+    cards.forEach(card => {
+
+        const category =
+            card.dataset.category || "";
+
+        const searchable =
+            card.dataset.search || "";
+
+
+        const categoryMatch =
+            activeCategory === "all"
+            ||
+            category === activeCategory;
+
+
+        const searchMatch =
+            searchable.includes(search);
+
+
+        if (
+            categoryMatch &&
+            searchMatch
+        ) {
+
+            card.style.display = "";
+
+            visible++;
+
+        } else {
+
+            card.style.display = "none";
 
         }
-    );
+
+    });
 
 
-    nav.querySelectorAll("a")
-        .forEach(link => {
+    if (noResults) {
 
-            link.addEventListener(
-                "click",
-                () => {
+        noResults.style.display =
+            visible === 0
+            ? "block"
+            : "none";
 
-                    nav.classList.remove(
-                        "active"
-                    );
-
-                    menuBtn.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                }
-            );
-
-        });
+    }
 
 }
 
 
 /* =========================================================
-   HEADER SCROLL
+   CATEGORY BUTTONS
 ========================================================= */
 
-const header =
-    document.getElementById("header");
+filterButtons.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            filterButtons.forEach(btn => {
+
+                btn.classList.remove("active");
+
+            });
 
 
-window.addEventListener(
-    "scroll",
-    () => {
-
-        if (
-            window.scrollY > 25
-        ) {
-
-            header.classList.add(
-                "scrolled"
-            );
-
-        } else {
-
-            header.classList.remove(
-                "scrolled"
-            );
-
-        }
-
-    },
-    {
-        passive: true
-    }
-);
+            button.classList.add("active");
 
 
-/* =========================================================
-   REVEAL ANIMATION
-========================================================= */
-
-const revealElements =
-    document.querySelectorAll(
-        ".reveal"
-    );
+            activeCategory =
+                button.dataset.category;
 
 
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
+            filterDesigns();
 
-            entries.forEach(
-                entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        entry.target
-                            .classList
-                            .add("active");
-
-                        revealObserver
-                            .unobserve(
-                                entry.target
-                            );
-
-                    }
-
-                }
-            );
-
-        },
-        {
-            threshold: .08
         }
     );
 
-
-revealElements.forEach(
-    element => {
-
-        revealObserver.observe(
-            element
-        );
-
-    }
-);
+});
 
 
 /* =========================================================
-   WEBSITE SEARCH
+   SEARCH
 ========================================================= */
-
-const searchInput =
-    document.getElementById(
-        "searchInput"
-    );
-
-
-const clientCards =
-    document.querySelectorAll(
-        ".client-card"
-    );
-
-
-const noSearchResults =
-    document.getElementById(
-        "noSearchResults"
-    );
-
 
 if (searchInput) {
 
     searchInput.addEventListener(
         "input",
-        event => {
-
-            const search =
-                event.target.value
-                    .toLowerCase()
-                    .trim();
-
-
-            let visibleCount = 0;
-
-
-            clientCards.forEach(
-                card => {
-
-                    const searchableText =
-                        card.dataset.search
-                        || "";
-
-
-                    const matches =
-                        searchableText
-                            .includes(search);
-
-
-                    if (matches) {
-
-                        card.style.display =
-                            "";
-
-                        visibleCount++;
-
-                    } else {
-
-                        card.style.display =
-                            "none";
-
-                    }
-
-                }
-            );
-
-
-            if (noSearchResults) {
-
-                noSearchResults.style.display =
-                    (
-                        search &&
-                        visibleCount === 0
-                    )
-                    ? "block"
-                    : "none";
-
-            }
-
-        }
+        filterDesigns
     );
 
 }
 
 
-/* =========================================================
-   CURRENT YEAR
-========================================================= */
-
-const yearElement =
-    document.querySelector(
-        ".footer-copy"
-    );
-
-
-/*
- * Footer year is already rendered
- * server-side through PHP.
- */
-
 </script>
 
 
 </body>
+
 </html>
