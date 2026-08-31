@@ -1134,22 +1134,19 @@ Manasi Designs
 </footer>
 
 
-
 <script>
 
 /* =====================================================
-   GITHUB CONFIGURATION
+   GITHUB SETTINGS
 ===================================================== */
 
 const GITHUB_USER = "mannasiii";
-
 const GITHUB_REPO = "mannasiii.github.io";
-
 const DESIGNS_FOLDER = "templates";
 
 
 /* =====================================================
-   VARIABLES
+   ELEMENTS
 ===================================================== */
 
 const designGrid =
@@ -1171,16 +1168,15 @@ let activeCategory = "all";
 
 
 /* =====================================================
-   CATEGORY DETECTION
+   CATEGORY
 ===================================================== */
 
 function detectCategory(folder){
 
-    const name =
-        folder.toLowerCase();
+    const name = folder
+        .toLowerCase()
+        .replace(/[-_]/g, " ");
 
-
-    /* SALON */
 
     if(
         name.includes("salon") ||
@@ -1188,13 +1184,9 @@ function detectCategory(folder){
         name.includes("spa") ||
         name.includes("parlour")
     ){
-
         return "salon";
-
     }
 
-
-    /* CYCLES */
 
     if(
         name.includes("cycle") ||
@@ -1202,28 +1194,19 @@ function detectCategory(folder){
         name.includes("bicycle") ||
         name.includes("bike")
     ){
-
         return "cycles";
-
     }
 
 
-    /* RESTAURANT */
-
     if(
         name.includes("restaurant") ||
-        name.includes("restro") ||
         name.includes("cafe") ||
         name.includes("food") ||
         name.includes("hotel")
     ){
-
         return "restaurant";
-
     }
 
-
-    /* FASHION */
 
     if(
         name.includes("fashion") ||
@@ -1231,156 +1214,105 @@ function detectCategory(folder){
         name.includes("designer") ||
         name.includes("clothing")
     ){
-
         return "fashion";
-
     }
 
 
-    /* DEFAULT */
-
     return "business";
-
 }
 
 
 /* =====================================================
-   FORMAT DESIGN NAME
+   FORMAT NAME
 ===================================================== */
 
 function formatName(folder){
 
-    let name =
-        folder
-        .replace(/[-_]/g," ")
-        .replace(/\s+/g," ")
-        .trim();
-
-
-    name =
-        name.replace(
-            /([a-z])([A-Z])/g,
-            "$1 $2"
-        );
-
-
-    return name
+    return folder
+        .replace(/[-_]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim()
         .split(" ")
         .map(word => {
 
-            if(!word) return "";
-
-            return (
-                word.charAt(0).toUpperCase() +
-                word.slice(1)
-            );
+            return word.charAt(0).toUpperCase()
+                + word.slice(1);
 
         })
         .join(" ");
-
 }
 
 
 /* =====================================================
-   CHECK WHETHER FOLDER IS ACTUALLY A DESIGN
-===================================================== */
-
-/*
-    IMPORTANT:
-
-    We DON'T display every folder.
-
-    A folder is displayed ONLY when it contains:
-
-        /templates/folder/index.html
-
-    This prevents random files/folders from
-    becoming design cards.
-*/
-
-async function isValidDesign(folderName){
-
-    try{
-
-        const checkURL =
-            `https://api.github.com/repos/` +
-            `${GITHUB_USER}/` +
-            `${GITHUB_REPO}/contents/` +
-            `${DESIGNS_FOLDER}/` +
-            `${encodeURIComponent(folderName)}/index.html`;
-
-
-        const response =
-            await fetch(
-                checkURL + "?v=" + Date.now()
-            );
-
-
-        return response.ok;
-
-    }
-
-    catch(error){
-
-        return false;
-
-    }
-
-}
-
-
-/* =====================================================
-   LOAD DESIGNS
+   LOAD DESIGNS FROM GITHUB
 ===================================================== */
 
 async function loadDesigns(){
 
+    designGrid.innerHTML = `
+
+        <div class="loading">
+
+            <div class="loader"></div>
+
+            Finding your designs...
+
+        </div>
+
+    `;
+
+
     try{
-
-        designGrid.innerHTML = `
-
-            <div class="loading">
-
-                <div class="loader"></div>
-
-                Finding your designs...
-
-            </div>
-
-        `;
-
-
-        /*
-            Get everything inside /templates
-        */
 
         const apiURL =
             `https://api.github.com/repos/` +
             `${GITHUB_USER}/` +
             `${GITHUB_REPO}/contents/` +
-            `${DESIGNS_FOLDER}?v=${Date.now()}`;
+            `${DESIGNS_FOLDER}`;
 
 
-        const response =
-            await fetch(apiURL);
+        const response = await fetch(
+            apiURL,
+            {
+                cache:"no-store",
+
+                headers:{
+                    "Accept":
+                    "application/vnd.github+json"
+                }
+            }
+        );
 
 
         if(!response.ok){
 
             throw new Error(
-                "GitHub API request failed"
+                "GitHub API Error: " +
+                response.status
             );
 
         }
 
 
-        const items =
-            await response.json();
+        const items = await response.json();
 
 
         /*
-            Only directories are candidates.
-        */
+         * IMPORTANT
+         *
+         * We ONLY take folders.
+         *
+         * index.html is a FILE,
+         * so it will automatically be ignored.
+         *
+         * Example:
+         *
+         * templates/
+         *    index.html   ← ignored
+         *    apex/        ← included
+         *    salon/       ← included
+         *    cycles/      ← included
+         */
 
         const folders =
             items.filter(
@@ -1389,53 +1321,13 @@ async function loadDesigns(){
             );
 
 
-        /*
-            Check every folder for index.html
-        */
-
-        const validationResults =
-            await Promise.all(
-
-                folders.map(
-                    async folder => {
-
-                        const valid =
-                            await isValidDesign(
-                                folder.name
-                            );
-
-
-                        return {
-                            folder,
-                            valid
-                        };
-
-                    }
-                )
-
-            );
-
-
-        /*
-            Keep ONLY valid designs.
-        */
-
         designs =
-            validationResults
-            .filter(
-                result =>
-                    result.valid
-            )
-            .map(
-                result => {
-
-                    const folder =
-                        result.folder;
-
+            folders.map(
+                folder => {
 
                     return {
 
-                        folder:folder.name,
+                        folder: folder.name,
 
                         name:
                             formatName(
@@ -1459,12 +1351,8 @@ async function loadDesigns(){
 
 
         /*
-            Sort newest / alphabetical.
-
-            GitHub normally returns folders
-            alphabetically, so we keep
-            alphabetical ordering.
-        */
+         * Sort alphabetically
+         */
 
         designs.sort(
             (a,b) =>
@@ -1475,27 +1363,27 @@ async function loadDesigns(){
 
 
         /*
-            Update total.
-        */
+         * UPDATE COUNT
+         */
 
         totalDesigns.textContent =
             designs.length;
 
 
         /*
-            Render.
-        */
+         * DISPLAY
+         */
 
         renderDesigns();
 
-    }
 
+    }
     catch(error){
 
-        console.error(
-            "Design loading error:",
-            error
-        );
+        console.error(error);
+
+
+        totalDesigns.textContent = "0";
 
 
         designGrid.innerHTML = `
@@ -1507,8 +1395,8 @@ async function loadDesigns(){
                 </strong>
 
                 <p>
-                    Please check the GitHub repository
-                    and try again.
+                    GitHub could not be reached.
+                    Please refresh the page.
                 </p>
 
             </div>
@@ -1521,7 +1409,7 @@ async function loadDesigns(){
 
 
 /* =====================================================
-   RENDER DESIGNS
+   RENDER
 ===================================================== */
 
 function renderDesigns(){
@@ -1571,10 +1459,6 @@ function renderDesigns(){
         );
 
 
-    /*
-        NO RESULTS
-    */
-
     if(filtered.length === 0){
 
         designGrid.innerHTML = `
@@ -1598,17 +1482,12 @@ function renderDesigns(){
     }
 
 
-    /*
-        CREATE CARDS
-    */
-
     designGrid.innerHTML =
         filtered
         .map(
             (design,index) => {
 
-
-                const firstLetter =
+                const letter =
                     design.name
                     .charAt(0)
                     .toUpperCase();
@@ -1616,19 +1495,15 @@ function renderDesigns(){
 
                 return `
 
-                <article
-                    class="design-card"
-                    data-category="${design.category}"
-                >
+                <article class="design-card">
 
 
                     <div class="preview">
 
-
                         <div
                             class="preview-placeholder">
 
-                            ${firstLetter}
+                            ${letter}
 
                         </div>
 
@@ -1636,10 +1511,8 @@ function renderDesigns(){
                         <iframe
                             src="${design.url}"
                             loading="lazy"
-                            title="${design.name}"
-                        >
+                            title="${design.name}">
                         </iframe>
-
 
                     </div>
 
@@ -1648,7 +1521,6 @@ function renderDesigns(){
 
 
                         <div class="card-top">
-
 
                             <span class="badge">
 
@@ -1664,14 +1536,11 @@ function renderDesigns(){
 
                             </span>
 
-
                         </div>
 
 
                         <h3>
-
                             ${design.name}
-
                         </h3>
 
 
@@ -1684,14 +1553,11 @@ function renderDesigns(){
 
                         <a
                             href="${design.url}"
-                            class="visit"
-                        >
+                            class="visit">
 
                             View Design
 
-                            <span>
-                                →
-                            </span>
+                            <span>→</span>
 
                         </a>
 
@@ -1721,7 +1587,7 @@ searchInput.addEventListener(
 
 
 /* =====================================================
-   CATEGORY FILTER
+   CATEGORY BUTTONS
 ===================================================== */
 
 categoryButtons.forEach(
@@ -1731,17 +1597,16 @@ categoryButtons.forEach(
             "click",
             () => {
 
-
                 categoryButtons
-                .forEach(
-                    btn =>
-                        btn.classList
-                        .remove("active")
-                );
+                    .forEach(
+                        btn =>
+                            btn.classList
+                            .remove("active")
+                    );
 
 
                 button.classList
-                .add("active");
+                    .add("active");
 
 
                 activeCategory =
