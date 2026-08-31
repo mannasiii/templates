@@ -757,66 +757,32 @@ footer {
 
 
 <script>
+const USERNAME = "mannasiii";
+const REPOSITORY = "mannasiii.github.io";
+const FOLDER = "templates";
 
-/* =========================================================
-   CONFIGURATION
-========================================================= */
+const API_URL =
+    `https://api.github.com/repos/${USERNAME}/${REPOSITORY}/contents/${FOLDER}`;
 
-/*
-   YOUR GITHUB REPOSITORY
+const BASE_URL =
+    `https://${USERNAME}.github.io/${FOLDER}`;
 
-   Username:
-   mannasiii
-
-   Repository:
-   mannasiii.github.io
-
-   Folder:
-   templates
-*/
-
-const GITHUB_API =
-    "https://api.github.com/repos/mannasiii/mannasiii.github.io/contents/templates";
-
-
-const GITHUB_BASE =
-    "https://mannasiii.github.io/templates";
-
-
-/* =========================================================
-   ELEMENTS
-========================================================= */
-
-const grid =
-    document.getElementById("grid");
-
-const searchInput =
-    document.getElementById("search");
-
-const countElement =
-    document.getElementById("count");
-
-const heroCount =
-    document.getElementById("heroCount");
-
-
-/* =========================================================
-   DATA
-========================================================= */
+const grid = document.getElementById("grid");
+const countElement = document.getElementById("count");
+const heroCount = document.getElementById("heroCount");
+const searchInput = document.getElementById("search");
 
 let designs = [];
-
 let currentCategory = "all";
 
 
-/* =========================================================
-   CATEGORY DETECTION
-========================================================= */
+/* =========================
+   CATEGORY
+========================= */
 
 function detectCategory(folder) {
 
-    const name =
-        folder.toLowerCase();
+    const name = folder.toLowerCase();
 
     if (
         name.includes("salon") ||
@@ -827,8 +793,9 @@ function detectCategory(folder) {
     }
 
     if (
+        name.includes("apex") ||
         name.includes("cycle") ||
-        name.includes("bicycle") ||
+        name.includes("cycling") ||
         name.includes("bike")
     ) {
         return "Cycles";
@@ -853,52 +820,30 @@ function detectCategory(folder) {
 }
 
 
-/* =========================================================
-   FORMAT NAME
-========================================================= */
+/* =========================
+   NAME
+========================= */
 
 function formatName(folder) {
 
-    let name = folder
+    return folder
         .replace(/[-_]/g, " ")
+        .replace(/([a-z])([A-Z])/g, "$1 $2")
         .replace(/\s+/g, " ")
-        .trim();
-
-    /*
-       Add spaces before capital letters
-       Example:
-       beautySalon → beauty Salon
-    */
-
-    name = name.replace(
-        /([a-z])([A-Z])/g,
-        "$1 $2"
-    );
-
-    return name
-        .replace(/\b\w/g, letter =>
-            letter.toUpperCase()
-        );
+        .trim()
+        .replace(/\b\w/g, c => c.toUpperCase());
 }
 
 
-/* =========================================================
-   CREATE CARD
-========================================================= */
+/* =========================
+   CARD
+========================= */
 
 function createCard(design) {
 
-    const card =
-        document.createElement("article");
+    const card = document.createElement("article");
 
     card.className = "card";
-
-    card.dataset.name =
-        design.name.toLowerCase();
-
-    card.dataset.category =
-        design.category.toLowerCase();
-
 
     card.innerHTML = `
 
@@ -911,11 +856,10 @@ function createCard(design) {
             <iframe
                 src="${design.url}"
                 loading="lazy"
-                title="${design.name}"
-            ></iframe>
+                title="${design.name}">
+            </iframe>
 
         </div>
-
 
         <div class="card-content">
 
@@ -939,18 +883,15 @@ function createCard(design) {
 
             </div>
 
-
             <div class="folder-name">
                 /${design.folder}/
             </div>
-
 
             <a
                 href="${design.url}"
                 target="_blank"
                 rel="noopener"
-                class="visit"
-            >
+                class="visit">
                 View Design →
             </a>
 
@@ -961,70 +902,50 @@ function createCard(design) {
 }
 
 
-/* =========================================================
+/* =========================
    RENDER
-========================================================= */
+========================= */
 
 function renderDesigns() {
 
     grid.innerHTML = "";
-
 
     const search =
         searchInput.value
             .toLowerCase()
             .trim();
 
+    const filtered = designs.filter(design => {
 
-    const filtered =
-        designs.filter(design => {
+        const matchesSearch =
+            design.name
+                .toLowerCase()
+                .includes(search) ||
+            design.folder
+                .toLowerCase()
+                .includes(search);
 
-            const matchesSearch =
-                design.name
-                    .toLowerCase()
-                    .includes(search)
-                ||
-                design.folder
-                    .toLowerCase()
-                    .includes(search);
+        const matchesCategory =
+            currentCategory === "all" ||
+            design.category.toLowerCase() === currentCategory;
 
-
-            const matchesCategory =
-                currentCategory === "all"
-                ||
-                design.category
-                    .toLowerCase()
-                    === currentCategory;
-
-
-            return (
-                matchesSearch &&
-                matchesCategory
-            );
-
-        });
+        return matchesSearch && matchesCategory;
+    });
 
 
     countElement.textContent =
         filtered.length;
 
 
-    if (filtered.length === 0) {
+    if (!filtered.length) {
 
         grid.innerHTML = `
-
             <div class="empty">
-
-                <h3>
-                    No designs found
-                </h3>
-
+                <h3>No designs found</h3>
                 <p>
                     Try another search or category.
                 </p>
-
             </div>
-
         `;
 
         return;
@@ -1038,30 +959,40 @@ function renderDesigns() {
         );
 
     });
-
 }
 
 
-/* =========================================================
-   FETCH GITHUB FOLDERS
-========================================================= */
+/* =========================
+   FETCH TEMPLATES
+========================= */
 
 async function loadDesigns() {
 
     try {
 
+        grid.innerHTML = `
+            <div class="loading">
+                <div class="spinner"></div>
+                Finding your designs...
+            </div>
+        `;
+
+
+        console.log(
+            "Fetching:",
+            API_URL
+        );
+
+
         const response =
-            await fetch(
-                GITHUB_API
-            );
+            await fetch(API_URL);
 
 
         if (!response.ok) {
 
             throw new Error(
-                "GitHub API request failed"
+                `GitHub API Error: ${response.status}`
             );
-
         }
 
 
@@ -1070,44 +1001,45 @@ async function loadDesigns() {
 
 
         /*
-           Only folders are designs.
-        */
+         * IMPORTANT:
+         * GitHub returns both files
+         * and folders.
+         *
+         * We ONLY want folders.
+         */
 
         const folders =
-            items.filter(item =>
-                item.type === "dir"
+            items.filter(
+                item => item.type === "dir"
             );
 
 
-        designs =
-            folders.map(folder => {
+        designs = folders.map(folder => {
 
-                return {
+            return {
 
-                    folder:
-                        folder.name,
+                folder: folder.name,
 
-                    name:
-                        formatName(
-                            folder.name
-                        ),
+                name:
+                    formatName(
+                        folder.name
+                    ),
 
-                    category:
-                        detectCategory(
-                            folder.name
-                        ),
+                category:
+                    detectCategory(
+                        folder.name
+                    ),
 
-                    url:
-                        `${GITHUB_BASE}/${encodeURIComponent(folder.name)}/`
+                url:
+                    `${BASE_URL}/${encodeURIComponent(folder.name)}/`
+            };
 
-                };
-
-            });
+        });
 
 
         /*
-           Sort alphabetically
-        */
+         * Alphabetical order
+         */
 
         designs.sort(
             (a, b) =>
@@ -1128,9 +1060,18 @@ async function loadDesigns() {
         renderDesigns();
 
 
-    } catch (error) {
+        console.log(
+            "Designs found:",
+            designs
+        );
 
-        console.error(error);
+    }
+    catch (error) {
+
+        console.error(
+            "Template fetch failed:",
+            error
+        );
 
 
         heroCount.textContent =
@@ -1142,26 +1083,28 @@ async function loadDesigns() {
             <div class="empty">
 
                 <h3>
-                    Designs could not be loaded
+                    Unable to load designs
                 </h3>
 
                 <p>
-                    Please check your GitHub
-                    repository or try again later.
+                    GitHub folder information
+                    could not be loaded.
+                </p>
+
+                <p style="margin-top:10px;font-size:11px;">
+                    Check browser console for details.
                 </p>
 
             </div>
 
         `;
-
     }
-
 }
 
 
-/* =========================================================
+/* =========================
    SEARCH
-========================================================= */
+========================= */
 
 searchInput.addEventListener(
     "input",
@@ -1169,9 +1112,9 @@ searchInput.addEventListener(
 );
 
 
-/* =========================================================
+/* =========================
    FILTERS
-========================================================= */
+========================= */
 
 document
     .querySelectorAll(".filter")
@@ -1207,9 +1150,9 @@ document
     });
 
 
-/* =========================================================
+/* =========================
    MOBILE MENU
-========================================================= */
+========================= */
 
 const menuBtn =
     document.getElementById("menuBtn");
@@ -1217,36 +1160,36 @@ const menuBtn =
 const nav =
     document.getElementById("nav");
 
+if (menuBtn && nav) {
 
-menuBtn.addEventListener(
-    "click",
-    () => {
-
-        nav.classList.toggle(
-            "active"
-        );
-
-    }
-);
+    menuBtn.addEventListener(
+        "click",
+        () => {
+            nav.classList.toggle("active");
+        }
+    );
+}
 
 
-/* =========================================================
+/* =========================
    YEAR
-========================================================= */
+========================= */
 
-document.getElementById(
-    "year"
-).textContent =
-    new Date().getFullYear();
+const year =
+    document.getElementById("year");
+
+if (year) {
+    year.textContent =
+        new Date().getFullYear();
+}
 
 
-/* =========================================================
+/* =========================
    START
-========================================================= */
+========================= */
 
 loadDesigns();
-
 </script>
-
+    
 </body>
 </html>
