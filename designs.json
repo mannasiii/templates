@@ -2,6 +2,12 @@
   {
     "name": "Apex",
     "folder": "apex",
-    "category": "business"
+    "category": "cycle"
+  },
+  {
+    "name": "Nail Craft",
+    "folder": "nail-kraft",
+    "category": "salon"
   }
+  
 ]
