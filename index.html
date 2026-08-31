@@ -1,0 +1,1579 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Manasi — Website Templates</title>
+
+<meta name="description" content="A curated collection of website designs and templates by Manasi.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#F7F4EF;
+    color:#25231F;
+    font-family:"DM Sans",sans-serif;
+    line-height:1.6;
+}
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+    --cream:#F7F4EF;
+    --cream-dark:#EEE8DF;
+    --brown:#5A4636;
+    --brown-dark:#33271F;
+    --peach:#DDA58C;
+    --peach-light:#EBC6B5;
+    --green:#687565;
+    --white:#FFFFFF;
+    --text:#25231F;
+    --muted:#777168;
+    --border:#DED6CC;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(247,244,239,.92);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    max-width:1200px;
+    width:92%;
+    height:76px;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    text-decoration:none;
+    color:var(--brown-dark);
+
+    font-family:"Playfair Display",serif;
+    font-size:25px;
+    font-weight:700;
+}
+
+.logo span{
+    color:var(--peach);
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+nav a{
+    color:var(--muted);
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+}
+
+nav a:hover{
+    color:var(--brown-dark);
+}
+
+.menu{
+    display:none;
+    border:0;
+    background:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    max-width:1200px;
+    width:92%;
+    margin:auto;
+
+    min-height:75vh;
+
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:8px 14px;
+
+    border:1px solid var(--border);
+    border-radius:50px;
+
+    background:rgba(255,255,255,.45);
+
+    color:var(--green);
+
+    font-size:11px;
+    font-weight:700;
+
+    margin-bottom:25px;
+}
+
+.dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--green);
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(55px,8vw,95px);
+
+    line-height:.98;
+
+    letter-spacing:-4px;
+
+    color:var(--brown-dark);
+}
+
+.hero h1 span{
+    color:var(--peach);
+}
+
+.hero p{
+    max-width:650px;
+
+    margin-top:28px;
+
+    color:var(--muted);
+
+    font-size:16px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+
+    margin-top:32px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:13px 20px;
+
+    border-radius:10px;
+
+    text-decoration:none;
+
+    font-size:13px;
+    font-weight:700;
+
+    transition:.25s ease;
+}
+
+.btn-primary{
+    background:var(--brown);
+    color:white;
+}
+
+.btn-primary:hover{
+    transform:translateY(-2px);
+    background:var(--brown-dark);
+}
+
+.btn-secondary{
+    border:1px solid var(--border);
+    color:var(--brown);
+    background:rgba(255,255,255,.4);
+}
+
+.btn-secondary:hover{
+    background:white;
+}
+
+/* =========================
+   SHOWCASE
+========================= */
+
+.showcase{
+    max-width:1200px;
+    width:92%;
+    margin:auto;
+
+    padding:90px 0;
+}
+
+.section-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:end;
+
+    gap:30px;
+
+    margin-bottom:35px;
+}
+
+.label{
+    color:var(--peach);
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:10px;
+    font-weight:800;
+
+    margin-bottom:10px;
+}
+
+.section-top h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:48px;
+
+    line-height:1;
+
+    color:var(--brown-dark);
+}
+
+.section-top p{
+    max-width:420px;
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* =========================
+   FILTER BAR
+========================= */
+
+.toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:25px;
+}
+
+.categories{
+    display:flex;
+    gap:8px;
+
+    flex-wrap:wrap;
+}
+
+.category{
+    border:1px solid var(--border);
+
+    background:transparent;
+
+    color:var(--muted);
+
+    padding:8px 14px;
+
+    border-radius:50px;
+
+    font-size:11px;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.category:hover,
+.category.active{
+    background:var(--brown);
+    border-color:var(--brown);
+    color:white;
+}
+
+.search{
+    width:230px;
+}
+
+.search input{
+    width:100%;
+
+    padding:11px 13px;
+
+    border:1px solid var(--border);
+
+    border-radius:9px;
+
+    background:white;
+
+    outline:none;
+
+    font-size:12px;
+
+    color:var(--text);
+}
+
+.search input:focus{
+    border-color:var(--peach);
+}
+
+/* =========================
+   COUNT
+========================= */
+
+.count{
+    color:var(--muted);
+
+    font-size:12px;
+
+    margin-bottom:18px;
+}
+
+.count strong{
+    color:var(--brown-dark);
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card{
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:330px;
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    transition:.35s ease;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+
+    box-shadow:
+        0 20px 45px rgba(90,70,54,.12);
+}
+
+/* visual preview */
+
+.preview{
+    height:190px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cream-dark),
+            var(--peach-light)
+        );
+}
+
+.preview::before{
+    content:"";
+
+    position:absolute;
+
+    width:160px;
+    height:160px;
+
+    right:-40px;
+    top:-50px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.4);
+}
+
+.preview-letter{
+    position:absolute;
+
+    left:25px;
+    bottom:18px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:65px;
+
+    color:rgba(90,70,54,.18);
+}
+
+/* card content */
+
+.card-content{
+    padding:21px;
+}
+
+.card-category{
+    color:var(--green);
+
+    font-size:9px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+    margin-bottom:7px;
+}
+
+.card h3{
+    font-family:"Playfair Display",serif;
+
+    font-size:23px;
+
+    color:var(--brown-dark);
+
+    line-height:1.15;
+
+    margin-bottom:5px;
+}
+
+.card-url{
+    color:#9A9288;
+
+    font-family:monospace;
+
+    font-size:10px;
+
+    word-break:break-all;
+}
+
+.visit{
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    margin-top:14px;
+
+    color:var(--brown);
+
+    font-size:11px;
+
+    font-weight:800;
+
+    text-decoration:none;
+}
+
+.visit span{
+    transition:.2s;
+}
+
+.visit:hover span{
+    transform:translateX(4px);
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading{
+    grid-column:1/-1;
+
+    padding:70px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    border:1px dashed var(--border);
+
+    border-radius:18px;
+}
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty{
+    grid-column:1/-1;
+
+    display:none;
+
+    padding:70px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    border:1px dashed var(--border);
+
+    border-radius:18px;
+}
+
+.empty strong{
+    display:block;
+
+    color:var(--brown-dark);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:22px;
+
+    margin-bottom:5px;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.info{
+    max-width:1200px;
+    width:92%;
+
+    margin:auto;
+
+    padding:0 0 100px;
+}
+
+.info-box{
+    padding:55px 40px;
+
+    border-radius:20px;
+
+    background:var(--brown);
+
+    color:white;
+
+    text-align:center;
+}
+
+.info-box h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:43px;
+}
+
+.info-box p{
+    max-width:550px;
+
+    margin:15px auto 25px;
+
+    color:#E4DCD4;
+
+    font-size:13px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    border-top:1px solid var(--border);
+
+    padding:30px 0;
+}
+
+.footer-inner{
+    max-width:1200px;
+    width:92%;
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:20px;
+}
+
+footer p{
+    color:#8A8278;
+
+    font-size:11px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+    .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .section-top{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+@media(max-width:650px){
+
+    nav{
+        position:absolute;
+
+        top:76px;
+        left:0;
+
+        width:100%;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        padding:15px;
+
+        background:var(--cream);
+
+        border-bottom:1px solid var(--border);
+    }
+
+    nav.active{
+        display:flex;
+    }
+
+    nav a{
+        padding:10px;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        min-height:80vh;
+    }
+
+    .hero h1{
+        font-size:55px;
+
+        letter-spacing:-2px;
+    }
+
+    .hero-actions{
+        flex-wrap:wrap;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .toolbar{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .section-top h2{
+        font-size:39px;
+    }
+
+    .info-box{
+        padding:45px 22px;
+    }
+
+    .info-box h2{
+        font-size:35px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+<div class="navbar">
+
+<a href="./" class="logo">
+    Manasi<span>.</span>
+</a>
+
+<button class="menu" id="menuBtn">
+    ☰
+</button>
+
+<nav id="nav">
+
+<a href="#templates">
+    Templates
+</a>
+
+<a href="#about">
+    About
+</a>
+
+<a href="#contact">
+    Contact
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<div class="eyebrow">
+
+<span class="dot"></span>
+
+Design Collection
+
+</div>
+
+<h1>
+
+Websites
+<span>made beautifully.</span>
+
+</h1>
+
+<p>
+
+A collection of website concepts and designs
+created for different businesses, industries
+and brands. Explore the designs and choose
+the perfect direction for your next website.
+
+</p>
+
+<div class="hero-actions">
+
+<a href="#templates" class="btn btn-primary">
+
+Explore Designs →
+
+</a>
+
+<a href="#about" class="btn btn-secondary">
+
+About Collection
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TEMPLATES
+========================= -->
+
+<section class="showcase" id="templates">
+
+<div class="section-top">
+
+<div>
+
+<div class="label">
+    My Collection
+</div>
+
+<h2>
+    Selected designs.
+</h2>
+
+</div>
+
+<p>
+
+Browse through website concepts created
+for businesses, brands and different
+industries.
+
+</p>
+
+</div>
+
+
+<!-- FILTER -->
+
+<div class="toolbar">
+
+<div class="categories" id="categories">
+
+<button
+class="category active"
+data-category="all">
+All
+</button>
+
+</div>
+
+
+<div class="search">
+
+<input
+type="search"
+id="searchInput"
+placeholder="Search designs..."
+autocomplete="off">
+
+</div>
+
+</div>
+
+
+<div class="count">
+
+<strong id="designCount">0</strong>
+designs available
+
+</div>
+
+
+<!-- GRID -->
+
+<div class="grid" id="designGrid">
+
+<div class="loading" id="loading">
+
+Loading designs...
+
+</div>
+
+<div class="empty" id="empty">
+
+<strong>
+No designs found
+</strong>
+
+Try another search or category.
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="info" id="about">
+
+<div class="info-box">
+
+<h2>
+One collection. Many possibilities.
+</h2>
+
+<p>
+
+Every design is created with a different
+business and visual direction in mind.
+Use these concepts as inspiration or
+as the starting point for your next project.
+
+</p>
+
+<a
+href="#templates"
+class="btn btn-secondary">
+
+View Designs →
+
+</a>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer id="contact">
+
+<div class="footer-inner">
+
+<p>
+© <span id="year"></span> Manasi. All rights reserved.
+</p>
+
+<p>
+Website Design Collection
+</p>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =====================================================
+   GITHUB CONFIGURATION
+===================================================== */
+
+/*
+    IMPORTANT:
+
+    Your repository:
+    mannasiii.github.io
+
+    Your designs folder:
+    templates
+
+    Therefore GitHub API will check:
+
+    /repos/mannasiii/mannasiii.github.io/contents/templates
+
+*/
+
+const GITHUB_USERNAME = "mannasiii";
+
+const GITHUB_REPOSITORY = "mannasiii.github.io";
+
+const DESIGNS_FOLDER = "templates";
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const designGrid =
+    document.getElementById("designGrid");
+
+const loading =
+    document.getElementById("loading");
+
+const empty =
+    document.getElementById("empty");
+
+const designCount =
+    document.getElementById("designCount");
+
+const searchInput =
+    document.getElementById("searchInput");
+
+const categories =
+    document.getElementById("categories");
+
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const nav =
+    document.getElementById("nav");
+
+
+/* =====================================================
+   DATA
+===================================================== */
+
+let designs = [];
+
+let activeCategory = "all";
+
+
+/* =====================================================
+   CATEGORY DETECTION
+===================================================== */
+
+function detectCategory(name){
+
+    const value =
+        name.toLowerCase();
+
+    const categories = {
+
+        salon:[
+            "Salon"
+        ],
+
+        spa:[
+            "Beauty & Spa"
+        ],
+
+        cycle:[
+            "Cycles"
+        ],
+
+        bike:[
+            "Cycles"
+        ],
+
+        restaurant:[
+            "Restaurant"
+        ],
+
+        cafe:[
+            "Restaurant"
+        ],
+
+        food:[
+            "Food"
+        ],
+
+        fashion:[
+            "Fashion"
+        ],
+
+        boutique:[
+            "Fashion"
+        ],
+
+        hotel:[
+            "Hospitality"
+        ],
+
+        gym:[
+            "Fitness"
+        ],
+
+        fitness:[
+            "Fitness"
+        ],
+
+        doctor:[
+            "Healthcare"
+        ],
+
+        clinic:[
+            "Healthcare"
+        ],
+
+        lawyer:[
+            "Professional"
+        ],
+
+        business:[
+            "Business"
+        ],
+
+        corporate:[
+            "Business"
+        ],
+
+        portfolio:[
+            "Portfolio"
+        ],
+
+        agency:[
+            "Agency"
+        ],
+
+        realestate:[
+            "Real Estate"
+        ],
+
+        property:[
+            "Real Estate"
+        ]
+
+    };
+
+
+    for(
+        const keyword in categories
+    ){
+
+        if(
+            value.includes(keyword)
+        ){
+
+            return categories[keyword][0];
+
+        }
+
+    }
+
+
+    return "Business";
+
+}
+
+
+/* =====================================================
+   DISPLAY NAME
+===================================================== */
+
+function formatName(name){
+
+    return name
+
+        .replace(/[-_]+/g," ")
+
+        .replace(/\b\w/g,
+            letter => letter.toUpperCase()
+        );
+
+}
+
+
+/* =====================================================
+   CREATE CARD
+===================================================== */
+
+function createCard(design){
+
+    const card =
+        document.createElement("article");
+
+    card.className = "card";
+
+    card.dataset.category =
+        design.category.toLowerCase();
+
+    card.dataset.name =
+        design.name.toLowerCase();
+
+
+    const firstLetter =
+        design.name
+        .charAt(0)
+        .toUpperCase();
+
+
+    card.innerHTML = `
+
+        <div class="preview">
+
+            <div class="preview-letter">
+                ${firstLetter}
+            </div>
+
+        </div>
+
+        <div class="card-content">
+
+            <div class="card-category">
+                ${design.category}
+            </div>
+
+            <h3>
+                ${design.name}
+            </h3>
+
+            <div class="card-url">
+                /templates/${design.folder}/
+            </div>
+
+            <a
+                href="./${encodeURIComponent(design.folder)}/"
+                class="visit">
+
+                View Design
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+    `;
+
+
+    return card;
+
+}
+
+
+/* =====================================================
+   RENDER DESIGNS
+===================================================== */
+
+function renderDesigns(){
+
+    const search =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+
+    const filtered =
+        designs.filter(design => {
+
+            const matchesCategory =
+                activeCategory === "all" ||
+                design.category.toLowerCase()
+                === activeCategory;
+
+
+            const matchesSearch =
+                design.name
+                .toLowerCase()
+                .includes(search)
+                ||
+                design.folder
+                .toLowerCase()
+                .includes(search)
+                ||
+                design.category
+                .toLowerCase()
+                .includes(search);
+
+
+            return (
+                matchesCategory &&
+                matchesSearch
+            );
+
+        });
+
+
+    /* remove old cards */
+
+    designGrid
+        .querySelectorAll(".card")
+        .forEach(card =>
+            card.remove()
+        );
+
+
+    /* update count */
+
+    designCount.textContent =
+        filtered.length;
+
+
+    /* empty */
+
+    if(filtered.length === 0){
+
+        empty.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    empty.style.display =
+        "none";
+
+
+    /* add cards */
+
+    filtered.forEach(design => {
+
+        designGrid.appendChild(
+            createCard(design)
+        );
+
+    });
+
+}
+
+
+/* =====================================================
+   CREATE CATEGORY BUTTONS
+===================================================== */
+
+function createCategories(){
+
+    const uniqueCategories =
+        [
+            ...new Set(
+                designs.map(
+                    design =>
+                        design.category
+                )
+            )
+        ];
+
+
+    uniqueCategories.forEach(category => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "category";
+
+        button.dataset.category =
+            category.toLowerCase();
+
+        button.textContent =
+            category;
+
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                document
+                    .querySelectorAll(
+                        ".category"
+                    )
+                    .forEach(btn =>
+                        btn.classList
+                            .remove("active")
+                    );
+
+
+                button.classList
+                    .add("active");
+
+
+                activeCategory =
+                    button.dataset.category;
+
+
+                renderDesigns();
+
+            }
+        );
+
+
+        categories.appendChild(button);
+
+    });
+
+}
+
+
+/* =====================================================
+   FETCH GITHUB FOLDERS
+===================================================== */
+
+async function loadDesigns(){
+
+    try{
+
+        const apiURL =
+            `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPOSITORY}/contents/${DESIGNS_FOLDER}`;
+
+
+        const response =
+            await fetch(apiURL);
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "GitHub repository could not be accessed."
+            );
+
+        }
+
+
+        const files =
+            await response.json();
+
+
+        /*
+            Only folders are considered designs.
+
+            index.html is ignored automatically.
+        */
+
+        const folders =
+            files.filter(item =>
+                item.type === "dir"
+            );
+
+
+        designs =
+            folders.map(folder => {
+
+                const name =
+                    formatName(folder.name);
+
+
+                return {
+
+                    folder:folder.name,
+
+                    name:name,
+
+                    category:
+                        detectCategory(
+                            folder.name
+                        )
+
+                };
+
+            });
+
+
+        loading.style.display =
+            "none";
+
+
+        if(designs.length === 0){
+
+            empty.style.display =
+                "block";
+
+            designCount.textContent =
+                "0";
+
+            return;
+
+        }
+
+
+        createCategories();
+
+        renderDesigns();
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        loading.innerHTML = `
+
+            <strong>
+                Unable to load designs
+            </strong>
+
+            <br>
+
+            Please check your GitHub repository
+            and make sure the
+            <b>templates</b>
+            folder exists.
+
+        `;
+
+    }
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+searchInput.addEventListener(
+    "input",
+    renderDesigns
+);
+
+
+/* =====================================================
+   MOBILE MENU
+===================================================== */
+
+menuBtn.addEventListener(
+    "click",
+    () => {
+
+        nav.classList.toggle(
+            "active"
+        );
+
+    }
+);
+
+
+nav.querySelectorAll("a")
+    .forEach(link => {
+
+        link.addEventListener(
+            "click",
+            () => {
+
+                nav.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   YEAR
+===================================================== */
+
+document.getElementById("year")
+    .textContent =
+        new Date().getFullYear();
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadDesigns();
+
+</script>
+
+</body>
+</html>
+```
