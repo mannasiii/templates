@@ -1,752 +1,765 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Manasi — Website Templates</title>
+<title>Manasi Designs — Website Templates</title>
 
-<meta name="description" content="Explore website designs and templates by Manasi.">
+<meta name="description"
+content="Explore premium website designs and templates by Manasi.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
-:root {
-    --bg: #f7f3ee;
-    --surface: #fffaf5;
-    --card: #ffffff;
-    --text: #25201d;
-    --muted: #756d67;
-
-    /* Pinterest-inspired warm combination */
-    --peach: #e9a38f;
-    --rose: #c97878;
-    --brown: #59433d;
-    --cream: #f5e7dc;
-
-    --border: rgba(89,67,61,.12);
-    --shadow: 0 18px 50px rgba(89,67,61,.10);
-
-    --max: 1180px;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+html{
+    scroll-behavior:smooth;
 }
 
-html {
-    scroll-behavior: smooth;
+body{
+    background:#f7f3ed;
+    color:#29251f;
+    font-family:"DM Sans",sans-serif;
+    line-height:1.6;
 }
 
-body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: "DM Sans", sans-serif;
-    line-height: 1.6;
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+    --cream:#f7f3ed;
+    --cream-dark:#eee6da;
+    --brown:#59483c;
+    --dark:#29251f;
+    --muted:#81766b;
+    --rose:#c98782;
+    --rose-light:#e8c5bf;
+    --sage:#87947e;
+    --white:#fffdf9;
+    --border:rgba(89,72,60,.14);
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+/* =========================
+   CONTAINER
+========================= */
 
-.container {
-    width: min(92%, var(--max));
-    margin: auto;
+.container{
+    width:min(92%,1180px);
+    margin:auto;
 }
-
 
 /* =========================
    HEADER
 ========================= */
 
-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
 
-    background: rgba(247,243,238,.88);
-    backdrop-filter: blur(15px);
+    background:rgba(247,243,237,.9);
+    backdrop-filter:blur(15px);
 
-    border-bottom: 1px solid var(--border);
+    border-bottom:1px solid var(--border);
 }
 
-.navbar {
-    height: 76px;
+.navbar{
+    height:76px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.logo{
+    text-decoration:none;
+    color:var(--dark);
 
-    font-family: "Playfair Display", serif;
-    font-size: 24px;
-    font-weight: 700;
+    font-family:"Playfair Display",serif;
+    font-size:24px;
+    font-weight:700;
 }
 
-.logo-mark {
-    width: 38px;
-    height: 38px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 50%;
-
-    background: var(--brown);
-    color: white;
-
-    font-size: 13px;
-    font-weight: 700;
+.logo span{
+    color:var(--rose);
 }
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: 28px;
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:25px;
 }
 
-nav a {
-    color: var(--muted);
-    font-size: 13px;
-    font-weight: 500;
+.nav-link{
+    color:var(--brown);
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
 }
 
-nav a:hover {
-    color: var(--brown);
+.nav-button{
+    background:var(--brown);
+    color:white;
+
+    padding:10px 17px;
+    border-radius:30px;
+
+    text-decoration:none;
+    font-size:12px;
+    font-weight:600;
 }
-
-.nav-btn {
-    padding: 10px 17px;
-    border-radius: 30px;
-
-    background: var(--brown);
-    color: white !important;
-}
-
 
 /* =========================
    HERO
 ========================= */
 
-.hero {
-    padding: 105px 0 85px;
-    text-align: center;
-
-    background:
-        radial-gradient(
-            circle at 20% 20%,
-            rgba(233,163,143,.18),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 80% 30%,
-            rgba(201,120,120,.12),
-            transparent 30%
-        );
+.hero{
+    padding:120px 0 100px;
+    text-align:center;
 }
 
-.eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+.hero-label{
+    display:inline-block;
 
-    padding: 7px 14px;
+    padding:7px 14px;
 
-    border: 1px solid var(--border);
-    border-radius: 50px;
+    border-radius:30px;
 
-    background: rgba(255,255,255,.55);
+    background:var(--rose-light);
+    color:var(--brown);
 
-    color: var(--muted);
-    font-size: 11px;
-    font-weight: 600;
+    font-size:11px;
+    font-weight:700;
 
-    margin-bottom: 25px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+    margin-bottom:24px;
 }
 
-.dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
+.hero h1{
+    font-family:"Playfair Display",serif;
 
-    background: var(--rose);
+    font-size:clamp(48px,7vw,82px);
+
+    line-height:1.05;
+
+    font-weight:600;
+
+    letter-spacing:-2px;
 }
 
-.hero h1 {
-    max-width: 850px;
-    margin: auto;
-
-    font-family: "Playfair Display", serif;
-
-    font-size: clamp(48px, 7vw, 82px);
-    line-height: 1.02;
-
-    letter-spacing: -2px;
+.hero h1 span{
+    color:var(--rose);
 }
 
-.hero h1 span {
-    color: var(--rose);
-    font-style: italic;
+.hero p{
+    max-width:650px;
+    margin:25px auto 0;
+
+    color:var(--muted);
+
+    font-size:16px;
 }
 
-.hero p {
-    max-width: 610px;
-    margin: 25px auto 0;
+.hero-button{
+    display:inline-flex;
 
-    color: var(--muted);
-    font-size: 16px;
+    margin-top:32px;
+
+    padding:14px 23px;
+
+    background:var(--brown);
+    color:white;
+
+    border-radius:30px;
+
+    text-decoration:none;
+
+    font-size:13px;
+    font-weight:600;
+
+    transition:.3s;
 }
 
-.hero-actions {
-    margin-top: 30px;
-
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
+.hero-button:hover{
+    transform:translateY(-3px);
 }
-
-.btn {
-    padding: 13px 21px;
-
-    border-radius: 30px;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    transition: .25s ease;
-}
-
-.btn-primary {
-    background: var(--brown);
-    color: white;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    border: 1px solid var(--border);
-    background: white;
-}
-
-.btn-secondary:hover {
-    background: var(--cream);
-}
-
 
 /* =========================
-   TEMPLATE SECTION
+   STATS
 ========================= */
 
-.templates-section {
-    padding: 90px 0;
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+
+    margin-bottom:100px;
 }
 
-.section-head {
-    display: flex;
-    align-items: end;
-    justify-content: space-between;
+.stat{
+    text-align:center;
+    padding:27px 15px;
 
-    gap: 25px;
-    margin-bottom: 35px;
+    border-right:1px solid var(--border);
 }
 
-.section-label {
-    color: var(--rose);
-
-    font-size: 11px;
-    font-weight: 700;
-
-    text-transform: uppercase;
-    letter-spacing: 2px;
-
-    margin-bottom: 8px;
+.stat:last-child{
+    border-right:0;
 }
 
-.section-head h2 {
-    font-family: "Playfair Display", serif;
+.stat strong{
+    display:block;
 
-    font-size: clamp(35px, 5vw, 52px);
-    line-height: 1;
+    font-family:"Playfair Display",serif;
+
+    font-size:30px;
 }
 
-.section-head p {
-    max-width: 420px;
-
-    color: var(--muted);
-    font-size: 13px;
+.stat span{
+    color:var(--muted);
+    font-size:11px;
 }
 
+/* =========================
+   SHOWCASE
+========================= */
+
+.showcase{
+    padding-bottom:120px;
+}
+
+.section-top{
+    display:flex;
+
+    align-items:end;
+    justify-content:space-between;
+
+    gap:30px;
+
+    margin-bottom:30px;
+}
+
+.section-label{
+    color:var(--rose);
+
+    font-size:10px;
+    font-weight:700;
+
+    text-transform:uppercase;
+    letter-spacing:2px;
+
+    margin-bottom:8px;
+}
+
+.section-title{
+    font-family:"Playfair Display",serif;
+
+    font-size:48px;
+    line-height:1;
+
+    font-weight:600;
+}
+
+.section-description{
+    max-width:400px;
+
+    color:var(--muted);
+
+    font-size:13px;
+}
 
 /* =========================
    TOOLBAR
 ========================= */
 
-.toolbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-    gap: 15px;
+    gap:15px;
 
-    margin-bottom: 25px;
+    margin-bottom:25px;
 }
 
-.count {
-    color: var(--muted);
-    font-size: 13px;
+.categories{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
 }
 
-.count strong {
-    color: var(--brown);
-    font-size: 18px;
+.category-btn{
+    border:1px solid var(--border);
+
+    background:transparent;
+
+    color:var(--brown);
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:11px;
+    font-weight:600;
+
+    transition:.25s;
 }
 
-.search {
-    width: 280px;
+.category-btn:hover,
+.category-btn.active{
+    background:var(--brown);
+    color:white;
 }
 
-.search input {
-    width: 100%;
-
-    padding: 12px 15px;
-
-    border: 1px solid var(--border);
-    border-radius: 30px;
-
-    outline: none;
-
-    background: white;
-    color: var(--text);
+.search{
+    width:240px;
 }
 
-.search input:focus {
-    border-color: var(--peach);
+.search input{
+    width:100%;
+
+    padding:11px 14px;
+
+    border:1px solid var(--border);
+
+    border-radius:30px;
+
+    background:var(--white);
+
+    outline:none;
+
+    font-size:12px;
+
+    color:var(--dark);
 }
 
+.search input:focus{
+    border-color:var(--rose);
+}
 
 /* =========================
-   FILTERS
+   DESIGN GRID
 ========================= */
 
-.filters {
-    display: flex;
-    gap: 8px;
-
-    flex-wrap: wrap;
-
-    margin-bottom: 30px;
-}
-
-.filter {
-    padding: 8px 15px;
-
-    border: 1px solid var(--border);
-    border-radius: 30px;
-
-    background: white;
-
-    color: var(--muted);
-
-    font-size: 11px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition: .2s ease;
-}
-
-.filter:hover,
-.filter.active {
-    background: var(--brown);
-    color: white;
-    border-color: var(--brown);
-}
-
-
-/* =========================
-   GRID
-========================= */
-
-.grid {
-    display: grid;
+.design-grid{
+    display:grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(3,1fr);
 
-    gap: 22px;
+    gap:20px;
 }
-
 
 /* =========================
-   CARD
+   DESIGN CARD
 ========================= */
 
-.card {
-    overflow: hidden;
+.design-card{
+    background:var(--white);
 
-    background: var(--card);
+    border:1px solid var(--border);
 
-    border: 1px solid var(--border);
-    border-radius: 18px;
+    border-radius:18px;
 
-    box-shadow: 0 5px 20px rgba(89,67,61,.04);
+    overflow:hidden;
 
-    transition: .3s ease;
+    transition:.35s;
+
+    animation:fadeUp .6s ease both;
 }
 
-.card:hover {
-    transform: translateY(-7px);
-    box-shadow: var(--shadow);
+.design-card:hover{
+    transform:translateY(-7px);
+
+    box-shadow:
+        0 18px 45px
+        rgba(89,72,60,.12);
 }
 
+/* preview */
 
-/* =========================
-   PREVIEW
-========================= */
+.preview{
+    height:220px;
 
-.preview {
-    position: relative;
+    background:
+        linear-gradient(
+            135deg,
+            var(--cream-dark),
+            var(--rose-light)
+        );
 
-    height: 250px;
+    position:relative;
 
-    overflow: hidden;
-
-    background: var(--cream);
-
-    border-bottom: 1px solid var(--border);
+    overflow:hidden;
 }
 
-.preview iframe {
-    width: 100%;
-    height: 100%;
+.preview iframe{
+    width:100%;
+    height:100%;
 
-    border: 0;
+    border:0;
 
-    background: white;
+    pointer-events:none;
 
-    pointer-events: none;
+    transform:scale(.5);
+
+    transform-origin:top left;
+
+    width:200%;
+    height:200%;
 }
 
-/*
-   iframe is displayed slightly zoomed
-   so website looks like a preview.
-*/
+/* fallback visual */
 
-.preview iframe {
-    width: 125%;
-    height: 125%;
+.preview-placeholder{
+    position:absolute;
 
-    transform: scale(.8);
-    transform-origin: top left;
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:45px;
+
+    color:rgba(89,72,60,.3);
 }
 
-.preview-fallback {
-    position: absolute;
+/* card body */
 
-    inset: 0;
-
-    display: grid;
-    place-items: center;
-
-    z-index: 0;
-
-    font-family: "Playfair Display", serif;
-    font-size: 70px;
-
-    color: rgba(89,67,61,.18);
+.card-body{
+    padding:20px;
 }
 
-.preview iframe {
-    position: relative;
-    z-index: 1;
+.card-top{
+    display:flex;
+
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:13px;
 }
 
+.badge{
+    padding:5px 9px;
 
-/* =========================
-   CARD CONTENT
-========================= */
+    border-radius:20px;
 
-.card-content {
-    padding: 21px;
+    background:#e5eee1;
+
+    color:#65715e;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.6px;
 }
 
-.card-top {
-    display: flex;
-    align-items: start;
-    justify-content: space-between;
+.card-number{
+    color:#b1a79d;
 
-    gap: 15px;
+    font-size:10px;
 }
 
-.card h3 {
-    font-family: "Playfair Display", serif;
+.design-card h3{
+    font-family:"Playfair Display",serif;
 
-    font-size: 23px;
-    line-height: 1.1;
+    font-size:23px;
+
+    line-height:1.2;
+
+    margin-bottom:6px;
 }
 
-.category {
-    display: inline-block;
+.domain{
+    color:var(--muted);
 
-    margin-top: 7px;
+    font-family:monospace;
 
-    color: var(--rose);
+    font-size:10px;
 
-    font-size: 9px;
-    font-weight: 700;
-
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
+    margin-bottom:17px;
 }
 
-.live {
-    padding: 5px 9px;
+.visit{
+    display:inline-flex;
 
-    border-radius: 30px;
+    align-items:center;
 
-    background: #f7e9e3;
-    color: var(--rose);
+    gap:7px;
 
-    font-size: 8px;
-    font-weight: 700;
+    color:var(--brown);
+
+    text-decoration:none;
+
+    font-size:12px;
+
+    font-weight:700;
 }
 
-.folder {
-    margin-top: 12px;
-
-    color: #9a918b;
-
-    font-family: monospace;
-    font-size: 10px;
+.visit span{
+    transition:.2s;
 }
 
-.visit {
-    display: inline-flex;
-
-    margin-top: 17px;
-
-    color: var(--brown);
-
-    font-size: 12px;
-    font-weight: 700;
+.visit:hover span{
+    transform:translateX(4px);
 }
-
-.visit span {
-    margin-left: 6px;
-
-    transition: .2s ease;
-}
-
-.visit:hover span {
-    transform: translateX(4px);
-}
-
 
 /* =========================
    LOADING
 ========================= */
 
-.loading {
-    grid-column: 1 / -1;
+.loading{
+    grid-column:1/-1;
 
-    padding: 70px 20px;
+    text-align:center;
 
-    text-align: center;
+    padding:80px 20px;
 
-    color: var(--muted);
+    color:var(--muted);
 }
 
-.spinner {
-    width: 28px;
-    height: 28px;
+.loader{
+    width:30px;
+    height:30px;
 
-    margin: 0 auto 15px;
+    margin:0 auto 15px;
 
-    border: 3px solid var(--cream);
-    border-top-color: var(--brown);
+    border:3px solid var(--rose-light);
 
-    border-radius: 50%;
+    border-top-color:var(--brown);
 
-    animation: spin .8s linear infinite;
+    border-radius:50%;
+
+    animation:spin .8s linear infinite;
 }
-
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 
 /* =========================
    EMPTY
 ========================= */
 
-.empty {
-    grid-column: 1 / -1;
+.empty{
+    grid-column:1/-1;
 
-    padding: 65px 20px;
+    text-align:center;
 
-    text-align: center;
+    padding:80px 20px;
 
-    border: 1px dashed var(--border);
-    border-radius: 18px;
+    border:1px dashed var(--border);
 
-    color: var(--muted);
+    border-radius:18px;
+
+    color:var(--muted);
 }
 
-.empty h3 {
-    margin-bottom: 5px;
+.empty strong{
+    display:block;
 
-    font-family: "Playfair Display", serif;
+    color:var(--dark);
 
-    color: var(--brown);
-    font-size: 24px;
+    font-family:"Playfair Display",serif;
+
+    font-size:24px;
+
+    margin-bottom:5px;
 }
-
 
 /* =========================
-   BOTTOM CTA
+   CTA
 ========================= */
 
-.cta {
-    margin: 40px 0 90px;
+.cta{
+    margin-bottom:100px;
 
-    padding: 70px 25px;
+    padding:70px 30px;
 
-    text-align: center;
+    border-radius:25px;
 
-    border-radius: 25px;
+    text-align:center;
 
     background:
         linear-gradient(
             135deg,
-            #59433d,
-            #765550
+            #e8c5bf,
+            #eee6da
         );
-
-    color: white;
 }
 
-.cta h2 {
-    font-family: "Playfair Display", serif;
+.cta h2{
+    font-family:"Playfair Display",serif;
 
-    font-size: clamp(35px, 5vw, 55px);
+    font-size:48px;
+
+    line-height:1;
 }
 
-.cta p {
-    max-width: 500px;
+.cta p{
+    max-width:520px;
 
-    margin: 15px auto 25px;
+    margin:17px auto 25px;
 
-    color: rgba(255,255,255,.72);
+    color:var(--brown);
 
-    font-size: 13px;
+    font-size:13px;
 }
-
-.cta .btn {
-    display: inline-block;
-
-    background: white;
-    color: var(--brown);
-}
-
 
 /* =========================
    FOOTER
 ========================= */
 
-footer {
-    padding: 30px 0;
+footer{
+    border-top:1px solid var(--border);
 
-    border-top: 1px solid var(--border);
+    padding:30px 0;
 }
 
-.footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.footer-inner{
+    display:flex;
 
-    gap: 20px;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.footer p {
-    color: var(--muted);
-    font-size: 11px;
+.footer-copy{
+    color:var(--muted);
+
+    font-size:10px;
 }
 
+.footer-name{
+    font-family:"Playfair Display",serif;
+
+    font-size:18px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
 
 /* =========================
    RESPONSIVE
 ========================= */
 
-@media(max-width: 900px) {
+@media(max-width:900px){
 
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
+    .design-grid{
+        grid-template-columns:repeat(2,1fr);
     }
+
 }
 
-@media(max-width: 650px) {
+@media(max-width:650px){
 
-    .navbar {
-        height: 68px;
+    .navbar{
+        height:65px;
     }
 
-    nav {
-        display: none;
+    .nav-link{
+        display:none;
     }
 
-    .hero {
-        padding: 80px 0 65px;
+    .hero{
+        padding:90px 0 70px;
     }
 
-    .hero h1 {
-        font-size: 50px;
+    .hero h1{
+        font-size:48px;
     }
 
-    .section-head {
-        flex-direction: column;
-        align-items: flex-start;
+    .stats{
+        grid-template-columns:1fr;
     }
 
-    .toolbar {
-        flex-direction: column;
-        align-items: stretch;
+    .stat{
+        border-right:0;
+        border-bottom:1px solid var(--border);
     }
 
-    .search {
-        width: 100%;
+    .stat:last-child{
+        border-bottom:0;
     }
 
-    .grid {
-        grid-template-columns: 1fr;
+    .section-top{
+        flex-direction:column;
+        align-items:flex-start;
     }
 
-    .preview {
-        height: 270px;
+    .section-title{
+        font-size:40px;
     }
 
-    .footer {
-        flex-direction: column;
-        align-items: flex-start;
+    .toolbar{
+        flex-direction:column;
+        align-items:stretch;
     }
+
+    .search{
+        width:100%;
+    }
+
+    .design-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta h2{
+        font-size:38px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
-
 
 <!-- =========================
      HEADER
@@ -756,31 +769,21 @@ footer {
 
 <div class="container navbar">
 
-    <a href="./" class="logo">
+<a href="./" class="logo">
+    Manasi<span>Designs</span>
+</a>
 
-        <div class="logo-mark">
-            MR
-        </div>
+<div class="nav-right">
 
-        Manasi Designs
+<a href="#designs" class="nav-link">
+    Designs
+</a>
 
-    </a>
+<a href="#contact" class="nav-button">
+    Start a Project
+</a>
 
-    <nav>
-
-        <a href="#templates">
-            Templates
-        </a>
-
-        <a href="#about">
-            About
-        </a>
-
-        <a href="#contact" class="nav-btn">
-            Start a Project
-        </a>
-
-    </nav>
+</div>
 
 </div>
 
@@ -795,57 +798,23 @@ footer {
 
 <div class="container">
 
-    <div class="eyebrow">
+<div class="hero-label">
+    Website Design Collection
+</div>
 
-        <span class="dot"></span>
+<h1>
+    Designs made to
+    <span>stand out.</span>
+</h1>
 
-        <span id="heroCount">
-            Finding designs...
-        </span>
+<p>
+    Explore my collection of website designs created
+    for different businesses, industries and brands.
+</p>
 
-    </div>
-
-
-    <h1>
-
-        Websites made to
-
-        <span>
-            look beautiful.
-        </span>
-
-    </h1>
-
-
-    <p>
-
-        Explore my latest website concepts and
-        ready-to-show designs for businesses,
-        brands and professionals.
-
-    </p>
-
-
-    <div class="hero-actions">
-
-        <a
-            href="#templates"
-            class="btn btn-primary">
-
-            Explore Designs
-
-        </a>
-
-
-        <a
-            href="#contact"
-            class="btn btn-secondary">
-
-            Start a Project
-
-        </a>
-
-    </div>
+<a href="#designs" class="hero-button">
+    Explore Designs →
+</a>
 
 </div>
 
@@ -853,145 +822,135 @@ footer {
 
 
 <!-- =========================
-     TEMPLATES
+     STATS
 ========================= -->
-
-<section
-    class="templates-section"
-    id="templates">
 
 <div class="container">
 
+<div class="stats">
 
-    <div class="section-head">
+<div class="stat">
+    <strong id="totalDesigns">0</strong>
+    <span>Available Designs</span>
+</div>
 
-        <div>
+<div class="stat">
+    <strong>100%</strong>
+    <span>Responsive</span>
+</div>
 
-            <div class="section-label">
-                My Collection
-            </div>
+<div class="stat">
+    <strong>∞</strong>
+    <span>Design Possibilities</span>
+</div>
 
-            <h2>
-                Website Designs
-            </h2>
+</div>
 
-        </div>
-
-
-        <p>
-
-            A growing collection of website
-            concepts. New designs are added
-            regularly.
-
-        </p>
-
-    </div>
+</div>
 
 
-    <!-- TOOLBAR -->
+<!-- =========================
+     SHOWCASE
+========================= -->
 
-    <div class="toolbar">
+<section class="showcase" id="designs">
 
-        <div class="count">
+<div class="container">
 
-            <strong id="count">
-                0
-            </strong>
+<div class="section-top">
 
-            designs available
+<div>
 
-        </div>
+<div class="section-label">
+    My Collection
+</div>
 
+<h2 class="section-title">
+    Explore designs.
+</h2>
 
-        <div class="search">
+</div>
 
-            <input
-                type="search"
-                id="search"
-                placeholder="Search designs..."
-                autocomplete="off">
+<p class="section-description">
+    Browse through the website concepts I have
+    designed for different businesses and industries.
+</p>
 
-        </div>
-
-    </div>
-
-
-    <!-- FILTERS -->
-
-    <div class="filters">
-
-        <button
-            class="filter active"
-            data-category="all">
-
-            All
-
-        </button>
+</div>
 
 
-        <button
-            class="filter"
-            data-category="salon">
+<!-- TOOLBAR -->
 
-            Salon
+<div class="toolbar">
 
-        </button>
+<div class="categories">
+
+<button
+class="category-btn active"
+data-category="all">
+All
+</button>
+
+<button
+class="category-btn"
+data-category="salon">
+Salon
+</button>
+
+<button
+class="category-btn"
+data-category="cycles">
+Cycles
+</button>
+
+<button
+class="category-btn"
+data-category="business">
+Business
+</button>
+
+<button
+class="category-btn"
+data-category="restaurant">
+Restaurant
+</button>
+
+<button
+class="category-btn"
+data-category="fashion">
+Fashion
+</button>
+
+</div>
+
+<div class="search">
+
+<input
+type="search"
+id="searchInput"
+placeholder="Search designs..."
+autocomplete="off">
+
+</div>
+
+</div>
 
 
-        <button
-            class="filter"
-            data-category="cycles">
+<!-- DESIGN GRID -->
 
-            Cycles
+<div
+class="design-grid"
+id="designGrid">
 
-        </button>
+<div class="loading">
 
+<div class="loader"></div>
 
-        <button
-            class="filter"
-            data-category="restaurant">
+Finding your designs...
 
-            Restaurant
+</div>
 
-        </button>
-
-
-        <button
-            class="filter"
-            data-category="portfolio">
-
-            Portfolio
-
-        </button>
-
-
-        <button
-            class="filter"
-            data-category="business">
-
-            Business
-
-        </button>
-
-    </div>
-
-
-    <!-- AUTOMATIC GRID -->
-
-    <div
-        class="grid"
-        id="grid">
-
-        <div class="loading">
-
-            <div class="spinner"></div>
-
-            Finding your designs...
-
-        </div>
-
-    </div>
+</div>
 
 </div>
 
@@ -1006,32 +965,31 @@ footer {
 
 <div class="container">
 
-    <div class="cta">
+<div class="cta">
 
-        <div class="section-label">
-            Let's Work Together
-        </div>
+<div class="section-label">
+    Let's Work Together
+</div>
 
-        <h2>
-            Have a website in mind?
-        </h2>
+<h2>
+    Have a project<br>
+    in mind?
+</h2>
 
-        <p>
+<p>
+    Let's create a professional website that
+    represents your business beautifully.
+</p>
 
-            Let's create a clean, modern and
-            professional website for your business.
+<a
+href="mailto:your@email.com"
+class="hero-button">
 
-        </p>
+Start a Project →
 
-        <a
-            href="mailto:your@email.com"
-            class="btn">
+</a>
 
-            Start a Project →
-
-        </a>
-
-    </div>
+</div>
 
 </div>
 
@@ -1044,15 +1002,15 @@ footer {
 
 <footer>
 
-<div class="container footer">
+<div class="container footer-inner">
 
-    <p>
-        © <span id="year"></span> Manasi Designs
-    </p>
+<div class="footer-copy">
+    © <span id="year"></span> Manasi Designs
+</div>
 
-    <p>
-        Website Design & Development
-    </p>
+<div class="footer-name">
+    Manasi Designs
+</div>
 
 </div>
 
@@ -1062,47 +1020,44 @@ footer {
 <script>
 
 /* =====================================================
-   CONFIGURATION
-
-   DO NOT CHANGE THIS WHEN ADDING NEW DESIGNS.
+   GITHUB CONFIGURATION
 ===================================================== */
 
-const GITHUB_USERNAME = "mannasiii";
+/*
+    Your GitHub username
+*/
 
-const GITHUB_REPOSITORY =
-    "mannasiii.github.io";
+const GITHUB_USER = "mannasiii";
 
-const GITHUB_FOLDER =
-    "templates";
+/*
+    Repository name
+*/
 
+const GITHUB_REPO = "mannasiii.github.io";
 
-/* GitHub API */
+/*
+    Folder containing all designs
+*/
 
-const API_URL =
-    `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPOSITORY}/contents/${GITHUB_FOLDER}`;
-
-
-/* Website base URL */
-
-const WEBSITE_BASE =
-    `https://${GITHUB_USERNAME}.github.io/${GITHUB_FOLDER}`;
+const DESIGNS_FOLDER = "templates";
 
 
 /* =====================================================
-   ELEMENTS
+   VARIABLES
 ===================================================== */
 
-const grid =
-    document.getElementById("grid");
+const designGrid =
+    document.getElementById("designGrid");
 
-const count =
-    document.getElementById("count");
+const totalDesigns =
+    document.getElementById("totalDesigns");
 
-const heroCount =
-    document.getElementById("heroCount");
+const searchInput =
+    document.getElementById("searchInput");
 
-const search =
-    document.getElementById("search");
+const categoryButtons =
+    document.querySelectorAll(".category-btn");
+
 
 let designs = [];
 
@@ -1113,152 +1068,180 @@ let activeCategory = "all";
    CATEGORY DETECTION
 ===================================================== */
 
-function getCategory(folder) {
+function detectCategory(folder){
 
     const name =
         folder.toLowerCase();
 
+    /*
+       Automatic category detection
+    */
 
-    if (
+    if(
         name.includes("salon") ||
         name.includes("beauty") ||
         name.includes("spa")
-    ) {
-        return "Salon";
+    ){
+        return "salon";
     }
 
-
-    if (
-        name.includes("apex") ||
+    if(
         name.includes("cycle") ||
-        name.includes("cycling") ||
+        name.includes("bicycle") ||
         name.includes("bike")
-    ) {
-        return "Cycles";
+    ){
+        return "cycles";
     }
 
-
-    if (
+    if(
         name.includes("restaurant") ||
         name.includes("cafe") ||
         name.includes("food")
-    ) {
-        return "Restaurant";
+    ){
+        return "restaurant";
     }
 
-
-    if (
-        name.includes("portfolio") ||
-        name.includes("personal")
-    ) {
-        return "Portfolio";
+    if(
+        name.includes("fashion") ||
+        name.includes("boutique") ||
+        name.includes("designer")
+    ){
+        return "fashion";
     }
 
-
-    return "Business";
+    return "business";
 }
 
 
 /* =====================================================
-   FORMAT NAME
+   DISPLAY NAME
 ===================================================== */
 
-function formatName(folder) {
+function formatName(folder){
 
-    return folder
+    let name = folder
+        .replace(/[-_]/g," ")
+        .replace(/\s+/g," ")
+        .trim();
 
-        .replace(/[-_]/g, " ")
+    /*
+       Make camelCase readable
+    */
 
-        .replace(
-            /([a-z])([A-Z])/g,
-            "$1 $2"
+    name = name.replace(
+        /([a-z])([A-Z])/g,
+        "$1 $2"
+    );
+
+    /*
+       Capitalize words
+    */
+
+    return name
+        .split(" ")
+        .map(word =>
+            word.charAt(0).toUpperCase()
+            + word.slice(1)
         )
-
-        .replace(
-            /\s+/g,
-            " "
-        )
-
-        .trim()
-
-        .replace(
-            /\b\w/g,
-            letter =>
-                letter.toUpperCase()
-        );
+        .join(" ");
 }
 
 
 /* =====================================================
-   FETCH FOLDERS FROM GITHUB
+   LOAD DESIGNS FROM GITHUB
 ===================================================== */
 
-async function fetchDesigns() {
+async function loadDesigns(){
 
-    try {
+    try{
+
+        /*
+           GitHub Contents API
+
+           This reads the templates folder
+           and finds every sub-folder.
+        */
+
+        const apiURL =
+            `https://api.github.com/repos/` +
+            `${GITHUB_USER}/${GITHUB_REPO}/contents/` +
+            `${DESIGNS_FOLDER}`;
+
 
         const response =
-            await fetch(API_URL);
+            await fetch(apiURL);
 
 
-        if (!response.ok) {
+        if(!response.ok){
 
             throw new Error(
-                "GitHub API returned " +
-                response.status
+                "GitHub API request failed"
             );
+
         }
 
 
-        const files =
+        const items =
             await response.json();
 
 
         /*
-         * ONLY folders are designs.
-         *
-         * index.html itself is ignored.
-         */
+           Keep only directories.
+
+           This means:
+           index.html is ignored.
+
+           apex/ is detected.
+           salon/ is detected.
+           cycles/ is detected.
+        */
 
         const folders =
-            files.filter(
+            items.filter(
                 item =>
                     item.type === "dir"
             );
 
 
+        /*
+           Create design objects
+        */
+
         designs =
-            folders.map(folder => {
+            folders.map(
+                folder => {
 
-                return {
-
-                    folder:
-                        folder.name,
-
-                    name:
-                        formatName(
+                    const category =
+                        detectCategory(
                             folder.name
-                        ),
-
-                    category:
-                        getCategory(
-                            folder.name
-                        ),
-
-                    url:
-                        WEBSITE_BASE +
-                        "/" +
-                        encodeURIComponent(
-                            folder.name
-                        ) +
-                        "/"
-
-                };
-
-            });
+                        );
 
 
-        /* Sort alphabetically */
+                    return {
+
+                        folder:folder.name,
+
+                        name:
+                            formatName(
+                                folder.name
+                            ),
+
+                        category:category,
+
+                        url:
+                            `./${encodeURIComponent(
+                                folder.name
+                            )}/`
+
+                    };
+
+                }
+            );
+
+
+        /*
+           Sort alphabetically
+        */
 
         designs.sort(
             (a,b) =>
@@ -1268,40 +1251,38 @@ async function fetchDesigns() {
         );
 
 
-        updateCount();
+        /*
+           Update count
+        */
 
-        render();
-
-
-        console.log(
-            "Designs detected:",
-            designs
-        );
+        totalDesigns.textContent =
+            designs.length;
 
 
-    } catch(error) {
+        /*
+           Render
+        */
 
-        console.error(
-            "Could not fetch designs:",
-            error
-        );
-
-
-        heroCount.textContent =
-            "Unable to load designs";
+        renderDesigns();
 
 
-        grid.innerHTML = `
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        designGrid.innerHTML = `
 
             <div class="empty">
 
-                <h3>
-                    Designs could not be loaded
-                </h3>
+                <strong>
+                    Unable to load designs
+                </strong>
 
                 <p>
-                    Please refresh the page
-                    and try again.
+                    Please check the GitHub repository
+                    or try again later.
                 </p>
 
             </div>
@@ -1314,94 +1295,68 @@ async function fetchDesigns() {
 
 
 /* =====================================================
-   COUNT
+   RENDER DESIGNS
 ===================================================== */
 
-function updateCount() {
+function renderDesigns(){
 
-    count.textContent =
-        designs.length;
-
-
-    heroCount.textContent =
-        designs.length === 1
-
-        ? "1 design available"
-
-        : `${designs.length} designs available`;
-
-}
-
-
-/* =====================================================
-   RENDER
-===================================================== */
-
-function render() {
-
-    const keyword =
-        search.value
+    const search =
+        searchInput.value
             .toLowerCase()
             .trim();
 
 
     const filtered =
-        designs.filter(design => {
+        designs.filter(
+            design => {
+
+                const categoryMatch =
+                    activeCategory === "all"
+                    ||
+                    design.category ===
+                    activeCategory;
 
 
-            const matchesSearch =
-
-                design.name
-                    .toLowerCase()
-                    .includes(keyword)
-
-                ||
-
-                design.folder
-                    .toLowerCase()
-                    .includes(keyword)
-
-                ||
-
-                design.category
-                    .toLowerCase()
-                    .includes(keyword);
+                const searchMatch =
+                    design.name
+                        .toLowerCase()
+                        .includes(search)
+                    ||
+                    design.folder
+                        .toLowerCase()
+                        .includes(search)
+                    ||
+                    design.category
+                        .toLowerCase()
+                        .includes(search);
 
 
-            const matchesCategory =
+                return (
+                    categoryMatch
+                    &&
+                    searchMatch
+                );
 
-                activeCategory === "all"
-
-                ||
-
-                design.category
-                    .toLowerCase()
-                    === activeCategory;
-
-
-            return (
-                matchesSearch &&
-                matchesCategory
-            );
-
-        });
+            }
+        );
 
 
-    grid.innerHTML = "";
+    /*
+       No results
+    */
 
+    if(filtered.length === 0){
 
-    if (!filtered.length) {
-
-        grid.innerHTML = `
+        designGrid.innerHTML = `
 
             <div class="empty">
 
-                <h3>
+                <strong>
                     No designs found
-                </h3>
+                </strong>
 
                 <p>
-                    Try another search or category.
+                    Try another category or search.
                 </p>
 
             </div>
@@ -1413,101 +1368,85 @@ function render() {
     }
 
 
-    filtered.forEach(
-        design => {
+    /*
+       Create cards
+    */
 
-            const card =
-                document.createElement(
-                    "article"
-                );
+    designGrid.innerHTML =
+        filtered.map(
+            (design,index) => `
 
+                <article
+                    class="design-card"
+                    data-category="${design.category}"
+                >
 
-            card.className =
-                "card";
+                    <div class="preview">
 
+                        <div
+                            class="preview-placeholder">
 
-            card.innerHTML = `
+                            ${design.name
+                                .charAt(0)
+                                .toUpperCase()}
 
-                <div class="preview">
+                        </div>
 
-                    <div class="preview-fallback">
-
-                        ${design.name.charAt(0)}
+                        <iframe
+                            src="${design.url}"
+                            loading="lazy"
+                            title="${design.name}"
+                        ></iframe>
 
                     </div>
 
 
-                    <iframe
+                    <div class="card-body">
 
-                        src="${design.url}"
+                        <div class="card-top">
 
-                        loading="lazy"
-
-                        title="${design.name}"
-
-                        sandbox="allow-scripts allow-same-origin">
-
-                    </iframe>
-
-                </div>
-
-
-                <div class="card-content">
-
-                    <div class="card-top">
-
-                        <div>
-
-                            <h3>
-                                ${design.name}
-                            </h3>
-
-                            <div class="category">
+                            <span class="badge">
                                 ${design.category}
-                            </div>
+                            </span>
+
+                            <span class="card-number">
+                                ${String(index + 1)
+                                    .padStart(2,"0")}
+                            </span>
 
                         </div>
 
 
-                        <span class="live">
-                            LIVE
-                        </span>
+                        <h3>
+                            ${design.name}
+                        </h3>
+
+
+                        <div class="domain">
+                            /templates/${design.folder}/
+                        </div>
+
+
+                        <a
+                            href="${design.url}"
+                            class="visit"
+                        >
+
+                            View Design
+
+                            <span>
+                                →
+                            </span>
+
+                        </a>
 
                     </div>
 
+                </article>
 
-                    <div class="folder">
-
-                        /${design.folder}/
-
-                    </div>
-
-
-                    <a
-
-                        href="${design.url}"
-
-                        target="_blank"
-
-                        rel="noopener"
-
-                        class="visit">
-
-                        View Design
-
-                        <span>→</span>
-
-                    </a>
-
-                </div>
-
-            `;
-
-
-            grid.appendChild(card);
-
-        }
-    );
+            `
+        )
+        .join("");
 
 }
 
@@ -1516,48 +1455,46 @@ function render() {
    SEARCH
 ===================================================== */
 
-search.addEventListener(
+searchInput.addEventListener(
     "input",
-    render
+    renderDesigns
 );
 
 
 /* =====================================================
-   FILTERS
+   CATEGORY FILTER
 ===================================================== */
 
-document
-    .querySelectorAll(".filter")
-    .forEach(button => {
+categoryButtons.forEach(
+    button => {
 
         button.addEventListener(
             "click",
             () => {
 
-                document
-                    .querySelectorAll(".filter")
-                    .forEach(btn =>
-                        btn.classList.remove(
-                            "active"
-                        )
+                categoryButtons
+                    .forEach(
+                        btn =>
+                            btn.classList
+                                .remove("active")
                     );
 
 
-                button.classList.add(
-                    "active"
-                );
+                button.classList
+                    .add("active");
 
 
                 activeCategory =
                     button.dataset.category;
 
 
-                render();
+                renderDesigns();
 
             }
         );
 
-    });
+    }
+);
 
 
 /* =====================================================
@@ -1566,16 +1503,17 @@ document
 
 document.getElementById("year")
     .textContent =
-        new Date().getFullYear();
+    new Date().getFullYear();
 
 
 /* =====================================================
    START
 ===================================================== */
 
-fetchDesigns();
+loadDesigns();
 
 </script>
 
 </body>
 </html>
+
