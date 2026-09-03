@@ -13,5 +13,15 @@
   "name": "DentalCare",
     "folder": "DentalCare",
     "category": "Dental-Care"
+  },
+  { 
+  "name": "DentalCare",
+    "folder": "metal-industry",
+    "category": "Manufactures"
+  },
+  { 
+  "name": "metal-supply",
+    "folder": "metal-supply",
+    "category": "Manufactures"
   }
 ]
