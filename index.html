@@ -398,13 +398,15 @@
         <p class="desc">Browse through the website concepts designed for different businesses and industries.</p>
       </div>
       <div class="toolbar">
-     <div class="categories">
+    <div class="categories">
   <button class="category active" data-cat="all">All</button>
   <button class="category" data-cat="salon">Salon</button>
   <button class="category" data-cat="cycles">Cycles</button>
   <button class="category" data-cat="business">Business</button>
   <button class="category" data-cat="restaurant">Restaurant</button>
   <button class="category" data-cat="fashion">Fashion</button>
+  <button class="category" data-cat="manufactures">Manufactures</button>
+  <button class="category" data-cat="dental-care">Dental Care</button>
 </div>
         <div class="search"><input id="search" type="search" placeholder="Search designs..."></div>
       </div>
@@ -440,6 +442,8 @@
   if (/salon|beauty|spa/.test(n)) return "salon";
   if (/cycle|bicycle|bike|apex/.test(n)) return "cycles";
   if (/restaurant|cafe|food/.test(n)) return "restaurant";
+  if (/supply|manufactures|product/.test(n)) return "manufactures";
+  if (/dentalcare|dental|dr/.test(n)) return "dental-care";
   if (/fashion|boutique|designer/.test(n)) return "fashion";
 
   return "business";
