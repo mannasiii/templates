@@ -15,12 +15,12 @@
     "category": "Dental-Care"
   },
   { 
-  "name": "metal-industry",
+  "name": "Metal Industry"
     "folder": "metal-industry",
     "category": "Manufactures"
   },
   { 
-  "name": "metal-supply",
+  "name": "Metal Supply",
     "folder": "metal-supply",
     "category": "Manufactures"
   }
