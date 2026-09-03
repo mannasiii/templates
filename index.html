@@ -405,6 +405,8 @@
           <button class="category" data-cat="business">Business</button>
           <button class="category" data-cat="restaurant">Restaurant</button>
           <button class="category" data-cat="fashion">Fashion</button>
+          <button class="category" data-cat="manufactures">Manufactures</button>
+          <button class="category" data-cat="dentalcare">Dental Care</button>
         </div>
         <div class="search"><input id="search" type="search" placeholder="Search designs..."></div>
       </div>
@@ -439,6 +441,8 @@
       if (/salon|beauty|spa/.test(n)) return "salon";
       if (/cycle|bicycle|bike/.test(n)) return "cycles";
       if (/restaurant|cafe|food/.test(n)) return "restaurant";
+      if (/supply|manufactures|product/.test(n)) return "manufactures";
+      if (/dentalcare|dental|dr/.test(n)) return "Dental Care";
       if (/fashion|boutique|designer/.test(n)) return "fashion";
       return "business";
     }
