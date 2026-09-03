@@ -12,16 +12,16 @@
   { 
   "name": "DentalCare",
     "folder": "DentalCare",
-    "category": "Dental-Care"
+    "category": "dental-Care"
   },
   { 
   "name": "Metal Industry",
     "folder": "metal-industry",
-    "category": "Manufactures"
+    "category": "manufactures"
   },
   { 
   "name": "Metal Supply",
     "folder": "metal-supply",
-    "category": "Manufactures"
+    "category": "manufactures"
   }
 ]
