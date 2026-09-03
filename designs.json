@@ -8,6 +8,10 @@
     "name": "Nail kraft",
     "folder": "nail-kraft",
     "category": "salon"
+  },
+  { 
+  "name": "Dental Care",
+    "folder": "dental-care",
+    "category": "dental-care"
   }
-  
 ]
