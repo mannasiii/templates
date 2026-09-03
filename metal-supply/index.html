@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ambica Metal Industries | Metal Supplier in Mumbai</title>
+
+    <meta name="description"
+        content="Ambica Metal Industries is a trusted metal supplier located in Kumbharwada, Mumbai. Contact us for quality metal products and reliable service.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            color: #172033;
+            background: #f7f8fa;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .navbar {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Manrope", sans-serif;
+            font-size: 21px;
+            font-weight: 800;
+            color: #172033;
+        }
+
+        .logo span {
+            color: #c77b30;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4e596b;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #c77b30;
+        }
+
+        .nav-btn {
+            padding: 12px 21px;
+            background: #172033;
+            color: white !important;
+            border-radius: 7px;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 720px;
+            padding-top: 76px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(12, 20, 34, 0.96),
+                    rgba(12, 20, 34, 0.78),
+                    rgba(12, 20, 34, 0.45)
+                ),
+                url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.08);
+            right: -200px;
+            bottom: -250px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            color: white;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 13px;
+            border: 1px solid rgba(255,255,255,0.22);
+            border-radius: 30px;
+            background: rgba(255,255,255,0.08);
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: #55c271;
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #e4a15d;
+        }
+
+        .hero p {
+            max-width: 620px;
+            color: #d7dce5;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 24px;
+            border-radius: 7px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #d48a43;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #bc7130;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.35);
+            color: white;
+            background: rgba(255,255,255,0.06);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: #172033;
+        }
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            margin-top: -55px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .stats-grid {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 50px rgba(23,32,51,0.10);
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            overflow: hidden;
+        }
+
+        .stat {
+            padding: 28px;
+            text-align: center;
+            border-right: 1px solid #edf0f3;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat strong {
+            display: block;
+            font-family: "Manrope", sans-serif;
+            font-size: 27px;
+            color: #172033;
+            margin-bottom: 5px;
+        }
+
+        .stat span {
+            font-size: 13px;
+            color: #7b8492;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-heading {
+            max-width: 650px;
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            color: #c77b30;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-heading h2 {
+            font-family: "Manrope", sans-serif;
+            font-size: clamp(32px, 4vw, 46px);
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: #687384;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: #fff;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            min-height: 500px;
+            border-radius: 12px;
+            background:
+                linear-gradient(
+                    rgba(20,30,45,0.25),
+                    rgba(20,30,45,0.25)
+                ),
+                url("https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1000&q=80")
+                center/cover;
+        }
+
+        .about-text p {
+            color: #687384;
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .feature {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 38px;
+            height: 38px;
+            min-width: 38px;
+            border-radius: 8px;
+            background: #f5eadf;
+            color: #b56b2d;
+            display: grid;
+            place-items: center;
+            font-weight: 800;
+        }
+
+        .feature h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .feature p {
+            font-size: 12px;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* =========================
+           PRODUCTS
+        ========================= */
+
+        .products {
+            background: #f7f8fa;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border: 1px solid #e8ebef;
+            border-radius: 10px;
+            padding: 30px;
+            transition: 0.35s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 18px 45px rgba(23,32,51,0.10);
+            border-color: transparent;
+        }
+
+        .product-number {
+            font-size: 12px;
+            color: #c77b30;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .product-card h3 {
+            font-family: "Manrope", sans-serif;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            color: #737d8d;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           REVIEWS
+        ========================= */
+
+        .reviews {
+            background: #172033;
+            color: white;
+            text-align: center;
+        }
+
+        .reviews .section-heading {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reviews .section-label {
+            color: #e4a15d;
+        }
+
+        .reviews .section-heading p {
+            color: #aeb6c4;
+        }
+
+        .review-box {
+            max-width: 720px;
+            margin: auto;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 12px;
+            padding: 45px;
+        }
+
+        .stars {
+            color: #f4b45f;
+            font-size: 26px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .review-box h3 {
+            font-size: 34px;
+            margin-bottom: 8px;
+        }
+
+        .review-box p {
+            color: #b8c0cd;
+            font-size: 14px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 30px;
+        }
+
+        .contact-card {
+            padding: 38px;
+            border-radius: 12px;
+            background: #f7f8fa;
+            border: 1px solid #e8ebef;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 27px;
+        }
+
+        .contact-icon {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            background: #172033;
+            color: white;
+            display: grid;
+            place-items: center;
+            border-radius: 7px;
+        }
+
+        .contact-item h4 {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .contact-item p,
+        .contact-item a {
+            color: #707a89;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .map {
+            min-height: 420px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #e7e9ec;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            border: 0;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #0f1726;
+            color: white;
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-content p {
+            color: #8993a2;
+            font-size: 13px;
+        }
+
+        .footer-logo {
+            font-family: "Manrope", sans-serif;
+            font-weight: 800;
+        }
+
+        .footer-logo span {
+            color: #d48a43;
+        }
+
+        /* =========================
+           SCROLL ANIMATION
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .nav-links {
+                position: absolute;
+                top: 76px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 25px 4%;
+                gap: 20px;
+                display: none;
+                box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero {
+                min-height: 650px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat:nth-child(-n+2) {
+                border-bottom: 1px solid #edf0f3;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                min-height: 380px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            section {
+                padding: 75px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .stats {
+                margin-top: -30px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat {
+                padding: 22px 12px;
+            }
+
+            .stat strong {
+                font-size: 22px;
+            }
+
+            .about-grid {
+                gap: 35px;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .review-box {
+                padding: 30px 20px;
+            }
+
+            .contact-card {
+                padding: 25px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+        <div class="container navbar">
+
+            <a href="#" class="logo">
+                Ambica <span>Metal</span>
+            </a>
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <a href="https://wa.me/919930194880?text=Hello%20Ambica%20Metal%20Industries,%20I%20would%20like%20to%20know%20more%20about%20your%20products."
+                        target="_blank" class="nav-btn">
+                        WhatsApp Us
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    Trusted Metal Supplier in Mumbai
+                </div>
+
+                <h1>
+                    Quality Metal.
+                    <span>Reliable Supply.</span>
+                </h1>
+
+                <p>
+                    Ambica Metal Industries provides quality metal products
+                    with dependable service from our location in
+                    Kumbharwada, Mumbai.
+                </p>
+
+                <div class="hero-buttons">
+<a href="https://wa.me/919930194880?text=Hello%20Ambica%20Metal%20Industries,%20I%20have%20an%20enquiry."
+    target="_blank" class="btn btn-primary">
+    WhatsApp Us
+</a>
+
+                    <a href="https://www.google.com/maps?vet=10CAAQoqAOahcKEwiY8LjTiayWAxUAAAAAHQAAAAAQNQ"
+                        target="_blank"
+                        class="btn btn-outline">
+                        Get Directions
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= STATS ================= -->
+
+    <div class="stats">
+
+        <div class="container">
+
+            <div class="stats-grid">
+
+                <div class="stat">
+                    <strong>5.0 ★</strong>
+                    <span>Google Rating</span>
+                </div>
+
+                <div class="stat">
+                    <strong>8+</strong>
+                    <span>Google Reviews</span>
+                </div>
+
+                <div class="stat">
+                    <strong>8 PM</strong>
+                    <span>Closes Today</span>
+                </div>
+
+                <div class="stat">
+                    <strong>Mumbai</strong>
+                    <span>Kumbharwada</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about" id="about">
+
+        <div class="container">
+
+            <div class="about-grid">
+
+                <div class="about-image reveal"></div>
+
+                <div class="about-text reveal">
+
+                    <div class="section-heading">
+
+                        <div class="section-label">
+                            About Us
+                        </div>
+
+                        <h2>
+                            Built around quality and dependable service.
+                        </h2>
+
+                    </div>
+
+                    <p>
+                        Ambica Metal Industries is a metal supplier based
+                        in the Kumbharwada area of Mumbai, Maharashtra.
+                    </p>
+
+                    <p>
+                        We focus on supplying metal products while
+                        maintaining professional service and a
+                        customer-first approach.
+                    </p>
+
+                    <div class="features">
+
+                        <div class="feature">
+
+                            <div class="feature-icon">✓</div>
+
+                            <div>
+                                <h4>Quality Focus</h4>
+                                <p>
+                                    Products selected with quality in mind.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="feature">
+
+                            <div class="feature-icon">✓</div>
+
+                            <div>
+                                <h4>Reliable Service</h4>
+                                <p>
+                                    Professional and responsive support.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="feature">
+
+                            <div class="feature-icon">✓</div>
+
+                            <div>
+                                <h4>Local Expertise</h4>
+                                <p>
+                                    Conveniently located in Mumbai.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="feature">
+
+                            <div class="feature-icon">✓</div>
+
+                            <div>
+                                <h4>Customer First</h4>
+                                <p>
+                                    Focused on long-term relationships.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <section class="products" id="products">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <div class="section-label">
+                    What We Supply
+                </div>
+
+                <h2>
+                    Metal products for industrial requirements.
+                </h2>
+
+                <p>
+                    Explore our range of metal products and connect with
+                    us for your specific requirements.
+                </p>
+
+            </div>
+
+            <div class="product-grid">
+
+                <div class="product-card reveal">
+                    <img src="img/metal-sheet.jpg">
+                    <h3 style="margin-top:10px">Metal Sheets</h3>
+                    <p>
+                        Quality metal sheets suitable for a variety
+                        of industrial and fabrication requirements.
+                    </p>
+                </div>
+
+                <div class="product-card reveal">
+                    <img src="img/meatl-pipe.jpg">
+                    <h3 style="margin-top:10px">Metal Pipes</h3>
+                    <p>
+                        Metal pipe solutions for industrial,
+                        fabrication and engineering applications.
+                    </p>
+                </div>
+
+                <div class="product-card reveal">
+                <img src="img/pipe-fitting.jpg">
+                    <h3 style="margin-top:10px">Pipe Fittings</h3>
+                    <p>
+                        Fittings designed to support reliable
+                        piping and industrial applications.
+                    </p>
+                </div>
+
+                <div class="product-card reveal">
+                    <img src="img/flange.jpg">
+                    <h3 style="margin-top:10px">Flanges</h3>
+                    <p>
+                        Industrial flange solutions for different
+                        piping and engineering requirements.
+                    </p>
+                </div>                                                                                                                              
+
+                <div class="product-card reveal">
+                    <img src="img/fasteners.jpg">
+                    <h3 style="margin-top:10px">Fasteners</h3>
+                    <p>
+                        Metal fastening products for industrial
+                        assembly and fabrication requirements.
+                    </p>
+                </div>
+
+                <div class="product-card reveal">
+                <img src="img/custom-requirment.jpg">
+                    <h3 style="margin-top:10px">Custom Requirements</h3>
+                    <p>
+                        Contact us to discuss your specific metal
+                        product and sourcing requirements.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= REVIEWS ================= -->
+<section class="reviews" id="reviews" style="background-image: url('img/bg.jpg');">
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <div class="section-label">
+                    Customer Feedback
+                </div>
+
+                <h2>
+                    Trusted by our customers.
+                </h2>
+
+                <p>
+                    Our Google Business profile reflects strong
+                    customer satisfaction.
+                </p>
+
+            </div>
+
+            <div class="review-box reveal">
+
+                <div class="stars">
+                    ★★★★★
+                </div>
+
+                <h3>5.0 / 5.0</h3>
+
+                <p>
+                    Based on 8 Google reviews
+                </p>
+
+                <br>
+
+                <a
+                    href="https://www.google.com/maps?vet=10CAAQoqAOahcKEwiY8LjTiayWAxUAAAAAHQAAAAAQNQ"
+                    target="_blank"
+                    class="btn btn-primary">
+                    View Google Reviews
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <div class="section-heading reveal">
+
+                <div class="section-label">
+                    Get In Touch
+                </div>
+
+                <h2>
+                    Let's discuss your requirement.
+                </h2>
+
+                <p>
+                    Visit us in Kumbharwada, Mumbai or contact us
+                    directly for enquiries.
+                </p>
+
+            </div>
+
+            <div class="contact-grid">
+
+                <div class="contact-card reveal">
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            📍
+                        </div>
+
+                        <div>
+                            <h4>Address</h4>
+
+                            <p>
+                                Shop No. 6-B, 94/100,<br>
+                                5th Kumbharwada Lane,<br>
+                                Kumbharwada, Mumbai,<br>
+                                Maharashtra 400004
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            ☎
+                        </div>
+
+                        <div>
+                            <h4>Phone</h4>
+
+                            <a href="tel:09930194880">
+                                099301 94880
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            ◷
+                        </div>
+
+                        <div>
+                            <h4>Business Hours</h4>
+
+                            <p>
+                                Open · Closes 8:00 PM
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="https://www.google.com/maps?vet=10CAAQoqAOahcKEwiY8LjTiayWAxUAAAAAHQAAAAAQNQ"
+                        target="_blank"
+                        class="btn btn-primary">
+                        Open in Google Maps
+                    </a>
+
+                </div>
+
+
+                <div class="map reveal">
+
+                    <iframe
+                        src="https://www.google.com/maps?q=Ambica%20Metal%20Industries%20Kumbharwada%20Mumbai&output=embed"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <div class="footer-logo">
+                Ambica <span>Metal Industries</span>
+            </div>
+
+            <p>
+                © 2026 Ambica Metal Industries. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* Mobile Menu */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+
+        /* Close menu after clicking */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+
+        });
+
+
+        /* Scroll Reveal */
+
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const revealOnScroll = () => {
+
+            revealElements.forEach(element => {
+
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 80) {
+                    element.classList.add("active");
+                }
+
+            });
+
+        };
+
+        window.addEventListener("scroll", revealOnScroll);
+
+        revealOnScroll();
+
+    </script>
+
+</body>
+</html>
