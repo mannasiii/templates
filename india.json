@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Apex",
+    "folder": "apex",
+    "category": "cycles"
+  },
+  {
+    "name": "Nail kraft",
+    "folder": "nail-kraft",
+    "category": "salon"
+  },
+  { 
+  "name": "DentalCare",
+    "folder": "DentalCare",
+    "category": "dental-care"
+  },
+  { 
+  "name": "Metal Industry",
+    "folder": "metal-industry",
+    "category": "manufactures"
+  },
+  { 
+  "name": "Metal Supply",
+    "folder": "metal-supply",
+    "category": "manufactures"
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Modern Business USA",
+    "folder": "business-usa",
+    "country": "usa",
+    "category": "business"
+  },
+  {
+    "name": "Creative Agency UK",
+    "folder": "agency-uk",
+    "country": "uk",
+    "category": "agency"
+  },
+  {
+    "name": "Dental Care Canada",
+    "folder": "dental-canada",
+    "country": "canada",
+    "category": "dental"
+  },
+  {
+    "name": "Trade Business Australia",
+    "folder": "business-australia",
+    "country": "australia",
+    "category": "business"
+  },
+  {
+    "name": "Luxury Business UAE",
+    "folder": "business-uae",
+    "country": "uae",
+    "category": "business"
+  }
+]
