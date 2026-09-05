@@ -476,7 +476,13 @@
       const q = search.value.toLowerCase().trim();
       const list = designs.filter(d => (active === "all" || d.category === active) && (!q || (d.name + " " + d.folder + " " + d.category).toLowerCase().includes(q)));
       if (!list.length) { grid.innerHTML = '<div class="empty"><strong>No designs found</strong><p>Try another category or search.</p></div>'; return }
-      grid.innerHTML = list.map((d, i) => `<article class="card"><div class="preview"><div class="fallback">${d.name.charAt(0)}</div><iframe src="/templates/${encodeURIComponent(d.folder)}/" loading="lazy"></iframe></div><div class="body"><div class="cardtop"><span class="badge">${d.category}</span><span class="num">${String(i + 1).padStart(2, "0")}</span></div><h3>${d.name}</h3><div class="path">/templates/${d.folder}/</div><a class="visit" href="/templates/${encodeURIComponent(d.folder)}/">View Design →</a></div></article>`).join("");
+      grid.innerHTML = list.map((d, i) => `<article class="card"><div class="preview"><div class="fallback">${d.name.charAt(0)}</div>
+      
+      <div class="preview">
+  <img src="/templates/${encodeURIComponent(d.folder)}/preview.jpg"
+       alt="${d.name} website preview">
+</div>
+      </div><div class="body"><div class="cardtop"><span class="badge">${d.category}</span><span class="num">${String(i + 1).padStart(2, "0")}</span></div><h3>${d.name}</h3><div class="path">/templates/${d.folder}/</div><a class="visit" href="/templates/${encodeURIComponent(d.folder)}/">View Design →</a></div></article>`).join("");
     }
     document.querySelectorAll(".category").forEach(b => b.onclick = () => { document.querySelectorAll(".category").forEach(x => x.classList.remove("active")); b.classList.add("active"); active = b.dataset.cat; render() });
     search.oninput = render;
