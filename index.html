@@ -2513,98 +2513,28 @@ function submitEnquiry(e){
 
   e.preventDefault();
 
-
-  const data =
-    new FormData(e.target);
-
+  const data = new FormData(e.target);
 
   const text =
-
     `Hi Manasi, I'm interested in a website.%0A%0A` +
+    `Name: ${encodeURIComponent(data.get("name"))}%0A` +
+    `Business: ${encodeURIComponent(data.get("business"))}%0A` +
+    `Country: ${encodeURIComponent(data.get("country"))}%0A` +
+    `Email: ${encodeURIComponent(data.get("email"))}%0A` +
+    `Phone: ${encodeURIComponent(data.get("phone") || "Not provided")}%0A` +
+    `Website: ${encodeURIComponent(data.get("website"))}%0A` +
+    `Requirements: ${encodeURIComponent(data.get("message") || "Not specified")}`;
 
-    `Name: ${encodeURIComponent(
-      data.get("name")
-    )}%0A` +
-
-    `Business: ${encodeURIComponent(
-      data.get("business")
-    )}%0A` +
-
-    `Country: ${encodeURIComponent(
-      data.get("country")
-    )}%0A` +
-
-    `Email: ${encodeURIComponent(
-      data.get("email")
-    )}%0A` +
-
-    `Phone: ${encodeURIComponent(
-      data.get("phone") || "Not provided"
-    )}%0A` +
-
-    `Website: ${encodeURIComponent(
-      data.get("website")
-    )}%0A` +
-
-    `Requirements: ${encodeURIComponent(
-      data.get("message") || "Not specified"
-    )}`;
-
-
-  /* SAME OPTIONS FOR EVERY COUNTRY */
-
-  const choice = confirm(
-
-    "Send your project enquiry on WhatsApp?\n\n" +
-
-    "Click OK for WhatsApp or Cancel for Email."
-
+  // Directly open WhatsApp
+  window.open(
+    "https://wa.me/919867741984?text=" + text,
+    "_blank"
   );
 
+  document.getElementById("formSuccess").hidden = false;
 
-  /* OK → WHATSAPP */
-
-  if(choice){
-
-    window.open(
-
-      "https://wa.me/919867741984?text=" +
-      text,
-
-      "_blank"
-
-    );
-
-  }
-
-
-  /* CANCEL → EMAIL */
-
-  else{
-
-    openEmail(
-      data,
-      text
-    );
-
-  }
-
-
-  /* SUCCESS MESSAGE */
-
-  document
-    .getElementById("formSuccess")
-    .hidden = false;
-
-
-  /* GA4 */
-
-  gtagSafe(
-    "project_enquiry"
-  );
-
+  gtagSafe("project_enquiry");
 }
-
 
 /* =========================
    GA4 SAFE EVENT
