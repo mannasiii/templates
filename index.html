@@ -2578,76 +2578,42 @@ textarea:focus-visible{
     FORM
   ========================= */
 
-  function submitEnquiry(e){
+function submitEnquiry(e){
 
-    e.preventDefault();
+  e.preventDefault();
 
+  const data = new FormData(e.target);
 
-    const data = new FormData(e.target);
+  const text =
+    `Hi Manasi, I'm interested in a website.%0A%0A` +
 
+    `Name: ${encodeURIComponent(data.get("name"))}%0A` +
 
-    const text =
-      `Hi Manasi, I'm interested in a website.%0A%0A` +
+    `Business: ${encodeURIComponent(data.get("business"))}%0A` +
 
-      `Name: ${encodeURIComponent(data.get("name"))}%0A` +
+    `Country: ${encodeURIComponent(data.get("country"))}%0A` +
 
-      `Business: ${encodeURIComponent(data.get("business"))}%0A` +
+    `Email: ${encodeURIComponent(data.get("email"))}%0A` +
 
-      `Country: ${encodeURIComponent(data.get("country"))}%0A` +
+    `Phone: ${encodeURIComponent(data.get("phone") || "Not provided")}%0A` +
 
-      `Email: ${encodeURIComponent(data.get("email"))}%0A` +
+    `Website: ${encodeURIComponent(data.get("website"))}%0A` +
 
-      `Phone: ${encodeURIComponent(data.get("phone") || "Not provided")}%0A` +
+    `Requirements: ${encodeURIComponent(data.get("message") || "Not specified")}`;
 
-      `Website: ${encodeURIComponent(data.get("website"))}%0A` +
+  // Send enquiry to WhatsApp for ALL countries
+  window.open(
+    "https://wa.me/919867741984?text=" + text,
+    "_blank"
+  );
 
-      `Requirements: ${encodeURIComponent(data.get("message") || "Not specified")}`;
+  // Show success message
+  document.getElementById("formSuccess").hidden = false;
 
+  // GA4 tracking
+  gtagSafe("project_enquiry");
 
-    const isIndia =
-      data.get("country") === "India";
-
-
-    if(isIndia){
-
-      const choice = confirm(
-        "Send your project enquiry on WhatsApp?\n\n" +
-        "Choose Cancel to open an email instead."
-      );
-
-
-      if(choice){
-
-        window.open(
-          "https://wa.me/919867741984?text=" +
-          text,
-          "_blank"
-        );
-
-      }
-
-      else{
-
-        openEmail(data,text);
-
-      }
-
-    }
-
-    else{
-
-      openEmail(data,text);
-
-    }
-
-
-    document.getElementById("formSuccess").hidden = false;
-
-
-    gtagSafe("project_enquiry");
-
-  }
-
+}
 
 
   /* =========================
