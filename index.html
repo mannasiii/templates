@@ -2046,7 +2046,7 @@ textarea:focus-visible{
         <option value="">Select country</option><option>India</option><option>USA</option><option>UK</option><option>Canada</option><option>Australia</option><option>UAE</option><option>Other</option>
         </select>
         <input required type="email" name="email" placeholder="Email address">
-        <input name="phone" placeholder="WhatsApp / Phone">
+        <input name="phone" placeholder=" Phone Number">
         <select required name="website">
         <option value="">Website type</option><option>Business Website</option><option>Landing Page</option><option>Portfolio</option><option>E-commerce</option><option>Other</option>
         </select>
@@ -2062,248 +2062,106 @@ textarea:focus-visible{
 
   <footer><div class="container">© <span id="year"></span> Manasi Designs</div></footer>
 
-  <script>
-  let designs = [];
-  let internationalDesigns = [];
+ <script>
+let designs = [];
+let internationalDesigns = [];
+let active = "all";
+let selectedCountry = "all";
+let currentMode = "india";
 
-  let active = "all";
-  let selectedCountry = "all";
-  let currentMode = "india";
-
-  const grid = document.getElementById("grid");
-  const total = document.getElementById("total");
-  const search = document.getElementById("search");
+const grid = document.getElementById("grid");
+const total = document.getElementById("total");
+const search = document.getElementById("search");
 
 
-  /* =========================
-    LOAD JSON FILES
-  ========================= */
+/* =========================
+   LOAD DESIGNS
+========================= */
 
-  async function load(){
+async function load(){
 
-    try{
+  try{
 
-      const [indiaResponse, internationalResponse] = await Promise.all([
-
+    const [indiaResponse, internationalResponse] =
+      await Promise.all([
         fetch("./india.json?" + Date.now()),
-
         fetch("./international.json?" + Date.now())
-
       ]);
 
-
-      if(!indiaResponse.ok){
-
-        throw Error("india.json not found");
-
-      }
-
-
-      if(!internationalResponse.ok){
-
-        throw Error("international.json not found");
-
-      }
-
-
-      designs = await indiaResponse.json();
-
-      internationalDesigns = await internationalResponse.json();
-
-
-      render();
-
+    if(!indiaResponse.ok){
+      throw Error("india.json not found");
     }
 
-    catch(e){
-
-      console.error(e);
-
-      designs = [];
-
-      internationalDesigns = [];
-
-      total.textContent = 0;
-
-      grid.innerHTML = `
-        <div class="empty">
-          <strong>Unable to load designs</strong>
-          <p>Please check india.json and international.json.</p>
-        </div>
-      `;
-
+    if(!internationalResponse.ok){
+      throw Error("international.json not found");
     }
 
+    designs = await indiaResponse.json();
+    internationalDesigns = await internationalResponse.json();
+
+    render();
+
+  }catch(e){
+
+    console.error(e);
+
+    designs = [];
+    internationalDesigns = [];
+
+    total.textContent = 0;
+
+    grid.innerHTML = `
+      <div class="empty">
+        <strong>Unable to load designs</strong>
+        <p>Please check india.json and international.json.</p>
+      </div>
+    `;
   }
+}
 
 
+/* =========================
+   TITLE FORMAT
+========================= */
 
-  /* =========================
-    TITLE FORMAT
-  ========================= */
+function title(name){
 
-  function title(name){
+  return name
+    .replace(/[-_]+/g," ")
+    .replace(/([a-z])([A-Z])/g,"$1 $2")
+    .replace(/\b\w/g,x=>x.toUpperCase());
 
-    return name
-      .replace(/[-_]+/g," ")
-      .replace(/([a-z])([A-Z])/g,"$1 $2")
-      .replace(/\b\w/g,x=>x.toUpperCase());
-
-  }
-
+}
 
 
-  /* =========================
-    RENDER DESIGNS
-  ========================= */
+/* =========================
+   RENDER DESIGNS
+========================= */
 
-  function render(){
+function render(){
 
+  /* ---------- INTERNATIONAL ---------- */
 
-    /* =====================
-      INTERNATIONAL MODE
-    ===================== */
+  if(currentMode === "international"){
 
-    if(currentMode === "international"){
-
-      const list = internationalDesigns.filter(d =>
-
-        selectedCountry === "all" ||
-
-        d.country === selectedCountry
-
-      );
-
-
-      total.textContent = list.length;
-
-
-      if(!list.length){
-
-        grid.innerHTML = `
-          <div class="empty">
-            <strong>No international demos yet</strong>
-            <p>More country-specific designs are coming soon.</p>
-          </div>
-        `;
-
-        return;
-
-      }
-
-
-      grid.innerHTML = list.map((d,i)=>`
-
-        <article class="card">
-
-          <div class="preview">
-
-            <div class="fallback">
-              ${d.name.charAt(0)}
-            </div>
-
-            <iframe
-              src="/templates/${encodeURIComponent(d.folder)}/"
-              loading="lazy">
-            </iframe>
-
-          </div>
-
-
-          <div class="body">
-
-            <div class="cardtop">
-
-              <span class="badge">
-                ${d.country}
-              </span>
-
-              <span class="num">
-                ${String(i+1).padStart(2,"0")}
-              </span>
-
-            </div>
-
-
-            <h3>${d.name}</h3>
-
-            <div class="path">
-              /templates/${d.folder}/
-            </div>
-
-
-            <a
-              class="visit"
-              href="/templates/${encodeURIComponent(d.folder)}/">
-              View Design →
-            </a>
-
-          </div>
-
-        </article>
-
-      `).join("");
-
-
-      return;
-
-    }
-
-
-
-    /* =====================
-      INDIA MODE
-    ===================== */
-
-    const q = (search?.value || "")
-      .toLowerCase()
-      .trim();
-
-
-    const list = designs.filter(d =>
-
-      (active === "all" || d.category === active)
-
-      &&
-
-      (
-        !q ||
-
-        (
-          d.name +
-          " " +
-          d.folder +
-          " " +
-          d.category
-        )
-        .toLowerCase()
-        .includes(q)
-      )
-
+    const list = internationalDesigns.filter(d =>
+      selectedCountry === "all" ||
+      d.country === selectedCountry
     );
 
-
-    total.textContent = designs.length;
-
+    total.textContent = list.length;
 
     if(!list.length){
 
       grid.innerHTML = `
         <div class="empty">
-
-          <strong>No designs found</strong>
-
-          <p>
-            Try another category or search.
-          </p>
-
+          <strong>No international demos yet</strong>
+          <p>More country-specific designs are coming soon.</p>
         </div>
       `;
 
       return;
-
     }
-
 
     grid.innerHTML = list.map((d,i)=>`
 
@@ -2322,13 +2180,12 @@ textarea:focus-visible{
 
         </div>
 
-
         <div class="body">
 
           <div class="cardtop">
 
             <span class="badge">
-              ${d.category}
+              ${d.country}
             </span>
 
             <span class="num">
@@ -2337,13 +2194,11 @@ textarea:focus-visible{
 
           </div>
 
-
           <h3>${d.name}</h3>
 
           <div class="path">
             /templates/${d.folder}/
           </div>
-
 
           <a
             class="visit"
@@ -2357,149 +2212,223 @@ textarea:focus-visible{
 
     `).join("");
 
+    return;
   }
 
 
+  /* ---------- INDIA ---------- */
 
-  /* =========================
-    INDIA / INTERNATIONAL TOGGLE
-  ========================= */
+  const q = (search?.value || "")
+    .toLowerCase()
+    .trim();
 
-  function setMode(mode){
+  const list = designs.filter(d =>
 
-    currentMode = mode;
+    (active === "all" || d.category === active) &&
 
-    const intl = mode === "international";
+    (
+      !q ||
+      (d.name + " " + d.folder + " " + d.category)
+        .toLowerCase()
+        .includes(q)
+    )
 
+  );
 
-    document.body.classList.toggle(
-      "international",
-      intl
-    );
-
-
-    document.getElementById("indiaBtn")
-      .classList.toggle("active", !intl);
-
-
-    document.getElementById("intlBtn")
-      .classList.toggle("active", intl);
+  total.textContent = designs.length;
 
 
+  if(!list.length){
 
-    /* HERO */
+    grid.innerHTML = `
+      <div class="empty">
+        <strong>No designs found</strong>
+        <p>Try another category or search.</p>
+      </div>
+    `;
 
-    document.getElementById("heroLabel").textContent = intl
+    return;
+  }
 
+
+  grid.innerHTML = list.map((d,i)=>`
+
+    <article class="card">
+
+      <div class="preview">
+
+        <div class="fallback">
+          ${d.name.charAt(0)}
+        </div>
+
+        <iframe
+          src="/templates/${encodeURIComponent(d.folder)}/"
+          loading="lazy">
+        </iframe>
+
+      </div>
+
+      <div class="body">
+
+        <div class="cardtop">
+
+          <span class="badge">
+            ${d.category}
+          </span>
+
+          <span class="num">
+            ${String(i+1).padStart(2,"0")}
+          </span>
+
+        </div>
+
+        <h3>${d.name}</h3>
+
+        <div class="path">
+          /templates/${d.folder}/
+        </div>
+
+        <a
+          class="visit"
+          href="/templates/${encodeURIComponent(d.folder)}/">
+          View Design →
+        </a>
+
+      </div>
+
+    </article>
+
+  `).join("");
+
+}
+
+
+/* =========================
+   INDIA / INTERNATIONAL
+========================= */
+
+function setMode(mode){
+
+  currentMode = mode;
+
+  const intl = mode === "international";
+
+  document.body.classList.toggle(
+    "international",
+    intl
+  );
+
+
+  document
+    .getElementById("indiaBtn")
+    .classList.toggle("active", !intl);
+
+
+  document
+    .getElementById("intlBtn")
+    .classList.toggle("active", intl);
+
+
+  /* HERO */
+
+  document.getElementById("heroLabel").textContent =
+    intl
       ? "International Website Collection"
-
       : "Website Design Collection";
 
 
-    document.getElementById("heroTitle").innerHTML = intl
-
+  document.getElementById("heroTitle").innerHTML =
+    intl
       ? "Websites for <span>global brands.</span>"
-
       : "Designs made to <span>stand out.</span>";
 
 
-    document.getElementById("heroText").textContent = intl
-
+  document.getElementById("heroText").textContent =
+    intl
       ? "Explore website concepts created for businesses and audiences around the world."
-
       : "Explore my collection of website designs created for different businesses, industries and brands.";
 
 
-    document.getElementById("heroBtn").textContent = intl
-
+  document.getElementById("heroBtn").textContent =
+    intl
       ? "Explore International Demos →"
-
       : "Explore Designs →";
 
 
+  /* COLLECTION */
 
-    /* COLLECTION */
-
-    document.getElementById("collectionLabel").textContent = intl
-
+  document.getElementById("collectionLabel").textContent =
+    intl
       ? "International Collection"
-
       : "My Collection";
 
 
-    document.getElementById("collectionTitle").textContent = intl
-
+  document.getElementById("collectionTitle").textContent =
+    intl
       ? "Country-specific demos."
-
       : "Explore designs.";
 
 
-    document.getElementById("collectionDesc").textContent = intl
-
+  document.getElementById("collectionDesc").textContent =
+    intl
       ? "Choose a country and explore demos created for that market."
-
       : "Browse through website concepts designed for different businesses and industries.";
 
 
-    document.getElementById("totalLabel").textContent = intl
+  /* TOTAL */
 
+  document.getElementById("totalLabel").textContent =
+    intl
       ? "International Demos"
-
       : "Available Designs";
 
 
+  /* CONTACT */
 
-    /* CONTACT */
-
-    document.getElementById("contactTitle").innerHTML = intl
-
+  document.getElementById("contactTitle").innerHTML =
+    intl
       ? "Start your global<br>project."
-
       : "Have a project<br>in mind?";
 
 
-    document.getElementById("contactText").textContent = intl
-
+  document.getElementById("contactText").textContent =
+    intl
       ? "Tell me about your business and website requirements. I'll get back to you with the next steps."
-
       : "Tell me about your business and I'll help you choose the right website design, pages and features.";
 
 
+  if(!intl){
 
-    /* RESET COUNTRY */
-
-    if(!intl){
-
-      selectedCountry = "all";
-
-    }
-
-
-    render();
+    selectedCountry = "all";
 
   }
 
 
+  render();
 
-  /* =========================
-    INDIA CATEGORY FILTER
-  ========================= */
+}
 
-  document.querySelectorAll(".category").forEach(button => {
 
-    button.onclick = () => {
+/* =========================
+   INDIA CATEGORY FILTER
+========================= */
+
+document
+  .querySelectorAll(".category")
+  .forEach(button=>{
+
+    button.onclick = ()=>{
 
       document
         .querySelectorAll(".category")
-        .forEach(x => x.classList.remove("active"));
-
+        .forEach(x =>
+          x.classList.remove("active")
+        );
 
       button.classList.add("active");
-
 
       active = button.dataset.cat;
 
-
       render();
 
     };
@@ -2507,25 +2436,26 @@ textarea:focus-visible{
   });
 
 
+/* =========================
+   INTERNATIONAL COUNTRY
+========================= */
 
-  /* =========================
-    INTERNATIONAL COUNTRY FILTER
-  ========================= */
+document
+  .querySelectorAll(".country-tab")
+  .forEach(button=>{
 
-  document.querySelectorAll(".country-tab").forEach(button => {
-
-    button.onclick = () => {
+    button.onclick = ()=>{
 
       document
         .querySelectorAll(".country-tab")
-        .forEach(x => x.classList.remove("active"));
-
+        .forEach(x =>
+          x.classList.remove("active")
+        );
 
       button.classList.add("active");
 
-
-      selectedCountry = button.dataset.country;
-
+      selectedCountry =
+        button.dataset.country;
 
       render();
 
@@ -2534,120 +2464,183 @@ textarea:focus-visible{
   });
 
 
+/* =========================
+   SEARCH
+========================= */
 
-  /* =========================
-    SEARCH
-  ========================= */
+if(search){
 
-  if(search){
+  search.oninput = render;
 
-    search.oninput = render;
-
-  }
-
+}
 
 
-  /* =========================
-    EMAIL
-  ========================= */
+/* =========================
+   EMAIL FALLBACK
+========================= */
 
-  function openEmail(data,text){
+function openEmail(data,text){
 
-    const subject = encodeURIComponent(
+  const subject =
+    encodeURIComponent(
       "Website Project Enquiry - " +
       data.get("business")
     );
 
 
-    const body = decodeURIComponent(
+  const body =
+    decodeURIComponent(
       text.replace(/%0A/g,"\n")
     );
 
 
-    window.location.href =
-      "mailto:tech.manasii@gmail.com?subject=" +
-      subject +
-      "&body=" +
-      encodeURIComponent(body);
+  window.location.href =
+    "mailto:tech.manasii@gmail.com?subject=" +
+    subject +
+    "&body=" +
+    encodeURIComponent(body);
 
-  }
+}
 
 
-
-  /* =========================
-    FORM
-  ========================= */
+/* =========================
+   FORM SUBMIT
+   OK = WHATSAPP
+   CANCEL = EMAIL
+========================= */
 
 function submitEnquiry(e){
 
   e.preventDefault();
 
-  const data = new FormData(e.target);
+
+  const data =
+    new FormData(e.target);
+
 
   const text =
+
     `Hi Manasi, I'm interested in a website.%0A%0A` +
 
-    `Name: ${encodeURIComponent(data.get("name"))}%0A` +
+    `Name: ${encodeURIComponent(
+      data.get("name")
+    )}%0A` +
 
-    `Business: ${encodeURIComponent(data.get("business"))}%0A` +
+    `Business: ${encodeURIComponent(
+      data.get("business")
+    )}%0A` +
 
-    `Country: ${encodeURIComponent(data.get("country"))}%0A` +
+    `Country: ${encodeURIComponent(
+      data.get("country")
+    )}%0A` +
 
-    `Email: ${encodeURIComponent(data.get("email"))}%0A` +
+    `Email: ${encodeURIComponent(
+      data.get("email")
+    )}%0A` +
 
-    `Phone: ${encodeURIComponent(data.get("phone") || "Not provided")}%0A` +
+    `Phone: ${encodeURIComponent(
+      data.get("phone") || "Not provided"
+    )}%0A` +
 
-    `Website: ${encodeURIComponent(data.get("website"))}%0A` +
+    `Website: ${encodeURIComponent(
+      data.get("website")
+    )}%0A` +
 
-    `Requirements: ${encodeURIComponent(data.get("message") || "Not specified")}`;
+    `Requirements: ${encodeURIComponent(
+      data.get("message") || "Not specified"
+    )}`;
 
-  // Send enquiry to WhatsApp for ALL countries
-  window.open(
-    "https://wa.me/919867741984?text=" + text,
-    "_blank"
+
+  /* SAME OPTIONS FOR EVERY COUNTRY */
+
+  const choice = confirm(
+
+    "Send your project enquiry on WhatsApp?\n\n" +
+
+    "Click OK for WhatsApp or Cancel for Email."
+
   );
 
-  // Show success message
-  document.getElementById("formSuccess").hidden = false;
 
-  // GA4 tracking
-  gtagSafe("project_enquiry");
+  /* OK → WHATSAPP */
 
-}
+  if(choice){
 
+    window.open(
 
-  /* =========================
-    GA4 SAFE EVENT
-  ========================= */
+      "https://wa.me/919867741984?text=" +
+      text,
 
-  function gtagSafe(event){
+      "_blank"
 
-    if(typeof gtag === "function"){
-
-      gtag("event",event);
-
-    }
+    );
 
   }
 
 
+  /* CANCEL → EMAIL */
 
-  /* =========================
-    YEAR
-  ========================= */
+  else{
 
-  document.getElementById("year").textContent =
-    new Date().getFullYear();
+    openEmail(
+      data,
+      text
+    );
+
+  }
 
 
+  /* SUCCESS MESSAGE */
 
-  /* =========================
-    START
-  ========================= */
+  document
+    .getElementById("formSuccess")
+    .hidden = false;
 
-  load();
 
-  </script>
+  /* GA4 */
+
+  gtagSafe(
+    "project_enquiry"
+  );
+
+}
+
+
+/* =========================
+   GA4 SAFE EVENT
+========================= */
+
+function gtagSafe(event){
+
+  if(typeof gtag === "function"){
+
+    gtag(
+      "event",
+      event
+    );
+
+  }
+
+}
+
+
+/* =========================
+   YEAR
+========================= */
+
+document
+  .getElementById("year")
+  .textContent =
+  new Date().getFullYear();
+
+
+/* =========================
+   START
+========================= */
+
+load();
+
+</script>
   <a
   href="https://wa.me/919867741984"
   target="_blank"
