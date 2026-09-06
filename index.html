@@ -2569,7 +2569,56 @@ document
 ========================= */
 
 load();
+async function load(){
 
+  try{
+
+    const indiaResponse = await fetch("./india.json?" + Date.now());
+
+    if(!indiaResponse.ok){
+      throw Error("india.json not found");
+    }
+
+    designs = await indiaResponse.json();
+
+    // International JSON is optional
+    try {
+      const internationalResponse =
+        await fetch("./international.json?" + Date.now());
+
+      if(internationalResponse.ok){
+        const text = await internationalResponse.text();
+
+        internationalDesigns =
+          text.trim() ? JSON.parse(text) : [];
+      }else{
+        internationalDesigns = [];
+      }
+
+    }catch(error){
+      internationalDesigns = [];
+      console.warn("International designs unavailable.");
+    }
+
+    render();
+
+  }catch(e){
+
+    console.error(e);
+
+    designs = [];
+    internationalDesigns = [];
+
+    total.textContent = 0;
+
+    grid.innerHTML = `
+      <div class="empty">
+        <strong>Unable to load designs</strong>
+        <p>Please check india.json.</p>
+      </div>
+    `;
+  }
+}
 </script>
   <a
   href="https://wa.me/919867741984"
