@@ -23,5 +23,10 @@
   "name": "Metal Supply",
     "folder": "metal-supply",
     "category": "manufactures"
-  }
+  },
+  { 
+  "name": "PEARLSMILE DENTAL CARE",
+    "folder": "PearlSmile-Dental-Care",
+    "category": "dental-care"
+  },
 ]
