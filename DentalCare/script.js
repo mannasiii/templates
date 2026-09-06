@@ -1,5 +1,5 @@
 /* =========================================================
-   SAI DENTAL
+   Dental Care
    JAVASCRIPT
 ========================================================= */
 
@@ -282,12 +282,12 @@ if (
             --------------------------------------------- */
 
             const saiWhatsappNumber =
-                "919869507342";
+                "919000012345";
 
 
             const saiWhatsappMessage =
 
-                "Hello Sai Dental Clinic,%0A%0A" +
+                "Hello Dental Care,%0A%0A" +
 
                 "*Appointment Request*%0A%0A" +
 
