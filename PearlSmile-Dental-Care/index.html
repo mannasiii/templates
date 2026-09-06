@@ -1,0 +1,4556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PearlSmile Dental Care | Premium Dental Care in Mumbai</title>
+
+    <meta name="description"
+        content="PearlSmile Dental Care, Mumbai, Maharashtra, India. Personalized dental care, cosmetic dentistry, implants, full mouth rehabilitation and advanced dental treatments.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #faf8f4;
+            color: #202522;
+            overflow-x: hidden;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1220px, 91%);
+            margin: auto;
+        }
+
+        section {
+            position: relative;
+        }
+
+
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
+        :root {
+
+            --dark: #202522;
+            --cream: #faf8f4;
+            --cream-2: #f2eee7;
+            --white: #ffffff;
+
+            --gold: #b9955b;
+            --gold-light: #d7bd8d;
+
+            --muted: #72766f;
+            --border: #e7e2d9;
+
+            --shadow:
+                0 25px 80px rgba(39, 34, 26, 0.09);
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 82px;
+
+            z-index: 1000;
+
+            background: rgba(250, 248, 244, 0.82);
+
+            backdrop-filter: blur(18px);
+
+            border-bottom:
+                1px solid rgba(40, 40, 30, 0.07);
+
+            transition: 0.35s;
+        }
+
+        .header.scrolled {
+            background: rgba(250, 248, 244, 0.96);
+
+            box-shadow:
+                0 10px 40px rgba(30, 30, 20, 0.05);
+        }
+
+        .navbar {
+
+            height: 82px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+
+            font-size: 15px;
+            font-weight: 700;
+
+            letter-spacing: 1.4px;
+
+            color: var(--dark);
+        }
+
+        .logo-text span {
+
+            display: block;
+
+            font-size: 8px;
+
+            letter-spacing: 2.5px;
+
+            color: var(--gold);
+
+            margin-top: 5px;
+        }
+
+
+        /* NAV */
+
+        .nav-links {
+
+            display: flex;
+            align-items: center;
+            gap: 32px;
+
+            list-style: none;
+        }
+
+        .nav-links a {
+
+            font-size: 13px;
+            font-weight: 600;
+
+            color: #50554f;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-appointment {
+
+            padding: 12px 20px;
+
+            border-radius: 40px;
+
+            background: var(--dark);
+
+            color: white !important;
+        }
+
+        .nav-appointment:hover {
+            background: var(--gold);
+        }
+
+
+        /* MOBILE MENU */
+
+        .menu-btn {
+
+            display: none;
+
+            width: 43px;
+            height: 43px;
+
+            border: 1px solid var(--border);
+
+            background: white;
+
+            border-radius: 50%;
+
+            font-size: 20px;
+
+            cursor: pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+
+            min-height: 850px;
+
+            padding-top: 82px;
+
+            display: flex;
+            align-items: center;
+
+            overflow: hidden;
+
+            background: var(--cream);
+        }
+
+
+        /* Decorative circles */
+
+        .hero::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 650px;
+            height: 650px;
+
+            border-radius: 50%;
+
+            right: -220px;
+            top: 80px;
+
+            border:
+                1px solid rgba(185,149,91,0.18);
+        }
+
+        .hero::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 470px;
+            height: 470px;
+
+            border-radius: 50%;
+
+            right: -125px;
+            top: 170px;
+
+            border:
+                1px solid rgba(185,149,91,0.13);
+        }
+
+
+        .hero-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.05fr
+                0.95fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        /* HERO TEXT */
+
+        .hero-content {
+            max-width: 690px;
+        }
+
+        .eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 2.3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 22px;
+        }
+
+        .eyebrow::before {
+
+            content: "";
+
+            width: 30px;
+            height: 1px;
+
+            background: var(--gold);
+        }
+
+        .hero h1 {
+
+            font-family: "Playfair Display", serif;
+
+            font-size:
+                clamp(48px, 6vw, 82px);
+
+            line-height: 1.02;
+
+            letter-spacing: -3px;
+
+            font-weight: 600;
+
+            color: var(--dark);
+        }
+
+        .hero h1 em {
+
+            font-style: normal;
+
+            color: var(--gold);
+        }
+
+        .hero-description {
+
+            max-width: 600px;
+
+            color: var(--muted);
+
+            font-size: 16px;
+
+            line-height: 1.9;
+
+            margin-top: 27px;
+        }
+
+
+        /* BUTTONS */
+
+        .hero-buttons {
+
+            display: flex;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+
+            margin-top: 32px;
+        }
+
+        .btn {
+
+            min-height: 51px;
+
+            padding:
+                0 23px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 40px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .btn-dark {
+
+            background: var(--dark);
+
+            color: white;
+        }
+
+        .btn-dark:hover {
+
+            background: var(--gold);
+
+            transform:
+                translateY(-3px);
+        }
+
+        .btn-light {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            color: var(--dark);
+        }
+
+        .btn-light:hover {
+
+            border-color: var(--gold);
+
+            transform:
+                translateY(-3px);
+        }
+
+
+        /* HERO VISUAL */
+
+        .hero-visual {
+
+            position: relative;
+
+            min-height: 590px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .hero-image {
+
+            width: 440px;
+            height: 560px;
+
+            border-radius:
+                230px
+                230px
+                18px
+                18px;
+
+            background:
+
+                linear-gradient(
+                    rgba(20,25,23,0.08),
+                    rgba(20,25,23,0.08)
+                ),
+
+                url("https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+
+            box-shadow:
+                0 35px 100px
+                rgba(39,34,26,0.17);
+
+            position: relative;
+            z-index: 2;
+        }
+
+
+        /* FLOATING CARD */
+
+        .hero-card {
+
+            position: absolute;
+
+            left: 0;
+            bottom: 55px;
+
+            width: 230px;
+
+            padding: 24px;
+
+            background:
+                rgba(255,255,255,0.92);
+
+            backdrop-filter:
+                blur(12px);
+
+            border:
+                1px solid rgba(255,255,255,0.7);
+
+            border-radius: 16px;
+
+            box-shadow:
+                var(--shadow);
+
+            z-index: 5;
+        }
+
+        .hero-card-stars {
+
+            color: var(--gold);
+
+            font-size: 14px;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 10px;
+        }
+
+        .hero-card strong {
+
+            display: block;
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size: 28px;
+        }
+
+        .hero-card span {
+
+            color: var(--muted);
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           TRUST BAR
+        ===================================================== */
+
+        .trust {
+
+            background: var(--dark);
+
+            color: white;
+
+            padding: 26px 0;
+        }
+
+        .trust-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+        }
+
+        .trust-item {
+
+            padding:
+                10px 30px;
+
+            border-right:
+                1px solid
+                rgba(255,255,255,0.1);
+        }
+
+        .trust-item:last-child {
+            border: 0;
+        }
+
+        .trust-item strong {
+
+            display: block;
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size: 27px;
+        }
+
+        .trust-item span {
+
+            color: #aeb3ac;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           SECTION HEAD
+        ===================================================== */
+
+        .section {
+
+            padding: 115px 0;
+        }
+
+        .section-head {
+
+            max-width: 700px;
+
+            margin-bottom: 55px;
+        }
+
+        .section-label {
+
+            color: var(--gold);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2.5px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 15px;
+        }
+
+        .section-label::before {
+
+            content: "";
+
+            display: inline-block;
+
+            width: 25px;
+            height: 1px;
+
+            background: var(--gold);
+
+            margin-right: 10px;
+
+            vertical-align: middle;
+        }
+
+        .section-title {
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size:
+                clamp(36px,4vw,55px);
+
+            line-height: 1.1;
+
+            letter-spacing: -1.5px;
+        }
+
+        .section-text {
+
+            color: var(--muted);
+
+            font-size: 15px;
+
+            line-height: 1.9;
+
+            margin-top: 17px;
+        }
+
+
+        /* =====================================================
+           ABOUT
+        ===================================================== */
+
+        .about {
+
+            background: white;
+        }
+
+        .about-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                0.9fr
+                1.1fr;
+
+            gap: 90px;
+
+            align-items: center;
+        }
+
+        .about-visual {
+
+            position: relative;
+
+            min-height: 570px;
+        }
+
+        .about-image {
+
+            position: absolute;
+
+            left: 0;
+            top: 0;
+
+            width: 80%;
+            height: 500px;
+
+            border-radius:
+                15px
+                110px
+                15px
+                15px;
+
+            background:
+
+                url("https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=85")
+                center/cover;
+        }
+
+        .about-small {
+
+            position: absolute;
+
+            right: 0;
+            bottom: 20px;
+
+            width: 220px;
+            height: 250px;
+
+            border:
+                12px solid white;
+
+            border-radius: 12px;
+
+            background:
+
+                url("https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=700&q=85")
+                center/cover;
+
+            box-shadow:
+                var(--shadow);
+        }
+
+        .about-content p {
+
+            color: var(--muted);
+
+            font-size: 15px;
+
+            line-height: 1.9;
+
+            margin-bottom: 17px;
+        }
+
+        .about-points {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 16px;
+
+            margin-top: 30px;
+        }
+
+        .about-point {
+
+            display: flex;
+
+            gap: 11px;
+
+            align-items: center;
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .point-icon {
+
+            width: 28px;
+            height: 28px;
+
+            min-width: 28px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 50%;
+
+            background: #f4eee4;
+
+            color: var(--gold);
+        }
+
+
+        /* =====================================================
+           SERVICES
+        ===================================================== */
+
+        .services {
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #faf8f4,
+                    #f2eee7
+                );
+        }
+
+        .services-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 17px;
+        }
+
+        .service-card {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            padding: 32px;
+
+            min-height: 270px;
+
+            border-radius: 14px;
+
+            transition: 0.4s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .service-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 140px;
+            height: 140px;
+
+            border-radius: 50%;
+
+            right: -70px;
+            bottom: -70px;
+
+            border:
+                1px solid
+                rgba(185,149,91,0.15);
+
+            transition: 0.4s;
+        }
+
+        .service-card:hover {
+
+            transform:
+                translateY(-8px);
+
+            box-shadow:
+                var(--shadow);
+
+            border-color:
+                rgba(185,149,91,0.5);
+        }
+
+        .service-card:hover::after {
+
+            transform:
+                scale(1.6);
+        }
+
+        .service-number {
+
+            color: var(--gold);
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+        }
+
+        .service-icon {
+
+            width: 50px;
+            height: 50px;
+
+            display: grid;
+
+            place-items: center;
+
+            border-radius: 12px;
+
+            background: #f4f0e9;
+
+            color: var(--gold);
+
+            font-size: 22px;
+
+            margin:
+                25px 0 22px;
+
+            transition: 0.3s;
+        }
+
+        .service-card:hover
+        .service-icon {
+
+            background: var(--dark);
+
+            color: white;
+        }
+
+        .service-card h3 {
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size: 22px;
+
+            margin-bottom: 9px;
+        }
+
+        .service-card p {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.75;
+
+            max-width: 300px;
+        }
+
+
+        /* =====================================================
+           DOCTORS
+        ===================================================== */
+
+        .doctors {
+
+            background: white;
+        }
+
+        .doctor-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 22px;
+        }
+
+        .doctor-card {
+
+            display: grid;
+
+            grid-template-columns:
+                0.8fr
+                1.2fr;
+
+            background: var(--cream);
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+            min-height: 410px;
+        }
+
+        .doctor-image {
+
+            background-position: center;
+            background-size: cover;
+        }
+
+        .doctor-one {
+
+            background-image:
+                url("doctor-mahesh.jpg");
+        }
+
+        .doctor-two {
+
+            background-image:
+                url("doctor-snehal.jpg");
+        }
+
+        .doctor-info {
+
+            padding: 42px 35px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+        .doctor-role {
+
+            color: var(--gold);
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            margin-bottom: 13px;
+        }
+
+        .doctor-info h3 {
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size: 28px;
+
+            margin-bottom: 12px;
+        }
+
+        .doctor-info p {
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.8;
+
+            margin-bottom: 15px;
+        }
+
+        .doctor-tag {
+
+            display: inline-flex;
+
+            width: fit-content;
+
+            padding:
+                7px 11px;
+
+            border-radius: 30px;
+
+            background: white;
+
+            color: #6f746e;
+
+            font-size: 9px;
+
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           EXPERIENCE / TECHNOLOGY
+        ===================================================== */
+
+        .technology {
+
+            background: var(--dark);
+
+            color: white;
+
+            overflow: hidden;
+        }
+
+        .technology-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                0.9fr
+                1.1fr;
+
+            gap: 90px;
+
+            align-items: center;
+        }
+
+        .technology .section-text {
+
+            color: #aeb3ae;
+        }
+
+        .technology-list {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 12px;
+        }
+
+        .technology-item {
+
+            padding: 22px;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.09);
+
+            background:
+                rgba(255,255,255,0.035);
+
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+        .technology-item:hover {
+
+            background:
+                rgba(185,149,91,0.14);
+
+            border-color:
+                rgba(185,149,91,0.4);
+
+            transform:
+                translateY(-4px);
+        }
+
+        .technology-item strong {
+
+            display: block;
+
+            font-size: 13px;
+
+            margin-bottom: 5px;
+        }
+
+        .technology-item span {
+
+            color: #8f978f;
+
+            font-size: 10px;
+        }
+
+
+        /* =====================================================
+           TESTIMONIALS
+        ===================================================== */
+
+        .testimonials {
+
+            background: var(--cream);
+        }
+
+        .testimonial-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 17px;
+        }
+
+        .testimonial {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            padding: 32px;
+
+            border-radius: 14px;
+        }
+
+        .testimonial-stars {
+
+            color: var(--gold);
+
+            letter-spacing: 3px;
+
+            font-size: 12px;
+
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            color: #3d423e;
+
+            margin-bottom: 22px;
+        }
+
+        .testimonial-user {
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+        .testimonial-user span {
+
+            display: block;
+
+            color: #9a9e98;
+
+            font-size: 9px;
+
+            font-weight: 500;
+
+            margin-top: 4px;
+        }
+
+
+        /* =====================================================
+           GALLERY
+        ===================================================== */
+
+        .gallery {
+
+            background: white;
+        }
+
+        .gallery-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1.2fr
+                0.8fr
+                0.8fr;
+
+            grid-template-rows:
+                250px
+                250px;
+
+            gap: 13px;
+        }
+
+        .gallery-item {
+
+            border-radius: 13px;
+
+            overflow: hidden;
+
+            background-position: center;
+
+            background-size: cover;
+
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover {
+
+            transform:
+                scale(0.985);
+        }
+
+        .gallery-one {
+
+            grid-row:
+                span 2;
+
+            background-image:
+                url("https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=1600&q=85");
+        }
+
+        .gallery-two {
+
+            background-image:
+                url("https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=1200&q=85");
+        }
+
+        .gallery-three {
+
+            background-image:
+                url("https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=1200&q=85");
+        }
+
+        .gallery-four {
+
+            background-image:
+                url("https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&w=1200&q=85");
+        }
+
+         .gallery-five {
+
+            background-image:
+                url("clinic.avif");}
+
+
+
+
+        /* =====================================================
+           CTA
+        ===================================================== */
+
+        .cta {
+
+            padding:
+                110px 0;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #202522,
+                    #30352f
+                );
+
+            color: white;
+
+            overflow: hidden;
+        }
+
+        .cta::before {
+
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            right: -200px;
+            top: -250px;
+
+            border:
+                1px solid
+                rgba(185,149,91,0.2);
+        }
+
+        .cta-content {
+
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 50px;
+        }
+
+        .cta h2 {
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size:
+                clamp(38px,5vw,62px);
+
+            line-height: 1.05;
+
+            max-width: 700px;
+        }
+
+        .cta p {
+
+            color: #aeb4ad;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+            max-width: 620px;
+
+            margin-top: 16px;
+        }
+
+        .cta-actions {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 11px;
+
+            min-width: 190px;
+        }
+
+        .cta-actions .btn-light {
+
+            border: 0;
+        }
+
+
+        /* =====================================================
+           CONTACT
+        ===================================================== */
+
+        .contact {
+
+            background: var(--cream);
+        }
+
+        .contact-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                0.8fr
+                1.2fr;
+
+            gap: 20px;
+        }
+
+        .contact-info {
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            padding: 38px;
+
+            border-radius: 14px;
+        }
+
+        .contact-info h3 {
+
+            font-family:
+                "Playfair Display", serif;
+
+            font-size: 28px;
+
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+
+            display: flex;
+
+            gap: 14px;
+
+            margin-bottom: 26px;
+        }
+
+        .contact-icon {
+
+            width: 40px;
+            height: 40px;
+
+            min-width: 40px;
+
+            border-radius: 50%;
+
+            background: #f3eee6;
+
+            display: grid;
+
+            place-items: center;
+
+            color: var(--gold);
+        }
+
+        .contact-item h4 {
+
+            font-size: 12px;
+
+            margin-bottom: 4px;
+        }
+
+        .contact-item p,
+        .contact-item a {
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+        .map {
+
+            min-height: 470px;
+
+            border-radius: 14px;
+
+            overflow: hidden;
+        }
+
+        .map iframe {
+
+            width: 100%;
+            height: 100%;
+
+            min-height: 470px;
+
+            border: 0;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #181d1a;
+
+            color: white;
+
+            padding: 40px 0;
+        }
+
+        .footer-grid {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 30px;
+        }
+
+        .footer-brand {
+
+            font-weight: 700;
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+        }
+
+        .footer-brand span {
+
+            display: block;
+
+            color: var(--gold);
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            margin-top: 5px;
+        }
+
+        .footer-copy {
+
+            color: #7f857f;
+
+            font-size: 10px;
+        }
+
+        .footer-designed a {
+
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-designed a:hover {
+
+            color: var(--gold);
+        }
+
+
+        /* =====================================================
+           FLOATING WHATSAPP
+        ===================================================== */
+
+        .whatsapp {
+
+            position: fixed;
+
+            right: 24px;
+            bottom: 25px;
+
+            width: 58px;
+            height: 58px;
+
+            border-radius: 50%;
+
+            background: #25D366;
+
+            color: white;
+
+            display: grid;
+
+            place-items: center;
+
+            font-size: 25px;
+
+            z-index: 999;
+
+            box-shadow:
+                0 12px 35px
+                rgba(37,211,102,0.3);
+
+            animation:
+                pulse 2.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0% {
+                box-shadow:
+                    0 0 0 0
+                    rgba(37,211,102,0.3);
+            }
+
+            70% {
+                box-shadow:
+                    0 0 0 15px
+                    rgba(37,211,102,0);
+            }
+
+            100% {
+                box-shadow:
+                    0 0 0 0
+                    rgba(37,211,102,0);
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE CTA
+        ===================================================== */
+
+        .mobile-cta {
+
+            display: none;
+        }
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(35px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
+        }
+
+        .reveal.active {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width: 1000px) {
+
+            .nav-links {
+
+                position: fixed;
+
+                top: 82px;
+                left: 0;
+
+                width: 100%;
+
+                padding: 30px 5%;
+
+                background:
+                    rgba(250,248,244,.98);
+
+                display: none;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 22px;
+
+                box-shadow:
+                    0 20px 40px
+                    rgba(0,0,0,.08);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: grid;
+                place-items: center;
+            }
+
+            .hero-grid,
+            .about-grid,
+            .technology-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                max-width: 750px;
+            }
+
+            .hero-visual {
+                min-height: 500px;
+            }
+
+            .about-grid {
+                gap: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .doctor-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-grid {
+                gap: 25px;
+            }
+
+            .cta-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .cta-actions {
+                flex-direction: row;
+            }
+
+        }
+
+
+        @media(max-width: 650px) {
+
+            .section {
+                padding: 80px 0;
+            }
+
+            .header,
+            .navbar {
+                height: 72px;
+            }
+
+            .nav-links {
+                top: 72px;
+            }
+
+            .hero {
+                min-height: 850px;
+                padding-top: 72px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .hero-visual {
+                min-height: 430px;
+            }
+
+            .hero-image {
+
+                width: 300px;
+                height: 390px;
+
+                border-radius:
+                    160px
+                    160px
+                    15px
+                    15px;
+            }
+
+            .hero-card {
+
+                left: 0;
+
+                bottom: 15px;
+
+                width: 190px;
+
+                padding: 18px;
+            }
+
+            .trust-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+            }
+
+            .trust-item {
+
+                padding: 15px;
+
+                border-bottom:
+                    1px solid
+                    rgba(255,255,255,.1);
+            }
+
+            .about-visual {
+                min-height: 470px;
+            }
+
+            .about-image {
+
+                width: 85%;
+                height: 410px;
+            }
+
+            .about-small {
+
+                width: 170px;
+                height: 200px;
+            }
+
+            .about-points {
+
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .doctor-card {
+
+                grid-template-columns: 1fr;
+
+                min-height: auto;
+            }
+
+            .doctor-image {
+
+                min-height: 340px;
+            }
+
+            .technology-list {
+
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+
+                grid-template-columns: 1fr 1fr;
+
+                grid-template-rows:
+                    220px
+                    170px
+                    170px;
+            }
+
+            .gallery-one {
+
+                grid-column:
+                    span 2;
+
+                grid-row:
+                    span 1;
+            }
+
+            .cta-actions {
+
+                width: 100%;
+
+                flex-direction: column;
+            }
+
+            .cta-actions .btn {
+                width: 100%;
+            }
+
+            .contact-info {
+                padding: 27px;
+            }
+
+            .map,
+            .map iframe {
+                min-height: 350px;
+            }
+
+            .footer-grid {
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .whatsapp {
+
+                right: 17px;
+
+                bottom: 72px;
+            }
+
+            .mobile-cta {
+
+                position: fixed;
+
+                left: 0;
+                bottom: 0;
+
+                width: 100%;
+
+                height: 58px;
+
+                display: grid;
+
+                grid-template-columns:
+                    1fr 1fr;
+
+                z-index: 998;
+
+                box-shadow:
+                    0 -10px 30px
+                    rgba(0,0,0,.12);
+            }
+
+            .mobile-cta a {
+
+                display: flex;
+
+                align-items: center;
+
+                justify-content: center;
+
+                font-size: 11px;
+
+                font-weight: 800;
+            }
+
+            .mobile-whatsapp {
+
+                background: #25D366;
+
+                color: white;
+            }
+
+            .mobile-book {
+
+                background: var(--dark);
+
+                color: white;
+            }
+
+        }
+
+    /* =====================================================
+   PREMIUM APPOINTMENT SECTION
+===================================================== */
+
+.appointment-section {
+
+    position: relative;
+
+    padding: 120px 0;
+
+    background:
+        #202522;
+
+    color: #fff;
+
+    overflow: hidden;
+}
+
+
+/* DECORATIVE ORBS */
+
+.appointment-orb {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid
+        rgba(185,149,91,.18);
+
+    pointer-events: none;
+}
+
+.appointment-orb-1 {
+
+    width: 550px;
+    height: 550px;
+
+    right: -250px;
+    top: -220px;
+}
+
+.appointment-orb-2 {
+
+    width: 350px;
+    height: 350px;
+
+    left: -180px;
+    bottom: -200px;
+
+    border-color:
+        rgba(255,255,255,.06);
+}
+
+
+/* MAIN GRID */
+
+.appointment-wrapper {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 0.9fr;
+
+    gap: 90px;
+
+    align-items: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* LEFT */
+
+.appointment-content {
+
+    max-width: 600px;
+}
+
+
+.appointment-label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #c3a66e;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.3px;
+
+    margin-bottom: 22px;
+}
+
+.appointment-label span {
+
+    width: 30px;
+    height: 1px;
+
+    background: #b9955b;
+}
+
+
+.appointment-content h2 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size:
+        clamp(42px, 5vw, 68px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    font-weight: 500;
+
+    margin-bottom: 25px;
+}
+
+.appointment-content h2 em {
+
+    color: #c5a66c;
+
+    font-style: normal;
+}
+
+
+.appointment-content > p {
+
+    color: #a8afa8;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    max-width: 520px;
+
+    margin-bottom: 38px;
+}
+
+
+/* BENEFITS */
+
+.appointment-benefits {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    margin-bottom: 35px;
+}
+
+
+.appointment-benefit {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.benefit-icon {
+
+    width: 34px;
+    height: 34px;
+
+    min-width: 34px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        rgba(185,149,91,.12);
+
+    border:
+        1px solid
+        rgba(185,149,91,.25);
+
+    color: #c5a66c;
+
+    font-size: 12px;
+}
+
+
+.appointment-benefit strong {
+
+    display: block;
+
+    font-size: 12px;
+
+    margin-bottom: 3px;
+}
+
+
+.appointment-benefit span {
+
+    color: #7f877f;
+
+    font-size: 10px;
+}
+
+
+/* CONTACT */
+
+.appointment-contact {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding-top: 25px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    font-size: 11px;
+
+    color: #808880;
+}
+
+.appointment-contact a {
+
+    color: #c5a66c;
+
+    font-weight: 700;
+
+    transition: .3s;
+}
+
+.appointment-contact a:hover {
+
+    color: #fff;
+}
+
+
+/* =====================================================
+   FORM CARD
+===================================================== */
+
+.appointment-card {
+
+    background:
+        #faf8f4;
+
+    color: #202522;
+
+    border-radius: 20px;
+
+    padding: 38px;
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,.25);
+
+    position: relative;
+}
+
+
+/* TOP */
+
+.appointment-card-top {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 28px;
+
+    padding-bottom: 22px;
+
+    border-bottom:
+        1px solid #e8e2d9;
+}
+
+
+.form-small-label {
+
+    display: block;
+
+    color: #b9955b;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+
+.appointment-card h3 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 600;
+}
+
+
+.form-symbol {
+
+    width: 43px;
+    height: 43px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background: #f1ebe2;
+
+    color: #b9955b;
+
+    font-size: 18px;
+}
+
+
+/* FORM */
+
+.appointment-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 17px;
+}
+
+
+.form-input-group label {
+
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    margin-bottom: 7px;
+
+    color: #454a45;
+}
+
+.form-input-group label small {
+
+    color: #9b9d98;
+
+    font-weight: 400;
+}
+
+
+.form-input-group input,
+.form-input-group select,
+.form-input-group textarea {
+
+    width: 100%;
+
+    border:
+        1px solid #ded9d0;
+
+    background: #fff;
+
+    border-radius: 9px;
+
+    padding: 13px 14px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    color: #202522;
+
+    outline: none;
+
+    transition: .3s;
+}
+
+
+.form-input-group textarea {
+
+    resize: vertical;
+
+    min-height: 85px;
+}
+
+
+.form-input-group input:focus,
+.form-input-group select:focus,
+.form-input-group textarea:focus {
+
+    border-color: #b9955b;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(185,149,91,.09);
+}
+
+
+/* TWO COLUMN */
+
+.form-two-column {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 13px;
+}
+
+
+/* SUBMIT */
+
+.appointment-submit {
+
+    width: 100%;
+
+    border: 0;
+
+    padding: 16px 20px;
+
+    border-radius: 40px;
+
+    background: #202522;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    margin-top: 3px;
+
+    transition: .35s;
+}
+
+
+.appointment-submit strong {
+
+    width: 28px;
+    height: 28px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background: #b9955b;
+
+    font-size: 16px;
+
+    transition: .35s;
+}
+
+
+.appointment-submit:hover {
+
+    background: #b9955b;
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(185,149,91,.2);
+}
+
+
+.appointment-submit:hover strong {
+
+    background: #fff;
+
+    color: #202522;
+
+    transform:
+        translateX(3px);
+}
+
+
+/* PRIVACY */
+
+.form-note {
+
+    color: #999d97;
+
+    font-size: 9px;
+
+    line-height: 1.6;
+
+    text-align: center;
+
+    margin-top: 3px;
+}
+
+
+/* =====================================================
+   SUCCESS STATE
+===================================================== */
+
+.appointment-success {
+
+    display: none;
+
+    text-align: center;
+
+    padding:
+        45px 15px 25px;
+}
+
+
+.appointment-success.active {
+
+    display: block;
+}
+
+
+.success-check {
+
+    width: 72px;
+    height: 72px;
+
+    margin:
+        0 auto 20px;
+
+    border-radius: 50%;
+
+    display: grid;
+
+    place-items: center;
+
+    background: #e7f5eb;
+
+    color: #309456;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    animation:
+        successPop .5s ease;
+}
+
+
+@keyframes successPop {
+
+    0% {
+
+        transform:
+            scale(.5);
+
+        opacity: 0;
+
+    }
+
+    70% {
+
+        transform:
+            scale(1.08);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+.appointment-success h3 {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-size: 32px;
+
+    margin-bottom: 12px;
+}
+
+
+.appointment-success p {
+
+    color: #777b76;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    max-width: 390px;
+
+    margin: auto;
+}
+
+
+.appointment-success button {
+
+    margin-top: 25px;
+
+    border: 0;
+
+    padding:
+        12px 22px;
+
+    border-radius: 30px;
+
+    background: #202522;
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width: 900px) {
+
+    .appointment-wrapper {
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+    .appointment-content {
+
+        max-width: 700px;
+    }
+
+}
+
+
+@media(max-width: 600px) {
+
+    .appointment-section {
+
+        padding: 80px 0;
+    }
+
+    .appointment-card {
+
+        padding: 25px 20px;
+
+        border-radius: 15px;
+    }
+
+    .appointment-card h3 {
+
+        font-size: 27px;
+    }
+
+    .form-two-column {
+
+        grid-template-columns: 1fr;
+
+        gap: 17px;
+    }
+
+    .appointment-content h2 {
+
+        font-size: 43px;
+
+        letter-spacing: -1.5px;
+    }
+
+    .appointment-contact {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+}
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header" id="header">
+
+    <div class="container navbar">
+
+
+        <a href="#home" class="logo">
+
+            <!-- <img src="logo.png" alt="PearlSmile Dental Care"> -->
+
+            <div class="logo-text">
+
+                PEARLSMILE DENTAL CARE
+
+                <!-- <span>
+                    MUMBAI · MAHARASHTRA · INDIA
+                </span> -->
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-btn"
+            id="menuBtn">
+
+            ☰
+
+        </button>
+
+
+        <ul
+            class="nav-links"
+            id="navLinks">
+
+            <li>
+                <a href="#about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="#services">
+                    Treatments
+                </a>
+            </li>
+
+            <li>
+                <a href="#doctors">
+                    Doctors
+                </a>
+            </li>
+
+            <li>
+                <a href="#reviews">
+                    Reviews
+                </a>
+            </li>
+
+            <li>
+                <a href="#contact">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+
+                <a
+                    href="https://wa.me/919812345678?text=Hello%20PearlSmile%20Dental%20Care,%20I%20would%20like%20to%20book%20a%20dental%20appointment."
+                    target="_blank"
+                    class="nav-appointment">
+
+                    Book Appointment
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section
+    class="hero"
+    id="home">
+
+
+    <div class="container hero-grid">
+
+
+        <div class="hero-content reveal">
+
+
+            <div class="eyebrow">
+
+                DENTAL CARE · MUMBAI
+
+            </div>
+
+
+            <h1>
+
+                Dentistry that
+                <em>goes beyond teeth.</em>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Personalized, comprehensive dental care built around
+                experience, modern technology and treatment plans
+                designed for your individual needs.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="https://wa.me/919812345678?text=Hello%20PearlSmile%20Dental%20Care,%20I%20would%20like%20to%20book%20an%20appointment."
+                    target="_blank"
+                    class="btn btn-dark">
+
+                    Book an Appointment
+
+                </a>
+
+
+                <a
+                    href="#services"
+                    class="btn btn-light">
+
+                    Explore Treatments
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="hero-visual reveal">
+
+
+            <div class="hero-image"></div>
+
+
+            <div class="hero-card">
+
+                <div class="hero-card-stars">
+                    ★★★★★
+                </div>
+
+                <strong>
+                    35+ Years
+                </strong>
+
+                <span>
+                    Of Dental Experience
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =========================================================
+     TRUST
+========================================================= -->
+
+<section class="trust">
+
+    <div class="container trust-grid">
+
+
+        <div class="trust-item">
+
+            <strong>
+                35+
+            </strong>
+
+            <span>
+                Years of Experience
+            </span>
+
+        </div>
+
+
+        <div class="trust-item">
+
+            <strong>
+                35,000+
+            </strong>
+
+            <span>
+                Clients Globally
+            </span>
+
+        </div>
+
+
+        <div class="trust-item">
+
+            <strong>
+                2
+            </strong>
+
+            <span>
+                Experienced Doctors
+            </span>
+
+        </div>
+
+
+        <div class="trust-item">
+
+            <strong>
+                1 Roof
+            </strong>
+
+            <span>
+                Complete Dental Care
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section
+    class="section about"
+    id="about">
+
+
+    <div class="container about-grid">
+
+
+        <div class="about-visual reveal">
+
+            <div class="about-image"></div>
+
+            <div class="about-small"></div>
+
+        </div>
+
+
+        <div class="about-content reveal">
+
+
+            <div class="section-label">
+                ABOUT PEARLSMILE
+            </div>
+
+
+            <h2 class="section-title">
+
+                Experience you can trust.
+                Care you can feel.
+
+            </h2>
+
+
+            <p>
+
+                PearlSmile Dental Care is a family-run dental practice
+                in South Mumbai with more than 35 years of experience
+                in dentistry.
+
+            </p>
+
+
+            <p>
+
+                The clinic focuses on personalized treatment,
+                modern technology and long-lasting dental solutions
+                rather than unnecessary procedures.
+
+            </p>
+
+
+            <p>
+
+                From routine dental care to cosmetic dentistry,
+                implants and full-mouth rehabilitation, the goal is
+                to provide comprehensive care under one roof.
+
+            </p>
+
+
+            <div class="about-points">
+
+
+                <div class="about-point">
+
+                    <span class="point-icon">
+                        ✓
+                    </span>
+
+                    Personalized Treatment
+
+                </div>
+
+
+                <div class="about-point">
+
+                    <span class="point-icon">
+                        ✓
+                    </span>
+
+                    Modern Technology
+
+                </div>
+
+
+                <div class="about-point">
+
+                    <span class="point-icon">
+                        ✓
+                    </span>
+
+                    Long-Lasting Solutions
+
+                </div>
+
+
+                <div class="about-point">
+
+                    <span class="point-icon">
+                        ✓
+                    </span>
+
+                    Comprehensive Care
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section
+    class="section services"
+    id="services">
+
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+            <div class="section-label">
+                OUR TREATMENTS
+            </div>
+
+            <h2 class="section-title">
+
+                Complete dental care,
+                thoughtfully delivered.
+
+            </h2>
+
+            <p class="section-text">
+
+                A comprehensive range of general, cosmetic,
+                restorative, orthodontic and implant dentistry
+                services tailored to individual requirements.
+
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <div class="service-card reveal">
+
+                <div class="service-number">
+                    01
+                </div>
+
+                <div class="service-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Dental Implants
+                </h3>
+
+                <p>
+                    Advanced tooth replacement solutions designed
+                    to restore function and confidence.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <div class="service-number">
+                    02
+                </div>
+
+                <div class="service-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Cosmetic Dentistry
+                </h3>
+
+                <p>
+                    Smile-focused treatments designed to enhance
+                    the appearance of your teeth naturally.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <div class="service-number">
+                    03
+                </div>
+
+                <div class="service-icon">
+                    ◎
+                </div>
+
+                <h3>
+                    Full Mouth Rehabilitation
+                </h3>
+
+                <p>
+                    Comprehensive treatment planning for complex
+                    restorative and functional dental needs.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <div class="service-number">
+                    04
+                </div>
+
+                <div class="service-icon">
+                    +
+                </div>
+
+                <h3>
+                    Root Canal Treatment
+                </h3>
+
+                <p>
+                    Modern endodontic care focused on preserving
+                    natural teeth wherever possible.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <div class="service-number">
+                    05
+                </div>
+
+                <div class="service-icon">
+                    ∿
+                </div>
+
+                <h3>
+                    Orthodontics
+                </h3>
+
+                <p>
+                    Braces and clear aligner solutions for healthier,
+                    straighter and more confident smiles.
+                </p>
+
+            </div>
+
+
+            <div class="service-card reveal">
+
+                <div class="service-number">
+                    06
+                </div>
+
+                <div class="service-icon">
+                    ○
+                </div>
+
+                <h3>
+                    Preventive Care
+                </h3>
+
+                <p>
+                    Regular dental care designed to maintain oral
+                    health and prevent future complications.
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     DOCTORS
+========================================================= -->
+
+<section
+    class="section doctors"
+    id="doctors">
+
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+            <div class="section-label">
+                OUR DENTISTS
+            </div>
+
+            <h2 class="section-title">
+
+                Experienced hands.
+                Personalized attention.
+
+            </h2>
+
+        </div>
+
+
+        <div class="doctor-grid">
+
+
+            <div class="doctor-card reveal">
+
+
+                <div class="doctor-image doctor-one"></div>
+
+
+                <div class="doctor-info">
+
+                    <div class="doctor-role">
+                        General Dentist
+                    </div>
+
+                    <h3>
+                        Mr. Mahesh
+                    </h3>
+
+                    <p>
+
+                        Experienced dentist at PearlSmile Dental Care, focused on preventive care, oral health and comfortable patient experiences.
+
+                    </p>
+
+                    <div class="doctor-tag">
+                        BDS · GENERAL DENTISTRY
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="doctor-card reveal">
+
+
+                <div class="doctor-image doctor-two"></div>
+
+
+                <div class="doctor-info">
+
+                    <div class="doctor-role">
+                        Dental Surgeon
+                    </div>
+
+                    <h3>
+                        Ms. Snehal
+                    </h3>
+
+                    <p>
+
+                        Dental surgeon at PearlSmile Dental Care, specializing in advanced dental treatments and personalized care for healthier, brighter smiles.
+
+                    </p>
+
+                    <div class="doctor-tag">
+                        BDS · DENTAL SURGERY
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TECHNOLOGY
+========================================================= -->
+
+<section class="section technology">
+
+
+    <div class="container technology-grid">
+
+
+        <div class="reveal">
+
+
+            <div class="section-label">
+                MODERN DENTISTRY
+            </div>
+
+
+            <h2 class="section-title">
+
+                Technology designed
+                around better care.
+
+            </h2>
+
+
+            <p class="section-text">
+
+                PearlSmile combines experienced clinical care with
+                modern dental technology to support accurate
+                diagnosis and effective treatment.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="technology-list">
+
+
+            <div class="technology-item reveal">
+
+                <strong>
+                    Digital X-Ray
+                </strong>
+
+                <span>
+                    Modern diagnostic imaging
+                </span>
+
+            </div>
+
+
+            <div class="technology-item reveal">
+
+                <strong>
+                    Digital Imaging
+                </strong>
+
+                <span>
+                    Enhanced clinical visualization
+                </span>
+
+            </div>
+
+
+            <div class="technology-item reveal">
+
+                <strong>
+                    Intraoral Camera
+                </strong>
+
+                <span>
+                    Detailed examination
+                </span>
+
+            </div>
+
+
+            <div class="technology-item reveal">
+
+                <strong>
+                    CAD / CAM
+                </strong>
+
+                <span>
+                    Digital restorative workflow
+                </span>
+
+            </div>
+
+
+            <div class="technology-item reveal">
+
+                <strong>
+                    Dental Microscopes
+                </strong>
+
+                <span>
+                    Enhanced precision
+                </span>
+
+            </div>
+
+
+            <div class="technology-item reveal">
+
+                <strong>
+                    Digital Impressions
+                </strong>
+
+                <span>
+                    Modern dental scanning
+                </span>
+
+            </div>
+
+
+            <div class="technology-item reveal">
+
+                <strong>
+                    Piezosurgery
+                </strong>
+
+                <span>
+                    Advanced surgical technology
+                </span>
+
+            </div>
+
+
+            <div class="technology-item reveal">
+
+                <strong>
+                    Ultrasonic Cleaning
+                </strong>
+
+                <span>
+                    Hygiene-focused equipment
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     REVIEWS
+========================================================= -->
+
+<section
+    class="section testimonials"
+    id="reviews">
+
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+            <div class="section-label">
+                PATIENT EXPERIENCES
+            </div>
+
+            <h2 class="section-title">
+
+                Trusted by patients
+                across generations.
+
+            </h2>
+
+        </div>
+
+
+        <div class="testimonial-grid">
+
+
+            <div class="testimonial reveal">
+
+                <div class="testimonial-stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    "I have been a patient here for more than
+                    7 years and have always appreciated the
+                    quality of work and personal attention."
+
+                </p>
+
+                <div class="testimonial-user">
+
+                    Kasturi Sable
+
+                    <span>
+                        Patient Review
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="testimonial reveal">
+
+                <div class="testimonial-stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    "Mr. Mahesh was wonderful and the staff
+                    were kind. The clinic has a unique and
+                    welcoming environment."
+
+                </p>
+
+                <div class="testimonial-user">
+
+                    Christy Kymzou
+
+                    <span>
+                        Patient Review
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="testimonial reveal">
+
+                <div class="testimonial-stars">
+                    ★★★★★
+                </div>
+
+                <p>
+
+                    "The doctor was friendly and knowledgeable.
+                    I was extremely happy with the improvement
+                    in my smile."
+
+                </p>
+
+                <div class="testimonial-user">
+
+                    Zunera Zari
+
+                    <span>
+                        Patient Review
+                    </span>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+
+<section class="section gallery">
+
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+            <div class="section-label">
+                OUR CLINIC
+            </div>
+
+            <h2 class="section-title">
+
+                A calm environment
+                for modern dental care.
+
+            </h2>
+
+        </div>
+
+
+        <div class="gallery-grid">
+
+
+            <div class="gallery-item gallery-one reveal" style="border: 1px solid black"></div>
+
+            <div class="gallery-item gallery-two reveal"  style="border: 1px solid black"></div>
+
+            <div class="gallery-item gallery-three reveal"  style="border: 1px solid black"></div>
+
+            <div class="gallery-item gallery-four reveal"  style="border: 1px solid black"></div>
+
+            <div class="gallery-item gallery-five reveal"  style="border: 1px solid black"></div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+
+    <div class="container cta-content">
+
+
+        <div class="reveal">
+
+
+            <div class="section-label">
+                YOUR SMILE STARTS HERE
+            </div>
+
+
+            <h2>
+
+                Ready to take
+                the next step?
+
+            </h2>
+
+
+            <p>
+
+                Book a consultation with PearlSmile Dental Care
+                in Mumbai, Maharashtra, India and discuss a personalized
+                treatment plan for your dental needs.
+
+            </p>
+
+
+        </div>
+
+
+        <div class="cta-actions reveal">
+
+
+            <a
+                href="https://wa.me/919812345678?text=Hello%20PearlSmile%20Dental%20Care,%20I%20would%20like%20to%20book%20an%20appointment."
+                target="_blank"
+                class="btn btn-light">
+
+                WhatsApp Clinic
+
+            </a>
+
+
+            <a
+                href="tel:+919812345678"
+                class="btn btn-light">
+
+                Call Clinic
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+    class="section contact"
+    id="contact">
+
+
+    <div class="container">
+
+
+        <div class="section-head reveal">
+
+            <div class="section-label">
+                FIND US
+            </div>
+
+            <h2 class="section-title">
+
+                Visit PearlSmile Dental Care
+                in Mumbai, Maharashtra, India.
+
+            </h2>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <div class="contact-info reveal">
+
+
+                <h3>
+                    Contact Details
+                </h3>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Clinic Address
+                        </h4>
+
+                        <p>
+
+                            Suite No. 75, 7th Floor,
+                            Lady Ratan Tata Medical Centre,
+                            Maharshi Karve Road,
+                            Mumbai, Maharashtra, India
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ☎
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Phone
+                        </h4>
+
+                        <a href="tel:+919812345678">
+
+                            +91 98123 45678
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ✉
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Email
+                        </h4>
+
+                        <a href="mailto:hello@pearlsmile-demo.com">
+
+                            hello@pearlsmile-demo.com
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        ◷
+                    </div>
+
+                    <div>
+
+                        <h4>
+                            Opening Hours
+                        </h4>
+
+                        <p>
+
+                            Monday – Saturday<br>
+                            10:00 AM – 8:00 PM
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="https://wa.me/919812345678?text=Hello%20PearlSmile%20Dental%20Care,%20I%20would%20like%20to%20book%20an%20appointment."
+                    target="_blank"
+                    class="btn btn-dark">
+
+                    WhatsApp for Appointment
+
+                </a>
+
+
+            </div>
+
+
+            <div class="map reveal">
+
+                <iframe
+
+                    src="https://www.google.com/maps?q=Mumbai%2C%20Maharashtra%2C%20India&output=embed"
+
+                    loading="lazy"
+
+                    allowfullscreen>
+
+                </iframe>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<!-- =====================================================
+     PREMIUM APPOINTMENT SECTION
+===================================================== -->
+
+<section class="appointment-section" id="appointment">
+
+    <div class="appointment-orb appointment-orb-1"></div>
+    <div class="appointment-orb appointment-orb-2"></div>
+
+    <div class="container">
+
+        <div class="appointment-wrapper">
+
+            <!-- LEFT CONTENT -->
+            <div class="appointment-content reveal">
+
+                <div class="appointment-label">
+                    <span></span>
+                    YOUR SMILE DESERVES THE BEST
+                </div>
+
+                <h2>
+                    Begin your journey
+                    to a <em>confident smile.</em>
+                </h2>
+
+                <p>
+                    Schedule a personal consultation with our dental
+                    team and discover a treatment plan designed
+                    specifically around your needs.
+                </p>
+
+
+                <div class="appointment-benefits">
+
+                    <div class="appointment-benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <div>
+                            <strong>Personal Consultation</strong>
+                            <span>Discuss your dental concerns privately.</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="appointment-benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <div>
+                            <strong>Experienced Dental Team</strong>
+                            <span>35+ years of trusted dental care.</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="appointment-benefit">
+
+                        <div class="benefit-icon">
+                            ✓
+                        </div>
+
+                        <div>
+                            <strong>Modern Treatment Approach</strong>
+                            <span>Advanced care tailored to your needs.</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="appointment-contact">
+
+                    <span>Prefer to speak with us?</span>
+
+                    <a href="tel:+919812345678">
+                        +91 98123 45678
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT FORM -->
+            <div class="appointment-card reveal">
+
+                <div class="appointment-card-top">
+
+                    <div>
+                        <span class="form-small-label">
+                            APPOINTMENT REQUEST
+                        </span>
+
+                        <h3>
+                            Book a consultation
+                        </h3>
+                    </div>
+
+                    <div class="form-symbol">
+                        ✦
+                    </div>
+
+                </div>
+
+
+                <form id="appointmentForm" class="appointment-form">
+
+
+                    <div class="form-input-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+                    </div>
+
+
+                    <div class="form-two-column">
+
+                        <div class="form-input-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" required>
+
+                        </div>
+
+
+                        <div class="form-input-group">
+
+                            <label for="date">
+                                Preferred Date
+                            </label>
+
+                            <input type="date" id="date" name="date" required>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-input-group">
+
+                        <label for="service">
+                            Treatment / Consultation
+                        </label>
+
+                        <select id="service" name="service" required>
+
+                            <option value="">
+                                Select a treatment
+                            </option>
+
+                            <option value="General Consultation">
+                                General Consultation
+                            </option>
+
+                            <option value="Dental Implants">
+                                Dental Implants
+                            </option>
+
+                            <option value="Cosmetic Dentistry">
+                                Cosmetic Dentistry
+                            </option>
+
+                            <option value="Root Canal Treatment">
+                                Root Canal Treatment
+                            </option>
+
+                            <option value="Full Mouth Rehabilitation">
+                                Full Mouth Rehabilitation
+                            </option>
+
+                            <option value="Orthodontics">
+                                Orthodontics
+                            </option>
+
+                            <option value="Preventive Care">
+                                Preventive Dental Care
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-input-group">
+
+                        <label for="message">
+                            Tell us about your concern
+                            <small>(Optional)</small>
+                        </label>
+
+                        <textarea id="message" name="message" rows="3"
+                            placeholder="Briefly describe your dental concern..."></textarea>
+
+                    </div>
+
+
+                    <button type="submit" class="appointment-submit">
+
+                        <span>
+                            Request Appointment
+                        </span>
+
+                        <strong>
+                            →
+                        </strong>
+
+                    </button>
+
+
+                    <p class="form-note">
+
+                        🔒 Your information is kept private
+                        and used only to contact you regarding
+                        your appointment.
+
+                    </p>
+
+                </form>
+
+
+                <!-- SUCCESS MESSAGE -->
+
+                <div class="appointment-success" id="appointmentSuccess">
+
+                    <div class="success-check">
+                        ✓
+                    </div>
+
+                    <h3>
+                        Thank You
+                    </h3>
+
+                    <p>
+                        Your appointment request has been received.
+                        Our team will contact you shortly to confirm
+                        your preferred date and time.
+                    </p>
+
+                    <button type="button" onclick="resetAppointment()">
+
+                        Make Another Request
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<footer>
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+            <div class="footer-brand">
+
+                PEARLSMILE DENTAL CARE
+
+                <!-- <span>
+                    MUMBAI · MAHARASHTRA · INDIA
+                </span> -->
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-copy">
+
+            © 2026 PearlSmile Dental Care.
+            All Rights Reserved.
+
+        </div>
+
+        <div class="footer-copy footer-designed">
+
+            Designed with <a href="https://mannasiii.github.io/templates/" target="_blank" rel="noopener noreferrer">Manasii ♥</a>
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+<!-- =========================================================
+     FLOATING WHATSAPP
+========================================================= -->
+
+<a
+
+    href="https://wa.me/919812345678?text=Hello%20PearlSmile%20Dental%20Care,%20I%20would%20like%20to%20book%20an%20appointment."
+
+    target="_blank"
+
+    class="whatsapp"
+
+    aria-label="WhatsApp">
+
+    ☎
+
+</a>
+
+
+<!-- =========================================================
+     MOBILE CTA
+========================================================= -->
+
+<div class="mobile-cta">
+
+
+    <a
+
+        href="https://wa.me/919812345678?text=Hello%20PearlSmile%20Dental%20Care,%20I%20would%20like%20to%20book%20an%20appointment."
+
+        target="_blank"
+
+        class="mobile-whatsapp">
+
+        WhatsApp
+
+    </a>
+
+
+    <a
+
+        href="#contact"
+
+        class="mobile-book">
+
+        Book Appointment
+
+    </a>
+
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+
+    /* =====================================================
+       HEADER
+    ===================================================== */
+
+    const header =
+        document.getElementById("header");
+
+
+    window.addEventListener("scroll", () => {
+
+        if (window.scrollY > 50) {
+
+            header.classList.add("scrolled");
+
+        } else {
+
+            header.classList.remove("scrolled");
+
+        }
+
+    });
+
+
+    /* =====================================================
+       MOBILE MENU
+    ===================================================== */
+
+    const menuBtn =
+        document.getElementById("menuBtn");
+
+    const navLinks =
+        document.getElementById("navLinks");
+
+
+    menuBtn.addEventListener("click", () => {
+
+        navLinks.classList.toggle("active");
+
+        document.body.classList.toggle(
+            "menu-open"
+        );
+
+
+        if (
+            navLinks.classList.contains("active")
+        ) {
+
+            menuBtn.innerHTML = "×";
+
+        } else {
+
+            menuBtn.innerHTML = "☰";
+
+        }
+
+    });
+
+
+    document
+        .querySelectorAll(".nav-links a")
+        .forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove(
+                    "active"
+                );
+
+                document.body.classList.remove(
+                    "menu-open"
+                );
+
+                menuBtn.innerHTML = "☰";
+
+            });
+
+        });
+
+
+    /* =====================================================
+       SCROLL REVEAL
+    ===================================================== */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+        new IntersectionObserver(
+
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        entry.target.classList.add(
+                            "active"
+                        );
+
+                        revealObserver.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+
+            {
+                threshold: 0.12
+            }
+
+        );
+
+
+    revealElements.forEach(element => {
+
+        revealObserver.observe(element);
+
+    });
+
+
+    /* =====================================================
+       SMOOTH SCROLL
+    ===================================================== */
+
+    document
+        .querySelectorAll('a[href^="#"]')
+        .forEach(anchor => {
+
+            anchor.addEventListener(
+                "click",
+                function(e) {
+
+                    const target =
+                        document.querySelector(
+                            this.getAttribute("href")
+                        );
+
+                    if (!target) return;
+
+                    e.preventDefault();
+
+                    const headerHeight =
+                        header.offsetHeight;
+
+                    const targetPosition =
+                        target.getBoundingClientRect().top +
+                        window.pageYOffset -
+                        headerHeight;
+
+                    window.scrollTo({
+
+                        top:
+                            targetPosition,
+
+                        behavior:
+                            "smooth"
+
+                    });
+
+                }
+            );
+
+        });
+    /* =====================================================
+       APPOINTMENT FORM
+    ===================================================== */
+
+    const appointmentForm =
+        document.getElementById("appointmentForm");
+
+    const appointmentSuccess =
+        document.getElementById("appointmentSuccess");
+
+
+    appointmentForm.addEventListener("submit", function (e) {
+
+        e.preventDefault();
+
+
+        const name =
+            document.getElementById("name").value;
+
+        const phone =
+            document.getElementById("phone").value;
+
+        const date =
+            document.getElementById("date").value;
+
+        const service =
+            document.getElementById("service").value;
+
+        const message =
+            document.getElementById("message").value;
+
+
+        console.log({
+            name,
+            phone,
+            date,
+            service,
+            message
+        });
+
+
+        /* Hide form */
+
+        appointmentForm.style.display = "none";
+
+
+        /* Show success */
+
+        appointmentSuccess.classList.add("active");
+
+    });
+
+
+    function resetAppointment() {
+
+        appointmentForm.reset();
+
+        appointmentForm.style.display = "flex";
+
+        appointmentSuccess.classList.remove("active");
+
+    }
+
+</script>
+
+
+</body>
+
+</html>
