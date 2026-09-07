@@ -3,5 +3,10 @@
     "name": "Summit Roofing",
     "folder": "summit-roofing",
     "category": "business"
+  },
+   {
+    "name": "SmileHaven Dental",
+    "folder": "SmileHaven-Dental",
+    "category": "dental-care"
   }
 ]
