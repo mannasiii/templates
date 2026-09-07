@@ -8,5 +8,10 @@
     "name": "SmileHaven Dental",
     "folder": "SmileHaven-Dental",
     "category": "dental-care"
+  },
+   {
+    "name": "Luxeora Jewelry",
+    "folder": "Luxeora-Jewelry",
+    "category": "jewelry"
   }
 ]
