@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Luxeora Jewelry | Timeless Luxury</title>
+
+  <meta
+    name="description"
+    content="Luxeora Jewelry — timeless jewelry crafted for life's most beautiful moments."
+  >
+
+  <!-- Bootstrap -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <!-- Bootstrap Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+  >
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    /* =========================================================
+       ROOT
+    ========================================================= */
+
+    :root {
+      --black: #11100e;
+      --dark: #181715;
+      --cream: #f7f4ed;
+      --cream-dark: #ebe7de;
+      --white: #ffffff;
+      --gold: #b49562;
+      --gold-light: #d1b983;
+      --text: #191815;
+      --muted: #777269;
+      --border: #ded8cc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--text);
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .serif {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+
+    /* =========================================================
+       NAVBAR
+    ========================================================= */
+
+    .navbar {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      padding: 22px 0;
+      transition: 0.35s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(247, 244, 237, 0.96);
+      backdrop-filter: blur(12px);
+      padding: 13px 0;
+      box-shadow: 0 5px 30px rgba(0,0,0,0.06);
+    }
+
+    .navbar-brand {
+      color: #fff !important;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 31px;
+      letter-spacing: 5px;
+      font-weight: 600;
+    }
+
+    .navbar-brand span {
+      color: var(--gold-light);
+      font-size: 40px;
+      line-height: 0;
+    }
+
+    .navbar.scrolled .navbar-brand {
+      color: var(--black) !important;
+    }
+
+    .nav-link {
+      color: #fff !important;
+      font-size: 10px;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin: 0 10px;
+      position: relative;
+    }
+
+    .navbar.scrolled .nav-link {
+      color: var(--black) !important;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 1px;
+      background: currentColor;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: 0.3s;
+    }
+
+    .nav-link:hover::after {
+      width: 70%;
+    }
+
+    .navbar-toggler {
+      color: #fff;
+    }
+
+    .navbar.scrolled .navbar-toggler {
+      color: var(--black);
+    }
+
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+
+    .lux-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px 27px;
+      border: 1px solid transparent;
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      transition: 0.3s ease;
+    }
+
+    .lux-btn-dark {
+      background: var(--black);
+      color: #fff;
+    }
+
+    .lux-btn-dark:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .lux-btn-light {
+      background: #fff;
+      color: var(--black);
+    }
+
+    .lux-btn-light:hover {
+      background: var(--gold);
+      color: #fff;
+    }
+
+    .lux-btn-outline {
+      border-color: rgba(255,255,255,0.65);
+      color: #fff;
+      background: transparent;
+    }
+
+    .lux-btn-outline:hover {
+      background: #fff;
+      color: var(--black);
+    }
+
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,0.72) 0%,
+          rgba(0,0,0,0.42) 45%,
+          rgba(0,0,0,0.10) 100%
+        ),
+        url("https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=2200&q=90")
+        center / cover no-repeat;
+    }
+
+    .hero-content {
+      color: #fff;
+      max-width: 720px;
+      padding-top: 80px;
+    }
+
+    .eyebrow {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(58px, 7vw, 105px);
+      line-height: 0.88;
+      font-weight: 500;
+    }
+
+    .hero h1 em {
+      font-weight: 400;
+      color: #e7d9bd;
+    }
+
+    .hero-description {
+      max-width: 510px;
+      margin: 30px 0;
+      font-size: 14px;
+      line-height: 1.9;
+      color: #e9e6df;
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      writing-mode: vertical-rl;
+    }
+
+
+    /* =========================================================
+       INTRO
+    ========================================================= */
+
+    .intro {
+      background: var(--cream-dark);
+      padding: 100px 0;
+    }
+
+    .intro h2,
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 500;
+      font-size: clamp(45px, 5vw, 70px);
+      line-height: 0.95;
+    }
+
+    .intro h2 em,
+    .section-title em {
+      font-weight: 400;
+    }
+
+    .intro-text {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 2;
+    }
+
+
+    /* =========================================================
+       COLLECTIONS
+    ========================================================= */
+
+    .section-space {
+      padding: 110px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-heading .eyebrow {
+      color: var(--gold);
+    }
+
+    .section-heading p:last-child {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 15px;
+    }
+
+    .collection-card {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      color: var(--black);
+    }
+
+    .collection-card img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      transition: 0.7s ease;
+    }
+
+    .collection-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .collection-overlay {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 45px 25px 25px;
+      color: #fff;
+      background: linear-gradient(
+        transparent,
+        rgba(0,0,0,0.72)
+      );
+    }
+
+    .collection-number {
+      font-size: 9px;
+      letter-spacing: 2px;
+      opacity: 0.7;
+    }
+
+    .collection-overlay h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 34px;
+      font-weight: 500;
+      margin: 4px 0 0;
+    }
+
+    .collection-arrow {
+      position: absolute;
+      right: 25px;
+      bottom: 28px;
+      font-size: 18px;
+    }
+
+
+    /* =========================================================
+       FEATURE
+    ========================================================= */
+
+    .dark-section {
+      background: var(--dark);
+      color: #fff;
+    }
+
+    .dark-section .eyebrow {
+      color: var(--gold-light);
+    }
+
+    .dark-section .section-title {
+      color: #fff;
+    }
+
+    .dark-description {
+      color: #bdb8af;
+      line-height: 2;
+      font-size: 14px;
+      max-width: 500px;
+      margin: 25px 0;
+    }
+
+    .feature-image {
+      position: relative;
+    }
+
+    .feature-image img {
+      width: 100%;
+      height: 650px;
+      object-fit: cover;
+    }
+
+    .feature-label {
+      position: absolute;
+      left: -20px;
+      bottom: 30px;
+      background: var(--gold);
+      color: #fff;
+      padding: 15px 20px;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       CRAFTSMANSHIP
+    ========================================================= */
+
+    .craft-image img {
+      width: 100%;
+      height: 650px;
+      object-fit: cover;
+    }
+
+    .craft-list {
+      margin-top: 35px;
+    }
+
+    .craft-item {
+      display: flex;
+      gap: 20px;
+      padding: 22px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .craft-item i {
+      color: var(--gold);
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .craft-item h4 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .craft-item p {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+
+    /* =========================================================
+       STORY
+    ========================================================= */
+
+    .story {
+      min-height: 620px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.57),
+          rgba(0,0,0,0.57)
+        ),
+        url("https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=2200&q=90")
+        center / cover no-repeat;
+    }
+
+    .story-content {
+      max-width: 680px;
+    }
+
+    .story-content .eyebrow {
+      color: var(--gold-light);
+    }
+
+    .story-content p:not(.eyebrow) {
+      color: #ddd8d0;
+      line-height: 2;
+      font-size: 14px;
+      margin-top: 25px;
+    }
+
+
+    /* =========================================================
+       GALLERY
+    ========================================================= */
+
+    .gallery img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .gallery .tall img {
+      height: 470px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+
+    /* =========================================================
+       BRIDAL
+    ========================================================= */
+
+    .bridal {
+      background: var(--cream-dark);
+    }
+
+    .bridal-image {
+      position: relative;
+    }
+
+    .bridal-image img {
+      width: 100%;
+      height: 650px;
+      object-fit: cover;
+    }
+
+    .bridal-badge {
+      position: absolute;
+      right: 25px;
+      bottom: 25px;
+      background: #fff;
+      padding: 22px;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 18px;
+    }
+
+
+    /* =========================================================
+       TESTIMONIALS
+    ========================================================= */
+
+    .testimonial-card {
+      background: #fff;
+      padding: 38px;
+      min-height: 270px;
+      border: 1px solid #e3ded4;
+    }
+
+    .stars {
+      color: var(--gold);
+      letter-spacing: 4px;
+      font-size: 10px;
+      margin-bottom: 25px;
+    }
+
+    .testimonial-card p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 23px;
+      line-height: 1.45;
+      font-style: italic;
+    }
+
+    .testimonial-card strong {
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+
+    /* =========================================================
+       APPOINTMENT
+    ========================================================= */
+
+    .appointment {
+      background: #e9e4da;
+    }
+
+    .appointment-info p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 18px 0;
+      font-size: 11px;
+    }
+
+    .contact-detail i {
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .lux-form {
+      background: var(--cream);
+      padding: 40px;
+    }
+
+    .lux-form input,
+    .lux-form select,
+    .lux-form textarea {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #c7c0b5;
+      background: transparent;
+      padding: 15px 3px;
+      outline: none;
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+      color: var(--text);
+    }
+
+    .lux-form input:focus,
+    .lux-form select:focus,
+    .lux-form textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .lux-form textarea {
+      resize: vertical;
+    }
+
+    .form-message {
+      display: none;
+      color: #65704e;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      background: var(--dark);
+      color: #a9a59d;
+      padding: 80px 0 20px;
+    }
+
+    .footer-logo {
+      color: #fff;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 31px;
+      letter-spacing: 5px;
+      margin-bottom: 20px;
+    }
+
+    .footer-logo span {
+      color: var(--gold-light);
+    }
+
+    .footer-description {
+      max-width: 400px;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .footer-heading {
+      color: #fff;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      display: block;
+      color: #aaa69f;
+      font-size: 11px;
+      margin: 11px 0;
+      transition: 0.25s;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 17px;
+    }
+
+    .social-links a {
+      color: #aaa69f;
+      font-size: 18px;
+      transition: 0.25s;
+    }
+
+    .social-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #363532;
+      margin-top: 55px;
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      font-size: 9px;
+      letter-spacing: 0.7px;
+    }
+
+    .footer-bottom a {
+      color: #fff;
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 991px) {
+
+      .navbar {
+        background: rgba(247,244,237,0.97);
+      }
+
+      .navbar-brand {
+        color: var(--black) !important;
+      }
+
+      .nav-link {
+        color: var(--black) !important;
+        margin: 7px 0;
+      }
+
+      .navbar-toggler {
+        color: var(--black);
+      }
+
+      .hero {
+        min-height: 780px;
+      }
+
+      .hero-content {
+        padding-top: 100px;
+      }
+
+      .feature-image img,
+      .craft-image img,
+      .bridal-image img {
+        height: 520px;
+      }
+
+      .section-space {
+        padding: 85px 0;
+      }
+    }
+
+
+    @media (max-width: 767px) {
+
+      .hero {
+        min-height: 720px;
+        background-position: 62% center;
+      }
+
+      .hero h1 {
+        font-size: 61px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .lux-btn {
+        width: 100%;
+      }
+
+      .intro {
+        padding: 70px 0;
+      }
+
+      .collection-card img {
+        height: 360px;
+      }
+
+      .feature-image img,
+      .craft-image img,
+      .bridal-image img {
+        height: 450px;
+      }
+
+      .feature-label {
+        left: 10px;
+      }
+
+      .story {
+        min-height: 550px;
+      }
+
+      .gallery img,
+      .gallery .tall img {
+        height: 290px;
+      }
+
+      .lux-form {
+        padding: 25px 20px;
+      }
+
+      .footer-bottom {
+        display: block;
+        line-height: 2;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+
+      .navbar-brand {
+        font-size: 25px;
+      }
+
+      .hero h1 {
+        font-size: 53px;
+      }
+
+      .hero {
+        min-height: 680px;
+      }
+
+      .section-space {
+        padding: 65px 0;
+      }
+
+      .section-heading {
+        margin-bottom: 40px;
+      }
+
+      .collection-card img {
+        height: 310px;
+      }
+
+      .feature-image img,
+      .craft-image img,
+      .bridal-image img {
+        height: 390px;
+      }
+
+      .testimonial-card {
+        padding: 28px;
+      }
+
+      .testimonial-card p {
+        font-size: 21px;
+      }
+
+      .bridal-badge {
+        width: 100px;
+        height: 100px;
+        font-size: 15px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg" id="mainNav">
+
+  <div class="container">
+
+    <a class="navbar-brand" href="#home">
+      LUXEORA<span>.</span>
+    </a>
+
+    <button
+      class="navbar-toggler border-0 shadow-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarMenu"
+      aria-label="Toggle navigation"
+    >
+      <i class="bi bi-list fs-2"></i>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarMenu">
+
+      <ul class="navbar-nav mx-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" href="#collections">
+            Collections
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#story">
+            Our Story
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#craftsmanship">
+            Craftsmanship
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#gallery">
+            Gallery
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">
+            Contact
+          </a>
+        </li>
+
+      </ul>
+
+      <a href="#appointment" class="lux-btn lux-btn-dark">
+        Book a Consultation
+      </a>
+
+    </div>
+
+  </div>
+
+</nav>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<header class="hero" id="home">
+
+  <div class="container">
+
+    <div class="hero-content">
+
+      <p class="eyebrow">
+        TIMELESS • RARE • YOURS
+      </p>
+
+      <h1>
+        Jewelry that<br>
+        <em>becomes a legacy.</em>
+      </h1>
+
+      <p class="hero-description">
+        Discover refined jewelry designed to celebrate
+        your most unforgettable moments — from everyday
+        elegance to once-in-a-lifetime milestones.
+      </p>
+
+      <div class="hero-buttons">
+
+        <a href="#collections" class="lux-btn lux-btn-light">
+          Explore Collection
+          <i class="bi bi-arrow-right"></i>
+        </a>
+
+        <a href="#appointment" class="lux-btn lux-btn-outline">
+          Book a Consultation
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="scroll-indicator">
+    Scroll to explore
+  </div>
+
+</header>
+
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+
+<section class="intro">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-5">
+
+        <p class="eyebrow">
+          THE LUXEORA SIGNATURE
+        </p>
+
+        <h2>
+          Quiet luxury.<br>
+          <em>Extraordinary detail.</em>
+        </h2>
+
+      </div>
+
+      <div class="col-lg-6 ms-auto">
+
+        <p class="intro-text">
+          From delicate everyday pieces to heirloom-worthy
+          creations, Luxeora brings together exceptional
+          materials, considered design, and old-world
+          craftsmanship for the modern collector.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     COLLECTIONS
+========================================================= -->
+
+<section class="section-space" id="collections">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <p class="eyebrow">
+        CURATED FOR YOU
+      </p>
+
+      <h2 class="section-title">
+        Featured Collections
+      </h2>
+
+      <p>
+        Explore our signature edit of timeless silhouettes
+        and contemporary icons.
+      </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <!-- Rings -->
+
+      <div class="col-md-6 col-lg-3">
+
+        <a href="#rings" class="collection-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=85"
+            alt="Luxury rings"
+            loading="lazy"
+          >
+
+          <div class="collection-overlay">
+
+            <span class="collection-number">
+              01
+            </span>
+
+            <h3>
+              Rings
+            </h3>
+
+            <i class="bi bi-arrow-up-right collection-arrow"></i>
+
+          </div>
+
+        </a>
+
+      </div>
+
+
+      <!-- Necklaces -->
+
+      <div class="col-md-6 col-lg-3">
+
+        <a href="#necklaces" class="collection-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=900&q=85"
+            alt="Luxury necklace"
+            loading="lazy"
+          >
+
+          <div class="collection-overlay">
+
+            <span class="collection-number">
+              02
+            </span>
+
+            <h3>
+              Necklaces
+            </h3>
+
+            <i class="bi bi-arrow-up-right collection-arrow"></i>
+
+          </div>
+
+        </a>
+
+      </div>
+
+
+      <!-- Earrings -->
+
+      <div class="col-md-6 col-lg-3">
+
+        <a href="#earrings" class="collection-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85"
+            alt="Elegant earrings"
+            loading="lazy"
+          >
+
+          <div class="collection-overlay">
+
+            <span class="collection-number">
+              03
+            </span>
+
+            <h3>
+              Earrings
+            </h3>
+
+            <i class="bi bi-arrow-up-right collection-arrow"></i>
+
+          </div>
+
+        </a>
+
+      </div>
+
+
+      <!-- Bridal -->
+
+      <div class="col-md-6 col-lg-3">
+
+        <a href="#bridal" class="collection-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=85"
+            alt="Bridal jewelry"
+            loading="lazy"
+          >
+
+          <div class="collection-overlay">
+
+            <span class="collection-number">
+              04
+            </span>
+
+            <h3>
+              Bridal
+            </h3>
+
+            <i class="bi bi-arrow-up-right collection-arrow"></i>
+
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SIGNATURE PIECE
+========================================================= -->
+
+<section class="dark-section section-space" id="rings">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+
+        <p class="eyebrow">
+          THE ICON EDIT
+        </p>
+
+        <h2 class="section-title">
+          Made to be<br>
+          <em>remembered.</em>
+        </h2>
+
+        <p class="dark-description">
+          Our signature pieces balance sculptural forms
+          with understated elegance. Designed to be worn
+          today, treasured tomorrow, and passed down
+          for generations.
+        </p>
+
+        <a href="#appointment" class="lux-btn lux-btn-outline">
+          Discover the Collection
+          <i class="bi bi-arrow-right"></i>
+        </a>
+
+      </div>
+
+
+      <div class="col-lg-5 ms-auto">
+
+        <div class="feature-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1603561596112-db45c2f4b3f4?auto=format&fit=crop&w=1200&q=90"
+            alt="Luxury Luxeora ring"
+            loading="lazy"
+          >
+
+          <div class="feature-label">
+            Luxeora Signature
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     CRAFTSMANSHIP
+========================================================= -->
+
+<section class="section-space" id="craftsmanship">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-6">
+
+        <div class="craft-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1200&q=90"
+            alt="Jewelry craftsmanship"
+            loading="lazy"
+          >
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-5 ms-auto">
+
+        <p class="eyebrow">
+          THE ART OF CRAFT
+        </p>
+
+        <h2 class="section-title">
+          Every detail has<br>
+          <em>a purpose.</em>
+        </h2>
+
+        <p class="intro-text mt-4">
+          Our artisans work with a meticulous eye,
+          shaping each creation through a blend of
+          traditional techniques and contemporary precision.
+        </p>
+
+
+        <div class="craft-list">
+
+          <div class="craft-item">
+
+            <i class="bi bi-gem"></i>
+
+            <div>
+
+              <h4>
+                Exceptional Stones
+              </h4>
+
+              <p>
+                Carefully selected for brilliance,
+                character, and enduring beauty.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="craft-item">
+
+            <i class="bi bi-stars"></i>
+
+            <div>
+
+              <h4>
+                Hand Finished
+              </h4>
+
+              <p>
+                Thoughtful finishing brings every
+                surface and setting to life.
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <div class="craft-item">
+
+            <i class="bi bi-shield-check"></i>
+
+            <div>
+
+              <h4>
+                Made to Last
+              </h4>
+
+              <p>
+                Fine materials and considered construction
+                for generations of wear.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     STORY
+========================================================= -->
+
+<section class="story" id="story">
+
+  <div class="container">
+
+    <div class="story-content">
+
+      <p class="eyebrow">
+        OUR STORY
+      </p>
+
+      <h2 class="section-title">
+        Born from a love of<br>
+        <em>beautiful things.</em>
+      </h2>
+
+      <p>
+        Founded with a belief that true luxury should
+        feel personal, Luxeora creates jewelry that marks
+        the moments that matter — engagements, anniversaries,
+        milestones, and simply becoming who you are.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+
+<section class="section-space" id="gallery">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <p class="eyebrow">
+        THE GALLERY
+      </p>
+
+      <h2 class="section-title">
+        Selected Pieces
+      </h2>
+
+      <p>
+        A glimpse into the world of Luxeora.
+      </p>
+
+    </div>
+
+
+    <div class="row g-3">
+
+      <div class="col-6 col-lg-3 gallery-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=900&q=90"
+          alt="Fine jewelry"
+          loading="lazy"
+        >
+
+      </div>
+
+
+      <div class="col-6 col-lg-3 gallery-item tall">
+
+        <img
+          src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=900&q=90"
+          alt="Gold jewelry"
+          loading="lazy"
+        >
+
+      </div>
+
+
+      <div class="col-6 col-lg-3 gallery-item">
+
+        <img
+          src="https://images.unsplash.com/photo-1598560912005-59a0b2f5f0f0?auto=format&fit=crop&w=900&q=90"
+          alt="Luxury necklace"
+          loading="lazy"
+        >
+
+      </div>
+
+
+      <div class="col-6 col-lg-3 gallery-item tall">
+
+        <img
+          src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?auto=format&fit=crop&w=900&q=90"
+          alt="Jewelry collection"
+          loading="lazy"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     BRIDAL
+========================================================= -->
+
+<section class="bridal section-space" id="bridal">
+
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-5">
+
+        <p class="eyebrow">
+          THE BRIDAL COLLECTION
+        </p>
+
+        <h2 class="section-title">
+          For the moment<br>
+          <em>you say forever.</em>
+        </h2>
+
+        <p class="intro-text mt-4">
+          From timeless engagement rings to wedding-day
+          accents, discover pieces designed around your story.
+        </p>
+
+        <a href="#appointment"
+           class="lux-btn lux-btn-dark mt-3">
+
+          Book a Bridal Consultation
+
+          <i class="bi bi-arrow-right"></i>
+
+        </a>
+
+      </div>
+
+
+      <div class="col-lg-6 ms-auto">
+
+        <div class="bridal-image">
+
+          <img
+            src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=1400&q=90"
+            alt="Bridal jewelry collection"
+            loading="lazy"
+          >
+
+          <div class="bridal-badge">
+            Forever<br>Starts Here
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     TESTIMONIALS
+========================================================= -->
+
+<section class="section-space">
+
+  <div class="container">
+
+    <div class="section-heading">
+
+      <p class="eyebrow">
+        CLIENT NOTES
+      </p>
+
+      <h2 class="section-title">
+        Beautifully said.
+      </h2>
+
+    </div>
+
+
+    <div class="row g-4">
+
+
+      <div class="col-lg-4">
+
+        <div class="testimonial-card">
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+            “The ring feels completely personal.
+            Every detail was handled with such care.”
+          </p>
+
+          <strong>
+            — Olivia M.
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4">
+
+        <div class="testimonial-card">
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+            “Elegant, understated, and even more
+            beautiful in person. Luxeora made the
+            experience unforgettable.”
+          </p>
+
+          <strong>
+            — Sophia R.
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-4">
+
+        <div class="testimonial-card">
+
+          <div class="stars">
+            ★★★★★
+          </div>
+
+          <p>
+            “From consultation to final piece,
+            the attention to detail was exceptional.”
+          </p>
+
+          <strong>
+            — Emma K.
+          </strong>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     APPOINTMENT
+========================================================= -->
+
+<section class="appointment section-space" id="appointment">
+
+  <div class="container">
+
+    <div class="row g-5">
+
+      <div class="col-lg-5 appointment-info">
+
+        <p class="eyebrow">
+          PRIVATE APPOINTMENTS
+        </p>
+
+        <h2 class="section-title">
+          Let's find your<br>
+          <em>perfect piece.</em>
+        </h2>
+
+        <p class="mt-4">
+          Visit our private showroom or connect with
+          a Luxeora specialist for a personalized
+          jewelry consultation.
+        </p>
+
+
+        <div class="mt-4">
+
+          <div class="contact-detail">
+
+            <i class="bi bi-envelope"></i>
+
+            <span>
+              hello@luxeora-demo.com
+            </span>
+
+          </div>
+
+
+          <div class="contact-detail">
+
+            <i class="bi bi-geo-alt"></i>
+
+            <span>
+              New York, NY • United States
+            </span>
+
+          </div>
+
+
+          <div class="contact-detail">
+
+            <i class="bi bi-clock"></i>
+
+            <span>
+              Mon–Sat · 10:00 AM–7:00 PM
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-6 ms-auto">
+
+        <form class="lux-form" id="appointmentForm">
+
+          <div class="row g-4">
+
+            <div class="col-md-6">
+
+              <input
+                type="text"
+                placeholder="First Name"
+                required
+              >
+
+            </div>
+
+
+            <div class="col-md-6">
+
+              <input
+                type="text"
+                placeholder="Last Name"
+                required
+              >
+
+            </div>
+
+
+            <div class="col-12">
+
+              <input
+                type="email"
+                placeholder="Email Address"
+                required
+              >
+
+            </div>
+
+
+            <div class="col-12">
+
+              <input
+                type="tel"
+                placeholder="Phone Number"
+              >
+
+            </div>
+
+
+            <div class="col-12">
+
+              <select>
+
+                <option>
+                  I'm interested in...
+                </option>
+
+                <option>
+                  Rings
+                </option>
+
+                <option>
+                  Necklaces
+                </option>
+
+                <option>
+                  Earrings
+                </option>
+
+                <option>
+                  Bridal Collection
+                </option>
+
+                <option>
+                  Custom Jewelry
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="col-12">
+
+              <textarea
+                rows="4"
+                placeholder="Tell us about what you're looking for"
+              ></textarea>
+
+            </div>
+
+
+            <div class="col-12">
+
+              <button
+                type="submit"
+                class="lux-btn lux-btn-dark w-100"
+              >
+
+                Send Enquiry
+
+                <i class="bi bi-arrow-right"></i>
+
+              </button>
+
+            </div>
+
+
+            <div
+              class="form-message"
+              id="formMessage"
+            >
+              Thank you. Your enquiry has been received.
+            </div>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer id="contact">
+
+  <div class="container">
+
+    <div class="row g-5">
+
+
+      <div class="col-lg-5">
+
+        <div class="footer-logo">
+          LUXEORA<span>.</span>
+        </div>
+
+        <p class="footer-description">
+          Timeless jewelry, thoughtfully made for
+          the moments that become your legacy.
+        </p>
+
+      </div>
+
+
+      <div class="col-6 col-lg-2">
+
+        <div class="footer-heading">
+          Explore
+        </div>
+
+        <div class="footer-links">
+
+          <a href="#collections">
+            Collections
+          </a>
+
+          <a href="#story">
+            Our Story
+          </a>
+
+          <a href="#craftsmanship">
+            Craftsmanship
+          </a>
+
+          <a href="#gallery">
+            Gallery
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-6 col-lg-2">
+
+        <div class="footer-heading">
+          Client Care
+        </div>
+
+        <div class="footer-links">
+
+          <a href="#appointment">
+            Appointments
+          </a>
+
+          <a href="#appointment">
+            Enquiries
+          </a>
+
+          <a href="#contact">
+            Contact
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="col-lg-3">
+
+        <div class="footer-heading">
+          Follow
+        </div>
+
+        <div class="social-links">
+
+          <a href="#" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+
+          <a href="#" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+
+          <a href="#" aria-label="Pinterest">
+            <i class="bi bi-pinterest"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 Luxeora Jewelry. All Rights Reserved.
+      </span>
+
+      <span>
+        Designed with
+        <a href="https://mannasiii.github.io/templates/">
+          Manasii ♥
+        </a>
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- =========================================================
+     BOOTSTRAP JS
+========================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<!-- =========================================================
+     CUSTOM JS
+========================================================= -->
+
+<script>
+
+  /* Navbar on scroll */
+
+  const navbar = document.getElementById("mainNav");
+
+  window.addEventListener("scroll", function () {
+
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+
+  });
+
+
+  /* Close mobile navbar after click */
+
+  document.querySelectorAll(".nav-link").forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+      const menu = document.getElementById("navbarMenu");
+
+      if (menu.classList.contains("show")) {
+
+        const collapse =
+          bootstrap.Collapse.getOrCreateInstance(menu);
+
+        collapse.hide();
+
+      }
+
+    });
+
+  });
+
+
+  /* Appointment form demo */
+
+  const form =
+    document.getElementById("appointmentForm");
+
+  const message =
+    document.getElementById("formMessage");
+
+  form.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    message.style.display = "block";
+
+    form.reset();
+
+  });
+
+</script>
+
+
+</body>
+</html>
