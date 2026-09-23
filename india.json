@@ -33,5 +33,10 @@
   "name": "Food Corner",
     "folder": "food-corner",
     "category": "restaurant"
+  },
+  { 
+  "name": "Amore",
+    "folder": "Amore",
+    "category": "restaurant"
   }
 ]
