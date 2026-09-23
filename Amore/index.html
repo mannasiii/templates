@@ -1,0 +1,2404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Amore — Italian Dining in Mumbai</title>
+
+    <meta
+        name="description"
+        content="Amore — Italian dining, pizza, wine and garden experiences in Mumbai."
+    >
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root{
+            --wine:#4b1022;
+            --wine-dark:#260914;
+            --cream:#f7f1e6;
+            --cream-dark:#e9dfcf;
+            --olive:#5e6241;
+            --gold:#c9a85a;
+            --black:#11100f;
+            --white:#ffffff;
+            --text:#292522;
+            --muted:#756d64;
+
+            --serif:"Cormorant Garamond", serif;
+            --sans:"DM Sans", sans-serif;
+        }
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:var(--sans);
+            color:var(--text);
+            background:var(--cream);
+            overflow-x:hidden;
+        }
+
+        img{
+            width:100%;
+            display:block;
+        }
+
+        a{
+            color:inherit;
+            text-decoration:none;
+        }
+
+        button{
+            font-family:inherit;
+        }
+
+        .container{
+            width:min(1180px, 90%);
+            margin:auto;
+        }
+
+
+        /* =====================================================
+           PRELOADER
+        ===================================================== */
+
+        #preloader{
+            position:fixed;
+            inset:0;
+            z-index:9999;
+            background:var(--wine-dark);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            transition:opacity .7s ease, visibility .7s ease;
+        }
+
+        #preloader.hide{
+            opacity:0;
+            visibility:hidden;
+        }
+
+        .loader-logo{
+            color:var(--cream);
+            font-family:var(--serif);
+            font-size:4rem;
+            letter-spacing:4px;
+            animation:loaderPulse 1.5s infinite alternate;
+        }
+
+        @keyframes loaderPulse{
+            from{
+                opacity:.4;
+                transform:scale(.97);
+            }
+            to{
+                opacity:1;
+                transform:scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar{
+            position:fixed;
+            top:0;
+            left:0;
+            width:100%;
+            z-index:1000;
+            padding:22px 0;
+            transition:.4s ease;
+        }
+
+        .navbar.scrolled{
+            background:rgba(38,9,20,.96);
+            backdrop-filter:blur(15px);
+            padding:14px 0;
+        }
+
+        .nav-inner{
+            width:min(1180px, 90%);
+            margin:auto;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+        }
+
+        .logo{
+            font-family:var(--serif);
+            font-size:2rem;
+            color:var(--white);
+            letter-spacing:2px;
+            font-weight:600;
+        }
+
+        .nav-links{
+            display:flex;
+            align-items:center;
+            gap:32px;
+            list-style:none;
+        }
+
+        .nav-links a{
+            color:rgba(255,255,255,.85);
+            font-size:.78rem;
+            text-transform:uppercase;
+            letter-spacing:1.5px;
+            transition:.3s;
+        }
+
+        .nav-links a:hover{
+            color:var(--gold);
+        }
+
+        .nav-book{
+            border:1px solid rgba(255,255,255,.5);
+            padding:11px 20px;
+        }
+
+        .nav-book:hover{
+            border-color:var(--gold);
+        }
+
+        .menu-toggle{
+            display:none;
+            color:white;
+            font-size:1.6rem;
+            cursor:pointer;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero{
+            min-height:100vh;
+            position:relative;
+            display:flex;
+            align-items:center;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(26,7,13,.82),
+                    rgba(26,7,13,.25)
+                ),
+                url("https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=2000&q=90")
+                center/cover;
+        }
+
+        .hero-content{
+            width:min(1180px,90%);
+            margin:auto;
+            color:white;
+            padding-top:80px;
+        }
+
+        .eyebrow{
+            font-size:.75rem;
+            text-transform:uppercase;
+            letter-spacing:4px;
+            color:var(--gold);
+            margin-bottom:20px;
+        }
+
+        .hero h1{
+            font-family:var(--serif);
+            font-size:clamp(4.5rem,9vw,9rem);
+            font-weight:500;
+            line-height:.8;
+            letter-spacing:-4px;
+            max-width:800px;
+        }
+
+        .hero p{
+            max-width:510px;
+            margin-top:32px;
+            font-size:1rem;
+            line-height:1.8;
+            color:rgba(255,255,255,.8);
+        }
+
+        .hero-buttons{
+            display:flex;
+            gap:15px;
+            margin-top:35px;
+        }
+
+        .btn{
+            display:inline-flex;
+            align-items:center;
+            justify-content:center;
+            padding:15px 28px;
+            text-transform:uppercase;
+            letter-spacing:1.5px;
+            font-size:.72rem;
+            transition:.35s;
+        }
+
+        .btn-primary{
+            background:var(--gold);
+            color:var(--black);
+        }
+
+        .btn-primary:hover{
+            transform:translateY(-3px);
+            background:#dfc477;
+        }
+
+        .btn-outline{
+            border:1px solid rgba(255,255,255,.6);
+            color:white;
+        }
+
+        .btn-outline:hover{
+            border-color:white;
+            background:white;
+            color:var(--wine);
+        }
+
+        .scroll-note{
+            position:absolute;
+            bottom:35px;
+            left:5%;
+            color:rgba(255,255,255,.55);
+            font-size:.65rem;
+            letter-spacing:3px;
+            text-transform:uppercase;
+            writing-mode:vertical-rl;
+        }
+
+
+        /* =====================================================
+           SECTION COMMON
+        ===================================================== */
+
+        section{
+            padding:110px 0;
+        }
+
+        .section-label{
+            font-size:.7rem;
+            text-transform:uppercase;
+            letter-spacing:3px;
+            color:var(--gold);
+            margin-bottom:18px;
+        }
+
+        .section-title{
+            font-family:var(--serif);
+            font-size:clamp(3rem,5vw,5rem);
+            line-height:.95;
+            font-weight:500;
+        }
+
+        .section-description{
+            color:var(--muted);
+            line-height:1.8;
+            max-width:550px;
+            margin-top:25px;
+        }
+
+
+        /* =====================================================
+           STORY
+        ===================================================== */
+
+        .story{
+            background:var(--cream);
+        }
+
+        .story-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:80px;
+            align-items:center;
+        }
+
+        .story-image{
+            position:relative;
+        }
+
+        .story-image img{
+            height:620px;
+            object-fit:cover;
+        }
+
+        .image-caption{
+            position:absolute;
+            bottom:25px;
+            left:25px;
+            background:rgba(255,255,255,.92);
+            padding:14px 18px;
+            font-size:.7rem;
+            text-transform:uppercase;
+            letter-spacing:1.5px;
+        }
+
+        .story-content{
+            padding-right:30px;
+        }
+
+        .story-content .section-title{
+            color:var(--wine);
+        }
+
+        .story-signature{
+            font-family:var(--serif);
+            font-size:2.2rem;
+            color:var(--wine);
+            margin-top:35px;
+            font-style:italic;
+        }
+
+
+        /* =====================================================
+           EXPERIENCES
+        ===================================================== */
+
+        .experiences{
+            background:var(--wine-dark);
+            color:white;
+        }
+
+        .experience-heading{
+            display:flex;
+            justify-content:space-between;
+            align-items:end;
+            margin-bottom:55px;
+        }
+
+        .experience-heading .section-title{
+            max-width:650px;
+        }
+
+        .experience-grid{
+            display:grid;
+            grid-template-columns:repeat(5,1fr);
+            gap:14px;
+        }
+
+        .experience-card{
+            position:relative;
+            height:470px;
+            overflow:hidden;
+        }
+
+        .experience-card img{
+            height:100%;
+            object-fit:cover;
+            transition:transform .7s ease;
+        }
+
+        .experience-card:hover img{
+            transform:scale(1.08);
+        }
+
+        .experience-overlay{
+            position:absolute;
+            inset:0;
+            background:
+                linear-gradient(
+                    transparent 30%,
+                    rgba(0,0,0,.85)
+                );
+        }
+
+        .experience-info{
+            position:absolute;
+            left:22px;
+            right:22px;
+            bottom:22px;
+        }
+
+        .experience-number{
+            font-size:.65rem;
+            letter-spacing:2px;
+            color:var(--gold);
+        }
+
+        .experience-info h3{
+            font-family:var(--serif);
+            font-size:2rem;
+            font-weight:500;
+            margin-top:6px;
+        }
+
+        .experience-info p{
+            font-size:.75rem;
+            line-height:1.6;
+            color:rgba(255,255,255,.7);
+            margin-top:8px;
+        }
+
+
+        /* =====================================================
+           SIGNATURE DISHES
+        ===================================================== */
+
+        .dishes{
+            background:var(--cream-dark);
+        }
+
+        .dishes-header{
+            display:flex;
+            justify-content:space-between;
+            align-items:end;
+            margin-bottom:50px;
+        }
+
+        .dish-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:25px;
+        }
+
+        .dish-card{
+            background:var(--cream);
+            overflow:hidden;
+        }
+
+        .dish-image{
+            height:360px;
+            overflow:hidden;
+        }
+
+        .dish-image img{
+            height:100%;
+            object-fit:cover;
+            transition:.6s;
+        }
+
+        .dish-card:hover .dish-image img{
+            transform:scale(1.06);
+        }
+
+        .dish-info{
+            padding:25px;
+        }
+
+        .dish-info h3{
+            font-family:var(--serif);
+            font-size:2rem;
+            font-weight:500;
+        }
+
+        .dish-info p{
+            color:var(--muted);
+            font-size:.8rem;
+            line-height:1.6;
+            margin-top:8px;
+        }
+
+        .dish-price{
+            color:var(--wine);
+            margin-top:15px;
+            font-weight:600;
+        }
+
+
+        /* =====================================================
+           VISUAL BREAK
+        ===================================================== */
+
+        .visual-break{
+            min-height:600px;
+            background:
+                linear-gradient(
+                    rgba(30,8,15,.25),
+                    rgba(30,8,15,.25)
+                ),
+                url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=2000&q=90")
+                center/cover fixed;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            color:white;
+        }
+
+        .visual-break h2{
+            font-family:var(--serif);
+            font-size:clamp(4rem,8vw,8rem);
+            font-weight:400;
+            line-height:.85;
+        }
+
+
+        /* =====================================================
+           MENU
+        ===================================================== */
+
+        .menu-section{
+            background:var(--cream);
+        }
+
+        .menu-header{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .menu-tabs{
+            display:flex;
+            justify-content:center;
+            flex-wrap:wrap;
+            gap:12px;
+            margin-bottom:45px;
+        }
+
+        .menu-tab{
+            border:1px solid #cfc4b4;
+            background:transparent;
+            padding:11px 20px;
+            cursor:pointer;
+            text-transform:uppercase;
+            font-size:.65rem;
+            letter-spacing:1.5px;
+            transition:.3s;
+        }
+
+        .menu-tab.active,
+        .menu-tab:hover{
+            background:var(--wine);
+            color:white;
+            border-color:var(--wine);
+        }
+
+        .menu-items{
+            max-width:850px;
+            margin:auto;
+        }
+
+        .menu-item{
+            display:flex;
+            justify-content:space-between;
+            gap:30px;
+            padding:22px 0;
+            border-bottom:1px solid #d9cfbf;
+        }
+
+        .menu-item h3{
+            font-family:var(--serif);
+            font-size:1.65rem;
+            font-weight:500;
+        }
+
+        .menu-item p{
+            color:var(--muted);
+            font-size:.75rem;
+            margin-top:4px;
+        }
+
+        .menu-price{
+            color:var(--wine);
+            font-weight:600;
+            white-space:nowrap;
+        }
+
+
+        /* =====================================================
+           ITALY STORY
+        ===================================================== */
+
+        .italy{
+            background:var(--olive);
+            color:white;
+        }
+
+        .italy-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            align-items:center;
+            gap:80px;
+        }
+
+        .italy-image img{
+            height:600px;
+            object-fit:cover;
+        }
+
+        .italy-content .section-label{
+            color:#e8c96d;
+        }
+
+        .italy-content .section-title{
+            color:white;
+        }
+
+        .italy-content p{
+            color:rgba(255,255,255,.75);
+            line-height:1.9;
+            margin-top:25px;
+        }
+
+
+        /* =====================================================
+           GALLERY
+        ===================================================== */
+
+        .gallery{
+            background:var(--black);
+            color:white;
+        }
+
+        .gallery-header{
+            text-align:center;
+            margin-bottom:50px;
+        }
+
+        .gallery-grid{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            grid-auto-rows:230px;
+            gap:10px;
+        }
+
+        .gallery-item{
+            overflow:hidden;
+        }
+
+        .gallery-item.large{
+            grid-column:span 2;
+            grid-row:span 2;
+        }
+
+        .gallery-item img{
+            height:100%;
+            object-fit:cover;
+            transition:.6s;
+        }
+
+        .gallery-item:hover img{
+            transform:scale(1.05);
+        }
+
+
+        /* =====================================================
+           LOCATIONS
+        ===================================================== */
+
+        .locations{
+            background:var(--cream-dark);
+        }
+
+        .locations-header{
+            margin-bottom:55px;
+        }
+
+        .location-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:25px;
+        }
+
+        .location-card{
+            background:var(--cream);
+            padding:35px;
+            border:1px solid #ded3c2;
+        }
+
+        .location-card span{
+            color:var(--gold);
+            text-transform:uppercase;
+            letter-spacing:2px;
+            font-size:.65rem;
+        }
+
+        .location-card h3{
+            font-family:var(--serif);
+            font-size:2.7rem;
+            font-weight:500;
+            color:var(--wine);
+            margin:10px 0;
+        }
+
+        .location-card p{
+            color:var(--muted);
+            font-size:.8rem;
+            line-height:1.8;
+        }
+
+        .location-link{
+            display:inline-block;
+            margin-top:20px;
+            color:var(--wine);
+            text-transform:uppercase;
+            letter-spacing:1.5px;
+            font-size:.65rem;
+            font-weight:600;
+        }
+
+
+        /* =====================================================
+           RESERVATION
+        ===================================================== */
+
+        .reservation{
+            background:var(--wine);
+            color:white;
+            text-align:center;
+        }
+
+        .reservation .section-title{
+            max-width:800px;
+            margin:auto;
+        }
+
+        .reservation p{
+            max-width:600px;
+            margin:25px auto;
+            color:rgba(255,255,255,.72);
+            line-height:1.8;
+        }
+
+        .reservation-buttons{
+            display:flex;
+            justify-content:center;
+            gap:15px;
+            flex-wrap:wrap;
+            margin-top:30px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer{
+            background:var(--wine-dark);
+            color:white;
+            padding:70px 0 25px;
+        }
+
+        .footer-main{
+            display:grid;
+            grid-template-columns:1.5fr 1fr 1fr;
+            gap:50px;
+            padding-bottom:55px;
+            border-bottom:1px solid rgba(255,255,255,.12);
+        }
+
+        .footer-logo{
+            font-family:var(--serif);
+            font-size:3rem;
+            letter-spacing:2px;
+        }
+
+        .footer-about{
+            color:rgba(255,255,255,.55);
+            font-size:.78rem;
+            line-height:1.8;
+            max-width:340px;
+            margin-top:15px;
+        }
+
+        .footer-heading{
+            text-transform:uppercase;
+            letter-spacing:2px;
+            font-size:.65rem;
+            color:var(--gold);
+            margin-bottom:18px;
+        }
+
+        .footer-links{
+            display:flex;
+            flex-direction:column;
+            gap:10px;
+        }
+
+        .footer-links a,
+        .footer-links span{
+            color:rgba(255,255,255,.65);
+            font-size:.78rem;
+            transition:.3s;
+        }
+
+        .footer-links a:hover{
+            color:var(--gold);
+        }
+
+        /* YOUR FOOTER FORMAT */
+
+        .footer-bottom{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:20px;
+            padding-top:25px;
+        }
+
+        .copyright{
+            display:flex;
+            align-items:center;
+            gap:8px;
+            color:rgba(255,255,255,.42);
+            font-size:.68rem;
+            letter-spacing:.3px;
+        }
+
+        .copyright a{
+            color:var(--gold);
+            font-weight:600;
+            transition:.3s ease;
+        }
+
+        .copyright a:hover{
+            color:#e7ca83;
+        }
+
+        .footer-divider{
+            color:rgba(255,255,255,.25);
+        }
+
+        .footer-location{
+            color:rgba(255,255,255,.35);
+            font-size:.68rem;
+            letter-spacing:.5px;
+        }
+
+
+        /* =====================================================
+           REVEAL ANIMATION
+        ===================================================== */
+
+        .reveal{
+            opacity:0;
+            transform:translateY(35px);
+            transition:opacity .8s ease, transform .8s ease;
+        }
+
+        .reveal.show{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media(max-width:1000px){
+
+            .experience-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+            .experience-card:last-child{
+                grid-column:span 2;
+            }
+
+            .story-grid,
+            .italy-grid{
+                grid-template-columns:1fr;
+                gap:45px;
+            }
+
+            .story-content{
+                padding-right:0;
+            }
+
+            .dish-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+
+            .footer-main{
+                grid-template-columns:1fr 1fr;
+            }
+
+            .footer-main > div:first-child{
+                grid-column:span 2;
+            }
+        }
+
+
+        @media(max-width:768px){
+
+            section{
+                padding:80px 0;
+            }
+
+            .navbar{
+                padding:17px 0;
+            }
+
+            .nav-links{
+                position:absolute;
+                top:100%;
+                left:0;
+                width:100%;
+                background:var(--wine-dark);
+                flex-direction:column;
+                gap:0;
+                padding:10px 0 20px;
+                transform:translateY(-150%);
+                opacity:0;
+                pointer-events:none;
+                transition:.4s;
+            }
+
+            .nav-links.open{
+                transform:translateY(0);
+                opacity:1;
+                pointer-events:auto;
+            }
+
+            .nav-links li{
+                width:100%;
+                text-align:center;
+            }
+
+            .nav-links a{
+                display:block;
+                padding:15px;
+            }
+
+            .menu-toggle{
+                display:block;
+            }
+
+            .nav-book{
+                display:inline-block !important;
+            }
+
+            .hero{
+                min-height:90vh;
+            }
+
+            .hero h1{
+                font-size:clamp(4rem,18vw,6rem);
+                letter-spacing:-2px;
+            }
+
+            .hero p{
+                font-size:.88rem;
+            }
+
+            .hero-buttons{
+                flex-wrap:wrap;
+            }
+
+            .scroll-note{
+                display:none;
+            }
+
+            .story-image img,
+            .italy-image img{
+                height:450px;
+            }
+
+            .experience-heading,
+            .dishes-header{
+                display:block;
+            }
+
+            .experience-grid{
+                grid-template-columns:1fr 1fr;
+            }
+
+            .experience-card{
+                height:380px;
+            }
+
+            .experience-card:last-child{
+                grid-column:span 2;
+            }
+
+            .dish-grid{
+                grid-template-columns:1fr;
+            }
+
+            .gallery-grid{
+                grid-template-columns:1fr 1fr;
+                grid-auto-rows:180px;
+            }
+
+            .gallery-item.large{
+                grid-column:span 2;
+            }
+
+            .location-grid{
+                grid-template-columns:1fr;
+            }
+
+            .footer-main{
+                grid-template-columns:1fr;
+            }
+
+            .footer-main > div:first-child{
+                grid-column:auto;
+            }
+
+            .footer-bottom{
+                flex-direction:column;
+                align-items:flex-start;
+            }
+
+        }
+
+
+        @media(max-width:500px){
+
+            .experience-grid{
+                grid-template-columns:1fr;
+            }
+
+            .experience-card,
+            .experience-card:last-child{
+                grid-column:auto;
+                height:420px;
+            }
+
+            .gallery-grid{
+                grid-template-columns:1fr;
+            }
+
+            .gallery-item.large{
+                grid-column:auto;
+            }
+
+            .gallery-item{
+                height:260px;
+            }
+
+            .menu-item{
+                gap:10px;
+            }
+
+            .menu-item h3{
+                font-size:1.4rem;
+            }
+
+            .copyright{
+                flex-wrap:wrap;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- =====================================================
+         PRELOADER
+    ====================================================== -->
+
+    <div id="preloader">
+        <div class="loader-logo">Amore</div>
+    </div>
+
+
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+
+    <header class="navbar">
+
+        <div class="nav-inner">
+
+            <a href="#home" class="logo">Amore</a>
+
+            <div class="menu-toggle" id="menuToggle">
+                ☰
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#story">Our Story</a>
+                </li>
+
+                <li>
+                    <a href="#experiences">Experience</a>
+                </li>
+
+                <li>
+                    <a href="#menu">Menu</a>
+                </li>
+
+                <li>
+                    <a href="#gallery">Gallery</a>
+                </li>
+
+                <li>
+                    <a href="#locations">Locations</a>
+                </li>
+
+                <li>
+                    <a href="#reservation" class="nav-book">
+                        Reserve
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content reveal">
+
+            <div class="eyebrow">
+                Italian Dining · Mumbai
+            </div>
+
+            <h1>
+                Amore
+            </h1>
+
+            <p>
+                A celebration of Italian food, warm hospitality,
+                beautiful spaces and the simple pleasure of
+                gathering around a table.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#menu" class="btn btn-primary">
+                    Explore Menu
+                </a>
+
+                <a href="#reservation" class="btn btn-outline">
+                    Reserve a Table
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="scroll-note">
+            Scroll to discover
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         STORY
+    ====================================================== -->
+
+    <section class="story" id="story">
+
+        <div class="container story-grid">
+
+            <div class="story-image reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=90"
+                    alt="Italian dining at Amore"
+                >
+
+                <div class="image-caption">
+                    Made with passion
+                </div>
+
+            </div>
+
+
+            <div class="story-content reveal">
+
+                <div class="section-label">
+                    Our Story
+                </div>
+
+                <h2 class="section-title">
+                    Italy,
+                    <br>
+                    served with soul.
+                </h2>
+
+                <p class="section-description">
+                    Amore brings together the warmth of Italian
+                    hospitality and the energy of Mumbai.
+                    Our philosophy is simple — quality ingredients,
+                    thoughtful cooking and a space where every
+                    meal becomes a memory.
+                </p>
+
+                <div class="story-signature">
+                    Buon appetito.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXPERIENCES
+    ====================================================== -->
+
+    <section class="experiences" id="experiences">
+
+        <div class="container">
+
+            <div class="experience-heading reveal">
+
+                <div>
+
+                    <div class="section-label">
+                        The Amore Experience
+                    </div>
+
+                    <h2 class="section-title">
+                        Five ways
+                        <br>
+                        to feel Italy.
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="experience-grid">
+
+
+                <!-- RISTORANTE -->
+
+                <div class="experience-card reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=90"
+                        alt="Italian restaurant"
+                    >
+
+                    <div class="experience-overlay"></div>
+
+                    <div class="experience-info">
+
+                        <div class="experience-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Ristorante
+                        </h3>
+
+                        <p>
+                            Elegant Italian dining with
+                            contemporary Mumbai energy.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PIZZERIA -->
+
+                <div class="experience-card reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1000&q=90"
+                        alt="Italian pizza"
+                    >
+
+                    <div class="experience-overlay"></div>
+
+                    <div class="experience-info">
+
+                        <div class="experience-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Pizzeria
+                        </h3>
+
+                        <p>
+                            Handcrafted pizzas inspired by
+                            classic Italian techniques.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VINO -->
+
+                <div class="experience-card reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1000&q=90"
+                        alt="Italian wine"
+                    >
+
+                    <div class="experience-overlay"></div>
+
+                    <div class="experience-info">
+
+                        <div class="experience-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Vino
+                        </h3>
+
+                        <p>
+                            A curated selection of wines
+                            designed to complement every plate.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- GIARDINO -->
+
+                <div class="experience-card reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1000&q=90"
+                        alt="Giardino outdoor dining"
+                    >
+
+                    <div class="experience-overlay"></div>
+
+                    <div class="experience-info">
+
+                        <div class="experience-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Giardino
+                        </h3>
+
+                        <p>
+                            An open-air setting for relaxed
+                            lunches and beautiful evenings.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- VILLA -->
+
+                <div class="experience-card reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1000&q=90"
+                        alt="Luxury Italian villa"
+                    >
+
+                    <div class="experience-overlay"></div>
+
+                    <div class="experience-info">
+
+                        <div class="experience-number">
+                            05
+                        </div>
+
+                        <h3>
+                            Villa
+                        </h3>
+
+                        <p>
+                            A private setting for intimate
+                            celebrations and gatherings.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         SIGNATURE DISHES
+    ====================================================== -->
+
+    <section class="dishes">
+
+        <div class="container">
+
+            <div class="dishes-header reveal">
+
+                <div>
+
+                    <div class="section-label">
+                        From Our Kitchen
+                    </div>
+
+                    <h2 class="section-title">
+                        Signature
+                        <br>
+                        plates.
+                    </h2>
+
+                </div>
+
+                <p class="section-description">
+                    A selection of dishes inspired by the
+                    flavours and traditions of Italy.
+                </p>
+
+            </div>
+
+
+            <div class="dish-grid">
+
+
+                <div class="dish-card reveal">
+
+                    <div class="dish-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1000&q=90"
+                            alt="Fresh Italian pasta"
+                        >
+
+                    </div>
+
+                    <div class="dish-info">
+
+                        <h3>
+                            Handmade Pasta
+                        </h3>
+
+                        <p>
+                            Fresh pasta paired with rich,
+                            seasonal Italian flavours.
+                        </p>
+
+                        <div class="dish-price">
+                            ₹—
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dish-card reveal">
+
+                    <div class="dish-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=1000&q=90"
+                            alt="Italian pizza"
+                        >
+
+                    </div>
+
+                    <div class="dish-info">
+
+                        <h3>
+                            Wood-Fired Pizza
+                        </h3>
+
+                        <p>
+                            Crisp edges, generous toppings
+                            and authentic Italian character.
+                        </p>
+
+                        <div class="dish-price">
+                            ₹—
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="dish-card reveal">
+
+                    <div class="dish-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1000&q=90"
+                            alt="Italian food"
+                        >
+
+                    </div>
+
+                    <div class="dish-info">
+
+                        <h3>
+                            Chef's Special
+                        </h3>
+
+                        <p>
+                            Seasonal ingredients transformed
+                            into something memorable.
+                        </p>
+
+                        <div class="dish-price">
+                            ₹—
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         VISUAL BREAK
+    ====================================================== -->
+
+    <section class="visual-break">
+
+        <div class="reveal">
+
+            <div class="section-label">
+                Mangia · Bevi · Ama
+            </div>
+
+            <h2>
+                Eat well.
+                <br>
+                Live beautifully.
+            </h2>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         MENU
+    ====================================================== -->
+
+    <section class="menu-section" id="menu">
+
+        <div class="container">
+
+            <div class="menu-header reveal">
+
+                <div class="section-label">
+                    Our Menu
+                </div>
+
+                <h2 class="section-title">
+                    Taste of Italy
+                </h2>
+
+                <p class="section-description" style="margin-left:auto;margin-right:auto;">
+                    Explore our selection of Italian-inspired
+                    favourites.
+                </p>
+
+            </div>
+
+
+            <div class="menu-tabs">
+
+                <button class="menu-tab active" data-category="pasta">
+                    Pasta
+                </button>
+
+                <button class="menu-tab" data-category="pizza">
+                    Pizza
+                </button>
+
+                <button class="menu-tab" data-category="mains">
+                    Mains
+                </button>
+
+                <button class="menu-tab" data-category="dessert">
+                    Dessert
+                </button>
+
+            </div>
+
+
+            <div class="menu-items" id="menuItems">
+
+                <!-- JS WILL LOAD MENU -->
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ITALY STORY
+    ====================================================== -->
+
+    <section class="italy">
+
+        <div class="container italy-grid">
+
+            <div class="italy-image reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=1200&q=90"
+                    alt="Italy streets"
+                >
+
+            </div>
+
+
+            <div class="italy-content reveal">
+
+                <div class="section-label">
+                    From Italy to Mumbai
+                </div>
+
+                <h2 class="section-title">
+                    A little
+                    <br>
+                    Italian escape.
+                </h2>
+
+                <p>
+                    Inspired by the streets, kitchens and
+                    long lunches of Italy, Amore creates an
+                    experience that feels familiar yet
+                    completely its own.
+                </p>
+
+                <p>
+                    Come for the food. Stay for the atmosphere.
+                    Return for the feeling.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         GALLERY
+    ====================================================== -->
+
+    <section class="gallery" id="gallery">
+
+        <div class="container">
+
+            <div class="gallery-header reveal">
+
+                <div class="section-label">
+                    Moments at Amore
+                </div>
+
+                <h2 class="section-title">
+                    Made for memories.
+                </h2>
+
+            </div>
+
+
+            <div class="gallery-grid">
+
+
+                <div class="gallery-item large reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=90"
+                        alt="Restaurant interior"
+                    >
+
+                </div>
+
+
+                <div class="gallery-item reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=1000&q=90"
+                        alt="Pasta dish"
+                    >
+
+                </div>
+
+
+                <div class="gallery-item reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1000&q=90"
+                        alt="Pizza"
+                    >
+
+                </div>
+
+
+                <div class="gallery-item reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1000&q=90"
+                        alt="Italian food"
+                    >
+
+                </div>
+
+
+                <div class="gallery-item reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=90"
+                        alt="Dining experience"
+                    >
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         LOCATIONS
+    ====================================================== -->
+
+    <section class="locations" id="locations">
+
+        <div class="container">
+
+            <div class="locations-header reveal">
+
+                <div class="section-label">
+                    Visit Amore
+                </div>
+
+                <h2 class="section-title">
+                    Find your table.
+                </h2>
+
+            </div>
+
+
+            <div class="location-grid">
+
+
+                <div class="location-card reveal">
+
+                    <span>
+                        Location 01
+                    </span>
+
+                    <h3>
+                        Khar
+                    </h3>
+
+                    <p>
+                        Khar, Mumbai
+                        <br>
+                        Maharashtra, India
+                    </p>
+
+                    <a href="#" class="location-link">
+                        Get Directions →
+                    </a>
+
+                </div>
+
+
+                <div class="location-card reveal">
+
+                    <span>
+                        Location 02
+                    </span>
+
+                    <h3>
+                        Kemps Corner
+                    </h3>
+
+                    <p>
+                        Kemps Corner, Mumbai
+                        <br>
+                        Maharashtra, India
+                    </p>
+
+                    <a href="#" class="location-link">
+                        Get Directions →
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RESERVATION
+    ====================================================== -->
+
+    <section class="reservation" id="reservation">
+
+        <div class="container reveal">
+
+            <div class="section-label">
+                Your Table Awaits
+            </div>
+
+            <h2 class="section-title">
+                Let's make
+                <br>
+                dinner memorable.
+            </h2>
+
+            <p>
+                Planning a dinner, celebration or simply
+                craving something delicious? Get in touch
+                with Amore and reserve your table.
+            </p>
+
+
+            <div class="reservation-buttons">
+
+                <a
+                    href="tel:+919867741984"
+                    class="btn btn-primary"
+                >
+                    Call +91 98677 41984
+                </a>
+
+                <a
+                    href="https://wa.me/919867741984"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-outline"
+                >
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-main">
+
+
+                <!-- BRAND -->
+
+                <div>
+
+                    <div class="footer-logo">
+                        Amore
+                    </div>
+
+                    <p class="footer-about">
+                        Italian-inspired dining in Mumbai,
+                        where food, atmosphere and hospitality
+                        come together.
+                    </p>
+
+                </div>
+
+
+                <!-- EXPLORE -->
+
+                <div>
+
+                    <div class="footer-heading">
+                        Explore
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a href="#story">
+                            Our Story
+                        </a>
+
+                        <a href="#menu">
+                            Menu
+                        </a>
+
+                        <a href="#gallery">
+                            Gallery
+                        </a>
+
+                        <a href="#locations">
+                            Locations
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CONTACT -->
+
+                <div>
+
+                    <div class="footer-heading">
+                        Contact
+                    </div>
+
+                    <div class="footer-links">
+
+                        <a href="tel:+919867741984">
+                            +91 98677 41984
+                        </a>
+
+                        <a
+                            href="https://wa.me/919867741984"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            WhatsApp
+                        </a>
+
+                        <span>
+                            Mumbai, Maharashtra
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- YOUR EXACT FOOTER FORMAT -->
+
+            <div class="footer-bottom">
+
+                <div class="copyright">
+
+                    <span>
+                        © 2026 Amore
+                    </span>
+
+                    <span class="footer-divider">
+                        •
+                    </span>
+
+                    <span>
+                        Designed with
+                    </span>
+
+                    <a
+                        href="https://mannasiii.github.io/templates/"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        Manasii ♥
+                    </a>
+
+                </div>
+
+
+                <div class="footer-location">
+                    Italian Dining · Mumbai
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        /* =====================================================
+           PRELOADER
+        ===================================================== */
+
+        window.addEventListener("load", function(){
+
+            setTimeout(function(){
+
+                document
+                    .getElementById("preloader")
+                    .classList.add("hide");
+
+            }, 600);
+
+        });
+
+
+        /* =====================================================
+           NAVBAR SCROLL
+        ===================================================== */
+
+        const navbar = document.querySelector(".navbar");
+
+        window.addEventListener("scroll", function(){
+
+            if(window.scrollY > 50){
+                navbar.classList.add("scrolled");
+            }else{
+                navbar.classList.remove("scrolled");
+            }
+
+        });
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const navLinks =
+            document.getElementById("navLinks");
+
+        menuToggle.addEventListener("click", function(){
+
+            navLinks.classList.toggle("open");
+
+        });
+
+
+        document.querySelectorAll(".nav-links a")
+            .forEach(function(link){
+
+                link.addEventListener("click", function(){
+
+                    navLinks.classList.remove("open");
+
+                });
+
+            });
+
+
+        /* =====================================================
+           REVEAL ANIMATION
+        ===================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const revealObserver =
+            new IntersectionObserver(
+
+                function(entries){
+
+                    entries.forEach(function(entry){
+
+                        if(entry.isIntersecting){
+
+                            entry.target.classList.add("show");
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold:.12
+                }
+
+            );
+
+
+        revealElements.forEach(function(element){
+
+            revealObserver.observe(element);
+
+        });
+
+
+        /* =====================================================
+           MENU DATA
+        ===================================================== */
+
+        const menuData = {
+
+            pasta: [
+
+                {
+                    name:"Truffle Tagliatelle",
+                    desc:"Fresh tagliatelle, truffle cream and parmesan",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Arrabbiata",
+                    desc:"Tomato, garlic, chilli and fresh herbs",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Pesto Genovese",
+                    desc:"Basil pesto, pine nuts and parmesan",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Pasta Primavera",
+                    desc:"Seasonal vegetables and Italian herbs",
+                    price:"₹—"
+                }
+
+            ],
+
+            pizza: [
+
+                {
+                    name:"Margherita",
+                    desc:"Tomato, mozzarella and fresh basil",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Diavola",
+                    desc:"Spicy salami, mozzarella and chilli",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Quattro Formaggi",
+                    desc:"A rich blend of four Italian cheeses",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Garden Pizza",
+                    desc:"Seasonal vegetables, herbs and mozzarella",
+                    price:"₹—"
+                }
+
+            ],
+
+            mains: [
+
+                {
+                    name:"Risotto Funghi",
+                    desc:"Creamy arborio rice with wild mushrooms",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Chicken Milanese",
+                    desc:"Crispy chicken, greens and lemon",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Grilled Vegetables",
+                    desc:"Seasonal vegetables with Italian herbs",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Chef's Special",
+                    desc:"A seasonal creation from our kitchen",
+                    price:"₹—"
+                }
+
+            ],
+
+            dessert: [
+
+                {
+                    name:"Tiramisu",
+                    desc:"Classic mascarpone, espresso and cocoa",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Panna Cotta",
+                    desc:"Silky Italian cream dessert",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Chocolate Tart",
+                    desc:"Dark chocolate with seasonal garnish",
+                    price:"₹—"
+                },
+
+                {
+                    name:"Gelato",
+                    desc:"Italian-style handcrafted gelato",
+                    price:"₹—"
+                }
+
+            ]
+
+        };
+
+
+        /* =====================================================
+           LOAD MENU
+        ===================================================== */
+
+        const menuItems =
+            document.getElementById("menuItems");
+
+
+        function loadMenu(category){
+
+            menuItems.innerHTML = "";
+
+            menuData[category].forEach(function(item){
+
+                const element =
+                    document.createElement("div");
+
+                element.className = "menu-item";
+
+                element.innerHTML = `
+
+                    <div>
+
+                        <h3>
+                            ${item.name}
+                        </h3>
+
+                        <p>
+                            ${item.desc}
+                        </p>
+
+                    </div>
+
+                    <div class="menu-price">
+                        ${item.price}
+                    </div>
+
+                `;
+
+                menuItems.appendChild(element);
+
+            });
+
+        }
+
+
+        loadMenu("pasta");
+
+
+        /* =====================================================
+           MENU TABS
+        ===================================================== */
+
+        const menuTabs =
+            document.querySelectorAll(".menu-tab");
+
+
+        menuTabs.forEach(function(tab){
+
+            tab.addEventListener("click", function(){
+
+                menuTabs.forEach(function(item){
+
+                    item.classList.remove("active");
+
+                });
+
+                tab.classList.add("active");
+
+                const category =
+                    tab.getAttribute("data-category");
+
+                loadMenu(category);
+
+            });
+
+        });
+
+
+        /* =====================================================
+           SMOOTH ANCHOR FALLBACK
+        ===================================================== */
+
+        document.querySelectorAll('a[href^="#"]')
+            .forEach(function(anchor){
+
+                anchor.addEventListener("click", function(e){
+
+                    const target =
+                        document.querySelector(
+                            this.getAttribute("href")
+                        );
+
+                    if(target){
+
+                        e.preventDefault();
+
+                        target.scrollIntoView({
+                            behavior:"smooth"
+                        });
+
+                    }
+
+                });
+
+            });
+
+    </script>
+
+</body>
+</html>
