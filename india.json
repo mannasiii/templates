@@ -43,6 +43,11 @@
   "name": "Luxery Hotel",
     "folder": "luxery",
     "category": "restaurant"
+  },
+  { 
+  "name": "Boutquie Designers",
+    "folder": "Boutquie Designers",
+    "category": "#"
   }
 
 ]
