@@ -1,0 +1,2692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sneha Bridal Mehndi Artist | Mumbai</title>
+
+    <meta name="description"
+        content="Sneha Bridal Mehndi Artist & Classes in Prabhadevi, Mumbai. Certified mehndi artist offering bridal, engagement, Arabic, floral and mandala mehndi designs.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================================================
+           ROOT
+        ========================================================= */
+
+        :root {
+            --ivory: #faf6ee;
+            --cream: #f1e8d8;
+
+            --green: #263d31;
+            --green-dark: #17291f;
+            --green-soft: #344d3e;
+
+            --gold: #b3945c;
+            --gold-light: #d8bf8a;
+
+            --brown: #4a3023;
+            --text: #352a23;
+            --muted: #76695d;
+
+            --white: #fffdf9;
+
+            --line: rgba(67, 44, 32, 0.13);
+
+            --shadow: 0 20px 60px rgba(31, 24, 18, 0.12);
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: var(--ivory);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           LOADER
+        ========================================================= */
+
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--green-dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .loader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-inner {
+            text-align: center;
+            color: var(--gold-light);
+        }
+
+        .loader-symbol {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 54px;
+            margin-bottom: 10px;
+        }
+
+        .loader-text {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           NAVBAR
+        ========================================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 82px;
+
+            display: flex;
+            align-items: center;
+
+            z-index: 1000;
+
+            transition:
+                background 0.35s ease,
+                box-shadow 0.35s ease,
+                height 0.35s ease,
+                color 0.35s ease;
+        }
+
+        /* Navbar while on hero */
+        .navbar:not(.scrolled) {
+            background: transparent;
+        }
+
+        /* Navbar after scrolling */
+        .navbar.scrolled {
+            height: 72px;
+            background: rgba(250, 246, 238, 0.97);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 5px 25px rgba(30, 24, 18, 0.10);
+        }
+
+        .nav-container {
+            width: min(1180px, calc(100% - 40px));
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--white);
+
+            transition: color 0.3s ease;
+        }
+
+        .navbar.scrolled .logo {
+            color: var(--green-dark);
+        }
+
+        .logo-mark {
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--gold-light);
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: 25px;
+
+            color: var(--gold-light);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .logo-main {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 21px;
+            font-weight: 600;
+        }
+
+        .logo-sub {
+            margin-top: 5px;
+            font-size: 8px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.75;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 34px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            position: relative;
+
+            color: var(--white);
+
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0.7px;
+
+            transition: color 0.25s ease;
+        }
+
+        .navbar.scrolled .nav-links a {
+            color: var(--green-dark);
+        }
+
+        .nav-links a::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 1px;
+
+            background: var(--gold);
+
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .navbar.scrolled .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-book {
+            padding: 11px 18px;
+
+            border: 1px solid var(--gold-light);
+            border-radius: 50px;
+
+            color: var(--white) !important;
+        }
+
+        .navbar.scrolled .nav-book {
+            color: var(--green-dark) !important;
+            border-color: var(--gold);
+        }
+
+        .nav-book::after {
+            display: none;
+        }
+
+
+        /* =========================================================
+           MOBILE MENU BUTTON
+        ========================================================= */
+
+        .menu-toggle {
+            width: 44px;
+            height: 44px;
+
+            display: none;
+
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-direction: column;
+            gap: 5px;
+
+            transition: 0.3s ease;
+        }
+
+        .navbar.scrolled .menu-toggle {
+            border-color: rgba(38,61,49,0.35);
+        }
+
+        .menu-toggle span {
+            display: block;
+
+            width: 19px;
+            height: 1.5px;
+
+            background: var(--white);
+
+            transition: 0.3s ease;
+        }
+
+        .navbar.scrolled .menu-toggle span {
+            background: var(--green-dark);
+        }
+
+        .menu-toggle.active span:first-child {
+            transform: translateY(3.25px) rotate(45deg);
+        }
+
+        .menu-toggle.active span:last-child {
+            transform: translateY(-3.25px) rotate(-45deg);
+        }
+
+
+        /* =========================================================
+           MOBILE NAV
+        ========================================================= */
+
+        .mobile-menu {
+            display: none;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 100vh;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(23,41,31,0.94) 0%,
+                    rgba(23,41,31,0.72) 42%,
+                    rgba(23,41,31,0.12) 100%
+                ),
+                url("https://www.shaadipath.com/blog/pinterest-uploads/bridal-mehndi-designs-2026-05-story.webp")
+                center/cover no-repeat;
+        }
+
+        .hero-content {
+            width: min(1180px, calc(100% - 40px));
+            margin: auto;
+
+            padding-top: 90px;
+        }
+
+        .eyebrow {
+            color: var(--gold-light);
+
+            text-transform: uppercase;
+            letter-spacing: 4px;
+
+            font-size: 11px;
+            font-weight: 600;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            max-width: 650px;
+
+            color: var(--white);
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: clamp(58px, 7vw, 96px);
+            line-height: 0.92;
+            font-weight: 500;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: var(--gold-light);
+            font-style: italic;
+        }
+
+        .hero-description {
+            max-width: 520px;
+
+            margin: 28px 0 34px;
+
+            color: rgba(255,255,255,0.82);
+
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+
+        /* =========================================================
+           BUTTONS
+        ========================================================= */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 50px;
+            padding: 0 25px;
+
+            border-radius: 50px;
+
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--white);
+
+            box-shadow: 0 10px 25px rgba(179,148,92,0.25);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+            color: var(--green-dark);
+
+            box-shadow: 0 15px 35px rgba(179,148,92,0.35);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.65);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--green-dark);
+            border-color: var(--white);
+        }
+
+
+        /* =========================================================
+           SECTION COMMON
+        ========================================================= */
+
+        section {
+            position: relative;
+        }
+
+        .section-container {
+            width: min(1100px, calc(100% - 40px));
+            margin: auto;
+        }
+
+        .section-label {
+            color: var(--gold);
+
+            text-transform: uppercase;
+            letter-spacing: 3px;
+
+            font-size: 10px;
+            font-weight: 700;
+
+            margin-bottom: 13px;
+        }
+
+        .section-title {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(42px, 5vw, 62px);
+
+            line-height: 1;
+
+            font-weight: 500;
+
+            color: var(--green-dark);
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about {
+            padding: 120px 0;
+
+            background: var(--ivory);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 90px;
+
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            height: 560px;
+            object-fit: cover;
+            border-radius: 220px 220px 10px 10px;
+        }
+
+        .about-image::after {
+            content: "";
+
+            position: absolute;
+
+            top: 20px;
+            left: 20px;
+
+            width: 100%;
+            height: 100%;
+
+            border: 1px solid var(--gold);
+
+            border-radius: 220px 220px 10px 10px;
+
+            z-index: -1;
+        }
+
+        .about-text {
+            margin-top: 28px;
+
+            color: var(--muted);
+
+            font-size: 15px;
+            line-height: 1.9;
+        }
+
+        .trust-points {
+            display: flex;
+            gap: 30px;
+
+            margin-top: 35px;
+
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--green-dark);
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .trust-item i {
+            color: var(--gold);
+        }
+
+
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+
+        .services {
+            padding: 120px 0;
+
+            background: var(--green-dark);
+
+            color: var(--white);
+        }
+
+        .services .section-title {
+            color: var(--white);
+        }
+
+        .services-heading {
+            max-width: 650px;
+            margin-bottom: 60px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .service-card {
+            min-height: 280px;
+
+            padding: 32px 25px;
+
+            border: 1px solid rgba(216,191,138,0.25);
+
+            background: rgba(255,255,255,0.035);
+
+            transition:
+                transform 0.35s ease,
+                background 0.35s ease,
+                border-color 0.35s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+
+            background: rgba(255,255,255,0.08);
+
+            border-color: var(--gold-light);
+        }
+
+        .service-number {
+            color: var(--gold-light);
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: 25px;
+
+            margin-bottom: 35px;
+        }
+
+        .service-card h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 27px;
+            font-weight: 500;
+
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: rgba(255,255,255,0.65);
+
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           GALLERY
+        ========================================================= */
+
+        .gallery {
+            padding: 120px 0;
+
+            background: var(--cream);
+        }
+
+        .gallery-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+
+            margin-bottom: 45px;
+        }
+
+        .gallery-note {
+            max-width: 330px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .gallery-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 16px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+
+            position: relative;
+
+            background: var(--green);
+        }
+
+        .gallery-item img {
+            height: 390px;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.6s ease,
+                filter 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+
+            filter: brightness(0.72);
+        }
+
+        .gallery-caption {
+            position: absolute;
+
+            left: 20px;
+            bottom: 20px;
+
+            color: var(--white);
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: 22px;
+
+            opacity: 0;
+
+            transform: translateY(10px);
+
+            transition: 0.35s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           QUOTE
+        ========================================================= */
+
+        .quote-section {
+            min-height: 500px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    rgba(23,41,31,0.82),
+                    rgba(23,41,31,0.82)
+                ),
+                url("https://www.bookeventz.com/blog/wp-content/uploads/Bridal-Mehendi-design.jpeg")
+                center/cover no-repeat;
+        }
+
+        .quote-content {
+            width: min(800px, calc(100% - 40px));
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .quote-mark {
+            color: var(--gold-light);
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: 75px;
+
+            line-height: 0.5;
+
+            margin-bottom: 30px;
+        }
+
+        .quote-content h2 {
+            color: var(--white);
+
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: clamp(38px, 5vw, 62px);
+
+            font-weight: 500;
+
+            line-height: 1.05;
+        }
+
+        .quote-content p {
+            margin-top: 25px;
+
+            color: rgba(255,255,255,0.72);
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           BOOKING
+        ========================================================= */
+
+        .booking {
+            padding: 120px 0;
+
+            background: var(--ivory);
+        }
+
+        .booking-grid {
+            display: grid;
+
+            grid-template-columns: 0.8fr 1.2fr;
+
+            gap: 80px;
+
+            align-items: start;
+        }
+
+        .booking-description {
+            margin-top: 25px;
+
+            color: var(--muted);
+
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            margin-top: 35px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-info a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: var(--green-dark);
+
+            font-size: 13px;
+
+            transition: color 0.25s ease;
+        }
+
+        .contact-info a:hover {
+            color: var(--gold);
+        }
+
+        .contact-info i {
+            width: 25px;
+            color: var(--gold);
+        }
+
+        .booking-form {
+            padding: 38px;
+
+            background: var(--white);
+
+            box-shadow: var(--shadow);
+        }
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 15px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: var(--green-dark);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border: 1px solid var(--line);
+
+            outline: none;
+
+            background: var(--ivory);
+
+            color: var(--text);
+
+            font-size: 13px;
+
+            transition: border 0.25s ease;
+        }
+
+        .form-group textarea {
+            min-height: 110px;
+
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--gold);
+        }
+
+        .booking-form .btn {
+            width: 100%;
+
+            border: none;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            padding: 50px 0 30px;
+
+            background: var(--green-dark);
+
+            color: var(--white);
+        }
+
+        .footer-main {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 30px;
+
+            padding-bottom: 35px;
+
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .footer-brand h3 {
+            font-family: "Cormorant Garamond", serif;
+
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .footer-brand p {
+            margin-top: 6px;
+
+            color: rgba(255,255,255,0.55);
+
+            font-size: 11px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid rgba(216,191,138,0.35);
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: var(--gold-light);
+
+            transition: 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--gold);
+
+            color: var(--green-dark);
+
+            transform: translateY(-4px);
+        }
+
+        .footer-bottom {
+            padding-top: 25px;
+
+            display: flex;
+            justify-content: space-between;
+
+            color: rgba(255,255,255,0.4);
+
+            font-size: 10px;
+        }
+
+
+        /* =========================================================
+           FLOATING WHATSAPP
+        ========================================================= */
+
+        .whatsapp-float {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            width: 58px;
+            height: 58px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #25D366;
+            color: white;
+
+            font-size: 27px;
+
+            z-index: 999;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+            animation: whatsappPulse 2.3s infinite;
+
+            transition: transform 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes whatsappPulse {
+
+            0% {
+                box-shadow:
+                    0 0 0 0 rgba(37,211,102,0.35),
+                    0 10px 30px rgba(0,0,0,0.2);
+            }
+
+            70% {
+                box-shadow:
+                    0 0 0 14px rgba(37,211,102,0),
+                    0 10px 30px rgba(0,0,0,0.2);
+            }
+
+            100% {
+                box-shadow:
+                    0 0 0 0 rgba(37,211,102,0),
+                    0 10px 30px rgba(0,0,0,0.2);
+            }
+        }
+
+
+        /* =========================================================
+           SCROLL REVEAL
+        ========================================================= */
+
+        .reveal {
+            opacity: 0;
+
+            transform: translateY(35px);
+
+            transition:
+                opacity 0.8s ease,
+                transform 0.8s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .about-grid {
+                gap: 50px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .booking-grid {
+                gap: 45px;
+            }
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 760px) {
+
+            /* NAVBAR */
+
+            .navbar {
+                height: 72px;
+            }
+
+            .navbar.scrolled {
+                height: 68px;
+            }
+
+            .nav-container {
+                width: calc(100% - 30px);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+
+            /* MOBILE MENU */
+
+            .mobile-menu {
+                position: fixed;
+
+                top: 72px;
+                left: 15px;
+                right: 15px;
+
+                display: block;
+
+                background: var(--ivory);
+
+                border: 1px solid var(--line);
+
+                box-shadow: 0 20px 40px rgba(30,24,18,0.16);
+
+                border-radius: 14px;
+
+                padding: 12px;
+
+                opacity: 0;
+                visibility: hidden;
+
+                transform: translateY(-10px);
+
+                transition: 0.3s ease;
+
+                z-index: 999;
+            }
+
+            .navbar.scrolled + .mobile-menu {
+                top: 68px;
+            }
+
+            .mobile-menu.open {
+                opacity: 1;
+                visibility: visible;
+
+                transform: translateY(0);
+            }
+
+            .mobile-menu a {
+                display: flex;
+
+                align-items: center;
+
+                min-height: 48px;
+
+                padding: 0 15px;
+
+                border-radius: 9px;
+
+                color: var(--green-dark);
+
+                font-size: 13px;
+                font-weight: 600;
+
+                transition: 0.25s ease;
+            }
+
+            .mobile-menu a:hover {
+                background: var(--cream);
+
+                color: var(--gold);
+            }
+
+            .mobile-menu .mobile-book {
+                margin-top: 7px;
+
+                justify-content: center;
+
+                background: var(--green-dark);
+
+                color: var(--white);
+            }
+
+            .mobile-menu .mobile-book:hover {
+                background: var(--gold);
+
+                color: var(--green-dark);
+            }
+
+
+            /* HERO */
+
+            .hero {
+                min-height: 780px;
+
+                background:
+                    linear-gradient(
+                        180deg,
+                        rgba(23,41,31,0.35) 0%,
+                        rgba(23,41,31,0.75) 55%,
+                        rgba(23,41,31,0.96) 100%
+                    ),
+                    url("https://www.shaadipath.com/blog/pinterest-uploads/bridal-mehndi-designs-2026-05-story.webp")
+                    center/cover no-repeat;
+
+                align-items: flex-end;
+            }
+
+            .hero-content {
+                width: calc(100% - 30px);
+
+                padding-top: 120px;
+                padding-bottom: 75px;
+            }
+
+            .eyebrow {
+                font-size: 9px;
+
+                letter-spacing: 3px;
+
+                margin-bottom: 15px;
+            }
+
+            .hero h1 {
+                font-size: clamp(48px, 15vw, 72px);
+
+                line-height: 0.92;
+            }
+
+            .hero-description {
+                font-size: 13px;
+
+                line-height: 1.7;
+
+                margin: 22px 0 28px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+
+                width: 100%;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+
+            /* COMMON */
+
+            .section-container {
+                width: calc(100% - 30px);
+            }
+
+            .section-title {
+                font-size: 43px;
+            }
+
+
+            /* ABOUT */
+
+            .about {
+                padding: 80px 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+
+                gap: 55px;
+            }
+
+            .about-image {
+                max-width: 420px;
+
+                margin: auto;
+            }
+
+            .about-image img {
+                height: 470px;
+
+                border-radius: 180px 180px 10px 10px;
+            }
+
+            .about-image::after {
+                top: 12px;
+                left: 12px;
+            }
+
+            .about-text {
+                font-size: 13px;
+
+                line-height: 1.8;
+            }
+
+            .trust-points {
+                gap: 15px;
+
+                flex-direction: column;
+            }
+
+
+            /* SERVICES */
+
+            .services {
+                padding: 80px 0;
+            }
+
+            .services-heading {
+                margin-bottom: 35px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+
+                gap: 12px;
+            }
+
+            .service-card {
+                min-height: auto;
+
+                padding: 25px;
+            }
+
+            .service-number {
+                margin-bottom: 20px;
+            }
+
+
+            /* GALLERY */
+
+            .gallery {
+                padding: 80px 0;
+            }
+
+            .gallery-heading {
+                display: block;
+
+                margin-bottom: 30px;
+            }
+
+            .gallery-note {
+                margin-top: 15px;
+
+                font-size: 12px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+
+                gap: 12px;
+            }
+
+            .gallery-item img {
+                height: 420px;
+            }
+
+            .gallery-caption {
+                opacity: 1;
+
+                transform: none;
+
+                font-size: 20px;
+            }
+
+
+            /* QUOTE */
+
+            .quote-section {
+                min-height: 470px;
+
+                background-position: center;
+            }
+
+            .quote-content h2 {
+                font-size: 42px;
+            }
+
+            .quote-content p {
+                font-size: 12px;
+
+                line-height: 1.7;
+            }
+
+
+            /* BOOKING */
+
+            .booking {
+                padding: 80px 0;
+            }
+
+            .booking-grid {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+            .booking-form {
+                padding: 23px 18px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+
+                gap: 0;
+            }
+
+
+            /* FOOTER */
+
+            footer {
+                padding: 45px 0 25px;
+            }
+
+            .footer-main {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .footer-social {
+                margin-top: 5px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+
+                gap: 8px;
+            }
+
+
+            /* WHATSAPP */
+
+            .whatsapp-float {
+                right: 16px;
+
+                bottom: 16px;
+
+                width: 53px;
+                height: 53px;
+
+                font-size: 24px;
+            }
+        }
+
+
+        /* =========================================================
+           SMALL PHONES
+        ========================================================= */
+
+        @media (max-width: 380px) {
+
+            .logo-mark {
+                width: 38px;
+                height: 38px;
+
+                font-size: 22px;
+            }
+
+            .logo-main {
+                font-size: 18px;
+            }
+
+            .logo-sub {
+                font-size: 7px;
+            }
+
+            .hero {
+                min-height: 720px;
+            }
+
+            .hero h1 {
+                font-size: 49px;
+            }
+
+            .hero-description {
+                font-size: 12px;
+            }
+
+            .about-image img {
+                height: 400px;
+            }
+
+            .section-title {
+                font-size: 39px;
+            }
+
+            .gallery-item img {
+                height: 360px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         LOADER
+    ========================================================= -->
+
+    <div class="loader" id="loader">
+
+        <div class="loader-inner">
+
+            <!-- <div class="loader-symbol">ॐ</div> -->
+
+            <div class="loader-text">
+                Sneha Bridal Mehndi
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
+
+    <header class="navbar" id="navbar">
+
+        <div class="nav-container">
+
+            <a href="#home" class="logo">
+
+                <div class="logo-mark">
+                    S
+                </div>
+
+                <div class="logo-text">
+
+                    <span class="logo-main">
+                        Sneha
+                    </span>
+
+                    <span class="logo-sub">
+                        Bridal Mehndi Artist
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- DESKTOP NAV -->
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#services">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#gallery">
+                        Designs
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#booking" class="nav-book">
+                        Book Now
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <!-- MOBILE TOGGLE -->
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open menu"
+                aria-expanded="false">
+
+                <span></span>
+                <span></span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MOBILE MENU
+    ========================================================= -->
+
+    <nav class="mobile-menu" id="mobileMenu">
+
+        <a href="#home">
+            Home
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#services">
+            Services
+        </a>
+
+        <a href="#gallery">
+            Designs
+        </a>
+
+        <a href="#booking" class="mobile-book">
+            Book Your Mehndi
+        </a>
+
+    </nav>
+
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================= -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content reveal">
+
+                <div class="eyebrow">
+                    Bridal Mehndi Artist
+                </div>
+
+                <h1>
+
+                    Art that tells
+
+                    <span>
+                        your story.
+                    </span>
+
+                </h1>
+
+                <p class="hero-description">
+
+                    Intricate bridal mehndi, elegant celebrations
+                    and thoughtfully designed mehndi experiences —
+                    created for brides who want every detail to feel personal.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#booking" class="btn btn-gold">
+                        Book Your Mehndi
+                    </a>
+
+                    <a href="#gallery" class="btn btn-outline">
+                        Explore Designs
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             ABOUT
+        ===================================================== -->
+
+        <section class="about" id="about">
+
+            <div class="section-container">
+
+                <div class="about-grid">
+
+                    <div class="about-image reveal">
+
+                        <img
+                            src="https://www.bookeventz.com/blog/wp-content/uploads/Bridal-Mehendi-design.jpeg"
+                            alt="Bridal Mehndi Design"
+                            loading="lazy">
+
+                    </div>
+
+
+                    <div class="about-content reveal">
+
+                        <div class="section-label">
+                            Meet Sneha
+                        </div>
+
+                        <h2 class="section-title">
+                            Your story,
+                            <br>
+                            written in mehndi.
+                        </h2>
+
+                        <p class="about-text">
+
+                            Sneha Bridal Mehndi Artist & Classes brings
+                            detailed, elegant and thoughtfully designed
+                            mehndi experiences to brides and celebrations
+                            in Mumbai.
+
+                            <br><br>
+
+                            A certified mehndi artist based in Prabhadevi,
+                            Sneha works with organic mehndi cones and
+                            offers bridal, engagement, floral, Arabic,
+                            mandala and other designer mehndi styles.
+
+                        </p>
+
+
+                        <div class="trust-points">
+
+                            <div class="trust-item">
+
+                                <i class="fa-solid fa-check"></i>
+
+                                Certified Mehndi Artist
+
+                            </div>
+
+                            <div class="trust-item">
+
+                                <i class="fa-solid fa-leaf"></i>
+
+                                Organic Mehndi Cones
+
+                            </div>
+
+                            <div class="trust-item">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                                Based in Mumbai
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SERVICES
+        ===================================================== -->
+
+        <section class="services" id="services">
+
+            <div class="section-container">
+
+                <div class="services-heading reveal">
+
+                    <div class="section-label">
+                        What I Create
+                    </div>
+
+                    <h2 class="section-title">
+                        Mehndi designed
+                        <br>
+                        for your moment.
+                    </h2>
+
+                </div>
+
+
+                <div class="services-grid">
+
+
+                    <article class="service-card reveal">
+
+                        <div class="service-number">
+                            01
+                        </div>
+
+                        <h3>
+                            Bridal Mehndi
+                        </h3>
+
+                        <p>
+                            Detailed bridal mehndi created around
+                            your celebration, style and story.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card reveal">
+
+                        <div class="service-number">
+                            02
+                        </div>
+
+                        <h3>
+                            Engagement Mehndi
+                        </h3>
+
+                        <p>
+                            Elegant designs for engagement ceremonies,
+                            intimate celebrations and special moments.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card reveal">
+
+                        <div class="service-number">
+                            03
+                        </div>
+
+                        <h3>
+                            Arabic & Mandala
+                        </h3>
+
+                        <p>
+                            Floral Arabic patterns, mandala designs
+                            and contemporary mehndi styles.
+                        </p>
+
+                    </article>
+
+
+                    <article class="service-card reveal">
+
+                        <div class="service-number">
+                            04
+                        </div>
+
+                        <h3>
+                            Mehndi Classes
+                        </h3>
+
+                        <p>
+                            Basic, advance and floral mehndi courses
+                            for learners who want to develop their skills.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             GALLERY
+        ===================================================== -->
+
+        <section class="gallery" id="gallery">
+
+            <div class="section-container">
+
+                <div class="gallery-heading reveal">
+
+                    <div>
+
+                        <div class="section-label">
+                            The Art
+                        </div>
+
+                        <h2 class="section-title">
+                            Designs with detail.
+                        </h2>
+
+                    </div>
+
+                    <p class="gallery-note">
+
+                        From intricate bridal patterns to delicate
+                        floral and Arabic details, every design is
+                        created to complement the occasion.
+
+                    </p>
+
+                </div>
+
+
+                <!--
+                    NOTE:
+                    Replace these generic reference images with
+                    Sneha's actual Instagram/Google Business photos
+                    before presenting the gallery as her portfolio.
+                -->
+
+ <div class="gallery-grid">
+
+    <div class="gallery-item reveal">
+        <img
+            src="https://i.pinimg.com/1200x/e3/b4/2f/e3b42f70469d7ed0492d026e810eed12.jpg"
+            alt="Intricate Bridal Mehndi Design"
+            loading="lazy">
+        <div class="gallery-caption">Bridal</div>
+    </div>
+
+
+    <div class="gallery-item reveal">
+        <img
+            src="https://images.news18.com/news18marathi/uploads/2025/12/1765187841_a-2025-12-aec36d386b257061a1076b1197b60b6b.jpg?height=620&impolicy=website&width=827"
+            alt="Arabic Floral Mehndi Design"
+            loading="lazy">
+        <div class="gallery-caption">Arabic</div>
+    </div>
+
+
+    <div class="gallery-item reveal">
+        <img
+            src="https://cdn.shopify.com/s/files/1/0729/8239/7174/files/e5ccdb63f80488e68dc1168637288723.jpg?v=1765783011"
+            alt="Full Hand Bridal Mehndi"
+            loading="lazy">
+        <div class="gallery-caption">Designer</div>
+    </div>
+
+
+     <div class="gallery-item reveal">
+        <img
+            src="https://i.pinimg.com/736x/82/ee/0b/82ee0b672255466ff77d284515e34824.jpg"
+            alt="Rose Floral Bridal Mehndi"
+            loading="lazy">
+        <div class="gallery-caption">Floral</div>
+    </div>
+
+
+    <div class="gallery-item reveal">
+        <img
+            src="https://i.pinimg.com/originals/50/8f/98/508f989ce368b3ec98b3ee5804869b8e.jpg"
+            alt="Mandala Bridal Henna Design"
+            loading="lazy">
+        <div class="gallery-caption">Mandala</div>
+    </div>
+
+
+    <div class="gallery-item reveal">
+        <img
+            src="https://mehndidesign.beauty/images/heavy-bridal-mandala-front-hand-mehndi-31.jpeg"
+            alt="Bridal Mandala Mehndi Art"
+            loading="lazy">
+        <div class="gallery-caption">Bridal Details</div>
+    </div>
+
+</div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             QUOTE
+        ===================================================== -->
+
+        <section class="quote-section">
+
+            <div class="quote-content reveal">
+
+                <div class="quote-mark">
+                    “
+                </div>
+
+                <h2>
+                    Because every bride
+                    deserves mehndi
+                    as unique as her story.
+                </h2>
+
+                <p>
+                    Booking open for the 2026–27 wedding season.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             BOOKING
+        ===================================================== -->
+
+        <section class="booking" id="booking">
+
+            <div class="section-container">
+
+                <div class="booking-grid">
+
+
+                    <div class="booking-info reveal">
+
+                        <div class="section-label">
+                            Let's Create Together
+                        </div>
+
+                        <h2 class="section-title">
+                            Reserve your
+                            <br>
+                            date.
+                        </h2>
+
+                        <p class="booking-description">
+
+                            Share your event details and requirements.
+                            We'll connect with you on WhatsApp to
+                            discuss your mehndi booking.
+
+                        </p>
+
+
+                        <div class="contact-info">
+
+                            <a href="tel:+918108714857">
+
+                                <i class="fa-solid fa-phone"></i>
+
+                                +91 81087 14857
+
+                            </a>
+
+
+                            <a
+                                href="https://www.instagram.com/sneha_bridal_mehndi_art/"
+                                target="_blank"
+                                rel="noopener">
+
+                                <i class="fa-brands fa-instagram"></i>
+
+                                @sneha_bridal_mehndi_art
+
+                            </a>
+
+
+                            <a
+                                href="https://www.google.com/maps/search/?api=1&query=Room+No+511,+Ahuja+Building,+Raja+Bhau+Desai+Marg,+Century+Bazaar,+Prabhadevi,+Mumbai+400025"
+                                target="_blank"
+                                rel="noopener">
+
+                                <i class="fa-solid fa-location-dot"></i>
+
+                                 Mumbai
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BOOKING FORM -->
+
+                    <form
+                        class="booking-form reveal"
+                        id="bookingForm">
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="name">
+                                    Your Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Enter your name"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="phone">
+                                    Phone Number
+                                </label>
+
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    placeholder="Enter phone number"
+                                    required>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="date">
+                                    Event Date
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="date"
+                                    required>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="event">
+                                    Event Type
+                                </label>
+
+                                <select id="event" required>
+
+                                    <option value="">
+                                        Select event
+                                    </option>
+
+                                    <option>
+                                        Bridal Mehndi
+                                    </option>
+
+                                    <option>
+                                        Engagement Mehndi
+                                    </option>
+
+                                    <option>
+                                        Baby Shower Mehndi
+                                    </option>
+
+                                    <option>
+                                        Arabic Mehndi
+                                    </option>
+
+                                    <option>
+                                        Floral Mehndi
+                                    </option>
+
+                                    <option>
+                                        Mehndi Classes
+                                    </option>
+
+                                    <option>
+                                        Other
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="message">
+                                Requirements
+                            </label>
+
+                            <textarea
+                                id="message"
+                                placeholder="Tell us about your event, location, number of people, design preference, etc."></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-gold">
+
+                            <i
+                                class="fa-brands fa-whatsapp"
+                                style="margin-right:8px;">
+                            </i>
+
+                            Send Booking Enquiry
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================= -->
+
+    <footer>
+
+        <div class="section-container">
+
+            <div class="footer-main">
+
+
+                <div class="footer-brand">
+
+                    <h3>
+                        Sneha Bridal Mehndi
+                    </h3>
+
+                    <p>
+                        Certified Mehndi Artist & Classes · Prabhadevi, Mumbai
+                    </p>
+
+                </div>
+
+
+                <div class="footer-social">
+
+                    <a
+                        href="https://www.instagram.com/sneha_bridal_mehndi_art/"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+
+                    <a
+                        href="tel:+918108714857"
+                        aria-label="Call">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://wa.me/918108714857"
+                        target="_blank"
+                        rel="noopener"
+                        aria-label="WhatsApp">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Sneha Bridal Mehndi Artist
+                </span>
+
+                
+                    <span>
+                     Designed with <a href="https://pixeora.tech/">Pixeora</a>  ♥
+                </span>
+              
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         FLOATING WHATSAPP
+    ========================================================= -->
+
+    <a
+        href="https://wa.me/918108714857"
+        target="_blank"
+        rel="noopener"
+        class="whatsapp-float"
+        aria-label="Chat on WhatsApp">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+    </a>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        /* =====================================================
+           LOADER
+        ===================================================== */
+
+        window.addEventListener("load", function () {
+
+            const loader = document.getElementById("loader");
+
+            setTimeout(() => {
+                loader.classList.add("hide");
+            }, 500);
+
+        });
+
+
+
+        /* =====================================================
+           NAVBAR SCROLL
+        ===================================================== */
+
+        const navbar = document.getElementById("navbar");
+
+        function updateNavbar() {
+
+            if (window.scrollY > 50) {
+
+                navbar.classList.add("scrolled");
+
+            } else {
+
+                navbar.classList.remove("scrolled");
+
+            }
+
+        }
+
+        window.addEventListener("scroll", updateNavbar);
+
+        updateNavbar();
+
+
+
+        /* =====================================================
+           MOBILE MENU
+        ===================================================== */
+
+        const menuToggle =
+            document.getElementById("menuToggle");
+
+        const mobileMenu =
+            document.getElementById("mobileMenu");
+
+
+        menuToggle.addEventListener("click", function () {
+
+            const isOpen =
+                mobileMenu.classList.toggle("open");
+
+            menuToggle.classList.toggle(
+                "active",
+                isOpen
+            );
+
+            menuToggle.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+
+        });
+
+
+
+        /* =====================================================
+           CLOSE MOBILE MENU AFTER CLICK
+        ===================================================== */
+
+        const mobileLinks =
+            mobileMenu.querySelectorAll("a");
+
+        mobileLinks.forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                mobileMenu.classList.remove("open");
+
+                menuToggle.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            });
+
+        });
+
+
+
+        /* =====================================================
+           CLOSE MENU WHEN CLICKING OUTSIDE
+        ===================================================== */
+
+        document.addEventListener("click", function (event) {
+
+            if (
+                !mobileMenu.contains(event.target) &&
+                !menuToggle.contains(event.target)
+            ) {
+
+                mobileMenu.classList.remove("open");
+
+                menuToggle.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
+
+
+
+        /* =====================================================
+           ESCAPE KEY
+        ===================================================== */
+
+        document.addEventListener("keydown", function (event) {
+
+            if (event.key === "Escape") {
+
+                mobileMenu.classList.remove("open");
+
+                menuToggle.classList.remove("active");
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+            }
+
+        });
+
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ===================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+
+        const revealObserver =
+            new IntersectionObserver(
+
+                function (entries, observer) {
+
+                    entries.forEach(function (entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("show");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        revealElements.forEach(function (element) {
+
+            revealObserver.observe(element);
+
+        });
+
+
+
+        /* =====================================================
+           WHATSAPP BOOKING FORM
+        ===================================================== */
+
+        const bookingForm =
+            document.getElementById("bookingForm");
+
+
+        bookingForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document.getElementById("name").value.trim();
+
+                const phone =
+                    document.getElementById("phone").value.trim();
+
+                const date =
+                    document.getElementById("date").value;
+
+                const eventType =
+                    document.getElementById("event").value;
+
+                const message =
+                    document.getElementById("message").value.trim();
+
+
+                if (!name || !phone || !date || !eventType) {
+
+                    alert(
+                        "Please fill in all required fields."
+                    );
+
+                    return;
+
+                }
+
+
+                const formattedDate =
+                    new Date(date).toLocaleDateString(
+                        "en-IN",
+                        {
+                            day: "2-digit",
+                            month: "long",
+                            year: "numeric"
+                        }
+                    );
+
+
+                const whatsappMessage =
+
+                    `Hello Sneha! 🌿
+
+I would like to enquire about mehndi booking.
+
+Name: ${name}
+Phone: ${phone}
+Event: ${eventType}
+Event Date: ${formattedDate}
+
+Requirements:
+${message || "I would like to discuss the details."}
+
+Thank you!`;
+
+
+                const whatsappURL =
+
+                    "https://wa.me/918108714857?text=" +
+                    encodeURIComponent(whatsappMessage);
+
+
+                window.open(
+                    whatsappURL,
+                    "_blank"
+                );
+
+            });
+
+
+
+        /* =====================================================
+           PREVENT PAST EVENT DATES
+        ===================================================== */
+
+        const dateInput =
+            document.getElementById("date");
+
+        const today =
+            new Date().toISOString().split("T")[0];
+
+        dateInput.setAttribute(
+            "min",
+            today
+        );
+
+    </script>
+
+</body>
+</html>
