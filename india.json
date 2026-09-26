@@ -48,6 +48,11 @@
   "name": "Boutquie",
     "folder": "Boutquie",
     "category": "#"
+  },
+   { 
+  "name": "Mehndi",
+    "folder": "mehndi",
+    "category": "#"
   }
 
 ]
