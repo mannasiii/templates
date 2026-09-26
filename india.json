@@ -44,14 +44,14 @@
     "folder": "luxery",
     "category": "restaurant"
   },
+   { 
+  "name": "mehndi",
+    "folder": "mehndi",
+    "category": "#"
+  },
   { 
   "name": "Boutquie",
     "folder": "Boutquie",
-    "category": "#"
-  },
-   { 
-  "name": "Mehndi",
-    "folder": "mehndi",
     "category": "#"
   }
 
