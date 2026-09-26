@@ -1,0 +1,2449 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-H8PH8YVR2K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H8PH8YVR2K');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Luxery Hotel | Mumbai</title>
+
+    <meta
+        name="description"
+        content="Luxery Hotel in Mumbai. Comfortable rooms, convenient location and essential amenities for your stay."
+    >
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* ================================
+           ROOT
+        ================================= */
+
+        :root {
+            --dark: #111827;
+            --dark-2: #1b2430;
+            --gold: #c6a15b;
+            --gold-light: #d8bc82;
+            --cream: #f7f4ee;
+            --white: #ffffff;
+            --text: #242424;
+            --muted: #777777;
+            --border: rgba(17, 24, 39, 0.12);
+
+            --serif: "Playfair Display", serif;
+            --sans: "Inter", sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1180px, 90%);
+            margin: auto;
+        }
+
+        /* ================================
+           COMMON
+        ================================= */
+
+        .section {
+            padding: 110px 0;
+        }
+
+        .section-label {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(36px, 5vw, 58px);
+            font-weight: 500;
+            line-height: 1.15;
+            color: var(--dark);
+        }
+
+        .section-text {
+            color: var(--muted);
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        .gold-line {
+            width: 55px;
+            height: 2px;
+            background: var(--gold);
+            margin: 25px 0;
+        }
+
+        /* ================================
+           NAVBAR
+        ================================= */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 82px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            transition: 0.35s ease;
+            color: white;
+        }
+
+        .navbar.scrolled {
+            background: rgba(17, 24, 39, 0.97);
+            backdrop-filter: blur(10px);
+            height: 72px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .nav-inner {
+            width: min(1180px, 90%);
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            line-height: 1;
+        }
+
+        .logo-main {
+            font-family: var(--serif);
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        .logo-sub {
+            display: block;
+            font-size: 8px;
+            letter-spacing: 4px;
+            text-align: center;
+            margin-top: 5px;
+            color: var(--gold-light);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            font-size: 13px;
+        }
+
+        .nav-links a {
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-book {
+            background: var(--gold);
+            color: var(--dark);
+            padding: 12px 22px;
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .menu-btn {
+            display: none;
+            border: 0;
+            background: transparent;
+            color: white;
+            font-size: 27px;
+            cursor: pointer;
+        }
+
+        /* ================================
+           HERO
+        ================================= */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: white;
+
+            background:
+                linear-gradient(
+                    rgba(10, 15, 23, 0.60),
+                    rgba(10, 15, 23, 0.72)
+                ),
+                url("https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=2000&q=85")
+                center / cover;
+        }
+
+        .hero-content {
+            padding-top: 80px;
+            max-width: 780px;
+        }
+
+        .hero-label {
+            color: var(--gold-light);
+            letter-spacing: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(48px, 7vw, 82px);
+            font-weight: 500;
+            line-height: 1.04;
+        }
+
+        .hero h1 span {
+            color: var(--gold-light);
+        }
+
+        .hero-description {
+            max-width: 610px;
+            color: rgba(255,255,255,0.82);
+            margin-top: 25px;
+            font-size: 16px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            margin-top: 35px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px 27px;
+            min-height: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(255,255,255,0.55);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+        .hero-location {
+            margin-top: 55px;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.75);
+        }
+
+        /* ================================
+           BOOKING BAR
+        ================================= */
+
+        .booking-wrap {
+            position: relative;
+            z-index: 5;
+            margin-top: -45px;
+        }
+
+        .booking-bar {
+            background: white;
+            box-shadow: 0 18px 50px rgba(0,0,0,0.13);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1.25fr;
+        }
+
+        .booking-item {
+            padding: 23px 25px;
+            border-right: 1px solid var(--border);
+        }
+
+        .booking-item label {
+            display: block;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--muted);
+            margin-bottom: 5px;
+        }
+
+        .booking-item strong {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .booking-button {
+            border: 0;
+            background: var(--dark);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .booking-button:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        /* ================================
+           ABOUT
+        ================================= */
+
+        .about {
+            background: var(--cream);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            height: 600px;
+            object-fit: cover;
+        }
+
+        .about-image::after {
+            content: "";
+            position: absolute;
+            top: 25px;
+            right: -25px;
+            width: 100%;
+            height: 100%;
+            border: 1px solid var(--gold);
+            z-index: -1;
+        }
+
+        .about-content {
+            padding-left: 10px;
+        }
+
+        .about-content p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        /* ================================
+           ROOMS
+        ================================= */
+
+        .rooms-header {
+            text-align: center;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .rooms-header .section-text {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .room-card {
+            background: white;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: 0.35s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.09);
+        }
+
+        .room-image {
+            height: 270px;
+            overflow: hidden;
+        }
+
+        .room-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .room-card:hover .room-image img {
+            transform: scale(1.06);
+        }
+
+        .room-content {
+            padding: 25px;
+        }
+
+        .room-content h3 {
+            font-family: var(--serif);
+            font-size: 23px;
+            font-weight: 500;
+        }
+
+        .room-content p {
+            color: var(--muted);
+            font-size: 12px;
+            margin: 12px 0 20px;
+        }
+
+        .room-link {
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* ================================
+           AMENITIES
+        ================================= */
+
+        .amenities {
+            background: var(--dark);
+            color: white;
+        }
+
+        .amenities .section-title {
+            color: white;
+        }
+
+        .amenities .section-text {
+            color: rgba(255,255,255,0.62);
+        }
+
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 60px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            border-left: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .amenity {
+            padding: 40px;
+            border-right: 1px solid rgba(255,255,255,0.12);
+            border-bottom: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .amenity-icon {
+            font-size: 25px;
+            color: var(--gold);
+            margin-bottom: 18px;
+        }
+
+        .amenity h3 {
+            font-family: var(--serif);
+            font-size: 22px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .amenity p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.58);
+        }
+
+        /* ================================
+           IMAGE BREAK
+        ================================= */
+
+        .image-break {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(10,15,23,0.50),
+                    rgba(10,15,23,0.65)
+                ),
+                url("https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=2000&q=85")
+                center / cover fixed;
+        }
+
+        .image-break h2 {
+            color: white;
+            font-family: var(--serif);
+            font-size: clamp(42px, 6vw, 70px);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .image-break p {
+            color: var(--gold-light);
+            margin-top: 18px;
+            letter-spacing: 4px;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        /* ================================
+           GALLERY
+        ================================= */
+
+        .gallery-header {
+            text-align: center;
+        }
+
+        .gallery-grid {
+            margin-top: 55px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            grid-template-rows: 260px 260px;
+            gap: 12px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item:first-child {
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ================================
+           LOCATION
+        ================================= */
+
+        .location {
+            background: var(--cream);
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .address {
+            margin: 30px 0;
+            color: var(--muted);
+            font-size: 15px;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+
+        .contact-info a {
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .map {
+            min-height: 450px;
+            background: #ddd;
+        }
+
+        .map iframe {
+            width: 100%;
+            height: 450px;
+            border: 0;
+        }
+
+        /* ================================
+           CTA
+        ================================= */
+
+        .cta {
+            background: var(--dark-2);
+            text-align: center;
+            color: white;
+            padding: 110px 20px;
+        }
+
+        .cta .section-title {
+            color: white;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .cta p {
+            color: rgba(255,255,255,0.65);
+            max-width: 600px;
+            margin: 20px auto 35px;
+        }
+
+        .cta-contact {
+            margin-top: 25px;
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+        }
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+            background: #0c111a;
+            color: white;
+            padding: 60px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        footer h3 {
+            font-family: var(--serif);
+            font-size: 25px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.55);
+            font-size: 13px;
+        }
+
+        footer h4 {
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 9px;
+            color: rgba(255,255,255,0.65);
+            font-size: 13px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 45px;
+            padding-top: 22px;
+            color: rgba(255,255,255,0.4);
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* ================================
+           MOBILE CTA
+        ================================= */
+
+        .mobile-cta {
+            display: none;
+        }
+
+        /* ================================
+           ANIMATION
+        ================================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================================
+           RESPONSIVE
+        ================================= */
+
+        @media (max-width: 1000px) {
+
+            .rooms-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-grid {
+                gap: 50px;
+            }
+
+            .amenities-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-item:first-child {
+                grid-row: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            body {
+                padding-bottom: 65px;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+
+            /* NAV */
+
+            .navbar {
+                height: 70px;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--dark);
+                flex-direction: column;
+                align-items: stretch;
+                padding: 25px;
+                gap: 0;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            .nav-book {
+                text-align: center;
+                margin-top: 15px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            /* HERO */
+
+            .hero {
+                min-height: 90vh;
+            }
+
+            .hero-content {
+                padding-top: 50px;
+            }
+
+            .hero h1 {
+                font-size: 49px;
+            }
+
+            .hero-description {
+                font-size: 14px;
+            }
+
+            .hero-location {
+                margin-top: 35px;
+            }
+
+            /* BOOKING */
+
+            .booking-wrap {
+                margin-top: 0;
+                padding-top: 15px;
+            }
+
+            .booking-bar {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .booking-item {
+                padding: 18px;
+            }
+
+            .booking-button {
+                min-height: 60px;
+                grid-column: span 2;
+            }
+
+            /* ABOUT */
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image img {
+                height: 430px;
+            }
+
+            .about-image::after {
+                right: -12px;
+                top: 12px;
+            }
+
+            /* ROOMS */
+
+            .rooms-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .room-image {
+                height: 300px;
+            }
+
+            /* AMENITIES */
+
+            .amenities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .amenity {
+                padding: 30px;
+            }
+
+            /* IMAGE BREAK */
+
+            .image-break {
+                min-height: 400px;
+                background-attachment: scroll;
+            }
+
+            /* GALLERY */
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 230px 180px 180px;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            /* LOCATION */
+
+            .location-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .map,
+            .map iframe {
+                min-height: 350px;
+                height: 350px;
+            }
+
+            /* FOOTER */
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            /* MOBILE CTA */
+
+            .mobile-cta {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 62px;
+                background: white;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                z-index: 2000;
+                box-shadow: 0 -5px 25px rgba(0,0,0,0.15);
+            }
+
+            .mobile-cta a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 11px;
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            .mobile-whatsapp {
+                color: #128c7e;
+            }
+
+            .mobile-book {
+                background: var(--gold);
+                color: var(--dark);
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .container {
+                width: 88%;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .booking-bar {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-button {
+                grid-column: auto;
+            }
+
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 220px 160px 160px;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 2;
+            }
+        }
+
+   /* ================================
+   BOOKING MODAL
+================================= */
+
+.booking-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 5000;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.booking-modal.active {
+    display: flex;
+}
+
+
+/* Overlay */
+
+.booking-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(10, 15, 23, 0.78);
+
+    backdrop-filter: blur(5px);
+}
+
+
+/* Modal */
+
+.booking-modal-box {
+    position: relative;
+    z-index: 2;
+
+    width: min(650px, 100%);
+
+    max-height: 92vh;
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    padding: 45px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.25);
+
+    animation: bookingOpen 0.35s ease;
+}
+
+
+/* Animation */
+
+@keyframes bookingOpen {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* Close */
+
+.booking-close {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    width: 38px;
+    height: 38px;
+
+    border: 0;
+
+    background: transparent;
+
+    font-size: 30px;
+    font-weight: 300;
+
+    color: #555;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.booking-close:hover {
+    color: #c6a15b;
+    transform: rotate(90deg);
+}
+
+
+/* Header */
+
+.booking-modal-header {
+    text-align: center;
+
+    margin-bottom: 32px;
+}
+
+.booking-modal-header span {
+    display: block;
+
+    color: #c6a15b;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+.booking-modal-header h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 38px;
+
+    font-weight: 500;
+
+    color: #111827;
+
+    margin-bottom: 10px;
+}
+
+.booking-modal-header p {
+    max-width: 480px;
+
+    margin: auto;
+
+    color: #777;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+}
+
+
+/* Form grid */
+
+.booking-form-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+
+}
+
+
+/* Field */
+
+.booking-field {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.booking-field.full {
+    grid-column: span 2;
+}
+
+.booking-field label {
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #777;
+}
+
+
+/* Inputs */
+
+.booking-field input,
+.booking-field select {
+
+    width: 100%;
+
+    height: 50px;
+
+    border: 1px solid #ddd;
+
+    background: #fafafa;
+
+    padding: 0 14px;
+
+    font-family: "Inter", sans-serif;
+
+    font-size: 13px;
+
+    color: #222;
+
+    outline: none;
+
+    transition: 0.25s;
+
+    border-radius: 0;
+}
+
+.booking-field input:focus,
+.booking-field select:focus {
+
+    border-color: #c6a15b;
+
+    background: #fff;
+
+    box-shadow:
+        0 0 0 2px rgba(198,161,91,0.08);
+}
+
+.booking-field textarea {
+    width: 100%;
+    min-height: 90px;
+    resize: vertical;
+    border: 1px solid #ddd;
+    background: #fafafa;
+    padding: 13px 14px;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    color: #222;
+    outline: none;
+    transition: 0.25s;
+    border-radius: 0;
+}
+
+.booking-field textarea:focus {
+    border-color: #c6a15b;
+    background: #fff;
+    box-shadow: 0 0 0 2px rgba(198,161,91,0.08);
+}
+
+
+/* Submit */
+
+.booking-submit {
+
+    width: 100%;
+
+    height: 55px;
+
+    margin-top: 28px;
+
+    border: 0;
+
+    background: #111827;
+
+    color: #fff;
+
+    cursor: pointer;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    transition: 0.3s;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+}
+
+.booking-submit span {
+
+    font-size: 17px;
+
+    color: #c6a15b;
+
+    transition: 0.3s;
+}
+
+.booking-submit:hover {
+
+    background: #c6a15b;
+
+    color: #111827;
+}
+
+.booking-submit:hover span {
+    color: #111827;
+    transform: translateX(5px);
+}
+
+
+/* Note */
+
+.booking-note {
+
+    text-align: center;
+
+    color: #999;
+
+    font-size: 10px;
+
+    margin-top: 13px;
+}
+
+
+/* ================================
+   MOBILE
+================================= */
+
+@media (max-width: 600px) {
+
+    .booking-modal {
+        padding: 10px;
+    }
+
+    .booking-modal-box {
+
+        padding: 35px 20px 25px;
+
+        max-height: 94vh;
+    }
+
+    .booking-modal-header h2 {
+
+        font-size: 31px;
+    }
+
+    .booking-form-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .booking-field.full {
+
+        grid-column: auto;
+    }
+
+    .booking-submit {
+
+        font-size: 9px;
+
+        padding: 0 12px;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- ================================
+         NAVBAR
+    ================================= -->
+
+    <header class="navbar" id="navbar">
+
+        <div class="nav-inner">
+
+            <a href="#home" class="logo">
+                <span class="logo-main">LUXERY</span>
+                <span class="logo-sub">HOTEL</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#rooms">Rooms</a>
+                <a href="#amenities">Amenities</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#location">Location</a>
+
+                <a
+                    href="javascript:void(0)"
+                    onclick="openBooking()"
+                    class="nav-book"
+                >
+                    BOOK NOW
+                </a>
+
+            </nav>
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================
+         HERO
+    ================================= -->
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="container">
+
+                <div class="hero-content reveal">
+
+                    <div class="hero-label">
+                        WELCOME TO LUXERY HOTEL
+                    </div>
+
+                    <h1>
+                        Stay Comfortably.<br>
+                        <span>Experience Mumbai.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        A comfortable stay in Mumbai,
+                        with convenient access to the city's key destinations.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a
+                            href="javascript:void(0)"
+                            onclick="openBooking()"
+                            class="btn btn-gold"
+                        >
+                            BOOK YOUR STAY
+                        </a>
+
+                        <a
+                            href="#rooms"
+                            class="btn btn-outline"
+                        >
+                            EXPLORE ROOMS
+                        </a>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             BOOKING BAR
+        ================================= -->
+
+        <div class="booking-wrap">
+
+            <div class="container">
+
+                <div class="booking-bar">
+
+                    <div class="booking-item">
+                        <label>Check-in</label>
+                        <strong>Select Date</strong>
+                    </div>
+
+                    <div class="booking-item">
+                        <label>Check-out</label>
+                        <strong>Select Date</strong>
+                    </div>
+
+                    <div class="booking-item">
+                        <label>Guests</label>
+                        <strong> 1 Guests</strong>
+                    </div>
+
+                    <button
+                        class="booking-button"
+                        onclick="openBooking()"
+                    >
+                        CHECK AVAILABILITY
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================
+             ABOUT
+        ================================= -->
+
+        <section class="section about" id="about">
+
+            <div class="container">
+
+                <div class="about-grid">
+
+                    <div class="about-image reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=85"
+                            alt="Luxery Hotel"
+                        >
+
+                    </div>
+
+                    <div class="about-content reveal">
+
+                        <div class="section-label">
+                            ABOUT LUXERY HOTEL
+                        </div>
+
+                        <h2 class="section-title">
+                            Your Comfortable Stay in Mumbai
+                        </h2>
+
+                        <div class="gold-line"></div>
+
+                        <p>
+                            Located in Mumbai, Luxery Hotel
+                            offers a convenient stay with comfortable rooms
+                            and essential facilities for travellers.
+                        </p>
+
+                        <p>
+                            With easy access to transport, business areas,
+                            shopping and nearby attractions, the hotel
+                            provides a practical base for exploring Mumbai.
+                        </p>
+
+                        <a href="#rooms" class="btn btn-gold">
+                            DISCOVER ROOMS
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             ROOMS
+        ================================= -->
+
+        <section class="section" id="rooms">
+
+            <div class="container">
+
+                <div class="rooms-header reveal">
+
+                    <div class="section-label">
+                        ACCOMMODATION
+                    </div>
+
+                    <h2 class="section-title">
+                        Stay Your Way
+                    </h2>
+
+                    <p class="section-text">
+                        Comfortable spaces designed for a relaxed
+                        stay in Mumbai.
+                    </p>
+
+                </div>
+
+
+                <div class="rooms-grid">
+
+                    <!-- Room 1 -->
+
+                    <article class="room-card reveal">
+
+                        <div class="room-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=900&q=85"
+                                alt="Deluxe Room"
+                            >
+
+                        </div>
+
+                        <div class="room-content">
+
+                            <h3>Deluxe Room</h3>
+
+                            <p>
+                                AC · Private Bathroom · TV · Wi-Fi
+                            </p>
+
+                            <a href="javascript:void(0)" onclick="openBooking('Deluxe Room')" class="room-link">
+                                ENQUIRE →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Room 2 -->
+
+                    <article class="room-card reveal">
+
+                        <div class="room-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=85"
+                                alt="Deluxe Twin Room"
+                            >
+
+                        </div>
+
+                        <div class="room-content">
+
+                            <h3>Deluxe Twin Room</h3>
+
+                            <p>
+                                AC · Private Bathroom · TV · Wi-Fi
+                            </p>
+
+                            <a href="javascript:void(0)" onclick="openBooking('Deluxe Twin Room')" class="room-link">
+                                ENQUIRE →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Room 3 -->
+
+                    <article class="room-card reveal">
+
+                        <div class="room-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1587985064135-0366536eab42?auto=format&fit=crop&w=900&q=85"
+                                alt="Superior Double Room"
+                            >
+
+                        </div>
+
+                        <div class="room-content">
+
+                            <h3>Superior Double</h3>
+
+                            <p>
+                                Comfortable Bedding · AC · Wi-Fi
+                            </p>
+
+                            <a href="javascript:void(0)" onclick="openBooking('Superior Double Room')" class="room-link">
+                                ENQUIRE →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Room 4 -->
+
+                    <article class="room-card reveal">
+
+                        <div class="room-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1591088398332-8a7791972843?auto=format&fit=crop&w=900&q=85"
+                                alt="Junior Suite"
+                            >
+
+                        </div>
+
+                        <div class="room-content">
+
+                            <h3>Junior Suite</h3>
+
+                            <p>
+                                Bedroom · Living Area · King Bed
+                            </p>
+
+                            <a href="javascript:void(0)" onclick="openBooking('Junior Suite')" class="room-link">
+                                ENQUIRE →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             AMENITIES
+        ================================= -->
+
+        <section class="section amenities" id="amenities">
+
+            <div class="container">
+
+                <div class="reveal">
+
+                    <div class="section-label">
+                        HOTEL FACILITIES
+                    </div>
+
+                    <h2 class="section-title">
+                        Everything You Need
+                    </h2>
+
+                    <p class="section-text">
+                        Essential amenities designed to make your stay
+                        comfortable and convenient.
+                    </p>
+
+                </div>
+
+
+                <div class="amenities-grid">
+
+                    <div class="amenity reveal">
+                        <div class="amenity-icon">◉</div>
+                        <h3>Free Wi-Fi</h3>
+                        <p>Stay connected throughout your visit.</p>
+                    </div>
+
+                    <div class="amenity reveal">
+                        <div class="amenity-icon">◇</div>
+                        <h3>Parking</h3>
+                        <p>Convenient parking facilities for guests.</p>
+                    </div>
+
+                    <div class="amenity reveal">
+                        <div class="amenity-icon">◷</div>
+                        <h3>24/7 Reception</h3>
+                        <p>Assistance available around the clock.</p>
+                    </div>
+
+                    <div class="amenity reveal">
+                        <div class="amenity-icon">❄</div>
+                        <h3>Air Conditioning</h3>
+                        <p>Comfortable rooms for your stay.</p>
+                    </div>
+
+                    <div class="amenity reveal">
+                        <div class="amenity-icon">◇</div>
+                        <h3>Breakfast</h3>
+                        <p>Start your day with breakfast.</p>
+                    </div>
+
+                    <div class="amenity reveal">
+                        <div class="amenity-icon">♢</div>
+                        <h3>Room Service</h3>
+                        <p>Convenience whenever you need it.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             IMAGE BREAK
+        ================================= -->
+
+        <section class="image-break">
+
+            <div class="reveal">
+
+                <h2>
+                    A Place to Rest.<br>
+                    A City to Explore.
+                </h2>
+
+                <p>
+                    Mumbai · India
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             GALLERY
+        ================================= -->
+
+        <section class="section" id="gallery">
+
+            <div class="container">
+
+                <div class="gallery-header reveal">
+
+                    <div class="section-label">
+                        HOTEL GALLERY
+                    </div>
+
+                    <h2 class="section-title">
+                        A Glimpse of Your Stay
+                    </h2>
+
+                </div>
+
+
+                <div class="gallery-grid">
+
+                    <div class="gallery-item reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?auto=format&fit=crop&w=1200&q=85"
+                            alt="Hotel Interior"
+                        >
+
+                    </div>
+
+                    <div class="gallery-item reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?auto=format&fit=crop&w=900&q=85"
+                            alt="Hotel Room"
+                        >
+
+                    </div>
+
+                    <div class="gallery-item reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=85"
+                            alt="Hotel Bedroom"
+                        >
+
+                    </div>
+
+                    <div class="gallery-item reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?auto=format&fit=crop&w=900&q=85"
+                            alt="Hotel"
+                        >
+
+                    </div>
+
+                    <div class="gallery-item reveal">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=85"
+                            alt="Hotel Lobby"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             LOCATION
+        ================================= -->
+
+        <section class="section location" id="location">
+
+            <div class="container">
+
+                <div class="location-grid">
+
+                    <div class="reveal">
+
+                        <div class="section-label">
+                            FIND US
+                        </div>
+
+                        <h2 class="section-title">
+                            In the Heart of Mumbai
+                        </h2>
+
+                        <div class="gold-line"></div>
+
+                        <p class="address">
+
+                            Luxery Hotel<br>
+                           <br>
+                            Mumbai 
+
+                        </p>
+
+                        <div class="contact-info">
+
+                            <a href="tel:+919867741984">
+                                +91 98677 41984
+                            </a>
+
+                            <a href="mailto:luzeryhotel@gmail.com">
+                                luzeryhotel@gmail.com
+                            </a>
+
+                        </div>
+
+                        <a
+                            href="https://wa.me/919867741984?text=Hello%2C%20I%20would%20like%20to%20contact%20Luxery%20Hotel."
+                            target="_blank"
+                            class="btn btn-gold"
+                        >
+                            CONTACT HOTEL
+                        </a>
+
+                    </div>
+
+
+                    <div class="map reveal">
+
+                       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d241317.75589892114!2d72.71353743240677!3d19.081758710829543!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c6306644edc1%3A0x5da4ed8f8d648c69!2sMumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1790411260065!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================
+             FINAL CTA
+        ================================= -->
+
+       <!-- ================================
+             FINAL CTA
+        ================================= -->
+
+        <section class="cta">
+            <div class="container reveal">
+
+                <div class="section-label">PLAN YOUR STAY</div>
+
+                <h2 class="section-title">
+                    Your Mumbai Stay Starts Here.
+                </h2>
+
+                <p>
+                    Share your dates and room preference with us.
+                    Our team will confirm availability and help you with your stay.
+                </p>
+
+                <a href="javascript:void(0)" onclick="openBooking()" class="btn btn-gold">
+                    CHECK AVAILABILITY
+                </a>
+
+                <div class="cta-contact">
+                    +91 98677 41984 &nbsp; · &nbsp; luzeryhotel@gmail.com
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- ================================
+             BOOKING MODAL
+        ================================= -->
+
+        <div class="booking-modal" id="bookingModal" aria-hidden="true">
+
+            <div class="booking-overlay" onclick="closeBooking()"></div>
+
+            <div class="booking-modal-box" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+
+                <button type="button" class="booking-close" onclick="closeBooking()" aria-label="Close booking form">
+                    &times;
+                </button>
+
+                <div class="booking-modal-header">
+
+                    <span>LUXERY HOTEL · MUMBAI</span>
+
+                    <h2 id="bookingTitle">Check Availability</h2>
+
+                    <p>
+                        Share your stay details and we’ll help you with your booking enquiry.
+                    </p>
+
+                </div>
+
+                <form id="bookingForm">
+
+                    <div class="booking-form-grid">
+
+                        <div class="booking-field">
+                            <label for="checkin">CHECK-IN *</label>
+                            <input type="date" id="checkin" required>
+                        </div>
+
+                        <div class="booking-field">
+                            <label for="checkout">CHECK-OUT *</label>
+                            <input type="date" id="checkout" required>
+                        </div>
+
+                        <div class="booking-field">
+                            <label for="adults">ADULTS *</label>
+                            <select id="adults" required>
+                                <option value="1">1 Adult</option>
+                                <option value="2" selected>2 Adults</option>
+                                <option value="3">3 Adults</option>
+                                <option value="4">4 Adults</option>
+                                <option value="5">5 Adults</option>
+                                <option value="6">6 Adults</option>
+                            </select>
+                        </div>
+
+                        <div class="booking-field">
+                            <label for="children">CHILDREN</label>
+                            <select id="children">
+                                <option value="0" selected>0 Children</option>
+                                <option value="1">1 Child</option>
+                                <option value="2">2 Children</option>
+                                <option value="3">3 Children</option>
+                                <option value="4">4 Children</option>
+                            </select>
+                        </div>
+
+                        <div class="booking-field full">
+                            <label for="room">ROOM TYPE</label>
+                            <select id="room">
+                                <option value="" selected>Select Room Type</option>
+                                <option value="Deluxe Room">Deluxe Room</option>
+                                <option value="Deluxe Twin Room">Deluxe Twin Room</option>
+                                <option value="Superior Double Room">Superior Double Room</option>
+                                <option value="Superior Triple Room">Superior Triple Room</option>
+                                <option value="Junior Suite">Junior Suite</option>
+                            </select>
+                        </div>
+
+                        <div class="booking-field full">
+                            <label for="guestName">FULL NAME *</label>
+                            <input type="text" id="guestName" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="booking-field">
+                            <label for="guestPhone">PHONE / WHATSAPP *</label>
+                            <input type="tel" id="guestPhone" placeholder="+91 XXXXX XXXXX" required>
+                        </div>
+
+                        <div class="booking-field">
+                            <label for="guestEmail">EMAIL</label>
+                            <input type="email" id="guestEmail" placeholder="your@email.com">
+                        </div>
+
+                        <div class="booking-field full">
+                            <label for="specialRequest">SPECIAL REQUEST</label>
+                            <textarea id="specialRequest" rows="3" placeholder="Any special request?"></textarea>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="booking-submit">
+                        CHECK AVAILABILITY ON WHATSAPP
+                        <span>→</span>
+                    </button>
+
+                    <p class="booking-note">
+                        Your enquiry will open in WhatsApp. Availability will be confirmed by the hotel.
+                    </p>
+
+                </form>
+
+            </div>
+        </div>
+
+</main>
+
+
+    <!-- ================================
+         FOOTER
+    ================================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div>
+
+                    <h3>Luxery Hotel</h3>
+
+                    <p>
+                        A comfortable stay in
+                        Mumbai.
+                    </p>
+
+                </div>
+
+
+                <div>
+
+                    <h4>QUICK LINKS</h4>
+
+                    <div class="footer-links">
+
+                        <a href="#home">Home</a>
+                        <a href="#about">About</a>
+                        <a href="#rooms">Rooms</a>
+                        <a href="#amenities">Amenities</a>
+                        <a href="#gallery">Gallery</a>
+                        <a href="#location">Location</a>
+
+                    </div>
+
+                </div>
+
+
+                <div>
+
+                    <h4>CONTACT</h4>
+
+                    <div class="footer-links">
+
+                        <a href="tel:+919867741984">
+                            +91 98677 41984
+                        </a>
+
+                        <a href="mailto:luzeryhotel@gmail.com">
+                            luzeryhotel@gmail.com
+                        </a>
+
+                        <a
+                            href="https://wa.me/919867741984"
+                            target="_blank"
+                        >
+                            WhatsApp Us
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <span>
+                    © 2026 Luxery Hotel. All Rights Reserved.
+                </span>
+
+                <span>
+                     Designed with <a href="https://pixeora.tech/">Pixeora</a>  ♥
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================================
+         MOBILE CTA
+    ================================= -->
+
+    <div class="mobile-cta">
+
+        <a
+            class="mobile-whatsapp"
+            href="https://wa.me/919867741984?text=Hello%2C%20I%20would%20like%20to%20check%20room%20availability%20at%20Luxery%20Hotel."
+            target="_blank"
+        >
+            WHATSAPP
+        </a>
+
+        <a
+            class="mobile-book"
+            href="javascript:void(0)"
+            onclick="openBooking()"
+        >
+            BOOK NOW
+        </a>
+
+    </div>
+
+
+    <!-- ================================
+         JAVASCRIPT
+    ================================= -->
+
+    <script>
+/* ================================
+   BOOKING MODAL
+================================= */
+
+const bookingModal = document.getElementById("bookingModal");
+const bookingForm = document.getElementById("bookingForm");
+const checkinInput = document.getElementById("checkin");
+const checkoutInput = document.getElementById("checkout");
+const roomInput = document.getElementById("room");
+
+function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+}
+
+const today = new Date();
+const todayString = formatDate(today);
+
+checkinInput.min = todayString;
+checkoutInput.min = todayString;
+
+checkinInput.addEventListener("change", () => {
+
+    if (!checkinInput.value) return;
+
+    checkoutInput.min = checkinInput.value;
+
+    if (
+        checkoutInput.value &&
+        checkoutInput.value <= checkinInput.value
+    ) {
+        checkoutInput.value = "";
+    }
+
+});
+
+function openBooking(selectedRoom = "") {
+
+    if (selectedRoom) {
+        roomInput.value = selectedRoom;
+    }
+
+    bookingModal.classList.add("active");
+    bookingModal.setAttribute("aria-hidden", "false");
+
+    document.body.style.overflow = "hidden";
+
+    setTimeout(() => {
+        checkinInput.focus();
+    }, 100);
+
+}
+
+function closeBooking() {
+
+    bookingModal.classList.remove("active");
+    bookingModal.setAttribute("aria-hidden", "true");
+
+    document.body.style.overflow = "";
+
+}
+
+document.addEventListener("keydown", function (event) {
+
+    if (
+        event.key === "Escape" &&
+        bookingModal.classList.contains("active")
+    ) {
+        closeBooking();
+    }
+
+});
+
+bookingForm.addEventListener("submit", function (event) {
+
+    event.preventDefault();
+
+    const checkin = checkinInput.value;
+    const checkout = checkoutInput.value;
+
+    if (checkout <= checkin) {
+        alert("Please select a check-out date after the check-in date.");
+        return;
+    }
+
+    const adults =
+        document.getElementById("adults").value;
+
+    const children =
+        document.getElementById("children").value;
+
+    const room =
+        roomInput.value || "Any available room";
+
+    const name =
+        document.getElementById("guestName").value.trim();
+
+    const phone =
+        document.getElementById("guestPhone").value.trim();
+
+    const email =
+        document.getElementById("guestEmail").value.trim();
+
+    const specialRequest =
+        document.getElementById("specialRequest").value.trim();
+
+    const message =
+`Hello, I would like to check availability at Luxery Hotel, Mumbai.
+
+Guest Name: ${name}
+Phone / WhatsApp: ${phone}
+Email: ${email || "Not provided"}
+
+Check-in: ${checkin}
+Check-out: ${checkout}
+
+Adults: ${adults}
+Children: ${children}
+Room Type: ${room}
+
+Special Request: ${specialRequest || "None"}`;
+
+    const whatsappURL =
+        "https://wa.me/919867741984?text=" +
+        encodeURIComponent(message);
+
+    window.open(whatsappURL, "_blank");
+
+});
+
+
+        /* ================================
+           NAVBAR SCROLL
+        ================================= */
+
+        const navbar = document.getElementById("navbar");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 50) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+
+        });
+
+
+        /* ================================
+           MOBILE MENU
+        ================================= */
+
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+
+            navLinks.classList.toggle("active");
+
+        });
+
+
+        /* Close menu after clicking */
+
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                navLinks.classList.remove("active");
+
+            });
+
+        });
+        /* ================================
+           SCROLL REVEAL
+        ================================= */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("active");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+    </script>
+
+</body>
+</html>
