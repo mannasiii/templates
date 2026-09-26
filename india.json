@@ -38,5 +38,11 @@
   "name": "Amore",
     "folder": "Amore",
     "category": "restaurant"
+  },
+  { 
+  "name": "Luxery Hotel",
+    "folder": "luxery",
+    "category": "restaurant"
   }
+
 ]
