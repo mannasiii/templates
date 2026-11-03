@@ -1,0 +1,419 @@
+/* =========================================================
+   ISHAKALA STUDIO — HOME PAGE VISUAL REFRESH
+   Add this AFTER the existing style.css link in index.html.
+   Existing header and hero slider are intentionally preserved.
+   ========================================================= */
+
+:root {
+  --isha-cream: #fff9f1;
+  --isha-paper: #fffdf9;
+  --isha-terracotta: #b85c3b;
+  --isha-saffron: #e58a42;
+  --isha-gold: #d9ad68;
+  --isha-brown: #493329;
+  --isha-muted: #79685d;
+  --isha-line: rgba(73, 51, 41, .12);
+  --isha-shadow: 0 18px 48px rgba(73, 51, 41, .10);
+  --isha-radius: 22px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--isha-paper);
+  color: var(--isha-brown);
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+img { max-width: 100%; }
+a { transition: color .25s ease, background .25s ease, transform .25s ease; }
+
+/* Keep existing navigation structure; polish its appearance only. */
+.navigation-wrap {
+  background: rgba(255, 253, 249, .97) !important;
+  box-shadow: 0 5px 24px rgba(73, 51, 41, .07);
+  border-bottom: 1px solid var(--isha-line);
+  z-index: 1000;
+}
+.navigation-wrap .navbar-brand img {
+  max-height: 72px;
+  width: auto;
+  object-fit: contain;
+}
+.navigation-wrap .nav-link {
+  color: var(--isha-brown) !important;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .02em;
+  padding: 13px 12px !important;
+}
+.navigation-wrap .nav-link:hover,
+.navigation-wrap .nav-link:focus { color: var(--isha-terracotta) !important; }
+
+/* Existing hero / slider remains recognizable. */
+.exp-home2-header { position: relative; }
+.exp-home2-banner {
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+}
+.exp-home2-banner .banner-title {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  text-shadow: 0 3px 18px rgba(0,0,0,.28);
+}
+.exp-home2-banner h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 5vw, 66px);
+  line-height: 1.12;
+  font-weight: 700;
+}
+.exp-home2-banner p { line-height: 1.8; }
+.btn.btn-primary,
+.exp-product-content .btn,
+.banner-title .btn {
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: var(--isha-terracotta) !important;
+  color: #fff !important;
+  padding: 13px 27px !important;
+  font-weight: 600;
+  box-shadow: 0 10px 22px rgba(184,92,59,.22);
+}
+.btn.btn-primary:hover,
+.exp-product-content .btn:hover,
+.banner-title .btn:hover {
+  background: var(--isha-brown) !important;
+  transform: translateY(-3px);
+}
+
+/* Instagram update ribbon */
+.follow-strip {
+  overflow: hidden;
+  background: var(--isha-brown);
+  color: #fff8ed;
+  padding: 13px 0;
+}
+.follow-track {
+  display: flex;
+  width: max-content;
+  gap: 48px;
+  white-space: nowrap;
+  color: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  animation: isha-marquee 28s linear infinite;
+}
+.follow-track:hover { animation-play-state: paused; }
+.follow-track span { padding-right: 22px; }
+@keyframes isha-marquee { to { transform: translateX(-35%); } }
+
+/* General section rhythm */
+.section-padding { padding-top: 88px !important; padding-bottom: 88px !important; }
+.exp-product-section,
+.exp-services-2 { background: var(--isha-cream); }
+.exp-product-section .container,
+.exp-services-1 .container,
+.exp-services-2 .container { position: relative; }
+.section-title-center { margin-bottom: 42px; }
+.section-title-center h3,
+.exp-product-content h3 {
+  color: var(--isha-brown);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 43px);
+  font-weight: 700;
+  line-height: 1.2;
+}
+.section-title-center h3:after,
+.exp-product-content h3:after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 3px;
+  margin: 16px auto 0;
+  border-radius: 5px;
+  background: var(--isha-saffron);
+}
+.exp-product-content h3:after { margin: 15px 0 22px; }
+.exp-product-content p {
+  color: var(--isha-muted);
+  font-size: 14px;
+  line-height: 1.95;
+}
+.exp-img-wrapper {
+  border-radius: var(--isha-radius);
+  overflow: hidden;
+  box-shadow: var(--isha-shadow);
+}
+.exp-img-wrapper img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform .7s ease;
+}
+.exp-img-wrapper:hover img { transform: scale(1.035); }
+
+/* About section */
+.exp-product-section .row { align-items: center; }
+.exp-product-section .exp-product-content { padding: 20px 12px 20px 30px; }
+.exp-product-section .exp-img-wrapper img { min-height: 360px; max-height: 500px; }
+.exp-product-section .exp-product-content p + p { margin-top: 14px; }
+
+/* Services cards */
+.exp-services-1 {
+  background: var(--isha-terracotta) !important;
+  position: relative;
+}
+.exp-services-1 .section-title-center h3 { color: #fff !important; }
+.exp-services-wrapper {
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: var(--isha-radius);
+  background: var(--isha-paper);
+  box-shadow: 0 16px 38px rgba(65, 30, 20, .14);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+.exp-services-wrapper:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 24px 48px rgba(65, 30, 20, .22);
+}
+.exp-services-img { overflow: hidden; }
+.exp-services-img img {
+  width: 100%;
+  height: 245px;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+.exp-services-wrapper:hover .exp-services-img img { transform: scale(1.06); }
+.exp-services-content { padding: 25px 25px 28px; }
+.exp-services-content h6 {
+  color: var(--isha-brown);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.exp-services-content p {
+  color: var(--isha-muted);
+  font-size: 13px;
+  line-height: 1.85;
+  margin: 0;
+}
+
+/* Why choose us points */
+.exp-home2-product-b .exp-points {
+  align-items: flex-start;
+  gap: 17px;
+  padding: 17px 18px;
+  margin: 0 0 15px;
+  border: 1px solid var(--isha-line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(73,51,41,.045);
+  transition: transform .25s ease, border-color .25s ease;
+}
+.exp-home2-product-b .exp-points:hover {
+  transform: translateX(6px);
+  border-color: rgba(184,92,59,.35);
+}
+.exp-num-block p {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  border-radius: 50%;
+  background: #f4e5d4 !important;
+  color: var(--isha-terracotta) !important;
+  font-weight: 700;
+  font-size: 17px;
+}
+.exp-points-txt h6 { color: var(--isha-brown); font-weight: 700; font-size: 16px; }
+.exp-points-txt p { color: var(--isha-muted); font-size: 13px; line-height: 1.8; margin: 0; }
+
+/* Welcome / Rangoli book feature */
+.exp-services-1[style*="#fcac46"] {
+  background: linear-gradient(135deg, #e8a04f, #c96d43) !important;
+}
+.exp-services-1[style*="#fcac46"] .s {
+  color: #fff !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.15;
+}
+.exp-services-1[style*="#fcac46"] p {
+  font-size: 14px;
+  line-height: 1.95;
+}
+.exp-services-1[style*="#fcac46"] .exp-services-img img {
+  height: auto;
+  max-height: 440px;
+  border: 8px solid rgba(255,255,255,.75);
+  border-radius: 18px;
+  box-shadow: 0 20px 45px rgba(73,51,41,.2);
+}
+
+/* Three feature panels */
+.exp-services-2 .exp-services-wrappers {
+  min-height: 230px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 28px;
+  overflow: hidden;
+  border-radius: var(--isha-radius);
+  border: 1px solid rgba(255,255,255,.4);
+  box-shadow: var(--isha-shadow);
+  transition: transform .3s ease;
+}
+.exp-services-2 .exp-services-wrappers:hover { transform: translateY(-8px); }
+.exp-services-2 .exp-services-content h6 {
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+}
+.exp-services-2 .exp-services-content p {
+  color: rgba(255,255,255,.92) !important;
+  font-size: 13px;
+  line-height: 1.8;
+}
+#img1 .exp-services-wrappers { background: linear-gradient(145deg,rgba(66,47,39,.45),rgba(66,47,39,.9)), url("../images/home/why-choose-us.jpg") center/cover; }
+#img2 .exp-services-wrappers { background: linear-gradient(145deg,rgba(66,47,39,.45),rgba(66,47,39,.9)), url("../images/home/custom-painting.jpg") center/cover; }
+#img3 .exp-services-wrappers { background: linear-gradient(145deg,rgba(66,47,39,.45),rgba(66,47,39,.9)), url("../images/ganu-idol/ganu-img.jpg") center/cover; }
+.exp-services-2 .exp-icon-block { margin-bottom: auto; }
+.exp-services-2 .exp-icon-block:before {
+  content: "✦";
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
+}
+
+/* Final studio story */
+section .container-fluid .exp-product-content { max-width: 680px; }
+
+/* Contact area */
+.exp-contact-1 {
+  background: linear-gradient(135deg, #a94f36, #c76b48) !important;
+}
+.exp-contact-1 .section-title-center h3,
+.exp-contact-1 .input-form h3 { color: #fff !important; }
+.exp-contact-section,
+.exp-contact-1 iframe {
+  border-radius: var(--isha-radius);
+  overflow: hidden;
+  box-shadow: 0 18px 42px rgba(55,25,18,.18);
+}
+.exp-contact-1 .input-form {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: var(--isha-radius);
+  padding: 28px;
+  backdrop-filter: blur(8px);
+}
+.exp-contact-1 .form-control {
+  min-height: 48px;
+  margin-bottom: 13px;
+  padding: 12px 15px;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 11px;
+  background: #fffdf9;
+  color: var(--isha-brown);
+  box-shadow: none;
+}
+.exp-contact-1 textarea.form-control { min-height: 110px; }
+.exp-contact-1 .form-control:focus {
+  border-color: var(--isha-gold);
+  box-shadow: 0 0 0 3px rgba(217,173,104,.2);
+}
+.exp-contact-1 button.btn { margin: 8px 0 0 !important; }
+
+/* Footer */
+.exp-footer-style-2 {
+  background: #3f2c25 !important;
+  color: #f9eee2;
+}
+.exp-footer-style-2 h6 {
+  color: #f3c98e !important;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 19px;
+  margin-bottom: 20px;
+}
+.exp-footer-style-2 p,
+.exp-footer-style-2 li,
+.exp-footer-style-2 a {
+  color: rgba(255,248,239,.82);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.exp-footer-style-2 a:hover { color: #f3c98e; text-decoration: none; }
+.exp-footer-style-2 .exp-logo img {
+  max-width: 175px;
+  border-radius: 8px;
+}
+.exp-footer-copyright { background: #2c1e19 !important; }
+.exp-footer-copyright p { margin: 0; text-align: center; }
+
+/* Floating social actions */
+.whatsapp-float,
+.instagram-float {
+  position: fixed;
+  right: 20px;
+  z-index: 999;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 8px 25px rgba(0,0,0,.18);
+}
+.whatsapp-float { bottom: 24px; }
+.instagram-float { bottom: 90px; }
+.whatsapp-float img,
+.instagram-float img { width: 34px; height: 34px; object-fit: contain; border-radius: 50%; }
+.whatsapp-float:hover,
+.instagram-float:hover { transform: translateY(-4px) scale(1.04); }
+
+/* Reveal animation added by the companion JS */
+.isha-reveal {
+  opacity:  0;
+  transform: translateY(26px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.isha-reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Responsive refinements */
+@media (max-width: 991.98px) {
+  .section-padding { padding-top: 65px !important; padding-bottom: 65px !important; }
+  .exp-product-section .exp-product-content { padding: 28px 5px 5px; }
+  .exp-home2-banner { min-height: 460px; }
+  .navigation-wrap .nav-link { padding: 10px 8px !important; }
+}
+@media (max-width: 767.98px) {
+  .section-padding { padding-top: 52px !important; padding-bottom: 52px !important; }
+  .exp-home2-banner { min-height: 420px; }
+  .exp-home2-banner .banner-title { padding: 55px 18px; }
+  .exp-home2-banner h1 { font-size: 37px; }
+  .exp-home2-banner p { font-size: 16px !important; }
+  .exp-product-section .exp-img-wrapper img { min-height: 250px; max-height: 350px; }
+  .exp-services-img img { height: 220px; }
+  .exp-services-2 .exp-services-wrappers { min-height: 200px; }
+  .exp-contact-1 .input-form { padding: 20px 16px; }
+  .exp-contact-1 iframe { height: 330px; margin-top: 25px; }
+  .whatsapp-float, .instagram-float { right: 13px; width: 48px; height: 48px; }
+  .instagram-float { bottom: 80px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *:before, *:after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
