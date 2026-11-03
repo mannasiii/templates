@@ -1,0 +1,114 @@
+<body>
+  <div id="header"></div>
+
+
+<main class="about-v2">
+
+    <!-- About Banner -->
+    <section class="about-v2-banner">
+        <div class="about-v2-banner-content">
+            <!-- <span>DISCOVER OUR STORY</span> -->
+            <h1>About Us</h1>
+            <p>
+                <a href="index.html">Home</a>
+                <span>/</span>
+                About Us
+            </p>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-v2-section">
+
+        <div class="about-v2-container">
+
+            <!-- Image -->
+            <div class="about-v2-image-column">
+
+                <div class="about-v2-image">
+                    <img
+                        src="assets/images/about/about_uss2.jpg"
+                        alt="Ishakala Studio Art"
+                    >
+                </div>
+
+                <div class="about-v2-image-label">
+                    <span>✦</span>
+                    <div>
+                        <strong>Art & Creativity</strong>
+                        <small>Inspired by passion</small>
+                    </div>
+                </div>
+
+                <div class="about-v2-image-outline"></div>
+
+            </div>
+
+
+            <!-- Content -->
+            <div class="about-v2-content">
+
+                <span class="about-v2-subtitle">
+                    <i></i> ABOUT ISHAKALA STUDIO
+                </span>
+
+                <h2>
+                    Welcome To
+                    <span>Ishakala studio</span>
+                </h2>
+
+                <div class="about-v2-line"></div>
+
+                <p>
+                    At Ishakala studio , we believe that art is a powerful
+                    form of self-expression, creativity, and passion. Our
+                    mission is to inspire individuals to explore their
+                    artistic potential through expert-led online art classes,
+                    breathtaking custom paintings, and intricately
+                    handcrafted idols. Whether you are a beginner looking
+                    to learn, an art enthusiast seeking unique creations,
+                    or someone who appreciates the beauty of handmade
+                    craftsmanship, Ishakala studio is your destination
+                    for artistic excellence.
+                </p>
+
+                <p>
+                    Our online drawing and painting classes cater to all
+                    skill levels, offering structured lessons, personalized
+                    feedback, and a supportive learning environment.
+                    Beyond education, we specialize in creating custom
+                    paintings that capture emotions and tell stories, as
+                    well as handmade idols that blend tradition with
+                    artistic finesse. At Ishakala studio , creativity knows
+                    no bounds—join us and bring your artistic vision to life!
+                </p>
+
+                <a href="contact.html" class="about-v2-button">
+                    Contact Us
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+  <div id="footer"></div>
+
+  <script>
+    // Load Header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    // Load Footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+</body>

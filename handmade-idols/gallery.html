@@ -1,0 +1,175 @@
+<body>
+    <div id="header"></div>
+
+
+<main>
+
+    <!-- COMMON PAGE BANNER -->
+    <section class="about-v2-banner">
+        <div class="about-v2-banner-content">
+            <h1>Gallery</h1>
+            <p>
+                <a href="index.html">Home</a>
+                <span>/</span>
+                Gallery
+            </p>
+        </div>
+    </section>
+
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery-v2-section">
+
+        <div class="isha-container">
+
+            <div class="gallery-v2-heading">
+                <span>OUR CREATIVE JOURNEY</span>
+                <h2>Our Workshop Gallery</h2>
+                <p>Explore the creativity, craftsmanship and artistic moments of Ishakala Studio.</p>
+            </div>
+
+
+            <div class="gallery-v2-grid">
+
+                <!-- Workshop Images -->
+
+                <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/workshop1.JPG"
+                         alt="Ishakala Studio Workshop 1"
+                         loading="lazy">
+                </div>
+
+                <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/workshop2.JPG"
+                         alt="Ishakala Studio Workshop 2"
+                         loading="lazy">
+                </div>
+
+                <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/workshop3.JPG"
+                         alt="Ishakala Studio Workshop 3"
+                         loading="lazy">
+                </div>
+
+
+                <!-- Gallery Images -->
+
+                <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/img1.JPG"
+                         alt="Ishakala Studio Artwork 1"
+                         loading="lazy">
+                </div>
+
+                <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/img2.JPG"
+                         alt="Ishakala Studio Artwork 2"
+                         loading="lazy">
+                </div>
+
+                <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/img3.JPG"
+                         alt="Ishakala Studio Artwork 3"
+                         loading="lazy">
+                </div>
+
+                <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/img4.JPG"
+                         alt="Ishakala Studio Artwork 4"
+                         loading="lazy">
+                </div>
+
+                <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/img5.JPG"
+                         alt="Ishakala Studio Artwork 5"
+                         loading="lazy">
+                </div>
+
+                <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/img6.JPG"
+                         alt="Ishakala Studio Artwork 6"
+                         loading="lazy">
+                </div>
+
+                <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/img7.JPG"
+                         alt="Ishakala Studio Artwork 7"
+                         loading="lazy">
+                </div>
+
+                <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/img8.JPG"
+                         alt="Ishakala Studio Artwork 8"
+                         loading="lazy">
+                </div>
+<div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/img4.JPG"
+                         alt="Ishakala Studio Artwork 4"
+                         loading="lazy">
+                </div>
+ <div class="gallery-v2-item">
+                    <img src="assets/images/ganu-idol/gallery/img5.JPG"
+                         alt="Ishakala Studio Artwork 5"
+                         loading="lazy">
+                </div>c
+                <!-- Before / After -->
+
+                <div class="gallery-v2-item">
+                    <span class="gallery-v2-label">Before</span>
+                    <img src="assets/images/ganu-idol/gallery/img9.jpeg"
+                         alt="Before Idol Restoration"
+                         loading="lazy">
+                </div>
+
+                <div class="gallery-v2-item">
+                    <span class="gallery-v2-label">After</span>
+                    <img src="assets/images/ganu-idol/gallery/img10.jpeg"
+                         alt="After Idol Restoration"
+                         loading="lazy">
+                </div>
+
+                <div class="gallery-v2-item gallery-v2-wide">
+                    <span class="gallery-v2-label">Before After Effect</span>
+                    <img src="assets/images/ganu-idol/gallery/img11.jpg"
+                         alt="Before and After Restoration Effect"
+                         loading="lazy">
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- IMAGE LIGHTBOX -->
+    <div class="gallery-v2-lightbox" id="galleryLightbox">
+        <button class="gallery-v2-close" type="button"
+                aria-label="Close image">&times;</button>
+
+        <button class="gallery-v2-prev" type="button"
+                aria-label="Previous image">&#10094;</button>
+
+        <img src="" alt="Gallery preview" id="galleryLightboxImage">
+
+        <button class="gallery-v2-next" type="button"
+                aria-label="Next image">&#10095;</button>
+    </div>
+
+</main>
+
+
+
+    <div id="footer"></div>
+
+    <script>
+        // Load Header
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header").innerHTML = data);
+
+        // Load Footer
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("footer").innerHTML = data);
+    </script>
+</body>

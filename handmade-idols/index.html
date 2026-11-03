@@ -1,0 +1,986 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ishakala Studio | Unleash Your Creativity, One Stroke at a Time!</title>
+
+    <meta name="description" content="Explore art classes, custom paintings, handmade idols, Rangoli workshops and artistic services at Ishakala Studio.">
+
+    <link rel="icon" href="assets/images/logo/fav-icon2.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- New stylesheet -->
+    <link rel="stylesheet" href="assets/css/is.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         HEADER
+    ========================================== -->
+
+    <header class="isha-header" id="home">
+
+        <div class="isha-header-inner">
+
+            <a href="index.html" class="isha-logo">
+                <img src="assets/images/logo/ishakala.png" alt="Ishakala Studio Logo">
+            </a>
+
+            <button class="isha-menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <nav class="isha-navigation" id="mainNavigation">
+
+                <a href="index.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcE_SE7yZ7MS6lwrZU7rTFH4Ydc-LKAGG17xtja0BO2qQmhQ/viewform" target="_blank" rel="noopener">
+                    Art Classes
+                </a>
+
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeDnDCkqa4xnZ51TQ6GhHDzqksapnJ324_vQGaHj8-tvPHUJQ/viewform" target="_blank" rel="noopener">
+                    Ganesh Murti Life Membership
+                </a>
+
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+
+            </nav>
+
+            <a href="contact.html" class="isha-header-button">
+                Let's Connect <i class="bi bi-arrow-up-right"></i>
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================================
+             HERO SLIDER
+        ========================================== -->
+
+        <section class="isha-hero">
+
+            <div class="isha-hero-slides" id="heroSlides">
+
+                <!-- SLIDE 1 -->
+
+                <article class="isha-slide active">
+
+                    <div class="isha-slide-image">
+                        <img src="assets/images/home/slider1.png" alt="Ishakala Studio Art and Drawing">
+                    </div>
+
+                    <div class="isha-hero-overlay"></div>
+
+                    <div class="isha-hero-content">
+
+                        <span class="isha-eyebrow">
+                            <i class="bi bi-palette"></i> Welcome to Ishakala Studio
+                        </span>
+
+                        <h1>Online & Offline <span>Drawing Classes</span></h1>
+
+                        <p>
+                            Ishakala studio – Unleash Your Creativity, One Stroke at a Time!
+                        </p>
+
+                        <div class="isha-hero-actions">
+
+                            <a href="contact.html" class="isha-button isha-button-primary">
+                                Contact Us <i class="bi bi-arrow-up-right"></i>
+                            </a>
+
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcE_SE7yZ7MS6lwrZU7rTFH4Ydc-LKAGG17xtja0BO2qQmhQ/viewform" target="_blank" rel="noopener" class="isha-button isha-button-light">
+                                Join Art Classes
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <span class="isha-hero-decoration">Create · Explore · Inspire</span>
+
+                </article>
+
+
+                <!-- SLIDE 2 -->
+
+                <article class="isha-slide">
+
+                    <div class="isha-slide-image">
+                        <img src="assets/images/home/slider2.png" alt="Traditional Indian Art and Handmade Creations">
+                    </div>
+
+                    <div class="isha-hero-overlay"></div>
+
+                    <div class="isha-hero-content">
+
+                        <span class="isha-eyebrow">
+                            <i class="bi bi-brush"></i> Art with Devotion
+                        </span>
+
+                        <h1>Every Creation Tells <span>A Beautiful Story</span></h1>
+
+                        <p>
+                            Discover traditional art, custom paintings and handcrafted creations at Ishakala Studio.
+                        </p>
+
+                        <div class="isha-hero-actions">
+
+                            <a href="services.html" class="isha-button isha-button-primary">
+                                Explore Services <i class="bi bi-arrow-up-right"></i>
+                            </a>
+
+                            <a href="gallery.html" class="isha-button isha-button-light">
+                                View Gallery
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    <span class="isha-hero-decoration">Art · Culture · Spirituality</span>
+
+                </article>
+
+
+                <!-- SLIDER CONTROLS -->
+
+                <div class="isha-slider-controls">
+
+                    <button type="button" id="previousSlide" aria-label="Previous slide">
+                        <i class="bi bi-arrow-left"></i>
+                    </button>
+
+                    <div class="isha-slider-dots" id="sliderDots">
+                        <button class="active" data-slide="0" aria-label="Slide 1"></button>
+                        <button data-slide="1" aria-label="Slide 2"></button>
+                    </div>
+
+                    <button type="button" id="nextSlide" aria-label="Next slide">
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             INSTAGRAM UPDATES
+        ========================================== -->
+
+        <div class="isha-follow-strip">
+
+            <a href="https://www.instagram.com/ishakalastudio2025?igsh=a3FlMWlkcGNqcWRl" target="_blank" rel="noopener">
+
+                <span>✦ Daily Updates</span>
+                <span>Follow Ishakala Studio for Latest Offers & Updates</span>
+                <span>✦ Art • Creativity • Inspiration</span>
+                <span>Follow Us on Instagram</span>
+
+            </a>
+
+        </div>
+
+
+        <!-- =========================================
+             ABOUT THE ARTIST
+        ========================================== -->
+
+        <section class="isha-section isha-about" id="about">
+
+            <div class="isha-container">
+
+                <div class="isha-about-grid">
+
+                    <div class="isha-about-image">
+
+                        <div class="isha-image-frame">
+
+                            <img src="assets/images/about/about_us_1.jpg" alt="Ishakala Studio Artist">
+
+                        </div>
+
+                        <div class="isha-experience-card">
+                            <span>30+</span>
+                            <p>Years of Artistic Experience</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="isha-about-content">
+
+                        <span class="isha-section-label">
+                            <i class="bi bi-flower1"></i> The Artist Behind the Art
+                        </span>
+
+                        <h2>Art is not just a creation, <span>it's an expression.</span></h2>
+
+                        <h3>Meet the Artist – Gurudas Sadanand Khandeparkar</h3>
+
+                        <p>
+                            With over 30 years of experience in the world of art, I am deeply committed to preserving and promoting traditional, spiritual, and contemporary artistic expressions. Holding a G.D. Art (Painting) degree, I have dedicated my life to mentoring students, reviving cultural art forms, and exploring the spiritual aspects of creativity.
+                        </p>
+
+                        <p>
+                            As the founder of Ishakala Studio, my mission is to inspire and educate art lovers about the profound impact of art on the mind, soul, and energy field. My work extends beyond conventional art, focusing on the spiritual essence of creation, particularly through Sattvik Ganesha idol-making, Mandala art, and divine compositions. Through Ishakala Studio, I strive to create a space where art becomes a medium of transformation and inner harmony. Each creation is infused with devotion and intention, reflecting the deep connection between artistic expression and spiritual energy.
+                        </p>
+
+                        <a href="about.html" class="isha-text-link">
+                            Discover More About Us <i class="bi bi-arrow-up-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             MAIN SERVICES
+        ========================================== -->
+
+        <section class="isha-section isha-services" id="services">
+
+            <div class="isha-container">
+
+                <div class="isha-section-heading">
+
+                    <span class="isha-section-label">
+                        <i class="bi bi-stars"></i> What We Create
+                    </span>
+
+                    <h2>Services We <span>Offer</span></h2>
+
+                    <p>
+                        Explore your creativity and discover the beauty of artistic expression.
+                    </p>
+
+                </div>
+
+
+                <div class="isha-service-grid">
+
+
+                    <!-- ART CLASSES -->
+
+                    <article class="isha-service-card">
+
+                        <div class="isha-service-image">
+                            <img src="assets/images/home/custom-painting.jpg" alt="Online and Offline Art Classes">
+                            <span class="isha-service-icon"><i class="bi bi-easel2"></i></span>
+                        </div>
+
+                        <div class="isha-service-content">
+
+                            <span class="isha-card-number">01</span>
+
+                            <h3>Online & Offline Art Classes</h3>
+
+                            <p>
+                                Online art classes offer expert guidance personalized feedback, helping artists of all levels refine their skills, explore creativity, and develop their unique artistic style at their own pace.
+                            </p>
+
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdcE_SE7yZ7MS6lwrZU7rTFH4Ydc-LKAGG17xtja0BO2qQmhQ/viewform" target="_blank" rel="noopener" class="isha-card-link">
+                                Enquire About Classes <i class="bi bi-arrow-up-right"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- CUSTOM PAINTINGS -->
+
+                    <article class="isha-service-card">
+
+                        <div class="isha-service-image">
+                            <img src="assets/images/home/online-art-painting-classes.jpg" alt="Custom Paintings">
+                            <span class="isha-service-icon"><i class="bi bi-brush"></i></span>
+                        </div>
+
+                        <div class="isha-service-content">
+
+                            <span class="isha-card-number">02</span>
+
+                            <h3>Custom Paintings</h3>
+
+                            <p>
+                                Custom paintings bring your vision to life with handcrafted artistry, capturing emotions, stories, and beauty. Each piece is uniquely designed to enhance spaces and reflect personal expression.
+                            </p>
+
+                            <a href="https://wa.me/917972432946?text=Hello%20Ishakala%20Studio%2C%20I%20am%20interested%20in%20a%20custom%20painting.%20Please%20share%20the%20available%20options%20and%20quotation." target="_blank" rel="noopener" class="isha-card-link">
+                                Enquire About Paintings <i class="bi bi-arrow-up-right"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- HANDMADE IDOLS -->
+
+                    <article class="isha-service-card">
+
+                        <div class="isha-service-image">
+                            <img src="assets/images/home/online-art-classes.jpg" alt="Handmade Idols">
+                            <span class="isha-service-icon"><i class="bi bi-flower2"></i></span>
+                        </div>
+
+                        <div class="isha-service-content">
+
+                            <span class="isha-card-number">03</span>
+
+                            <h3>Handmade Idols</h3>
+
+                            <p>
+                                Handmade idols blend tradition and artistry, crafted with intricate details and devotion. Perfect for spiritual spaces, festivals, and gifting, each idol embodies cultural heritage and timeless beauty.
+                            </p>
+
+                            <a href="https://wa.me/917972432946?text=Hello%20Ishakala%20Studio%2C%20I%20would%20like%20to%20enquire%20about%20your%20handmade%20idols.%20Please%20share%20designs%2C%20availability%20and%20quotation." target="_blank" rel="noopener" class="isha-card-link">
+                                Enquire About Idols <i class="bi bi-arrow-up-right"></i>
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+                <div class="isha-center-button">
+                    <a href="services.html" class="isha-button isha-button-dark">
+                        Explore All Services <i class="bi bi-arrow-up-right"></i>
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             WHY CHOOSE US
+        ========================================== -->
+
+        <section class="isha-section isha-why" id="why-choose-us">
+
+            <div class="isha-container">
+
+                <div class="isha-why-grid">
+
+                    <div class="isha-why-content">
+
+                        <span class="isha-section-label">
+                            <i class="bi bi-heart"></i> Our Promise
+                        </span>
+
+                        <h2>Why Choose <span>Us</span></h2>
+
+                        <div class="isha-why-point">
+
+                            <div class="isha-point-icon">
+                                <i class="bi bi-award"></i>
+                            </div>
+
+                            <div>
+                                <h3>Expertise and Experience</h3>
+                                <p>
+                                    With years of experience in the trading industry, we bring a wealth of knowledge and insight to every transaction.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="isha-why-point">
+
+                            <div class="isha-point-icon">
+                                <i class="bi bi-patch-check"></i>
+                            </div>
+
+                            <div>
+                                <h3>Commitment to Quality</h3>
+                                <p>
+                                    We adhere to stringent quality control processes, ensuring that every product we trade meets the highest standards.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="isha-why-point">
+
+                            <div class="isha-point-icon">
+                                <i class="bi bi-gem"></i>
+                            </div>
+
+                            <div>
+                                <h3>Competitive Pricing</h3>
+                                <p>
+                                    Our goal is to provide value-driven solutions that maximize your profitability without compromising on quality.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="isha-why-image">
+
+                        <img src="assets/images/home/why-choose-us.jpg" alt="Why Choose Ishakala Studio">
+
+                        <div class="isha-image-caption">
+                            <i class="bi bi-stars"></i>
+                            <span>Created with passion and devotion</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             WELCOME + RANGOLI BOOK
+        ========================================== -->
+
+        <section class="isha-section isha-welcome">
+
+            <div class="isha-container">
+
+                <div class="isha-welcome-grid">
+
+                    <div class="isha-welcome-content">
+
+                        <span class="isha-section-label">
+                            <i class="bi bi-flower1"></i> Celebrate Indian Art
+                        </span>
+
+                        <h2>Welcome To <span>Ishakala Studio!</span></h2>
+
+                        <p>
+                            At Ishakala studio, we bring the rich traditions of Indian art to your home with our expert-led online classes and workshops. Whether you're passionate about idol-making, rangoli design, or painting, our sessions are designed for beginners and experienced artists alike. Our rangoli workshops teach you traditional and modern patterns, using vibrant colors to create mesmerizing designs.
+                        </p>
+
+                        <p>
+                            Join our interactive workshops to explore your creativity and enhance your artistic abilities. Our expert instructors will walk you through step-by-step techniques, helping you create stunning masterpieces. Whether you're learning for personal joy or professional growth, Ishakala studio’s classes offer the perfect platform to refine your talent.
+                        </p>
+
+                        <h3>Explore my book on Rangoli, available on Amazon!</h3>
+
+                        <a href="https://www.amazon.in/dp/B0BJ1YLB4J?ref=cm_sw_r_ffobk_cso_wa_apan_dp_BJC56CPJX6KKXAYNZA0M&ref_=cm_sw_r_ffobk_cso_wa_apan_dp_BJC56CPJX6KKXAYNZA0M&social_share=cm_sw_r_ffobk_cso_wa_apan_dp_BJC56CPJX6KKXAYNZA0M&bestFormat=true" target="_blank" rel="noopener" class="isha-button isha-button-primary">
+                            Buy Now on Amazon <i class="bi bi-arrow-up-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="isha-book-image">
+
+                        <a href="https://www.amazon.in/dp/B0BJ1YLB4J?ref=cm_sw_r_ffobk_cso_wa_apan_dp_BJC56CPJX6KKXAYNZA0M&ref_=cm_sw_r_ffobk_cso_wa_apan_dp_BJC56CPJX6KKXAYNZA0M&social_share=cm_sw_r_ffobk_cso_wa_apan_dp_BJC56CPJX6KKXAYNZA0M&bestFormat=true" target="_blank" rel="noopener">
+
+                            <img src="assets/images/home/rangoli-amazonn.jpg" alt="Ishakala Studio Rangoli Book">
+
+                            <span class="isha-book-label">
+                                <i class="bi bi-book"></i> Discover the Rangoli Book
+                            </span>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             QUALITY / SUPPORT / SUSTAINABILITY
+        ========================================== -->
+
+        <section class="isha-section isha-features">
+
+            <div class="isha-container">
+
+                <div class="isha-section-heading">
+
+                    <span class="isha-section-label">
+                        <i class="bi bi-stars"></i> What Matters to Us
+                    </span>
+
+                    <h2>What Services We <span>Offers</span></h2>
+
+                </div>
+
+
+                <div class="isha-feature-grid">
+
+                    <article class="isha-feature-card" id="img1">
+
+                        <div class="isha-feature-icon">
+                            <i class="bi bi-patch-check"></i>
+                        </div>
+
+                        <h3>Quality Assurance</h3>
+
+                        <p>
+                            Quality assurance is a process or set of activities designed to ensure that products or services meet specified quality standards.
+                        </p>
+
+                    </article>
+
+
+                    <article class="isha-feature-card" id="img2">
+
+                        <div class="isha-feature-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+
+                        <h3>Customer Support</h3>
+
+                        <p>
+                            We refers to the services and assistance provided by organization to its customers before and after the purchase of a product or service.
+                        </p>
+
+                    </article>
+
+
+                    <article class="isha-feature-card" id="img3">
+
+                        <div class="isha-feature-icon">
+                            <i class="bi bi-leaf"></i>
+                        </div>
+
+                        <h3>Sustainability</h3>
+
+                        <p>
+                            Sustainability refers to the practice of meeting current needs without compromising the ability of future generations to meet their own needs.
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             STUDIO SERVICES OVERVIEW
+        ========================================== -->
+
+        <section class="isha-section isha-studio">
+
+            <div class="isha-container">
+
+                <div class="isha-studio-grid">
+
+                    <div class="isha-studio-image">
+
+                        <img src="assets/images/ganu-idol/ganu-img.jpg" alt="Ishakala Studio Ganesha Artwork">
+
+                    </div>
+
+
+                    <div class="isha-studio-content">
+
+                        <span class="isha-section-label">
+                            <i class="bi bi-brush"></i> Our Artistic World
+                        </span>
+
+                        <h2>Ishakala <span>Studio</span></h2>
+
+                        <p>
+                            At Ishakala Studio, we offer a harmonious blend of creativity, spirituality, and artistic excellence through our diverse range of services. Our Online Art Classes allow learners of all levels to explore traditional, spiritual, and modern techniques from the comfort of their homes, guided by expert mentorship. We create Custom Paintings that capture emotions, memories, and divine themes, transforming ideas into soulful artworks. Our Handmade Idols are crafted with devotion using Sattvik materials, radiating purity and spiritual energy. Through Photo Restoration and Idol Restoration, we breathe new life into cherished photographs and sacred idols, preserving their essence with utmost care. For those who love digital creativity, our Digital Painting service combines tradition with technology to produce vibrant, meaningful artworks. We also offer Photoshop Basic Training, empowering learners to edit and enhance images with professional finesse. Adding a festive touch, our Rangoli Stickers and Stencils bring color, culture, and creativity into every celebration. Each service at Ishakala Studio reflects our mission to inspire, educate, and connect people with the deeper essence of art — where every creation becomes a journey of devotion, transformation, and inner harmony.
+                        </p>
+
+                        <p>
+                            Every creation begins with intention, devotion, and a deep understanding of energy and balance. We believe that colors, forms, and symbols hold the power to heal, inspire, and elevate consciousness. Whether it is the gentle strokes of a brush, the sacred shaping of a Ganesha idol, or the intricate detailing of a digital artwork, each process is infused with mindfulness and purity.
+                        </p>
+
+                        <a href="contact.html" class="isha-button isha-button-dark">
+                            Contact Us <i class="bi bi-arrow-up-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+</div>
+ <div class="isha-container">
+
+                <!-- COMPLETE SERVICES LIST -->
+
+                <div class="isha-service-list">
+
+                    <a href="services.html">
+                        <i class="bi bi-easel"></i>
+                        <span>Online Art Classes</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                    <a href="services.html">
+                        <i class="bi bi-brush"></i>
+                        <span>Custom Paintings</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                    <a href="services.html">
+                        <i class="bi bi-flower2"></i>
+                        <span>Handmade Idols</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                    <a href="services.html">
+                        <i class="bi bi-image"></i>
+                        <span>Photo Restoration</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                    <a href="services.html">
+                        <i class="bi bi-stars"></i>
+                        <span>Idol Restoration</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                    <a href="services.html">
+                        <i class="bi bi-palette"></i>
+                        <span>Digital Painting</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                    <a href="services.html">
+                        <i class="bi bi-laptop"></i>
+                        <span>Photoshop Basic Training</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                    <a href="services.html">
+                        <i class="bi bi-flower1"></i>
+                        <span>Rangoli Stickers and Stencils</span>
+                        <i class="bi bi-arrow-up-right"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CONTACT SECTION
+        ========================================== -->
+
+        <section class="isha-section isha-contact" id="contact">
+
+            <div class="isha-container">
+
+                <div class="isha-section-heading">
+
+                    <span class="isha-section-label">
+                        <i class="bi bi-chat-heart"></i> We'd Love to Hear From You
+                    </span>
+
+                    <h2>Connect With <span>Us</span></h2>
+
+                    <p>
+                        Have a question or want to discuss an artwork? Send us a message.
+                    </p>
+
+                </div>
+
+
+                <div class="isha-contact-grid">
+
+
+                    <!-- CONTACT FORM -->
+
+                    <div class="isha-contact-form-wrapper">
+
+                        <h3>Contact Us</h3>
+
+                        <p>Share your enquiry with Ishakala Studio.</p>
+
+                        <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+
+                            <input type="hidden" name="access_key" value="53088d59-268b-4a57-96e7-414fa2025cd7">
+
+                            <input type="hidden" name="subject" value="New Enquiry - Ishakala Studio">
+
+                            <div class="isha-form-group">
+
+                                <label for="name">Your Name</label>
+
+                                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                            </div>
+
+
+                            <div class="isha-form-group">
+
+                                <label for="email">Your Email</label>
+
+                                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                            </div>
+
+
+                            <div class="isha-form-group">
+
+                                <label for="phone">Your Number</label>
+
+                                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+                            </div>
+
+
+                            <div class="isha-form-group">
+
+                                <label for="message">Your Message</label>
+
+                                <textarea id="message" name="message" rows="4" placeholder="Write your message here..." required></textarea>
+
+                            </div>
+
+
+                            <button type="submit" class="isha-button isha-button-primary">
+                                Submit Now <i class="bi bi-arrow-up-right"></i>
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- GOOGLE MAP -->
+
+                    <div class="isha-map-wrapper">
+
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d492479.7612080924!2d73.67634717635721!3d15.349485350914973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba106336b741%3A0xeaf887ff62f34092!2sGoa!5e0!3m2!1sen!2sin!4v1752422542320!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title="Ishakala Studio Location">
+                        </iframe>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer class="isha-footer">
+
+        <div class="isha-container">
+
+            <div class="isha-footer-grid">
+
+
+                <!-- BRAND -->
+
+                <div class="isha-footer-brand">
+
+                    <a href="index.html">
+                        <img src="assets/images/logo/ishakala.png" alt="Ishakala Studio Logo">
+                    </a>
+
+                    <p>
+                        Ishakala studio is One of the most well-known company. This business encompasses a wide range of activities, including sourcing raw materials, designing and manufacturing jewelry, and marketing and retailing products to consumers.
+                    </p>
+
+                    <div class="isha-footer-socials">
+
+                        <a href="https://www.instagram.com/ishakalastudio2025?igsh=a3FlMWlkcGNqcWRl" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a href="mailto:ishakalastudio@gmail.com" aria-label="Email">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+
+                        <a href="tel:+918975816878" aria-label="Phone">
+                            <i class="bi bi-telephone"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK LINKS -->
+
+                <div class="isha-footer-links">
+
+                    <h3>Quick Links</h3>
+
+                    <a href="index.html"><i class="bi bi-arrow-right"></i> Home</a>
+                    <a href="about.html"><i class="bi bi-arrow-right"></i> About</a>
+                    <a href="products.html"><i class="bi bi-arrow-right"></i> Services</a>
+                    <a href="contact.html"><i class="bi bi-arrow-right"></i> Contact</a>
+
+                </div>
+
+
+                <!-- SERVICES -->
+
+                <div class="isha-footer-links">
+
+                    <h3>Our Services</h3>
+
+                    <a href="services.html"><i class="bi bi-arrow-right"></i> Online Art Classes</a>
+                    <a href="services.html"><i class="bi bi-arrow-right"></i> Custom Paintings</a>
+                    <a href="services.html"><i class="bi bi-arrow-right"></i> Handmade Idols</a>
+                    <a href="services.html"><i class="bi bi-arrow-right"></i> Photo Restoration</a>
+                    <a href="services.html"><i class="bi bi-arrow-right"></i> Idol Restoration</a>
+                    <a href="services.html"><i class="bi bi-arrow-right"></i> Digital Painting</a>
+                    <a href="services.html"><i class="bi bi-arrow-right"></i> Photoshop Basic Training</a>
+                    <a href="services.html"><i class="bi bi-arrow-right"></i> Rangoli Stickers and Stencils</a>
+
+                </div>
+
+
+                <!-- CONTACT DETAILS -->
+
+                <div class="isha-footer-contact">
+
+                    <h3>Contact Details</h3>
+
+                    <div class="isha-footer-contact-item">
+
+                        <i class="bi bi-geo-alt"></i>
+
+                        <div>
+                            <span>Address</span>
+                            <p>Ponda, Goa</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="isha-footer-contact-item">
+
+                        <i class="bi bi-telephone"></i>
+
+                        <div>
+                            <span>Phone Number</span>
+                            <a href="tel:+918975816878">+91 89758 16878</a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="isha-footer-contact-item">
+
+                        <i class="bi bi-envelope"></i>
+
+                        <div>
+                            <span>Email</span>
+                            <a href="mailto:ishakalastudio@gmail.com">ishakalastudio@gmail.com</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- COPYRIGHT -->
+
+            <div class="isha-footer-bottom">
+
+                <p>
+                    Copyright &copy; 2025 Ishakala studio | Website Design By Manasii | All Right Reserved |
+                    <a href="sitemap.xml">Sitemap</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- =========================================
+         FLOATING WHATSAPP
+    ========================================== -->
+
+    <a
+        class="isha-whatsapp-float"
+        href="https://wa.me/+917972432946?text=Hello%2C%20this%20is%20an%20RFQ%20enquiry%20from%20Ishakala.com.%20Please%20share%20your%20best%20quotes%20at%20the%20earliest%20for%20our%20idols%20and%20traditional%20paintings."
+        target="_blank"
+        rel="noopener"
+        aria-label="Chat with Ishakala Studio on WhatsApp">
+
+        <img src="assets/images/whatsapp.png" alt="WhatsApp">
+
+    </a>
+
+
+    <!-- =========================================
+         FLOATING INSTAGRAM
+    ========================================== -->
+
+    <a
+        class="isha-instagram-float"
+        href="https://www.instagram.com/ishakalastudio2025?igsh=a3FlMWlkcGNqcWRl"
+        target="_blank"
+        rel="noopener"
+        aria-label="Visit Ishakala Studio Instagram">
+
+        <img src="assets/images/insta.jpg" alt="Instagram">
+
+    </a>
+
+
+    <!-- New JavaScript -->
+    <script src="assets/js/is.js"></script>
+
+</body>
+</html>

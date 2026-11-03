@@ -1,0 +1,125 @@
+
+<body>
+
+    <div id="header"></div>
+
+    <main>
+
+        <!-- COMMON PAGE BANNER -->
+        <section class="about-v2-banner">
+            <div class="about-v2-banner-content">
+                <h1>Products</h1>
+                <p>
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    Products
+                </p>
+            </div>
+        </section>
+
+
+        <!-- PRODUCTS SECTION -->
+        <section class="services-v2-section">
+
+            <div class="isha-container">
+
+                <div class="services-v2-heading">
+                    <span>WHAT WE OFFER</span>
+                    <h2>Our Creative Products</h2>
+                    <p>Explore our artistic services and add your preferred services to the cart.</p>
+                </div>
+
+                <!-- PRODUCTS WILL LOAD FROM JSON -->
+                <div class="services-v2-grid" id="productsList">
+                    <p>Loading products...</p>
+                </div>
+
+
+                <!-- SHOPPING CART -->
+                <div class="services-v2-cart" id="servicesCart">
+
+                    <div class="services-v2-cart-heading">
+                        <div>
+                            <span>YOUR SELECTION</span>
+                            <h2>Your Cart</h2>
+                        </div>
+
+                        <div class="services-v2-cart-count">
+                            <span id="cartCount">0</span> Items
+                        </div>
+                    </div>
+
+
+                    <div id="cartItems" class="services-v2-cart-items">
+                        <p class="services-v2-empty">
+                            Your cart is empty. Add a product to get started!
+                        </p>
+                    </div>
+
+
+                    <div class="services-v2-cart-bottom">
+
+                        <div class="services-v2-total">
+                            <span>Total Amount</span>
+                            <strong id="cartTotal">₹0</strong>
+                        </div>
+
+                        <div class="services-v2-cart-actions">
+
+                            <button type="button"
+                                    id="whatsappEnquiry"
+                                    class="services-v2-whatsapp-btn"
+                                    disabled>
+                                <i class="fa fa-whatsapp"></i>
+                                Enquire on WhatsApp
+                            </button>
+
+                            <button type="button"
+                                    id="emailEnquiry"
+                                    class="services-v2-email-btn"
+                                    disabled>
+                                <i class="fa fa-envelope"></i>
+                                Enquire via Email
+                            </button>
+
+                        </div>
+
+                        <p class="services-v2-cart-note">
+                            These are demo prices. Final pricing can be confirmed by Ishakala Studio.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <div id="footer"></div>
+
+
+    <!-- HEADER AND FOOTER -->
+    <script>
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("header").innerHTML = data;
+            })
+            .catch(error => console.error("Header loading error:", error));
+
+        fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("footer").innerHTML = data;
+            })
+            .catch(error => console.error("Footer loading error:", error));
+    </script>
+
+    <!-- SEPARATE PRODUCTS JAVASCRIPT -->
+    <script src="assets/js/products.js"></script>
+
+</body>

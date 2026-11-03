@@ -1,0 +1,66 @@
+
+[
+  {
+    "id": 1,
+    "name": "Online Art Classes",
+    "description": "Online art classes offer expert guidance, structured lessons, and personalized feedback.",
+    "image": "assets/images/home/custom-painting.jpg",
+    "price": 100,
+    "category": "Art Classes",
+    "active": true
+  },
+  {
+    "id": 2,
+    "name": "Custom Paintings",
+    "description": "Custom paintings bring your vision to life with handcrafted artistry.",
+    "image": "assets/images/home/online-art-painting-classes.jpg",
+    "price": 100,
+    "category": "Painting",
+    "active": true
+  },
+  {
+    "id": 3,
+    "name": "Handmade Idols",
+    "description": "Handmade idols blend tradition and artistry with intricate details.",
+    "image": "assets/images/home/online-art-classes.jpg",
+    "price": 100,
+    "category": "Idols",
+    "active": true
+  },
+  {
+    "id": 4,
+    "name": "Photo Restoration",
+    "description": "Restore cherished memories and faded photographs to their original beauty.",
+    "image": "assets/images/home/slider1.png",
+    "price": 100,
+    "category": "Restoration",
+    "active": true
+  },
+  {
+    "id": 5,
+    "name": "Idol Restoration",
+    "description": "Bring new life to damaged idols with professional restoration.",
+    "image": "assets/images/ganu-idol/ganu-img.jpg",
+    "price": 100,
+    "category": "Restoration",
+    "active": true
+  },
+  {
+    "id": 6,
+    "name": "Digital Painting",
+    "description": "Transform your ideas into stunning digital art.",
+    "image": "assets/images/home/online-art-painting-classes.jpg",
+    "price": 100,
+    "category": "Digital Art",
+    "active": true
+  },
+  {
+    "id": 7,
+    "name": "Test",
+    "description": "Transform your ideas into stunning digital art.",
+    "image": "assets/images/home/online-art-painting-classes.jpg",
+    "price": 100,
+    "category": "Digital Art",
+    "active": true
+  }
+]

@@ -1,0 +1,204 @@
+
+
+
+
+<body>
+  <div id="header"></div>
+
+
+<main>
+
+    <!-- COMMON PAGE BANNER -->
+    <section class="about-v2-banner">
+        <div class="about-v2-banner-content">
+            <h1>Contact Us</h1>
+            <p>
+                <a href="index.html">Home</a>
+                <span>/</span>
+                Contact Us
+            </p>
+        </div>
+    </section>
+
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-v2-section">
+
+        <div class="isha-container">
+
+            <div class="contact-v2-heading">
+                <span>GET IN TOUCH</span>
+                <h2>Have a Query? Contact Us Today</h2>
+                <p>We would love to hear from you. Send us your query and we'll get back to you.</p>
+            </div>
+
+
+            <div class="contact-v2-grid">
+
+                <!-- CONTACT FORM -->
+                <div class="contact-v2-form-card">
+
+                    <h3>Send Us a Message</h3>
+
+                    <form id="contactForm"
+                          action="https://api.web3forms.com/submit"
+                          method="POST">
+
+                        <input type="hidden"
+                               name="access_key"
+                               value="53088d59-268b-4a57-96e7-414fa2025cd7">
+
+                        <div class="contact-v2-input-group">
+                            <label for="contactName">Your Name</label>
+                            <input type="text"
+                                   id="contactName"
+                                   name="name"
+                                   placeholder="Enter your name"
+                                   required>
+                        </div>
+
+                        <div class="contact-v2-input-group">
+                            <label for="contactEmail">Your Email</label>
+                            <input type="email"
+                                   id="contactEmail"
+                                   name="email"
+                                   placeholder="Enter your email"
+                                   required>
+                        </div>
+
+                        <div class="contact-v2-input-group">
+                            <label for="contactPhone">Your Number</label>
+                            <input type="tel"
+                                   id="contactPhone"
+                                   name="phone"
+                                   placeholder="Enter your number"
+                                   required>
+                        </div>
+
+                        <div class="contact-v2-input-group">
+                            <label for="contactMessage">Your Message</label>
+                            <textarea id="contactMessage"
+                                      name="message"
+                                      rows="4"
+                                      placeholder="Write your message here..."
+                                      required></textarea>
+                        </div>
+
+                        <div class="contact-v2-input-group">
+                            <label for="contactSubject">Your Answer</label>
+                            <input type="text"
+                                   id="contactSubject"
+                                   name="subject"
+                                   placeholder="Your Answer"
+                                   required>
+                        </div>
+
+                        <button type="submit" class="contact-v2-submit">
+                            Submit Now
+                            <span>→</span>
+                        </button>
+
+                    </form>
+
+                </div>
+
+
+                <!-- CONTACT INFORMATION -->
+                <div class="contact-v2-info">
+
+                    <div class="contact-v2-info-heading">
+                        <span>CONTACT INFORMATION</span>
+                        <h3>Let's Connect</h3>
+                        <p>Feel free to reach out to us for any queries or enquiries.</p>
+                    </div>
+
+
+                    <div class="contact-v2-info-card">
+
+                        <div class="contact-v2-icon">
+                            <i class="bi bi-geo-alt-fill"></i>
+                        </div>
+
+                        <div>
+                            <h4>Address</h4>
+                            <p>Ponda, Goa</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-v2-info-card">
+
+                        <div class="contact-v2-icon">
+                            <i class="bi bi-telephone-plus-fill"></i>
+                        </div>
+
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>Gurudas Khandeparkar</p>
+                            <a href="tel:+918975816878">+91 89758 16878</a>
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-v2-info-card">
+
+                        <div class="contact-v2-icon">
+                            <i class="bi bi-envelope-plus-fill"></i>
+                        </div>
+
+                        <div>
+                            <h4>Mail Us</h4>
+                            <a href="mailto:ishakalastudio@gmail.com">
+                                ishakalastudio@gmail.com
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- GOOGLE MAP -->
+            <div class="contact-v2-map">
+                <div class="contact-v2-map-heading">
+                    <span>FIND US</span>
+                    <h3>Our Location</h3>
+                </div>
+
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d492479.7612080924!2d73.67634717635721!3d15.349485350914973!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba106336b741%3A0xeaf887ff62f34092!2sGoa!5e0!3m2!1sen!2sin!4v1752422542320!5m2!1sen!2sin"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+  <div id="footer"></div>
+
+  <script>
+    // Load Header
+    fetch("header.html")
+      .then(response => response.text())
+      .then(data => document.getElementById("header").innerHTML = data);
+
+    // Load Footer
+    fetch("footer.html")
+      .then(response => response.text())
+      .then(data => document.getElementById("footer").innerHTML = data);
+  </script>
+</body>

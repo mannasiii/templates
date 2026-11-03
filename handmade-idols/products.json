@@ -1,0 +1,52 @@
+
+[
+    {
+        "id": 1,
+        "name": "Online Art Classes",
+        "description": "Online art classes offer expert guidance, structured lessons, and personalized feedback, helping artists of all levels refine their skills, explore creativity, and develop their unique artistic style at their own pace.",
+        "image": "assets/images/home/custom-painting.jpg",
+        "price": 100,
+        "active": true,
+        "formLink": "https://docs.google.com/forms/d/e/1FAIpQLSdcE_SE7yZ7MS6lwrZU7rTFH4Ydc-LKAGG17xtja0BO2qQmhQ/viewform"
+    },
+    {
+        "id": 2,
+        "name": "Custom Paintings",
+        "description": "Custom paintings bring your vision to life with handcrafted artistry, capturing emotions, stories, and beauty. Each piece is uniquely designed to enhance spaces and reflect personal expression.",
+        "image": "assets/images/home/online-art-painting-classes.jpg",
+        "price": 100,
+        "active": true
+    },
+    {
+        "id": 3,
+        "name": "Handmade Idols",
+        "description": "Handmade idols blend tradition and artistry, crafted with intricate details and devotion. Perfect for spiritual spaces, festivals, and gifting, each idol embodies cultural heritage and timeless beauty.",
+        "image": "assets/images/home/online-art-classes.jpg",
+        "price": 100,
+        "active": true
+    },
+    {
+        "id": 4,
+        "name": "Photo Restoration",
+        "description": "Restore cherished memories and faded photographs to their original beauty. We use advanced digital techniques to repair tears, remove blemishes, and revive colors, bringing your past to life.",
+        "image": "assets/images/home/slider1.png",
+        "price": 100,
+        "active": true
+    },
+    {
+        "id": 5,
+        "name": "Idol Restoration",
+        "description": "Bring new life to damaged idols with professional restoration. Our careful process repairs cracks, chips, and faded colors, preserving the spiritual and artistic value of your treasured pieces.",
+        "image": "assets/images/ganu-idol/ganu-img.jpg",
+        "price": 100,
+        "active": true
+    },
+    {
+        "id": 6,
+        "name": "Digital Painting",
+        "description": "Transform your ideas into stunning digital art. From concept art to custom portraits, our digital paintings offer vibrant colors and intricate details, perfect for modern and creative projects.",
+        "image": "assets/images/home/online-art-painting-classes.jpg",
+        "price": 100,
+        "active": true
+    }
+]
