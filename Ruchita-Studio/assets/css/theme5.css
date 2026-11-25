@@ -1,0 +1,6 @@
+/* Charcoal + Champagne — Ruchita Studio palette */
+:root {
+ --page: #fff; --surface: #f8f5ef; --accent: #343331; --ink: #252422;
+ --muted: #817b73; --gold: #b69b70; --line: #ded5c6; --soft: #e9e1d4;
+ --header-bg: #f8f5ef; --footer-bg: #252422; --footer-text: #f8f3ec;
+}

@@ -1,0 +1,6 @@
+/* Dusty Blue + Ivory — Ruchita Studio palette */
+:root {
+ --page: #fff; --surface: #fbfaf6; --accent: #526b83; --ink: #293746;
+ --muted: #817b73; --gold: #879db1; --line: #dce4eb; --soft: #e8edf1;
+ --header-bg: #fbfaf6; --footer-bg: #293746; --footer-text: #f8f3ec;
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "bridal",
+    "number": "01",
+    "name": "Bridal & Occasion Makeup",
+    "description": "A considered, personalised look for the moments that matter most.",
+    "price": "Enquire for pricing",
+    "image": "https://i.pinimg.com/736x/49/50/ba/4950ba0d5a1994ad144050717861f3c5.jpg"
+  },
+  {
+    "id": "hair",
+    "number": "02",
+    "name": "Hair Styling",
+    "description": "Beautifully finished styles, from soft everyday looks to celebrations.",
+    "price": "Enquire for pricing",
+    "image": "https://avatars.mds.yandex.net/i?id=1e0ff182ab09334d8d39d52ebf0a35cb929ea5c9-11379499-images-thumbs&n=13"
+  },
+  {
+    "id": "mehendi",
+    "number": "03",
+    "name": "Mehendi Art",
+    "description": "Intricate details and thoughtful designs for your special occasions.",
+    "price": "Enquire for pricing",
+    "image": "https://images.wedmegood.com/wp-content/uploads/2019/09/1493191947_SMP_51171.jpg"
+  },
+  {
+    "id": "nails",
+    "number": "04",
+    "name": "Nail Care & Extensions",
+    "description": "A little detail that makes you feel polished and put together.",
+    "price": "Enquire for pricing",
+    "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": "skin",
+    "number": "05",
+    "name": "Facial & Skincare",
+    "description": "A refreshing moment of care for skin that feels like your own.",
+    "price": "Enquire for pricing",
+    "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": "custom",
+    "number": "06",
+    "name": "Personalised Beauty",
+    "description": "Tell us what you have in mind and let’s create your own ritual.",
+    "price": "Custom enquiry",
+    "image": "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=85"
+  }
+]

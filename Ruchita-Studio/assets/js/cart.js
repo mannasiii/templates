@@ -1,0 +1,22 @@
+document.addEventListener("DOMContentLoaded",()=>{
+ const config=window.RUCHITA_CONFIG||{},products=Array.isArray(config.products)?config.products:[],key="ruchitaCart";
+ let cart=[];try{cart=JSON.parse(localStorage.getItem(key)||"[]");if(!Array.isArray(cart))cart=[];}catch(e){cart=[];}
+ const drawer=document.getElementById("cartDrawer"),overlay=document.getElementById("drawerOverlay"),items=document.getElementById("cartItems");
+ const money=n=>"₹"+Number(n||0).toLocaleString("en-IN");
+ const product=id=>products.find(p=>String(p.id)===String(id));
+ const save=()=>{localStorage.setItem(key,JSON.stringify(cart));render();};
+ function open(){drawer?.classList.add("open");overlay?.classList.add("open");drawer?.setAttribute("aria-hidden","false");document.body.style.overflow="hidden";}
+ function close(){drawer?.classList.remove("open");overlay?.classList.remove("open");drawer?.setAttribute("aria-hidden","true");document.body.style.overflow="";}
+ document.querySelectorAll(".cart-open").forEach(b=>b.addEventListener("click",open));
+ document.querySelector(".drawer-close")?.addEventListener("click",close);overlay?.addEventListener("click",close);document.getElementById("continueShopping")?.addEventListener("click",close);
+ document.addEventListener("keydown",e=>{if(e.key==="Escape")close();});
+ document.querySelectorAll(".add-to-cart").forEach(b=>b.addEventListener("click",()=>{const id=b.dataset.productId;if(!product(id))return;const line=cart.find(x=>String(x.id)===String(id));if(line)line.qty++;else cart.push({id,qty:1});save();open();window.showToast?.("Added to your bag");}));
+ function render(){const count=cart.reduce((n,x)=>n+x.qty,0);document.querySelectorAll(".cart-count").forEach(el=>el.textContent=count);const dc=document.querySelector(".drawer-count");if(dc)dc.textContent=`(${count})`;const total=cart.reduce((n,x)=>{const p=product(x.id);return n+(p?Number(p.price)*x.qty:0);},0);const sub=document.getElementById("cartSubtotal");if(sub)sub.textContent=money(total);
+  if(!items)return;const valid=cart.filter(x=>product(x.id));if(!valid.length){items.innerHTML='<div class="cart-empty"><i class="bi bi-bag-heart"></i><h4>Your bag is waiting</h4><p>Add something lovely from our collection.</p><button class="button" id="continueShopping">Continue shopping</button></div>';document.getElementById("continueShopping")?.addEventListener("click",close);return;}
+  items.innerHTML=valid.map(x=>{const p=product(x.id);return `<div class="cart-line"><img src="${escapeHtml(p.image||"")}" alt=""><div><h4>${escapeHtml(p.name)}</h4><small>${money(p.price)}</small><div class="qty-control"><button data-action="minus" data-id="${escapeHtml(x.id)}" aria-label="Decrease quantity">−</button><span>${x.qty}</span><button data-action="plus" data-id="${escapeHtml(x.id)}" aria-label="Increase quantity">+</button></div></div><div><strong>${money(Number(p.price)*x.qty)}</strong><button class="remove-item" data-action="remove" data-id="${escapeHtml(x.id)}" aria-label="Remove item"><i class="bi bi-trash"></i></button></div></div>`;}).join("");
+ }
+ function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+ items?.addEventListener("click",e=>{const b=e.target.closest("button[data-action]");if(!b)return;const id=b.dataset.id,line=cart.find(x=>String(x.id)===String(id));if(!line)return;if(b.dataset.action==="plus")line.qty++;if(b.dataset.action==="minus")line.qty--;if(b.dataset.action==="remove"||line.qty<=0)cart=cart.filter(x=>String(x.id)!==String(id));save();});
+ document.getElementById("whatsappCheckout")?.addEventListener("click",()=>{if(!cart.length){window.showToast?.("Your bag is empty.");return;}const number=config.whatsapp||"";if(!number||number.includes("X")){window.showToast?.("Please add your WhatsApp number in index.php first.");return;}const lines=cart.map(x=>{const p=product(x.id);return p?`${p.name} × ${x.qty} — ${money(Number(p.price)*x.qty)}`:"";}).filter(Boolean);const total=cart.reduce((n,x)=>n+Number(product(x.id)?.price||0)*x.qty,0);const msg=`Hello Ruchita Studio! I would like to place an order:\n\n${lines.join("\n")}\n\nSubtotal: ${money(total)}\n\nPlease share the next steps.`;window.open(`https://wa.me/${number}?text=${encodeURIComponent(msg)}`,"_blank","noopener");});
+ render();
+});

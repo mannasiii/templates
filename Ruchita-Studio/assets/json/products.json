@@ -1,0 +1,34 @@
+[
+  {
+    "id": "p1",
+    "name": "The Everyday Edit",
+    "short_description": "Your little everyday beauty essential.",
+    "price": 499,
+    "tag": "STUDIO FAVOURITE",
+    "image": "https://cdn.mos.cms.futurecdn.net/PsgZkVvDnkNcE7999iDsq6-1600-80.jpg"
+  },
+  {
+    "id": "p2",
+    "name": "Glow Ritual Kit",
+    "short_description": "A feel-good moment, beautifully packed.",
+    "price": 799,
+    "tag": "SELF-CARE",
+    "image": "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": "p3",
+    "name": "Soft Touch Collection",
+    "short_description": "Thoughtful picks for your daily routine.",
+    "price": 599,
+    "tag": "CURATED",
+    "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=85"
+  },
+  {
+    "id": "p4",
+    "name": "The Little Luxury",
+    "short_description": "A lovely treat for you or someone special.",
+    "price": 999,
+    "tag": "GIFT IDEA",
+    "image": "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=900&q=85"
+  }
+]

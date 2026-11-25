@@ -1,0 +1,6 @@
+/* Burgundy + Blush — Ruchita Studio palette */
+:root {
+ --page: #fff; --surface: #fff7f7; --accent: #762d42; --ink: #3e202b;
+ --muted: #817b73; --gold: #b66a7d; --line: #efd5dc; --soft: #f4e2e6;
+ --header-bg: #fff7f7; --footer-bg: #3e202b; --footer-text: #f8f3ec;
+}

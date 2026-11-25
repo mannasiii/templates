@@ -1,0 +1,9 @@
+/* Mocha + Cream — Ruchita Studio palette */
+:root {
+ --page: #fff; --surface: #fffaf3; --accent: #6f5142; --ink: #3c302b;
+ --muted: #817b73; --gold: #b58a6a; --line: #e7d9ca; --soft : #6f5142;
+ --header-bg: #fffaf3; --footer-bg: #3c302b; --footer-text: #f8f3ec;
+
+ /* --soft: #f0e4d8; */
+ --dark: #6f5142;
+}

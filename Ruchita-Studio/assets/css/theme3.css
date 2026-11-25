@@ -1,0 +1,6 @@
+/* Sage + Warm White — Ruchita Studio palette */
+:root {
+ --page: #fff; --surface: #fbfcf8; --accent: #61715c; --ink: #2f382d;
+ --muted: #817b73; --gold: #8b9a7d; --line: #dce4d5; --soft: #e7ecdf;
+ --header-bg: #fbfcf8; --footer-bg: #2f382d; --footer-text: #f8f3ec;
+}
